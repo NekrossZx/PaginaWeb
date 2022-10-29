@@ -1,0 +1,334 @@
+/*--------------------------------------------------------------------- File Name: responsive.css ---------------------------------------------------------------------*/
+
+@media (min-width: 1200px) and (max-width: 1320px) {
+    .about_box_img {
+        margin-right: -20px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    ul.email li {
+        padding: 0 9px;
+    }
+    .banner_main .bg_white h1 {
+        font-size: 60px;
+    }
+    .carousel-indicators {
+        margin-left: 12%;
+    }
+    .about_box_img {
+        margin-right: 35px;
+    }
+    .about_box_text p {
+        font-size: 17px;
+        line-height: 26px;
+    }
+    .margin_left60 {
+        margin-left: -80px;
+        margin-right: 80px;
+    }
+    .instant .titlepage h2 {
+        font-size: 69px;
+        line-height: 83px;
+    }
+    .reader h3 {
+        font-size: 26px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .d_none {
+        display: none !important;
+    }
+    .banner_main .bg_white h1 {
+        font-size: 39px;
+        line-height: 40px;
+    }
+    .carousel-indicators {
+        margin-left: 13%;
+    }
+    .about_box_img {
+        margin-right: 35px;
+    }
+    .about_box_text h3 {
+        padding-bottom: 2px;
+        font-size: 20px;
+    }
+    .about_box_text p {
+        font-size: 17px;
+        line-height: 26px;
+    }
+    .ho_dist span {
+        font-size: 18px;
+    }
+    .margin_left60 {
+        margin-left: -32px;
+        margin-right: 32px;
+    }
+    .instant .titlepage h2 {
+        font-size: 41px;
+        line-height: 50px;
+    }
+    .instant::before {
+        height: 200px;
+        bottom: -200px;
+    }
+    .instant::after {
+        height: 200px;
+        top: -200px;
+    }
+    .instant_img{
+        margin-top: 75px;
+    }
+    ul.social_icon li {
+        padding-right: 117px;
+    }
+    .reader h3 {
+        font-size: 20px;
+    }
+    ul.xple_menu li a {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .d_none {
+        display: none !important;
+    }
+    .logo {
+        text-align: center;
+        display: block;
+    }
+    .logo-footer {
+        text-align: center;
+        display: block;
+        width: auto;
+        margin: -80px 0px -90px -15px ;
+    }
+    .banner_main {
+        padding-top: 120px;
+        display: inherit;
+        height: 700px;
+    }
+    .about{
+        height: 200px;
+
+    }
+    .services_main{
+        margin-bottom: 200px;
+        height: 500px;
+        background-image: none;
+    }
+    .services_img{
+        width: 50%;
+        height: auto;
+    }
+    .banner_main .bg_white h1 {
+        font-size: 30px;
+        line-height: 40px;
+    }
+    .carousel-indicators {
+        margin-left: 14%;
+    }
+    .about_box_img {
+        padding: 35px;
+        margin-right: 0px;
+    }
+    .titlepage h2 {
+        font-size: 23px;
+        line-height: 29px;
+    }
+    .lisertab .servi_tab {
+        padding: 12px 22px;
+    }
+    .ho_dist span {
+        font-size: 18px;
+    }
+    .padding_0 {
+        padding: 15px
+    }
+    .margin_top70p {
+        margin-top: 0px;
+    }
+    .margin_left20 {
+        margin-left: 0px;
+    }
+    .margin_right20 {
+        margin-right: 0px;
+    }
+    .margin_top170 {
+        margin-top: 0px;
+    }
+    .margin_left60 {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .margin_top40 {
+        margin-top: 0px;
+    }
+    .instant .titlepage h2 {
+        font-size: 54px;
+        line-height: 68px;
+    }
+    .instant_img {
+        margin-top: 30px;
+    }
+    .instant::before {
+        height: 100px;
+        bottom: -100px;
+    }
+    .instant::after {
+        height: 100px;
+        top: -100px;
+    }
+    ul.social_icon li {
+        padding-right: 90px;
+    }
+    #dptos{
+        margin-left: 200px;
+    }
+    .reader p {
+        padding-bottom: 20px;
+    }
+    .main_form {
+        padding-bottom: 30px;
+    }
+    .padddd {
+        padding-right: 15px;
+    }
+    .footer{
+        margin-top: 1550px;
+    }
+}
+
+@media (max-width: 575px) {
+    header {
+        padding: 33px 10px;
+    }
+    .d_none {
+        display: none !important;
+    }
+    .logo {
+        display: block;
+        width: 120px;
+        float: left;
+    }
+    .logo-footer{
+        display: flex;
+        width: 370px;
+    }
+    .email {
+        margin-top: -82px;
+    }
+    .banner_main {
+        padding-top: 120px;
+        display: inherit;
+        height: 500px;
+    }
+    .about{
+        background-image: none;
+    }
+    .services_main{
+        margin-top: 150px;
+        margin-bottom: 575px;
+        height: 500px;
+        background-image: none;
+    }
+    .services_img{
+        width: 35%;
+        height: auto;
+    }
+    .banner_main2 {
+        padding-top: 50px;
+        display: inherit;
+        height: auto;
+        background-image: none;
+    }
+    .login {
+        padding-top: 120px;
+        display: inherit;
+    }
+    .banner_main .bg_white h1 {
+        font-size: 28px;
+        line-height: 44px;
+        padding-bottom: 20px;
+    }
+    .carousel-indicators {
+        margin-left: 13%;
+    }
+    .about_box_text h3 {
+        font-size: 21px;
+        padding-bottom: 11px;
+    }
+    .about_box_img {
+        padding: 15px;
+        margin-right: 0px;
+    }
+    .about_box_text {
+        padding-left: 10px;
+    }
+    .building {
+        background: #540705;
+        padding-top: 90px;
+        padding-bottom: 40px;
+    }
+    .titlepage h2 {
+        font-size: 23px;
+        line-height: 29px;
+    }
+    .ho_dist span {
+        font-size: 18px;
+    }
+    .padding_0 {
+        padding: 15px
+    }
+    .margin_top70p {
+        margin-top: 0px;
+    }
+    .margin_left20 {
+        margin-left: 0px;
+    }
+    .margin_right20 {
+        margin-right: 0px;
+    }
+    .margin_top170 {
+        margin-top: 0px;
+    }
+    .margin_left60 {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .margin_top40 {
+        margin-top: 0px;
+    }
+    .instant .titlepage h2 {
+        font-size: 43px;
+        line-height: 53px;
+    }
+    .instant_img {
+        display: none;
+    }
+    .instant::before {
+        height: 100px;
+        bottom: -100px;
+    }
+    .instant::after {
+        height: 100px;
+        top: -100px;
+    }
+    ul.social_icon li {
+        padding-right: 15px;
+    }
+    .reader h3 {
+        padding-top: 30px;
+    }
+    .main_form {
+        padding-bottom: 30px;
+    }
+    .padddd {
+        padding-right: 15px;
+    }
+    .index-footer {
+        margin-top: -250px;
+    }
+}

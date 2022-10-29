@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Check Out - Turismo Real</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <!-- style css -->
+      <link rel="stylesheet" href="css/style.css">
+      <!-- responsive-->
+      <link rel="stylesheet" href="css/responsive.css">
+      <!-- awesome fontfamily -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+   </head>
+     <!-- body -->
+   <body class="main-layout">
+      <!-- loader  -->
+      <div class="loader_bg">
+         <div class="loader"><img src="images/loading.gif" alt="" /></div>
+      </div>
+      <!-- end loader -->
+      <div id="mySidepanel" class="sidepanel">
+         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+         <a href="index.html">Home</a>
+         <a href="#">Nosotros</a>
+         <a href="services.html">Servicios</a>
+         <a href="contact.html">Contacto</a>
+      </div>
+      <!-- header -->
+      <header>
+         <!-- header inner -->
+         <div class="head-top">
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="col-sm-3">
+                     <div class="logo">
+                        <a href="#"><img src="images/logo1.png" class="logo-top"/></a>
+                     </div>
+                  </div>
+                  <div class="col-sm-9">
+                     <ul class="email text_align_right">
+                        <li class="d_none"><i class="fa fa-phone" aria-hidden="true"></i>+56  2 12345678</a></li>
+                        <li class="d_none"> <a href="#"><i class="fa fa-envelope" aria-hidden="true"></i>contacto@turismoreal.cl</a></li>
+                        <li class="d_none"> <a href="login.html">Login <i class="fa fa-user" aria-hidden="true"></i></a> </li>
+                        <li> <button class="openbtn" onclick="openNav()"><img src="images/menu_btn.png"></button></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </header>
+      <!-- end header -->
+      <!-- check out-->
+      <div class="about top_layer">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <div class="titlepage text_align_center">
+                     <h2 style="color: black;">Check Out</h2>
+                     <form id="check-in">
+                        <div class="card-body">
+                           <div class="col-md-12">
+                              <div class="row">
+                                 <!--ID CHECK OUT-->
+                                 <div class="col-md-12"><label for="">ID Check Out</label>
+                                    <input type="text" id="id" class="form-control"><br>
+                                 </div>
+                                 <!--ID RESERVA-->
+                                 <div class="col-md-12"><label for="">ID Reserva</label>
+                                    <input type="text" id="reserva" class="form-control"><br>
+                                 </div>
+                                 <!--HORA SALIDA-->
+                                 <div class="col-md-12"><label for="">Hora Salida</label>
+                                    <input type="datetime-local" name="locacion" id="locacion" class="form-control"><br>
+                                 </div>
+                                 <!--FIRMA CLIENTE-->
+                                 <div class="col-md-12"><label for="">Firma Cliente</label>
+                                    <input type="text" id="firma_cliente" class="form-control"><br>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="col-md-12">
+                                <div class="input-group input-group-outline">
+                                <button type="button" class="btn btn-primary btn_guardar btn-block">Guardar</button>
+                                <button type="button" class="btn btn-secondary btn_multa btn-block">Multas</button>
+                                </div><br>
+                            </div>
+                        </div>
+                        <!--Datatable-->
+                        <h2 style="color: black;">Multas</h2>
+                        <div id="table_id">     
+                           <div class="col-md-12 table-responsive">
+                              <table  class="table table-bordered" id="dt_maestro" width="100%">
+                                 <thead>
+                                    <tr> 
+                                       <th>Multa</th>
+                                       <th>Valor</th>
+                                       <th>Acciones</th>
+                                    </tr>
+                                 </thead>
+                              </table>
+                           </div>  
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- end check out-->
+      <!-- footer -->
+      <footer>
+         <div class="footer">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-10 offset-md-1">
+                     <ul class="social_icon text_align_center">
+                        <li> <a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                        <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li> <a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                        <li> <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                     </ul>
+                  </div>
+                  <div class="col-md-4 col-sm-6">
+                     <div class="reader">
+                        <a href="index.html"><img class="logo-footer text_align_right" src="images/logo_blanco.png"/></a>
+                        <p>La mejor empresa de turismo y alojamiento en Chile.</p>
+                     </div>
+                  </div>
+                  <div class="col-md-2 col-sm-6">
+                     <div class="reader">
+                        <h3>Explorar</h3>
+                        <ul class="xple_menu">
+                           <li><a href="index.html">Home</a></li>
+                           <li><a href="about.html">Nosotros</a></li>
+                           <li><a href="services.html">Servicios</a></li>
+                           <li><a href="contact.html">Contactanos</a></li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="col-md-3 col-sm-6">
+                     <div class="reader">
+                        <h3>Publicaciones</h3>
+                        <ul class="re_post">
+                           <li><img src="images/re_img1.jpg" alt="#"/></li>
+                           <li><img src="images/re_img2.jpg" alt="#"/></li>
+                           <li><img src="images/re_img3.jpg" alt="#"/></li>
+                           <li><img src="images/re_img4.jpg" alt="#"/></li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="col-md-3 col-sm-6">
+                     <div class="reader">
+                        <h3>Contactanos</h3>
+                        <ul class="re_post">
+                           <a class="read_more" href="contact.html">Contacto</a>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="copyright text_align_center">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-md-10 offset-md-1">
+                        <p>Copyright 2022 All Right Reserved</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </footer>
+      <!-- end footer -->
+      <!-- Javascript files-->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/custom.js"></script>
+      <script src="js/jquery-3.0.0.min.js"></script>
+   </body>
+</html>

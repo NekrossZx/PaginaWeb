@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>LOG IN</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <!-- style css -->
+      <link rel="stylesheet" href="css/style.css">
+      <!-- responsive-->
+      <link rel="stylesheet" href="css/responsive.css">
+      <!-- awesome fontfamily -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+   </head>
+   <!-- body -->
+   <body class="main-layout">
+      <my-header></my-header>
+      <!-- six_box-->
+      <div class="banner_main2">
+         <div class="container">
+            <!--LOGIN-->
+            <form class="form" id="login">
+                <h1 class="form_title">Ingresar</h1><br>
+                <div class="form_message form_message-error"></div>
+                <div class="form_input-group">
+                    <input type="text" id="username" name="username" class="form-control" autofocus placeholder="Nombre de usuario">
+                    <div class="form_input-error-message"></div>
+                </div>
+                <div class="form_input-group">
+                    <input type="password" id="password" name="password" class="form-control" autofocus placeholder="Contraseña">
+                    <div class="form_input-error-message"></div>
+                </div>
+                <button class="form_button" type="submit">Ingresar</button>
+                <p class="form_text">
+                    <a href="#" class="form_link" id="lostPass">¿Olvidaste tu contraseña?</a>
+                </p>
+                <p class="form_text">
+                    <a class="form_link" href="./" id="linkCreateAccount">¿No tienes una cuenta aún? Crear cuenta</a>
+                </p>
+            </form>
+            <!--SIGN UP-->
+            <form class="form form-hidden" id="signup">
+                <h1 class="form_title">Crear Cuenta</h1><br>
+                <div class="form_message form_message-error"></div>
+                <div class="form_input-group">
+                    <input type="text" id="signupUsername" name="signupUsername" class="form-control" autofocus placeholder="Username">
+                    <div class="form_input-error-message"></div>
+                </div>
+                <div class="form_input-group">
+                    <input type="text" id="email" name="email" class="form-control" autofocus placeholder="Email Address">
+                    <div class="form_input-error-message"></div>
+                </div>
+                <div class="form_input-group">
+                    <input type="password" id="signPass" name="signPass" class="form-control" autofocus placeholder="Password">
+                    <div class="form_input-error-message"></div>
+                </div>
+                <button class="form_button" type="submit">Crear Cuenta</button>
+                <p class="form_text">
+                    <a class="form_link" href="./" id="linkLogin">¿Ya tienes una cuenta? Ingresar</a>
+                </p>
+            </form>
+            <!--RECUPERAR-->
+            <form class="form form-hidden" id="recuperar">
+               <h1 class="form_title">Recuperar contraseña</h1><br>
+               <div class="form_input-group">
+                   <input type="email" id="recuperarEmail" name="recuperarEmail" class="form-control" autofocus placeholder="Email de Recuperación">
+                   <div class="form_input-error-message"></div>
+               </div>
+               <button class="form_button" type="submit">Recuperar</button>
+               <p class="form_text">
+                   <a class="form_link" href="./" id="backLogin">Regresar</a>
+               </p>
+           </form>
+        </div>
+      </div>
+      <!-- end six_box-->
+      <my-footer></my-footer> 
+      <!-- Javascript files-->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/funciones_login.js"></script>
+      <script src="js/custom.js"></script>
+      <script src="js/jquery-3.0.0.min.js"></script>
+      <script src="js/template.js"></script>
+   </body>
+</html>

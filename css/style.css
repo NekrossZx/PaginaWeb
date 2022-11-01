@@ -181,6 +181,22 @@ img {
      border-radius: 10px;
 }
 
+.btn-filtro {
+     margin: 25px 5px auto 5px;
+     background-color: #8b1310 !important;
+     font-size: 15px;
+     color: white;
+     border: 2px solid #ddd ;
+     border-radius: 10px;
+     width: 5em;
+     height: 3em;
+     cursor: pointer;
+}
+.btn-custom-light:hover, .btn-filtro:hover{
+     color: #fe9a0c;
+     border: 2px solid #fe9a0c;
+}
+
 .lead {
      font-size: 18px;
      line-height: 30px;

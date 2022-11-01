@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html class="perfect-scrollbar-on">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>LICENCIAS</title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <meta content="no-cache" http-equiv="Pragma"></meta>
+  <meta content="no-cache, no-store, must-revalidate" http-equiv="Cache-Control"></meta>
+  <meta content="0" http-equiv="Expires"></meta>
+  <meta name="robots" content="noindex">
+  <meta name="googlebot" content="noindex">
+
+  <script src="assets/js/core/jquery.min.js"></script>
+  <script src="assets/js/core/jquery.cookie.js"></script>
+  
+  <link rel="stylesheet" href="assets/css/material-dashboard.css?v=1"/>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,531;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,531;1,600;1,700;1,800;1,900&display=swap|Material+Icons"
+    rel="stylesheet">
+  <link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/js/plugins/toastr/toastr.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+  
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.12.1/af-2.4.0/b-2.2.3/b-colvis-2.2.3/b-html5-2.2.3/b-print-2.2.3/cr-1.5.6/date-1.1.2/fc-4.1.0/fh-3.2.4/kt-2.7.0/r-2.3.0/rg-1.2.0/rr-1.2.8/sc-2.0.7/sb-1.3.4/sp-2.0.2/sl-1.4.0/sr-1.1.1/datatables.min.css"/>
+ 
+</head>
+  <body class="hold-transition">
+    <div class="wrapper">
+        <!--Inicio Formulario-->
+        <form id="licencias">
+            <div class="card-body">
+                <div class="col-md-12">
+                    <div class="titulo_caja">Registrar Nueva Licencia</div>
+                </div>
+                <br>
+                <div class="col-md-12">
+                    <div class="row">
+                        <!--MES-->
+                        <div class="col-md-3">
+                            <label>Mes</label>
+                            <select type="text" class="form-control slc" id="mes" name="mes">
+                                <option value="0">Seleccione Mes</option>
+                                <option value="Enero">Enero</option>
+                                <option value="Febrero">Febrero</option>
+                                <option value="Marzo">Marzo</option>
+                                <option value="Abril">Abril</option>
+                                <option value="Mayo">Mayo</option>
+                                <option value="Junio">Junio</option>
+                                <option value="Julio">Julio</option>
+                                <option value="Agosto">Agosto</option>
+                                <option value="Septiembre">Septiembre</option>
+                                <option value="Octubre">Octubre</option>
+                                <option value="Noviembre">Noviembre</option>
+                                <option value="Diciembre">Diciembre</option>
+                            </select>
+                        </div>
+                        <br>
+                        <!--SAP-->
+                        <div class="col-md-3">
+                            <label>SAP</label>
+                            <select type="text" class="form-control slc" id="sap" name="sap">
+                                <option value="0">Seleccione SAP</option>
+                            </select>
+                        </div>
+                        <br>
+                        <!--NOMBRE TRABAJADOR-->
+                        <div class="col-md-3">
+                            <label>Nombre Trabajador</label>
+                            <input type="text" class="form-control" id="nombre_trabajador" name="nombre_trabajador" readonly>
+                        </div>
+                        <br>
+                        <!--FOLIO-->
+                        <div class="col-md-3">
+                            <label>Folio</label>
+                            <input type="text" id="folio" name="folio" class="form-control" placeholder="Ingrese folio asociado">
+                        </div>
+                        <br>
+                        <!--GENERO radiobutton-->
+                        <div class="col-md-3"><label for="">Género</label><br>
+                            <input type="radio" name="genero" id="masculino" value="m">
+                            <label for="masculino">Masculino</label>
+                            <input type="radio" name="genero" id="femenino" value="f">
+                            <label for="femenino">Femenino</label>
+                        </div><br>
+                        <!--PLATAFORMA-->
+                        <div class="col-md-3">
+                            <label>Plataforma</label>
+                            <select id="plataforma" name="plataforma" class="form-control slc">
+                                <option value="0">Seleccione una opción</option>
+                                <option value="I-Med">I-Med</option>
+                                <option value="Medipass">Medipass</option>
+                                <option value="Fisica">Fisica</option>
+                            </select><br>
+                        </div>
+                        <!--TRAMITADA radiobutton-->
+                        <div class="col-md-3"><label for="">Tramitada</label><br>
+                            <input type="radio" name="tramitada" id="si" value="Si">
+                            <label for="si">Si</label>
+                            <input type="radio" name="tramitada" id="no" value="No">
+                            <label for="no">No</label>
+                        </div><br>
+                        <!--INGRESADA radiobutton-->
+                        <div class="col-md-3"><label for="">Ingresada (Teams)</label><br>
+                            <input type="radio" name="ingresada" id="si" value="Si">
+                            <label for="si">Si</label>
+                            <input type="radio" name="ingresada" id="no" value="No">
+                            <label for="no">No</label>
+                        </div><br>
+                        <!--FECHA INGRESO-->
+                        <div class="col-md-3">
+                            <label>Fecha Ingreso</label>
+                            <input type="date" id="fecha_recepcion" name="fecha_recepcion" class="form-control"><br>
+                        </div>
+                        <!--FECHA INICIO-->
+                        <div class="col-md-3">
+                            <label>Fecha Inicio</label>
+                            <input type="date" id="fecha_inicio" name="fecha_inicio" class="form-control"><br>
+                        </div>
+                        <!--FECHA TERMINO-->
+                        <div class="col-md-3">
+                            <label>Fecha Termino</label>
+                            <input type="date" id="fecha_termino" name="fecha_termino" class="form-control"><br>
+                        </div>
+                        <!--NRO DIAS-->
+                        <div class="col-md-3">
+                            <label>Número Días</label>
+                            <input type="number" id="dias" name="dias" class="form-control" readonly>
+                        </div><br>
+                        <!--ESPECIALIDAD-->
+                        <div class="col-md-3">
+                            <label>Especialidad</label>
+                            <select id="especialidad_medica" name="especialidad_medica" class="form-control slc">
+                                <option value="0">Seleccione una opción</option>                                                   
+                            </select><br>
+                        </div>
+                        <!--LICENCIA-->
+                        <div class="col-md-3">
+                            <label>Tipo de Licencia</label><br>
+                            <select id="tipo_licencia" name="tipo_licencia" class="form-control slc">
+                                <option value="0">Seleccione una opción</option>
+                            </select><br>                                             
+                        </div>
+                        <!--NOMBRE MEDICO-->
+                        <div class="col-md-3">
+                            <label>Nombre Médico</label>
+                            <input type="text" id="nombre_medico" name="nombre_medico" class="form-control">
+                        </div>
+                        <br>
+                        <!--RUT MEDICO--> 
+                        <div class="col-md-3">
+                            <label>Rut Médico</label>
+                            <input type="text" id="rut_medico" name="rut_medico" class="form-control">
+                        </div>
+                        <br>
+                        <!--DIRECCION REPOSO-->
+                        <div class="col-md-3">
+                            <label>Dirección Reposo</label>
+                            <input type="text" id="direccion_licencia" name="direccion_licencia" class="form-control">
+                        </div>
+                        <br>
+                        <!--TELEFONO-->
+                        <div class="col-md-3">
+                            <label>Teléfono de Contacto</label>
+                            <input type="text" id="telefono" name="telefono" class="form-control">
+                        </div>
+                        <br>
+                        <!--ESTADO-->
+                        <div class="col-md-3">
+                            <label>Estado</label>
+                            <select  id="estado" name="estado" class="form-control slc">
+                                <option value="0">Seleccione un estado</option>
+                                    <option value="Aceptada">Aceptada</option>
+                                    <option value="En proceso">En proceso</option>
+                                    <option value="Rechazada">Rechazada</option>
+                                    <option value="Sin Iniciar">Sin Iniciar</option> 
+                                    <option value="Finalizada">Finalizada</option>                                                     
+                            </select><br> 
+                        </div>
+                        <!--ISAPRE-->
+                        <div class="col-md-3">
+                            <label>ISAPRE</label>
+                            <select type="text" id="isapre" name="isapre" class="form-control slc">
+                                <option value="0">Seleccione una ISAPRE</option>
+                            </select><br>
+                        </div>
+                        <!--MOTIVO-->
+                        <div class="col-md-3">
+                            <label>Motivo</label>
+                            <select type="text" id="motivo" name="motivo" class="form-control slc">
+                                <option value="0">Seleccione un Motivo</option>
+                            </select>
+                        </div>
+                        <br>
+                        <!--FECHA AFILIACION AFP-->
+                        <div class="col-md-3">
+                            <label>Fecha Afiliación AFP</label>
+                            <input type="date" id="fecha_afiliacion_afp" name="fecha_afiliacion_afp" class="form-control">
+                        </div>
+                        <br>
+                        <!--FORMATO radiobutton-->
+                        <div class="col-md-3"><label for="">Formato</label><br>
+                            <input type="radio" name="formato" id="electronica" value="electronica">
+                            <label for="electronica">Electronica</label>
+                            <input type="radio" name="formato" id="fisica" value="fisica">
+                            <label for="fisica">Fisica</label>
+                        </div><br>
+                        <!--GERENCIA-->
+                        <div class="col-md-3">
+                            <label>Gerencia</label>
+                            <select type="text" id="gerencia" name="gerencia" class="form-control slc">
+                                <option value="0">Seleccione una gerencia</option>
+                            </select><br>
+                        </div>
+                        <!--SUPERINTENDECNIA-->
+                        <div class="col-md-3">
+                            <label>Superintendencia</label>
+                            <select type="text" id="superintendencia" name="superintendencia" class="form-control slc">
+                                <option value="0">Seleccione Superintendencia</option>
+                            </select><br>
+                        </div>
+                        <!--JORNADA-->
+                        <div class="col-md-3">
+                            <label>Jornada</label>
+                            <select type="text" id="jornada" name="jornada" class="form-control slc">
+                                <option value="0">Seleccione Jornada</option>
+                            </select><br>    
+                        </div>
+                        <!--CONTRATO radiobutton-->
+                        <div class="col-md-3"><label for="">Contrato</label><br>
+                            <input type="radio" name="contrato" id="indefinido" value="Indefinido">
+                            <label for="indefinido">Indefinido</label>
+                            <input type="radio" name="contrato" id="fijo" value="Fijo">
+                            <label for="fijo">Fijo</label>
+                        </div><br>
+                        <!--ESTAMENTO-->
+                        <div class="col-md-3">
+                            <label>Estamento</label>
+                            <select type="text" id="estamento" name="estamento" class="form-control slc">
+                                <option value="0">Seleccione Estamento</option>
+                                <option value="Operativo">Operativo</option>
+                                <option value="Profesional">Profesional</option>
+                                <option value="Graduado">Graduado</option>
+                            </select><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="col-md-12">
+                    <div class="input-group input-group-outline">
+                        <button type="button" id="btn_guardar" class="btn btn-primary btn_guardar btn-block">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="table_id">     
+      <div class="col-md-12 table-responsive">
+        <table class="table table-bordered" id="dt_maestro" width="100%">
+          <thead>
+            <tr>
+                <th>ID</th>
+                <th>Mes</th>
+                <th>Estado</th>
+                <th>SAP</th>
+                <th>Nombre Trabajador</th>
+                <th>Inicio Reposo</th>
+                <th>Fin Reposo</th>
+                <th>Días</th>
+                <th>Tramitada</th>
+                <th>Ingresada</th>
+                <th>Fecha Recepción</th>
+                <th>Tipo Licencia</th>
+                <th>Folio</th>
+                <th>Isapre</th>
+                <th>Dirección en Licencia</th>
+                <th>Nombre Médico</th>
+                <th>Rut Médico</th>
+                <th>Especialidad Médica</th>
+                <th>Motivo</th>
+                <th>Fecha Afiliación AFP</th>
+                <th>Formato</th>
+                <th>Teléfono</th>
+                <th>Gerencia</th>
+                <th>Superintendencia</th>
+                <th>Jornada</th>
+                <th>Contrato</th>
+                <th>Estamento</th>
+                <th>Género</th>
+                <th>Plataforma</th>
+            </tr>
+          </thead>
+        </table>
+      </div>  
+    </div>
+
+    <!--MODAL EDITAR-->
+    <div class="modal fade" id="modalEditar" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <form id="mdl_licencias">
+                <div class="col-md-12"></div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <!--MES-->
+                            <div class="col-md-4">
+                                <label>Mes</label>
+                                <select type="text" class="form-control slc" id="edit_mes" name="edit_mes">
+                                    <option value="0">Seleccione Mes</option>
+                                    <option value="Enero">Enero</option>
+                                    <option value="Febrero">Febrero</option>
+                                    <option value="Marzo">Marzo</option>
+                                    <option value="Abril">Abril</option>
+                                    <option value="Mayo">Mayo</option>
+                                    <option value="Junio">Junio</option>
+                                    <option value="Julio">Julio</option>
+                                    <option value="Agosto">Agosto</option>
+                                    <option value="Septiembre">Septiembre</option>
+                                    <option value="Octubre">Octubre</option>
+                                    <option value="Noviembre">Noviembre</option>
+                                    <option value="Diciembre">Diciembre</option>
+                                </select>
+                            </div>
+                            <br>
+                            <!--SAP-->
+                            <div class="col-md-2">
+                                <label>SAP</label>
+                                <select type="text" class="form-control" id="edit_sap" name="edit_sap">
+                                    <option value="0">Seleccione SAP</option>
+                                </select>
+                            </div>
+                            <br>
+                            <!--NOMBRE TRABAJADOR-->
+                            <div class="col-md-6">
+                                <label>Nombre Trabajador</label>
+                                <input type="text" class="form-control" id="edit_nombre_trabajador" name="edit_nombre_trabajador">
+                            </div>
+                            <br>
+                            <!--FOLIO-->
+                            <div class="col-md-6">
+                                <label>Folio</label>
+                                <input type="text" id="edit_folio" name="edit_folio" class="form-control" placeholder="Ingrese folio asociado">
+                            </div>
+                            <br>
+                            <!--PLATAFORMA-->
+                            <div class="col-md-4">
+                                <label>Plataforma</label>
+                                <select id="edit_plataforma" name="edit_plataforma" class="form-control slc">
+                                    <option value="0">Seleccione una opción</option>
+                                    <option value="I-Med">I-Med</option>
+                                    <option value="Medipass">Medipass</option>
+                                    <option value="Fisica">Fisica</option>
+                                </select><br>
+                            </div>
+                            <!--NRO DIAS-->
+                            <div class="col-md-3">
+                                <label>Número Días</label>
+                                <input type="number" id="edit_dias" name="edit_dias" class="form-control" readonly>
+                            </div>
+                            <br>
+                            <!--TRAMITADA radiobutton-->
+                            <div class="col-md-4"><label for="">Tramitada</label><br>
+                                <input type="radio" name="edit_tramitada" id="edit_si" value="Si">
+                                <label for="edit_si">Si</label>
+                                <input type="radio" name="edit_tramitada" id="edit_no" value="No">
+                                <label for="edit_no">No</label>
+                            </div><br>
+                            <!--INGRESADA radiobutton-->
+                            <div class="col-md-4"><label for="">Ingresada</label><br>
+                                <input type="radio" name="edit_ingresada" id="edit_si" value="Si">
+                                <label for="edit_si">Si</label>
+                                <input type="radio" name="edit_ingresada" id="edit_no" value="No">
+                                <label for="edit_no">No</label>
+                            </div><br>
+                            <!--GENERO radiobutton-->
+                            <div class="col-md-4"><label for="">Género</label><br>
+                                <input type="radio" name="edit_genero" id="edit_masculino" value="m">
+                                <label for="edit_masculino">Masculino</label>
+                                <input type="radio" name="edit_genero" id="edit_femenino" value="f">
+                                <label for="edit_femenino">Femenino</label>
+                            </div><br>
+                            <!--FECHA INGRESO-->
+                            <div class="col-md-4">
+                                <label>Fecha Ingreso</label>
+                                <input type="date" id="edit_fecha_recepcion" name="edit_fecha_recepcion" class="form-control"><br>
+                            </div>
+                            <!--FECHA INICIO-->
+                            <div class="col-md-4">
+                                <label>Fecha Inicio</label>
+                                <input type="date" id="edit_fecha_inicio" name="edit_fecha_inicio" class="form-control"><br>
+                            </div>
+                            <!--FECHA TERMINO-->
+                            <div class="col-md-4">
+                                <label>Fecha Termino</label>
+                                <input type="date" id="edit_fecha_termino" name="edit_fecha_termino" class="form-control"><br>
+                            </div> 
+                            <!--ESPECIALIDAD-->
+                            <div class="col-md-6">
+                                <label>Especialidad</label>
+                                <select id="edit_especialidad_medica" name="edit_especialidad_medica" class="form-control slc">
+                                    <option value="0">Seleccione una opción</option>                                                   
+                                </select><br>
+                            </div>
+                            <!--LICENCIA-->
+                            <div class="col-md-6">
+                                <label>Tipo de Licencia</label><br>
+                                <select id="edit_tipo_licencia" name="edit_tipo_licencia" class="form-control slc">
+                                    <option value="0">Seleccione una opción</option>
+                                </select><br>                                             
+                            </div>
+                            <!--NOMBRE MEDICO-->
+                            <div class="col-md-6">
+                                <label>Nombre Médico</label>
+                                <input type="text" id="edit_nombre_medico" name="edit_nombre_medico" class="form-control">
+                            </div>
+                            <br>
+                            <!--RUT MEDICO--> 
+                            <div class="col-md-6">
+                                <label>Rut Médico</label>
+                                <input type="text" id="edit_rut_medico" name="edit_rut_medico" class="form-control">
+                            </div>
+                            <br>
+                            <!--DIRECCION REPOSO-->
+                            <div class="col-md-8">
+                                <label>Dirección Reposo</label>
+                                <input type="text" id="edit_direccion_licencia" name="edit_direccion_licencia" class="form-control">
+                            </div>
+                            <br>
+                            <!--TELEFONO-->
+                            <div class="col-md-4">
+                                <label>Teléfono Contacto</label>
+                                <input type="text" id="edit_telefono" name="edit_telefono" class="form-control">
+                            </div>
+                            <br>
+                            <!--ESTADO-->
+                            <div class="col-md-4">
+                                <label>Estado</label>
+                                <select  id="edit_estado" name="edit_estado" class="form-control slc">
+                                    <option value="0">Seleccione un estado</option>
+                                        <option value="Aceptada">Aceptada</option>
+                                        <option value="En proceso">En proceso</option>
+                                        <option value="Rechazada">Rechazada</option>
+                                        <option value="Sin Iniciar">Sin Iniciar</option> 
+                                        <option value="Finalizada">Finalizada</option>                                                     
+                                </select><br>
+                            </div>
+                            <br> 
+                            <!--ISAPRE-->
+                            <div class="col-md-8">
+                                <label>ISAPRE</label>
+                                <select type="text" id="edit_isapre" name="edit_isapre" class="form-control slc">
+                                    <option value="0">Seleccione una ISAPRE</option>
+                                </select><br>
+                            </div>
+                            <!--MOTIVO-->
+                            <div class="col-md-6">
+                                <label>Motivo</label>
+                                <select type="text" id="edit_motivo" name="edit_motivo" class="form-control slc">
+                                    <option value="0">Seleccione un Motivo</option>
+                                </select><br>
+                            </div>
+                            <!--FECHA AFILIACION AFP-->
+                            <div class="col-md-6">
+                                <label>Fecha Afiliación AFP</label>
+                                <input type="date" id="edit_fecha_afiliacion_afp" name="edit_fecha_afiliacion_afp" class="form-control"><br>
+                            </div>
+                            <!--FORMATO radiobutton-->
+                            <div class="col-md-4"><label for="">Formato</label><br>
+                                <input type="radio" name="edit_formato" id="edit_electronica" value="electronica">
+                                <label for="edit_electronica">Electronica</label>
+                                <input type="radio" name="edit_formato" id="edit_fisica" value="fisica">
+                                <label for="edit_fisica">Fisica</label>
+                            </div><br>
+                            <!--GERENCIA-->
+                            <div class="col-md-6">
+                                <label>Gerencia</label>
+                                <select type="text" id="edit_gerencia" name="edit_gerencia" class="form-control slc">
+                                    <option value="0">Seleccione una gerencia</option>
+                                </select><br>
+                            </div>
+                            <!--SUPERINTENDECNIA-->
+                            <div class="col-md-6">
+                                <label>Superintendencia</label>
+                                <select type="text" id="edit_superintendencia" name="edit_superintendencia" class="form-control slc">
+                                    <option value="0">Seleccione Superintendencia</option>
+                                </select><br>
+                            </div>
+                            <!--JORNADA-->
+                            <div class="col-md-6">
+                                <label>Jornada</label>
+                                <select type="text" id="edit_jornada" name="edit_jornada" class="form-control slc">
+                                    <option value="0">Seleccione Jornada</option>
+                                </select><br>    
+                            </div>
+                            <!--CONTRATO radiobutton-->
+                            <div class="col-md-4"><label for="">Contrato</label><br>
+                                <input type="radio" name="edit_contrato" id="edit_indefinido" value="Indefinido">
+                                <label for="edit_indefinido">Indefinido</label>
+                                <input type="radio" name="edit_contrato" id="edit_fijo" value="Fijo">
+                                <label for="edit_fijo">Fijo</label>
+                            </div><br>
+                            <!--ESTAMENTO-->
+                            <div class="col-md-6">
+                                <label>Estamento</label>
+                                <select type="text" id="edit_estamento" name="edit_estamento" class="form-control slc">
+                                    <option value="0">Seleccione Estamento</option>
+                                    <option value="Operativo">Operativo</option>
+                                    <option value="Profesional">Profesional</option>
+                                    <option value="Graduado">Graduado</option>
+                                </select><br>
+                            </div>
+                        </div>
+                        <div class="col-md-12 modal-footer">
+                            <button type="button" id="btn_Modificar" class="btn btn-primary btn_modificar col-md-8">Modificar</button>
+                            <button type="button" id="btn_Cancelar" class="btn btn-primary col-md-4" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>       
+          </div>
+        </div>
+    </div>
+    <!--MODAL ELIMINAR-->
+    <div class="modal fade" id="modalEliminar" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <form id="mdl_eliminar">
+                <div class="col-md-12"></div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <span class="col-md-12" class="titulo_caja">¿Estás seguro/a de eliminar este registro?'</span>
+                            <!--ID-->
+                            <div class="col-md-12" hidden><label for="">ID</label>
+                                <input type="text" name="borrar_id" id="borrar_id" class="form-control"  hidden ><br>
+                            </div>
+                            <!--ESTADO-->
+                            <div class="col-md-12" hidden><label for="">Estado</label>
+                                <div class="input-group input-group-outline">
+                                    <input type="text" name="borrar_estado" id="borrar_estado" class="form-control" >
+                                </div><br>
+                            </div>
+                        </div>
+                        <div class="col-md-12 modal-footer">
+                            <button type="button" id="btn_Eliminar" class="btn btn-primary btn_eliminar">Eliminar</button>
+                            <button type="button" id="btn_Cancelar" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>       
+          </div>
+        </div>
+    </div>
+    <!--MODAL INICIAR-->
+    <div class="modal fade" id="modalIniciar" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <form id="mdl_iniciar">
+                <div class="col-md-12"></div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <span class="col-md-12" class="titulo_caja">¿Estás seguro/a de modificar este registro?'</span>
+                            <!--ID-->
+                            <div class="col-md-12" hidden><label for="">ID</label>
+                                <input type="text" name="iniciar_id" id="iniciar_id" class="form-control"  hidden ><br>
+                            </div>
+                            <!--ESTADO-->
+                            <div class="col-md-12" hidden><label for="">Estado</label>
+                                <div class="input-group input-group-outline">
+                                    <input type="text" name="iniciar_estado" id="iniciar_estado" class="form-control" >
+                                </div><br>
+                            </div>
+                        </div>
+                        <div class="col-md-12 modal-footer">
+                            <button type="button" id="btn_Iniciar" class="btn btn-primary btn_iniciar">No iniciado</button>
+                            <button type="button" id="btn_Cancelar" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>       
+          </div>
+        </div>
+    </div>
+    <!--MODAL EN PROCESO-->
+    <div class="modal fade" id="modalProceso" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <form id="mdl_proceso">
+                <div class="col-md-12"></div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <span class="col-md-12" class="titulo_caja">¿Estás seguro/a de modificar este registro?'</span>
+                            <!--ID-->
+                            <div class="col-md-12" hidden><label for="">ID</label>
+                                <input type="text" name="proceso_id" id="proceso_id" class="form-control"  hidden ><br>
+                            </div>
+                            <!--ESTADO-->
+                            <div class="col-md-12" hidden><label for="">Estado</label>
+                                <div class="input-group input-group-outline">
+                                    <input type="text" name="proceso_estado" id="proceso_estado" class="form-control" >
+                                </div><br>
+                            </div>
+                        </div>
+                        <div class="col-md-12 modal-footer">
+                            <button type="button" id="btn_Proceso" class="btn btn-primary btn_proceso">En Proceso</button>
+                            <button type="button" id="btn_Cancelar" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>       
+          </div>
+        </div>
+    </div>
+    <!--MODAL FINALIZAR-->
+    <div class="modal fade" id="modalFinalizar" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <form id="mdl_finalizar">
+                <div class="col-md-12"></div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <span class="col-md-12" class="titulo_caja">¿Estás seguro/a de finalizar esta licencia?'</span>
+                            <!--ID-->
+                            <div class="col-md-12" hidden><label for="">ID</label>
+                                <input type="text" name="finalizar_id" id="finalizar_id" class="form-control"  hidden ><br>
+                            </div>
+                            <!--ESTADO-->
+                            <div class="col-md-12" hidden><label for="">Estado</label>
+                                <div class="input-group input-group-outline">
+                                    <input type="text" name="finalizar_estado" id="finalizar_estado" class="form-control" >
+                                </div><br>
+                            </div>
+                        </div>
+                        <div class="col-md-12 modal-footer">
+                            <button type="button" id="btn_Finalizar" class="btn btn-primary btn_finalizar">Finalizar</button>
+                            <button type="button" id="btn_Cancelar" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>       
+          </div>
+        </div>
+    </div>
+    <!--MODAL FINALIZAR-->
+    <div class="modal fade" id="modalRechazar" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <form id="mdl_rechazar">
+                <div class="col-md-12"></div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <span class="col-md-12" class="titulo_caja">¿Estás seguro/a de rechazar esta licencia?'</span>
+                            <!--ID-->
+                            <div class="col-md-12" hidden><label for="">ID</label>
+                                <input type="text" name="rechazar_id" id="rechazar_id" class="form-control"  hidden ><br>
+                            </div>
+                            <!--ESTADO-->
+                            <div class="col-md-12" hidden><label for="">Estado</label>
+                                <div class="input-group input-group-outline">
+                                    <input type="text" name="rechazar_estado" id="rechazar_estado" class="form-control" >
+                                </div><br>
+                            </div>
+                        </div>
+                        <div class="col-md-12 modal-footer">
+                            <button type="button" id="btn_Rechazar" class="btn btn-primary btn_rechazar">Rechazar</button>
+                            <button type="button" id="btn_Cancelar" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>       
+          </div>
+        </div>
+    </div>
+    <!--MODAL ACEPTADA-->
+    <div class="modal fade" id="modalAceptar" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <form id="mdl_aceptar">
+                <div class="col-md-12"></div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <span class="col-md-12" class="titulo_caja">¿Estás seguro/a de aceptar esta licencia?'</span>
+                            <!--ID-->
+                            <div class="col-md-12" hidden><label for="">ID</label>
+                                <input type="text" name="aceptar_id" id="aceptar_id" class="form-control"  hidden ><br>
+                            </div>
+                            <!--ESTADO-->
+                            <div class="col-md-12" hidden><label for="">Estado</label>
+                                <div class="input-group input-group-outline">
+                                    <input type="text" name="aceptar_estado" id="aceptar_estado" class="form-control" >
+                                </div><br>
+                            </div>
+                        </div>
+                        <div class="col-md-12 modal-footer">
+                            <button type="button" id="btn_Aceptar" class="btn btn-primary btn_aceptar">Aceptar</button>
+                            <button type="button" id="btn_Cancelar" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>       
+          </div>
+        </div>
+    </div>
+
+      <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.12.1/af-2.4.0/b-2.2.3/b-colvis-2.2.3/b-html5-2.2.3/b-print-2.2.3/cr-1.5.6/date-1.1.2/fc-4.1.0/fh-3.2.4/kt-2.7.0/r-2.3.0/rg-1.2.0/rr-1.2.8/sc-2.0.7/sb-1.3.4/sp-2.0.2/sl-1.4.0/sr-1.1.1/datatables.min.js"></script>
+
+      <script src="assets/js/core/popper.min.js"></script>
+      <script src="assets/js/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+      <script src="assets/js/core/bootstrap-material-design.min.js"></script>
+      <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+      <script src="assets/js/material-dashboard.min.js"></script>
+      <script src="assets/js/plugins/x-editable-develop/dist/bootstrap4-editable/js/bootstrap-editable.min.js"></script>
+      <script src="assets/js/plugins/moment/moment-with-locales.min.js"></script>
+      <script src="assets/js/plugins/toastr/toastr.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+      <script src="assets/js/plugins/x-editable-develop/dist/bootstrap4-editable/js/bootstrap-editable.js"></script>
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <script src="assets/js/plugins/daterangepicker-master/daterangepicker.js"></script>
+      <script src="assets/js/plugins/moment-business-days-master/index.js"></script>
+      <?php
+      $rand = rand(1,100);
+      ?>
+      <script src="js/funciones_licencias.js?v=<?php echo $rand;?>"></script>
+  </body>
+</html>

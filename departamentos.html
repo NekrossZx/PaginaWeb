@@ -17,6 +17,8 @@
         <!-- style css -->
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/style-custom.css">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
         <!-- responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- awesome fontfamily -->
@@ -28,37 +30,120 @@
      <!-- body -->
     <body class="main-layout">
       <user-header></user-header>
-      <!-- Departamentos-->
-      <div class="container-fluid" >
-        <div class="row">
-        <div class="wrapper">
-          <h1>PHILIPPINES</h1>
-          <div class="image i1"></div>
-          <div class="details"><h1><em>Boracay Island</em></h1>
-          <h2>Surfer's Home</h2>
-          <p>3 Days - 2 Nights</p></div>
-          <h1>£750</h1>
-        </div>
-        
-        <div class="wrapper">
-          <h1>THAILAND</h1>
-          <div class="image i1"></div>
-          <div class="details" id="nombre"><h1><em>Mae Hong Son</em></h1>
-          <h2 >Farmer's Walk</h2>
-          <p>4 Days - 3 Nights</p></div>
-          <h1>£950</h1>
-        </div>
-        
-        <div class="wrapper">
-          <h1>JAPAN</h1>
-          <div class="image i3"></div>
-          <div class="details"><h1><em>Tokyo</em></h1>
-          <h2>Mandarin Oriental</h2>
-          <p>3 Days - 2 Nights</p></div>
-          <h1>£1250</h1>
+      <!--FILTRO-->
+      <div class="container-fluid">
+        <div class="col-md-12">
+          <form id="filtro">
+            <div class="filtro row">
+              <h1 class="text_align_center">Filtrar</h1><br>
+              <div class="col-md-2"><label for="">Región</label>
+                <select name="" id=""class="form-control">
+                    <option value="0">Seleccione Región</option>
+                    <option value="1">Región Metropolitana</option>
+                </select>
+              </div>
+              <div class="col-md-2">
+              <p>
+                <label for="amount">Rango Precio:</label>
+                <input type="text" id="amount" class="form-control" readonly>
+              </p>
+            
+              <div id="slider-range"></div>
+              </div>
+              <div class="col-md-6 text_align_right">
+                <button type="button" class="btn btn-filtro col-md-2">Filtrar</button>
+                <button type="reset" class="btn btn-filtro col-md-2" id="limpiar">Limpiar</button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
-    </div>
+      <!--END FILTRO-->
+      <!-- Departamentos-->
+      <div class="container-fluid">
+        <div class="row">
+          <div class="deps" id="vista_depts">
+            <div class="wrapper" id="dep2">
+              <h1 id="region">Región</h1>
+              <img class="image i1" src="images/about_img.png" alt="img">
+              <div class="details">
+                <h1>Codigo:<em id="codigo"></em></h1>
+                <h2 id="nombre">Nombre Departamento Real</h2>
+                <h1><em>Incluye</em></h1>
+                <h1><em>AQUI VAN LOS SERVICIOS</em></h1>
+              </div>
+              <p>Valor por día</p>
+              <h1 id="valor">$1450</h1>
+              <a type="button" href="dep.html" class="btn btn-custom-light">Detalles</a>
+            </div>
+            <div class="wrapper" id="dep2">
+              <h1 id="region">Región</h1>
+              <img class="image i1" src="images/about_img.png" alt="img">
+              <div class="details">
+                <h1>Codigo:<em id="codigo"></em></h1>
+                <h2 id="nombre">Nombre Departamento Real</h2>
+                <h1><em>Incluye</em></h1>
+                <h1><em>AQUI VAN LOS SERVICIOS</em></h1>
+              </div>
+              <p>Valor por día</p>
+              <h1 id="valor">$1450</h1>
+              <a type="button" href="dep.html" class="btn btn-custom-light">Detalles</a>
+            </div>
+            <div class="wrapper" id="dep2">
+              <h1 id="region">Región</h1>
+              <img class="image i1" src="images/about_img.png" alt="img">
+              <div class="details">
+                <h1>Codigo:<em id="codigo"></em></h1>
+                <h2 id="nombre">Nombre Departamento Real</h2>
+                <h1><em>Incluye</em></h1>
+                <h1><em>AQUI VAN LOS SERVICIOS</em></h1>
+              </div>
+              <p>Valor por día</p>
+              <h1 id="valor">$1450</h1>
+              <a type="button" href="dep.html" class="btn btn-custom-light">Detalles</a>
+            </div>
+            <div class="wrapper" id="dep2">
+              <h1 id="region">Región</h1>
+              <img class="image i1" src="images/about_img.png" alt="img">
+              <div class="details">
+                <h1>Codigo:<em id="codigo"></em></h1>
+                <h2 id="nombre">Nombre Departamento Real</h2>
+                <h1><em>Incluye</em></h1>
+                <h1><em>AQUI VAN LOS SERVICIOS</em></h1>
+              </div>
+              <p>Valor por día</p>
+              <h1 id="valor">$1450</h1>
+              <a type="button" href="dep.html" class="btn btn-custom-light">Detalles</a>
+            </div>
+            <div class="wrapper" id="dep2">
+              <h1 id="region">Región</h1>
+              <img class="image i1" src="images/about_img.png" alt="img">
+              <div class="details">
+                <h1>Codigo:<em id="codigo"></em></h1>
+                <h2 id="nombre">Nombre Departamento Real</h2>
+                <h1><em>Incluye</em></h1>
+                <h1><em>AQUI VAN LOS SERVICIOS</em></h1>
+              </div>
+              <p>Valor por día</p>
+              <h1 id="valor">$1450</h1>
+              <a type="button" href="dep.html" class="btn btn-custom-light">Detalles</a>
+            </div>
+            <div class="wrapper" id="dep2">
+              <h1 id="region">Región</h1>
+              <img class="image i1" src="images/about_img.png" alt="img">
+              <div class="details">
+                <h1>Codigo:<em id="codigo"></em></h1>
+                <h2 id="nombre">Nombre Departamento Real</h2>
+                <h1><em>Incluye</em></h1>
+                <h1><em>AQUI VAN LOS SERVICIOS</em></h1>
+              </div>
+              <p>Valor por día</p>
+              <h1 id="valor">$1450</h1>
+              <a type="button" href="dep.html" class="btn btn-custom-light">Detalles</a>
+            </div>
+          </div>
+        </div>
+      </div>
       <!-- end Departamentos-->
       <my-footer></my-footer>
       <!-- Javascript files-->
@@ -67,5 +152,7 @@
       <script src="js/custom.js"></script>
       <script src="js/jquery-3.0.0.min.js"></script>
       <script src="js/template.js"></script>
+      <script src="js/funciones_dep.js"></script>
+      <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
    </body>
 </html>

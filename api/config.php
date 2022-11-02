@@ -1,9 +1,9 @@
 <?php
 
 $databasetype		=	"oracle";		
-$databaselocation	=	"portafolio.c3w7sjz0g5nj.sa-east-1.rds.amazonaws.com";	
+$databaselocation	=	"turismoreal-instance-portafolio.c3w7sjz0g5nj.sa-east-1.rds.amazonaws.com";	
 $databasename	=	"portafolio";		
-$databaseuser		=	"admin_javier";			
+$databaseuser		=	"admin";			
 $databasepass	=	"micontrasena";			
 
 $conexion = mysql_connect($databaselocation, $databaseuser, $databasepass);  

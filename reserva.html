@@ -70,10 +70,6 @@
                            <div class="col-md-12">
                               <h4 style="color: black;">DATOS RESERVA</h4><br>
                               <div class="row">
-                                 <!--EMAIL-->
-                                 <div class="col-md-6"><label for="">Email Cliente</label>
-                                    <input type="email" id="email" class="form-control"><br>
-                                 </div>
                                  <!--CANTIDAD PERSONAS-->
                                  <div class="col-md-2"><label for="">Número personas</label>
                                     <input type="number" id="nro" class="form-control" value="1" readonly><br>
@@ -98,7 +94,7 @@
                            </div>
                         </div>
                         <div>
-                           <button type="button" class="btn btn-custom btn_guardar btn-block">Guardar</button>                             
+                           <button type="button" class="btn btn-custom btn_guardar btn-block">Pagar</button>                             
                         </div>
                     </form>
                   </div>
@@ -112,6 +108,7 @@
          <div class="modal-dialog" role="document">
             <div class="modal-content">
                <div class="modal-header">
+                  <h1 class="text_align_left">Transporte</h1>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                      <span aria-hidden="true">x</span>
                   </button>
@@ -120,7 +117,7 @@
                   <form id="md_transporte">
                      <div class="col-md-12">
                         <div class="modal-body">
-                           <h1 class="text_align_center">Transporte</h1><br>
+                           
                            <div class="row">
                               <!--LUGAR ORIGEN-->
                               <div class="col-md-12"><label for="">Origen</label>
@@ -156,6 +153,7 @@
          <div class="modal-dialog" role="document">
             <div class="modal-content">
                <div class="modal-header">
+                  <h1 class="text_align_center">Servicios extra</h1>
                   <button type="button" class="close" data-dismiss="modal">
                      <span aria-hidden="true">×</span>
                   </button>
@@ -163,7 +161,6 @@
                <form id="md_extras">
                   <div class="col-md-12">
                      <div class="modal-body">
-                        <h1 class="text_align_center">Servicios extra</h1><br>
                         <div class="row">
                            <!--AGREGAR SERVICIO-->
                            <div class="col-md-12"><label for="">Agregar Servicio</label>
@@ -184,7 +181,6 @@
                            <button type="button" id="btn_addTransporte" class="btn btn-custom" data-dismiss="modal">Agregar Servicios</button>
                            <button type="button" id="btn_Cancelar" class="btn btn-custom" data-dismiss="modal">Cancelar</button>
                         </div>
-                        
                      </div>
                   </div>
                </form>       
@@ -197,6 +193,7 @@
          <div class="modal-dialog" role="document">
             <div class="modal-content">
                <div class="modal-header">
+                  <h1 class="text_align_center">Acompañantes</h1>
                   <button type="button" class="close" data-dismiss="modal">
                      <span aria-hidden="true">×</span>
                   </button>
@@ -204,7 +201,6 @@
                <form id="md_otros">
                   <div class="col-md-12">
                      <div class="modal-body">
-                        <h1 class="text_align_center">Acompañantes</h1><br>
                         <div class="row">
                            <!--AGREGAR ACOMPAÑANTE-->
                            <div class="col-md-12"><label for="">Agregar Acompañante</label>
@@ -228,8 +224,8 @@
                                  </table>
                               </div>
                            </div>
-                           <button type="button" id="btn_addPersona" class="btn btn-custom">Añadir</button>
                         </div>
+                        <button type="button" id="btn_addPersona" class="btn btn-custom">Añadir</button>
                         <div class="col-md-12 modal-footer">
                            <button type="button" id="btn_addTransporte" class="btn btn-custom" data-dismiss="modal">Agregar Acompañante/s</button>
                            <button type="button" id="btn_Cancelar" class="btn btn-custom" data-dismiss="modal">Cancelar</button>
@@ -246,6 +242,7 @@
          <div class="modal-dialog" role="document">
             <div class="modal-content">
                <div class="modal-header">
+                  <h1 class="text_align_center">Turismo</h1>
                   <button type="button" class="close" data-dismiss="modal">
                      <span aria-hidden="true">×</span>
                   </button>
@@ -253,7 +250,6 @@
                <form id="md_turismo">
                   <div class="col-md-12">
                      <div class="modal-body">
-                        <h1 class="text_align_center">Turismo</h1>
                         <div class="row">
                            <!--AGREGAR ACTIVIDAD-->
                            <div class="col-md-12"><label for="">Agregar Actividad</label>
@@ -282,8 +278,8 @@
                                  </table>
                               </div>
                            </div>
-                           <button type="button" id="btn_addActividad" class="btn btn-custom">Añadir</button>
                         </div>
+                        <button type="button" id="btn_addActividad" class="btn btn-custom">Añadir</button>
                         <div class="col-md-12 modal-footer">
                            <button type="button" id="btn_saveActividad" class="btn btn-custom" data-dismiss="modal">Guardar</button>
                            <button type="button" id="btn_Cancelar" class="btn btn-custom" data-dismiss="modal">Cancelar</button>

@@ -1,16 +1,12 @@
 <?php
 
-$databasetype		=	"oracle";		
-$databaselocation	=	"turismoreal-instance-portafolio.c3w7sjz0g5nj.sa-east-1.rds.amazonaws.com";	
-$databasename	=	"portafolio";		
-$databaseuser		=	"admin";			
-$databasepass	=	"micontrasena";			
-
-$conexion = mysql_connect($databaselocation, $databaseuser, $databasepass);  
-mysql_select_db($databasename,$conexion); 
-mysql_query("SET NAMES 'utf8'");
-if (!$conexion) {
-    die('No pudo conectarse: ' . mysql_error());
-}
+// [username], [password], //[hostname]:[port]/[DB service name]
+$c = oci_pconnect("[Username]", "[Password]", "//localhost:1521/XEPDB1");
+$s = oci_parse($c, "SELECT 'Hello World!' FROM dual");
+oci_execute($s);
+oci_fetch_all($s, $res);
+echo "<pre>\n"
+var_dump($res);
+echo "</pre>\n";
 
 ?>

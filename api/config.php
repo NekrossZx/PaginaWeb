@@ -1,7 +1,7 @@
 <?php
 
 // [username], [password], //[hostname]:[port]/[DB service name]
-$c = oci_pconnect("[Username]", "[Password]", "//localhost:1521/XEPDB1");
+$c = oci_pconnect("JAVIER", "1234", "//localhost:1521/XEPDB1");
 $s = oci_parse($c, "SELECT 'Hello World!' FROM dual");
 oci_execute($s);
 oci_fetch_all($s, $res);

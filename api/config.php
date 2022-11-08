@@ -1,12 +1,12 @@
 <?php
 
-// [username], [password], //[hostname]:[port]/[DB service name]
-$c = oci_pconnect("ADMINS", "1234", "//192.168.56.1:1521/XE");
-$s = oci_parse($c, "SELECT 'Hello World!' FROM dual");
-oci_execute($s);
-oci_fetch_all($s, $res);
-echo "<pre>\n"
-var_dump($res);
-echo "</pre>\n";
+//CONECTAMOS CON LA BBDD
+$conn = oci_connect('ADMINS', '1234', '192.168.56.1/XE');
+if (!$conn) {
+    $e = oci_error();
+    trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+}else{
+    echo"conexion realizada";
+}
 
 ?>

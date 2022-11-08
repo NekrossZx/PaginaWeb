@@ -218,23 +218,3 @@ class headerUser extends HTMLElement {
  }
      
  customElements.define('user-header', headerUser);
-
-
- /**/
- //COMPLETA ESPECIALIDAD
- let actividad = null;
- $.ajax({
-   'async': false,
-   'type': "GET",
-   'global': false,
-   'dataType': 'html',
-   'url': "api/login.php?a=1",
-   'data': { 'request': "", 'target': 'arrange_url', 'method': 'method_target' },
-   'success': function (data) {
-      actividad = JSON.parse(data);
-   }
- }); 
-
- $(actividad).each(function (i, item) {
-     $("#actividad_nombre").append('<option value="'+item.nombre_actividad+'">'+item.nombre_actividad+'</option>')
- });

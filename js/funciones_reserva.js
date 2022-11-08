@@ -1,3 +1,27 @@
+$(document).ready(function () {
+    
+    //ALERTA TOAST
+  function toastConfig() {
+    toastr.options = {
+      closeButton: true,
+      debug: false,
+      newestOnTop: false,
+      progressBar: true,
+      positionClass: "toast-top-full-width",
+      preventDuplicates: false,
+      onclick: null,
+      showDuration: "2000",
+      hideDuration: "2000",
+      timeOut: "2000",
+      extendedTimeOut: "1000",
+      showEasing: "swing",
+      hideEasing: "linear",
+      showMethod: "fadeIn",
+      hideMethod: "fadeOut",
+      preventDuplicates: true,        
+      };
+      return toastr.options;
+    }
 //FECHA VALOR 'TODAY'
 $(document).ready( function() {
     var now = new Date();
@@ -70,151 +94,90 @@ $("body").on("click", ".btn_guardar", function (e) {
         }
     });
 
+    //FUNCIONALIDAD ACORDION DETALLES
     $(document).ready(function () {
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+            /* Toggle between adding and removing the "active" class,
+            to highlight the button that controls the panel */
+            this.classList.toggle("active");
+
+            /* Toggle between hiding and showing the active panel */
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+            panel.style.display = "none";
+            } else {
+            panel.style.display = "block";
+            }
+            });
+        }
+    });
+
+    //AGREGAR A LA TABLA SERVICIOS EXTRA
+    $(document).ready(function () {
+        $('#extra_service').DataTable( {
+            searching: false, paging: false, info: false
+        } );
+        var t = $('#extra_service').DataTable();
+        var counter = 1;
+     
+        $('#btn_addServicio').on('click', function () {
+            t.row.add([counter, counter , counter, counter ]).draw(false);
+    });
+
+    //AGREGAR A LA TABLA ACOMPAÑANTE
+    $(document).ready(function () {
+        $('#acompanante').DataTable( {
+            searching: false, paging: false, info: false
+        });
         var t = $('#acompanante').DataTable();
         var counter = 1;
-        var rut = $('#rut_acompanante').value();
-        var nombres = $('#nombres_acompanante').value();
-        var apellidos = $('#apellidos_acompanante').value();
+        var rut = 1;
+        var nombres = 1;
+        var apellidos = 1;
+
      
         $('#btn_addPersona').on('click', function () {
-            t.row.add([rut, nombres, apellidos]).draw();
+            let form = $("#md_otros").serializeArray();
+            let error = 0;
+            console.log(error);
+  
+            //VALIDACION
+            $(form).each(function (i, item) {
+                if (item.value == '' || item.value == null || item.value == undefined || item.value == 0 )
+                {
+                    error = 1;
+                    $("#" + item.name).addClass('bg-danger');
+                }
+            });
+    
+            if (error == 1) {
+                toastConfig();
+                Command: toastr["warning"]("Faltan Datos Por Completar", "Atención");
+            }
+            else {
+                t.row.add([counter, counter , counter, counter ]).draw(false);
+            }
+        });
+    }); 
+});
+
+    //AGREGAR A LA TABLA ACTIVIDAD
+    $(document).ready(function () {
+        $('#actividad').DataTable( {
+            searching: false, paging: false, info: false
+        } );
+        var t = $('#actividad').DataTable();
+        var counter = 1;
+     
+        $('#btn_addActividad').on('click', function () {
+            t.row.add([counter + '.1', counter + '.2', counter + '.3', counter + '.4', counter + '.5']).draw(false);
      
             counter++;
         });
      
-        // Automatically add a first row of data
-        $('#btn_addPersona').click();
     });
-
-    $("#extra_service").DataTable({
-        "ajax": {
-          "url": "api/index_tablero.php?a=2",
-          "type": "POST",
-          "dataSrc": ""
-        },
-        dom: 'Bfrtip',
-        buttons: [
-          'excel',
-          {text: 'Recargar',
-            action: function ( e, dt, node, config ) 
-              {dt.ajax.reload();}
-          },
-          {
-            extend: 'selected',
-            text: 'Editar',
-            action: function ( e, dt, button, config ) {
-              $("#modalEditar").modal('show');
-            }
-          },
-          {
-            extend: 'selected',
-            text: 'Eliminar',
-            action: function ( e, dt, button, config ) {
-              $("#modalEliminar").modal('show');
-            }
-          },
-          {
-            extend: 'selected',
-            text: 'Sin Iniciar',
-            action: function ( e, dt, button, config ) {
-              $("#modalIniciar").modal('show');
-            }
-          },
-          {
-            extend: 'selected',
-            text: 'En Proceso',
-            action: function ( e, dt, button, config ) {
-              $("#modalProceso").modal('show');
-            }
-          },
-          {
-            extend: 'selected',
-            text: 'Finalizado',
-            action: function ( e, dt, button, config ) {
-              $("#modalFinalizar").modal('show');
-            }
-          },
-        ],
-        aaSorting: [0, 'desc'],
-          bDestroy: true,
-          processing: false,
-          serverSide: false,
-          pageLength: 7,
-          lengthChange: true,
-          paging: true,
-          searching: true,
-          ordering: true,
-          info: true,
-          autoWidth: true,
-          select: 'single',
-        language: {
-          url: "js/sp.lang",
-          search: '<i class="fa fa-search"></i>',
-          searchPlaceholder: "Buscar...",
-        },
-          columns: [
-            {
-              className: "text-nowrap dt_id",
-                render: function (data, type, dt) {
-                    return validarVacio(dt.id);
-                }
-            },         
-            {
-              className: "text-nowrap dt_estado",
-                render: function (data, type, dt) {
-                    return validarVacio(nombreEstadoColor(dt.estado,dt.estado_nombre));
-                }
-            },
-            {
-              className: "text-nowrap dt_sap",
-                render: function (data, type, dt) {
-                    return validarVacio(dt.sap);
-                }
-            },
-            {
-              className: "text-nowrap dt_nombre",
-                render: function (data, type, dt) {
-                    return validarVacio(dt.nombre);
-                }
-            },
-            {
-              className: " dt_tipo_solicitud",
-                render: function (data, type, dt) {
-                    return validarVacio(dt.tipo_solicitud);
-                }
-            },
-            {
-              className: "text-nowrap dt_locacion",
-                render: function (data, type, dt) {
-                    return validarVacio(dt.locacion);
-                }
-            },
-            {
-              className: "text-nowrap dt_duracion",
-                render: function (data, type, dt) {
-                    return validarVacio(dt.duracion);
-                }
-            },
-            {
-              className: "text-nowrap dt_tipo_duracion",
-                render: function (data, type, dt) {
-                    return validarVacio(dt.tipo_duracion);
-                }
-            },
-            {
-              className: " dt_observaciones",
-                render: function (data, type, dt) {
-                    return validarVacio(dt.observaciones);
-                }
-            },
-            {
-              className: " dt_acciones",
-                render: function (data, type, dt) {
-                    return dt.acciones;
-                }
-            },
-        ],
-        drawCallback: function (settings) { 
-        },
-      });
+});

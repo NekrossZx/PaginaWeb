@@ -125,7 +125,30 @@ $("body").on("click", ".btn_guardar", function (e) {
         var counter = 1;
      
         $('#btn_addServicio').on('click', function () {
-            t.row.add([counter, counter , counter, counter ]).draw(false);
+            let form = $("#md_extras").serializeArray();
+            let error = 0;
+            console.log(error);
+  
+            //VALIDACION
+            $(form).each(function (i, item) {
+                if (item.value == '' || item.value == null || item.value == undefined || item.value == 0 )
+                {
+                    error = 1;
+                    $("#" + item.name).addClass('bg-danger');
+                }
+            });
+    
+            if (error == 1) {
+                toastConfig();
+                Command: toastr["warning"]("Faltan Datos Por Completar", "Atención");
+            }
+            else {
+                t.row.add([counter, counter , counter, counter ]).draw(false);
+                $("#md_extras")[0].reset();
+                $("#md_extras .form-control").removeClass('bg-success');
+                $("#md_extras .form-control").removeClass('bg-danger'); 
+            }
+        });
     });
 
     //AGREGAR A LA TABLA ACOMPAÑANTE
@@ -160,10 +183,12 @@ $("body").on("click", ".btn_guardar", function (e) {
             }
             else {
                 t.row.add([counter, counter , counter, counter ]).draw(false);
+                $("#md_otros")[0].reset();
+                $("#md_otros .form-control").removeClass('bg-success');
+                $("#md_otros .form-control").removeClass('bg-danger'); 
             }
         });
     }); 
-});
 
     //AGREGAR A LA TABLA ACTIVIDAD
     $(document).ready(function () {
@@ -174,10 +199,46 @@ $("body").on("click", ".btn_guardar", function (e) {
         var counter = 1;
      
         $('#btn_addActividad').on('click', function () {
-            t.row.add([counter + '.1', counter + '.2', counter + '.3', counter + '.4', counter + '.5']).draw(false);
-     
-            counter++;
+            let form = $("#md_turismo").serializeArray();
+            let error = 0;
+            console.log(error);
+  
+            //VALIDACION
+            $(form).each(function (i, item) {
+                if (item.value == '' || item.value == null || item.value == undefined || item.value == 0 )
+                {
+                    error = 1;
+                    $("#" + item.name).addClass('bg-danger');
+                }
+            });
+    
+            if (error == 1) {
+                toastConfig();
+                Command: toastr["warning"]("Faltan Datos Por Completar", "Atención");
+            }
+            else {
+                t.row.add([counter, counter , counter, counter ]).draw(false);
+                $("#md_turismo")[0].reset();
+                $("#md_turismo .form-control").removeClass('bg-success');
+                $("#md_turismo .form-control").removeClass('bg-danger'); 
+            }
         });
      
     });
+
+    //CAMBIO DE COLOR SEGUN VERIFICACIÓN
+    $("body").on("blur", ".form-control", function (e) {
+        e.preventDefault();
+        let valor = $(this).val();
+  
+        if (valor == '' || valor == null || valor == undefined || valor == 0)
+        {
+            $(this).addClass('bg-danger');
+        }
+        else
+        {
+            $(this).removeClass('bg-danger'); 
+            $(this).addClass('bg-success');
+     }
+    }); 
 });

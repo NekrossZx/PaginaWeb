@@ -19,7 +19,7 @@
       <link rel="stylesheet" href="css/style-reserva.css">
       <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
       <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/af-2.4.0/b-2.2.3/b-colvis-2.2.3/b-html5-2.2.3/cr-1.5.6/date-1.1.2/fc-4.1.0/fh-3.2.4/kt-2.7.0/r-2.3.0/rg-1.2.0/rr-1.2.8/sc-2.0.7/sb-1.3.4/sp-2.0.2/sl-1.4.0/sr-1.1.1/datatables.min.css"/>
-      <link rel="stylesheet" type="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+      <link rel="stylesheet" href="css/toastr.css">
       <!-- responsive-->
       <link rel="stylesheet" href="css/responsive.css">
       <!-- awesome fontfamily -->
@@ -50,18 +50,22 @@
                               <div class="row">
                                  <!--ID-->
                                  <div class="col-md-2"><label for="">ID Departamento</label>
-                                    <input type="text" id="id" class="form-control" readonly><br>
+                                    <input type="text" id="id" name="id" class="form-control" readonly><br>
                                  </div>
                                  <!--REGION-->
                                  <div class="col-md-2"><label for="">Región</label>
-                                    <input type="text" id="region" class="form-control" readonly><br>
+                                    <input type="text" id="region" name="region" class="form-control" readonly><br>
                                  </div>
                                  <!--DIRECCION-->
                                  <div class="col-md-2"><label for="">Dirección</label>
-                                    <input type="text" id="direccion" class="form-control" readonly><br>
+                                    <input type="text" id="direccion" name="direccion" class="form-control" readonly><br>
                                  </div>
                                  <!--SERVICIOS-->
-                                 <div class="col-md-3"><label for="">Servicios Incluidos</label>
+                                 <div class="col-md-12">
+                                    <button class="accordion">SERVICIOS INCLUIDOS</button>
+                                    <div class="panel">
+                                    <p>Lorem ipsum...</p>
+                                    </div>
                                  </div>
                               </div>
                            </div>
@@ -72,19 +76,19 @@
                               <div class="row">
                                  <!--CANTIDAD PERSONAS-->
                                  <div class="col-md-2"><label for="">Número personas</label>
-                                    <input type="number" id="nro" class="form-control" value="1" readonly><br>
+                                    <input type="number" id="nro" name="nro" class="form-control" value="1" readonly><br>
                                  </div>
                                  <!--FECHA RESERVA-->
                                  <div class="col-md-2" readonly><label for="">Fecha Reserva</label>
-                                    <input type="date" id="fecha_reserva" class="form-control"><br>
+                                    <input type="date" id="fecha_reserva" name="fecha_reserva" class="form-control"><br>
                                  </div>
                                  <!--FECHA INICIO-->
                                  <div class="col-md-3"><label for="">Fecha Inicio</label>
-                                    <input type="date" id="fecha_inicio" class="form-control"><br>
+                                    <input type="date" id="fecha_inicio" name="fecha_inicio" class="form-control"><br>
                                  </div>
                                  <!--FECHA TERMINO-->
                                  <div class="col-md-3"><label for="">Fecha Termino</label>
-                                    <input type="date" id="fecha_termino" class="form-control"><br>
+                                    <input type="date" id="fecha_termino" name="fecha_termino" class="form-control"><br>
                                  </div>
                               </div>
                            </div>
@@ -140,19 +144,19 @@
                               <div class="row">
                                  <!--LUGAR ORIGEN-->
                                  <div class="col-md-12"><label for="">Origen</label>
-                                    <select id="lugar_origen" class="form-control">
+                                    <select id="origen_ida" name="origen_ida" class="form-control">
                                        <option value="0">Seleccione Origen</option>
                                     </select>
                                  </div><br>
                                  <!--LUGAR DESTINO-->
                                  <div class="col-md-12"><label for="">Destino</label>
-                                    <select id="lugar_destino" class="form-control">
+                                    <select id="destino_ida" name="destino_ida" class="form-control">
                                        <option value="0">Seleccione Destino</option>
                                     </select>
                                  </div><br>
                                  <!--HORARIO-->
                                  <div class="col-md-12"><label for="">Hora Recogida</label>
-                                    <input type="time" id="horario" class="form-control">
+                                    <input type="time" id="horario_ida" name="horario_ida" class="form-control">
                                  </div>
                               </div>
                             </details>
@@ -161,19 +165,19 @@
                               <div class="row">
                                  <!--LUGAR ORIGEN-->
                                  <div class="col-md-12"><label for="">Origen</label>
-                                    <select id="lugar_origen" class="form-control">
+                                    <select id="origen_vuelta" name="origen_vuelta" class="form-control">
                                        <option value="0">Seleccione Origen</option>
                                     </select>
                                  </div><br>
                                  <!--LUGAR DESTINO-->
                                  <div class="col-md-12"><label for="">Destino</label>
-                                    <select id="lugar_destino" class="form-control">
+                                    <select id="destino_vuelta" name="destino_vuelta" class="form-control">
                                        <option value="0">Seleccione Destino</option>
                                     </select>
                                  </div><br>
                                  <!--HORARIO-->
                                  <div class="col-md-12"><label for="">Hora Recogida</label>
-                                    <input type="time" id="horario" class="form-control">
+                                    <input type="time" id="horario_vuelta" name="horario_vuelta" class="form-control">
                                  </div>
                               </div>
                            </details> 
@@ -205,7 +209,7 @@
                         <div class="row">
                            <!--AGREGAR SERVICIO-->
                            <div class="col-md-12"><label for="">Agregar Servicio</label>
-                              <select id="servicio_extra" class="form-control">
+                              <select id="servicio_extra" name="servicio_extra" class="form-control">
                                  <option value="0">Seleccione Servicio</option>
                               </select>
                            </div><br>
@@ -302,18 +306,18 @@
                            <div class="col-md-12"><label class="text_align_center">Agregar Actividad</label>
                               <div class="row">
                                  <div class="col-md-12"><label for="">Nombre Actividad</label>
-                                    <select id="actividad_nombre" class="form-control">
+                                    <select id="actividad_nombre" name="actividad_nombre" class="form-control">
                                        <option value="0">Seleccione Actividad</option>
                                     </select>
                                  </div><br>
                                  <div class="col-md-6"><label for="">Duración</label>
-                                    <input type="number" id="actividad_duracion" class="form-control" readonly>
+                                    <input type="number" id="actividad_duracion" name="actividad_duracion" class="form-control" readonly>
                                  </div><br>
                                  <div class="col-md-6"><label for="">Valor</label>
-                                    <input type="number" id="actividad_valor" class="form-control" readonly>
+                                    <input type="number" id="actividad_valor" name="actividad_valor" class="form-control" readonly>
                                  </div><br>
                                  <div class="col-md-12"><label for="">Descripción</label>
-                                    <textarea type="text" id="actividad_descripcion" class="form-control" readonly></textarea>
+                                    <textarea type="text" id="actividad_descripcion" name="actividad_descripcion" class="form-control" readonly></textarea>
                                  </div><br>
                                  <div class="col-md-12">
                                     <table class="col-md-6" id="actividad">
@@ -355,6 +359,5 @@
       <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
       <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-      
    </body>
 </html>

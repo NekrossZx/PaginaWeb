@@ -165,7 +165,7 @@ $("body").on("click", ".btn_guardar", function (e) {
                 {
                     targets: -1,
                     data: null,
-                    defaultContent: '<button class="btn-small">Eliminar</button> <button class="btn-small">Modificar</button>',
+                    defaultContent: '<button class="btn-small"><i class="fa fa-trash"></i></button> <button class="btn-small"><i class="fa fa-edit"></i></button>',
                 }
             ],
         });

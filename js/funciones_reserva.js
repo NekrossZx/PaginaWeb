@@ -160,7 +160,14 @@ $("body").on("click", ".btn_guardar", function (e) {
             searching: false, paging: false, info: false,
             "language": {
                 "emptyTable": "SIN DATOS INGRESADOS"
-            }
+            },
+            columnDefs: [
+                {
+                    targets: -1,
+                    data: null,
+                    defaultContent: '<button class="btn-small">Eliminar</button> <button class="btn-small">Modificar</button>',
+                }
+            ],
         });
         var t = $('#acompanante').DataTable();
         var counter = 1;
@@ -232,7 +239,7 @@ $("body").on("click", ".btn_guardar", function (e) {
                 Command: toastr["warning"]("Faltan Datos Por Completar", "Atención");
             }
             else {
-                t.row.add([actividad, duracion , valor, descripcion ]).draw(false);
+                t.row.add([actividad, duracion , valor, descripcion, counter]).draw(false);
                 $("#md_turismo")[0].reset();
                 $("#md_turismo .form-control").removeClass('bg-success');
                 $("#md_turismo .form-control").removeClass('bg-danger'); 

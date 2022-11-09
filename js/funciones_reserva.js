@@ -119,7 +119,10 @@ $("body").on("click", ".btn_guardar", function (e) {
     //AGREGAR A LA TABLA SERVICIOS EXTRA
     $(document).ready(function () {
         $('#extra_service').DataTable( {
-            searching: false, paging: false, info: false
+            searching: false, paging: false, info: false,
+            "language": {
+                "emptyTable": "SIN DATOS INGRESADOS"
+            }
         } );
         var t = $('#extra_service').DataTable();
         var counter = 1;
@@ -154,20 +157,23 @@ $("body").on("click", ".btn_guardar", function (e) {
     //AGREGAR A LA TABLA ACOMPAÑANTE
     $(document).ready(function () {
         $('#acompanante').DataTable( {
-            searching: false, paging: false, info: false
+            searching: false, paging: false, info: false,
+            "language": {
+                "emptyTable": "SIN DATOS INGRESADOS"
+            }
         });
         var t = $('#acompanante').DataTable();
         var counter = 1;
-        var rut = 1;
-        var nombres = 1;
-        var apellidos = 1;
 
-     
         $('#btn_addPersona').on('click', function () {
+            var rut = document.getElementById("rut_acompanante").value;
+            var nombres = document.getElementById("nombres_acompanante").value;
+            var apellidos = document.getElementById("apellidos_acompanante").value;
+
             let form = $("#md_otros").serializeArray();
             let error = 0;
-            console.log(error);
-  
+            //console.log(error);
+
             //VALIDACION
             $(form).each(function (i, item) {
                 if (item.value == '' || item.value == null || item.value == undefined || item.value == 0 )
@@ -182,7 +188,7 @@ $("body").on("click", ".btn_guardar", function (e) {
                 Command: toastr["warning"]("Faltan Datos Por Completar", "Atención");
             }
             else {
-                t.row.add([counter, counter , counter, counter ]).draw(false);
+                t.row.add([rut, nombres , apellidos, counter ]).draw(false);
                 $("#md_otros")[0].reset();
                 $("#md_otros .form-control").removeClass('bg-success');
                 $("#md_otros .form-control").removeClass('bg-danger'); 
@@ -193,12 +199,21 @@ $("body").on("click", ".btn_guardar", function (e) {
     //AGREGAR A LA TABLA ACTIVIDAD
     $(document).ready(function () {
         $('#actividad').DataTable( {
-            searching: false, paging: false, info: false
+            searching: false, paging: false, info: false,
+            "language": {
+                "emptyTable": "SIN DATOS INGRESADOS"
+            }
         } );
         var t = $('#actividad').DataTable();
         var counter = 1;
      
         $('#btn_addActividad').on('click', function () {
+            //VARIABLES
+            var actividad = document.getElementById("actividad_nombre").value;
+            var duracion = document.getElementById("actividad_duracion").value;
+            var valor = document.getElementById("actividad_valor").value;
+            var descripcion = document.getElementById("actividad_descripcion").value;
+
             let form = $("#md_turismo").serializeArray();
             let error = 0;
             console.log(error);
@@ -217,7 +232,7 @@ $("body").on("click", ".btn_guardar", function (e) {
                 Command: toastr["warning"]("Faltan Datos Por Completar", "Atención");
             }
             else {
-                t.row.add([counter, counter , counter, counter ]).draw(false);
+                t.row.add([actividad, duracion , valor, descripcion ]).draw(false);
                 $("#md_turismo")[0].reset();
                 $("#md_turismo .form-control").removeClass('bg-success');
                 $("#md_turismo .form-control").removeClass('bg-danger'); 

@@ -24,7 +24,7 @@ $(document).ready(function () {
     }
 
     //CAMBIO DE COLOR SEGUN VERIFICACIÓN
-    $("body").on("blur", ".form-control", function (e) {
+    $("body").on("blur", "required .form-control", function (e) {
         e.preventDefault();
         let valor = $(this).val();
   
@@ -268,6 +268,18 @@ $(document).ready(function () {
                     error = 1;
                     $("#" + item.name).addClass('bg-danger');
                 }
+
+                if(rut.fn_error){
+                    error = 1; 
+                }
+            });
+
+            $('#rut_acompanante').rut({
+                fn_error : function(input){
+                    toastConfig();
+                        Command: toastr["warning"]('El rut: ' + input.val() + ' es incorrecto', "Atención");      
+                },
+                placeholder: false
             });
     
             if (error == 1) {
@@ -282,6 +294,8 @@ $(document).ready(function () {
             }
         });
     }); 
+
+
 
     //                                                           TOUR
     //COMPLETA ACTIVIDAD TOUR

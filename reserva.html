@@ -84,15 +84,15 @@
                                  </div>
                                  <!--FECHA RESERVA-->
                                  <div class="col-md-2" readonly><label for="">Fecha Reserva</label>
-                                    <input type="date" id="fecha_reserva" name="fecha_reserva" class="form-control"><br>
+                                    <input type="date" id="fecha_reserva" name="fecha_reserva" class="form-control required"><br>
                                  </div>
                                  <!--FECHA INICIO-->
                                  <div class="col-md-3"><label for="">Fecha Inicio</label>
-                                    <input type="date" id="fecha_inicio" name="fecha_inicio" class="form-control"><br>
+                                    <input type="date" id="fecha_inicio" name="fecha_inicio" class="form-control required"><br>
                                  </div>
                                  <!--FECHA TERMINO-->
                                  <div class="col-md-3"><label for="">Fecha Termino</label>
-                                    <input type="date" id="fecha_termino" name="fecha_termino" class="form-control"><br>
+                                    <input type="date" id="fecha_termino" name="fecha_termino" class="form-control required"><br>
                                  </div>
                               </div>
                            </div>
@@ -148,19 +148,19 @@
                               <div class="row">
                                  <!--LUGAR ORIGEN-->
                                  <div class="col-md-12"><label for="">Origen</label>
-                                    <select id="origen_ida" name="origen_ida" class="form-control">
+                                    <select id="origen_ida" name="origen_ida" class="form-control required">
                                        <option value="0">Seleccione Origen</option>
                                     </select>
                                  </div><br>
                                  <!--LUGAR DESTINO-->
                                  <div class="col-md-12"><label for="">Destino</label>
-                                    <select id="destino_ida" name="destino_ida" class="form-control">
+                                    <select id="destino_ida" name="destino_ida" class="form-control required">
                                        <option value="0">Seleccione Destino</option>
                                     </select>
                                  </div><br>
                                  <!--HORARIO-->
                                  <div class="col-md-12"><label for="">Hora Recogida</label>
-                                    <input type="time" id="horario_ida" name="horario_ida" class="form-control">
+                                    <input type="time" id="horario_ida" name="horario_ida" class="form-control required">
                                  </div>
                               </div>
                             </details>
@@ -169,19 +169,19 @@
                               <div class="row">
                                  <!--LUGAR ORIGEN-->
                                  <div class="col-md-12"><label for="">Origen</label>
-                                    <select id="origen_vuelta" name="origen_vuelta" class="form-control">
+                                    <select id="origen_vuelta" name="origen_vuelta" class="form-control required">
                                        <option value="0">Seleccione Origen</option>
                                     </select>
                                  </div><br>
                                  <!--LUGAR DESTINO-->
                                  <div class="col-md-12"><label for="">Destino</label>
-                                    <select id="destino_vuelta" name="destino_vuelta" class="form-control">
+                                    <select id="destino_vuelta" name="destino_vuelta" class="form-control required">
                                        <option value="0">Seleccione Destino</option>
                                     </select>
                                  </div><br>
                                  <!--HORARIO-->
                                  <div class="col-md-12"><label for="">Hora Recogida</label>
-                                    <input type="time" id="horario_vuelta" name="horario_vuelta" class="form-control">
+                                    <input type="time" id="horario_vuelta" name="horario_vuelta" class="form-control required">
                                  </div>
                               </div>
                            </details> 
@@ -215,7 +215,7 @@
                            <div class="col-md-12"><label class="text_align_center" >Agregar Servicio</label>
                               <div class="row">
                                  <div class="col-md-12"><label for="">Servicio Extra</label>
-                                    <select id="servicio_extra" name="servicio_extra" class="form-control">
+                                    <select id="servicio_extra" name="servicio_extra" class="form-control required">
                                        <option value="0">Seleccione Servicio</option>
                                     </select>
                                  </div>
@@ -267,13 +267,13 @@
                            <div class="col-md-12 text_align_center"><label for="">Agregar Acompañante</label>
                               <div class="row">
                                  <div class="col-md-4"><label for="">RUT Acompañante</label>
-                                    <input type="text" id="rut_acompanante" name="rut_acompanante" class="form-control">
+                                    <input type="text" id="rut_acompanante" name="rut_acompanante" class="form-control required">
                                  </div><br>
                                  <div class="col-md-8"><label for="">Nombres Acompañante</label>
-                                    <input type="text" id="nombres_acompanante" name="nombres_acompanante" class="form-control">
+                                    <input type="text" id="nombres_acompanante" name="nombres_acompanante" class="form-control required">
                                  </div><br>
                                  <div class="col-md-8"><label for="">Apellidos Acompañante</label>
-                                    <input type="text" id="apellidos_acompanante" name="apellidos_acompanante" class="form-control">
+                                    <input type="text" id="apellidos_acompanante" name="apellidos_acompanante" class="form-control required">
                                  </div><br>
                                  <div class="col-md-4">
                                     <button type="button" id="btn_addPersona" class="btn btn-custom">Añadir</button>
@@ -322,7 +322,7 @@
                            <div class="col-md-12"><label>Agregar Actividad</label>
                               <div class="row">
                                  <div class="col-md-12"><label for="">Nombre Actividad</label>
-                                    <select id="actividad_nombre" name="actividad_nombre" class="form-control">
+                                    <select id="actividad_nombre" name="actividad_nombre" class="form-control required">
                                        <option value="0">Seleccione Actividad</option>
                                     </select>
                                  </div><br>
@@ -375,5 +375,6 @@
       <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
       <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+      <script src="js/jquery.rut.chileno.min.js"></script>
    </body>
 </html>

@@ -117,6 +117,31 @@ $(document).ready(function () {
 
             }
     });
+
+    $('#resumen_servicios').DataTable( {
+        searching: false, 
+        paging: false, 
+        info: false,
+        "language": {
+            "emptyTable": "SIN DATOS INGRESADOS",
+        }
+    } );
+    $('#resumen_otros').DataTable( {
+        searching: false, 
+        paging: false, 
+        info: false,
+        "language": {
+            "emptyTable": "SIN DATOS INGRESADOS",
+        }
+    } );
+    $('#resumen_tour').DataTable( {
+        searching: false, 
+        paging: false, 
+        info: false,
+        "language": {
+            "emptyTable": "SIN DATOS INGRESADOS",
+        }
+    } );
     //                                                       TRANSPORTE
 
 
@@ -152,7 +177,9 @@ $(document).ready(function () {
     //AGREGAR A LA TABLA SERVICIOS EXTRA
     $(document).ready(function () {
         $('#extra_service').DataTable( {
-            searching: false, paging: false, info: false,
+            searching: false, 
+            paging: false, 
+            info: false,
             "language": {
                 "emptyTable": "SIN DATOS INGRESADOS",
                 "thousands": "."
@@ -168,10 +195,7 @@ $(document).ready(function () {
 
         $('#extra_service').on('click', '.remove', function () {
             var table = $('#extra_service').DataTable();
-            table
-                .row($(this).parents('tr'))
-                .remove()
-            .draw();
+            table.row($(this).parents('tr')).remove().draw();
         });
 
         var t = $('#extra_service').DataTable();
@@ -180,6 +204,8 @@ $(document).ready(function () {
         $('#btn_addServicio').on('click', function () {
             var servicio = document.getElementById("servicio_extra").value;
             var valor = document.getElementById("valor_extra").value;
+
+            let nombre = $("td").find("").html();
 
             let form = $("#md_extras").serializeArray();
             let error = 0;
@@ -203,7 +229,7 @@ $(document).ready(function () {
                 $("#md_extras")[0].reset();
                 $("#md_extras .form-control").removeClass('bg-success');
                 $("#md_extras .form-control").removeClass('bg-danger');
-                $("option[value='Lavanderia']").remove(); 
+                $("option[value='"+nombre+"']").remove(); 
             }
         });
     });

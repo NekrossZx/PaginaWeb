@@ -15,4 +15,18 @@ if($accion == 2)
     $data = db_getActividad();
     echo $data;
 }
+
+//AGREGAR NUEVO REGISTRO
+if($accion == 3)
+{
+    $data = db_getDeptos();
+    echo $data;
+}
+
+//AGREGAR NUEVO REGISTRO
+if($accion == 4)
+{
+    $data = db_getRegion();
+    echo $data;
+}
 ?>

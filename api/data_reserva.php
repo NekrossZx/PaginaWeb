@@ -15,4 +15,19 @@ function db_getServicio(){
     echo json_encode($data);
 }
 
+function db_getActividad(){
+    $connection = oci_connect('ADMINS', '1234', '192.168.56.1/XE');
+    $sql = "SELECT * FROM actividad_tour";
+
+    $stid = oci_parse($connection,$sql) or die("Query failed: ".oci_error()." Actual db_getActividad");
+    oci_execute($stid);
+
+    $data = array();
+    while($row = oci_fetch_object($stid))
+    {
+        $data[] = $row;     
+    }
+    echo json_encode($data);
+}
+
 ?>

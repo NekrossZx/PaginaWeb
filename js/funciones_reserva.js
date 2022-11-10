@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    //                                                                 GENERAL
+    //                                                                                       GENERAL
     //ALERTA TOAST
     function toastConfig() {
     toastr.options = {
@@ -23,22 +23,7 @@ $(document).ready(function () {
       return toastr.options;
     }
 
-    //CAMBIO DE COLOR SEGUN VERIFICACIÓN
-    $("body").on("blur", "required .form-control", function (e) {
-        e.preventDefault();
-        let valor = $(this).val();
-  
-        if (valor == '' || valor == null || valor == undefined || valor == 0)
-        {
-            $(this).addClass('bg-danger');
-        }
-        else
-        {
-            $(this).removeClass('bg-danger'); 
-            $(this).addClass('bg-success');
-     }
-    });
-    //                                                   FORMULARIO PRINCIPAL
+    //                                                                                 FORMULARIO PRINCIPAL
     //FECHA VALOR 'TODAY'
     $(document).ready( function() {
         var now = new Date();
@@ -174,7 +159,7 @@ $(document).ready(function () {
             },
             columnDefs: [
                 {
-                    targets: -1,
+                    targets: 2,
                     data: null,
                     defaultContent: '<button class="btn-small remove"><i class="fa fa-trash"></i></button>',
                 }
@@ -214,15 +199,16 @@ $(document).ready(function () {
                 Command: toastr["warning"]("Faltan Datos Por Completar", "Atención");
             }
             else {
-                t.row.add([servicio, valor, counter ]).draw(false);
+                t.row.add([servicio, valor]).draw(false);
                 $("#md_extras")[0].reset();
                 $("#md_extras .form-control").removeClass('bg-success');
-                $("#md_extras .form-control").removeClass('bg-danger'); 
+                $("#md_extras .form-control").removeClass('bg-danger');
+                $("option[value='Lavanderia']").remove(); 
             }
         });
     });
 
-    //                                                     ACOMPAÑANTES
+    //                                                                               ACOMPAÑANTES
     //AGREGAR A LA TABLA ACOMPAÑANTE
     $(document).ready(function () {
         
@@ -268,20 +254,12 @@ $(document).ready(function () {
                     error = 1;
                     $("#" + item.name).addClass('bg-danger');
                 }
-
-                if(rut.fn_error){
-                    error = 1; 
-                }
-            });
-
-            $('#rut_acompanante').rut({
-                fn_error : function(input){
-                    toastConfig();
-                        Command: toastr["warning"]('El rut: ' + input.val() + ' es incorrecto', "Atención");      
-                },
-                placeholder: false
             });
     
+            if(fn_error = true){
+                error=1;
+            }
+
             if (error == 1) {
                 toastConfig();
                 Command: toastr["warning"]("Faltan Datos Por Completar", "Atención");
@@ -292,6 +270,15 @@ $(document).ready(function () {
                 $("#md_otros .form-control").removeClass('bg-success');
                 $("#md_otros .form-control").removeClass('bg-danger'); 
             }
+        });
+
+        $('#rut_acompanante').rut({
+            fn_error : function(input){
+                toastConfig();
+                    Command: toastr["warning"]('El rut: ' + input.val() + ' es incorrecto', "Atención");      
+            },
+            placeholder: false,
+            blur:false
         });
     }); 
 

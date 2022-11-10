@@ -212,10 +212,20 @@
                      <div class="modal-body">
                         <div class="row">
                            <!--AGREGAR SERVICIO-->
-                           <div class="col-md-12 text_align_center"><label for="">Agregar Servicio</label>
-                              <select id="servicio_extra" name="servicio_extra" class="form-control">
-                                 <option value="0">Seleccione Servicio</option>
-                              </select>
+                           <div class="col-md-12"><label class="text_align_center" >Agregar Servicio</label>
+                              <div class="row">
+                                 <div class="col-md-12"><label for="">Servicio Extra</label>
+                                    <select id="servicio_extra" name="servicio_extra" class="form-control">
+                                       <option value="0">Seleccione Servicio</option>
+                                    </select>
+                                 </div>
+                                 <div class="col-md-6"><label for="">Descripción</label>
+                                    <input type="text" id="descripcion_extra" class="form-control" readonly>
+                                 </div>
+                                 <div class="col-md-6"><label for="">Valor</label>
+                                    <input type="number" id="valor_extra" class="form-control" readonly>
+                                 </div>
+                              </div>
                            </div><br>
                            <table id="extra_service">
                               <thead>
@@ -262,8 +272,11 @@
                                  <div class="col-md-8"><label for="">Nombres Acompañante</label>
                                     <input type="text" id="nombres_acompanante" name="nombres_acompanante" class="form-control">
                                  </div><br>
-                                 <div class="col-md-12"><label for="">Apellidos Acompañante</label>
+                                 <div class="col-md-8"><label for="">Apellidos Acompañante</label>
                                     <input type="text" id="apellidos_acompanante" name="apellidos_acompanante" class="form-control">
+                                 </div><br>
+                                 <div class="col-md-4">
+                                    <button type="button" id="btn_addPersona" class="btn btn-custom">Añadir</button>
                                  </div><br>
                                  <div class="col-md-12">
                                     <table id="acompanante">
@@ -280,7 +293,6 @@
                               </div>
                            </div>
                         </div>
-                        <button type="button" id="btn_addPersona" class="btn btn-custom">Añadir</button>
                         <div class="col-md-12 modal-footer">
                            <button type="button" id="btn_addTransporte" class="btn btn-custom">Agregar Acompañante/s</button>
                            <button type="button" id="btn_Cancelar" class="btn btn-custom" data-dismiss="modal">Cancelar</button>

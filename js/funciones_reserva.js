@@ -35,6 +35,31 @@ $(document).ready( function() {
     $('#fecha_reserva').val(today);
   });
 
+  //COMPLETA TIPO LICENCIA
+  let servicio = null;
+  $.ajax({
+    'async': false,
+    'type': "GET",
+    'global': false,
+    'dataType': 'html',
+    'url': "api/login.php?a=1",
+    'data': { 'request': "", 'target': 'arrange_url', 'method': 'method_target' },
+    'success': function (data) {
+        servicio = JSON.parse(data);
+    }
+  }); 
+
+  $(servicio).each(function (i, item) {
+      $("#servicio_extra").append('<option value="'+item.NOMBRE+'" data-target="'+item.DESCRIPCION+'" data-value="'+item.VALOR+'">'+item.NOMBRE+'</option>')
+  });
+      //VALORES SEGUN SERVICIO INGRESADO
+    $("#servicio_extra").on("change", function (e) {	
+        let descripcion = $(this).find('option:selected').data('target');
+        let valor = $(this).find('option:selected').data('value');
+
+        $("#descripcion_extra").val(descripcion);
+        $("#valor_extra").val(valor);
+    });
 
 $("body").on("click", ".btn_guardar", function (e) {
     e.preventDefault();
@@ -121,13 +146,33 @@ $("body").on("click", ".btn_guardar", function (e) {
         $('#extra_service').DataTable( {
             searching: false, paging: false, info: false,
             "language": {
-                "emptyTable": "SIN DATOS INGRESADOS"
-            }
+                "emptyTable": "SIN DATOS INGRESADOS",
+                "thousands": "."
+            },
+            columnDefs: [
+                {
+                    targets: -1,
+                    data: null,
+                    defaultContent: '<button class="btn-small remove"><i class="fa fa-trash"></i></button>',
+                }
+            ]
         } );
+
+        $('#extra_service').on('click', '.remove', function () {
+            var table = $('#extra_service').DataTable();
+            table
+                .row($(this).parents('tr'))
+                .remove()
+            .draw();
+        });
+
         var t = $('#extra_service').DataTable();
         var counter = 1;
      
         $('#btn_addServicio').on('click', function () {
+            var servicio = document.getElementById("servicio_extra").value;
+            var valor = document.getElementById("valor_extra").value;
+
             let form = $("#md_extras").serializeArray();
             let error = 0;
             console.log(error);
@@ -146,7 +191,7 @@ $("body").on("click", ".btn_guardar", function (e) {
                 Command: toastr["warning"]("Faltan Datos Por Completar", "Atención");
             }
             else {
-                t.row.add([counter, counter , counter, counter ]).draw(false);
+                t.row.add([servicio, valor, counter ]).draw(false);
                 $("#md_extras")[0].reset();
                 $("#md_extras .form-control").removeClass('bg-success');
                 $("#md_extras .form-control").removeClass('bg-danger'); 
@@ -156,6 +201,7 @@ $("body").on("click", ".btn_guardar", function (e) {
 
     //AGREGAR A LA TABLA ACOMPAÑANTE
     $(document).ready(function () {
+        
         $('#acompanante').DataTable( {
             searching: false, paging: false, info: false,
             "language": {
@@ -165,10 +211,20 @@ $("body").on("click", ".btn_guardar", function (e) {
                 {
                     targets: -1,
                     data: null,
-                    defaultContent: '<button class="btn-small"><i class="fa fa-trash"></i></button> <button class="btn-small"><i class="fa fa-edit"></i></button>',
+                    defaultContent: '<button class="btn-small remove"><i class="fa fa-trash"></i></button> <button class="btn-small editar"><i class="fa fa-edit"></i></button>',
                 }
             ],
         });
+
+        $('#acompanante').on('click', '.remove', function () {
+            var table = $('#acompanante').DataTable();
+            table
+                .row($(this).parents('tr'))
+                .remove()
+            .draw();
+        });
+
+
         var t = $('#acompanante').DataTable();
         var counter = 1;
 
@@ -195,7 +251,7 @@ $("body").on("click", ".btn_guardar", function (e) {
                 Command: toastr["warning"]("Faltan Datos Por Completar", "Atención");
             }
             else {
-                t.row.add([rut, nombres , apellidos, counter ]).draw(false);
+                t.row.add([rut, nombres , apellidos, counter]).draw(false);
                 $("#md_otros")[0].reset();
                 $("#md_otros .form-control").removeClass('bg-success');
                 $("#md_otros .form-control").removeClass('bg-danger'); 
@@ -208,7 +264,8 @@ $("body").on("click", ".btn_guardar", function (e) {
         $('#actividad').DataTable( {
             searching: false, paging: false, info: false,
             "language": {
-                "emptyTable": "SIN DATOS INGRESADOS"
+                "emptyTable": "SIN DATOS INGRESADOS",
+                "thousands": "."
             }
         } );
         var t = $('#actividad').DataTable();

@@ -36,7 +36,7 @@
     transition: 0.4s;
   }
 
-  #modalAcompanante .modal-content {
+   #modalAcompanante .modal-content {
     display: flex;
     flex-direction: column;
     width: 750px;

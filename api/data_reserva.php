@@ -32,7 +32,9 @@ function db_getActividad(){
 
 function db_getDeptos(){
     $connection = oci_connect('ADMINS', '1234', '192.168.56.1/XE');
-    $sql = "SELECT id_departamento, nombre, arriendo_diario, habitaciones, banos, descripcion FROM departamento WHERE reservado != 'Y'";
+    $sql = "SELECT d.id_departamento, d.nombre, d.arriendo_diario, d.habitaciones, d.banos, d.descripcion, r.nombre as NOMBRE_REGION 
+    FROM departamento D JOIN ubicacion U ON d.id_departamento = u.id_ubicacion JOIN region R ON u.region_id_region = r.id_region WHERE d.reservado !='Y' 
+    ORDER BY r.nombre";
 
     $stid = oci_parse($connection,$sql) or die("Query failed: ".oci_error()." Actual db_getDeptos");
     oci_execute($stid);

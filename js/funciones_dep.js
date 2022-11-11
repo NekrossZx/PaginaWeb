@@ -82,15 +82,15 @@ $(document).ready(function () {
     $(deptos).each(function (i, item) {
         $("#vista_depts").append(`
         <div class="wrapper" id="dep`+contador+`">
-        <h1 style="color:white; id="`+item.NOMBRE+`">Región: `+item.NOMBRE+`</h1>
+        <h1 style="color:white; id="nombre">`+item.NOMBRE_REGION+`</h1>
         <img class="image i1" src="images/deptos/depto`+contador+`.jpg" alt="img">
         <div class="details">
           <h1>Codigo:`+item.ID_DEPARTAMENTO+`<em id="codigo"></em></h1>
-          <h2 id="nombre">`+item.NOMBRE+`</h2>
+          <h2 id="`+item.NOMBRE+`">`+item.NOMBRE+`</h2>
           <h1><em>Incluye</em></h1>
           <h1><em>AQUI VAN LOS SERVICIOS</em></h1>
         </div>
-        <p style="color:white;">Valor por día</p>
+        <p style="color:white;">ARRIENDO DIARIO</p>
         <h1 id="valor_diario">$`+item.ARRIENDO_DIARIO+`</h1>
         <a type="button" href="dep`+contador+`.html" class="btn btn-custom-light">Detalles</a>
       </div>

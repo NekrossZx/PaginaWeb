@@ -15,4 +15,5 @@ if($accion == 2)
     $data = db_getActividad();
     echo $data;
 }
+
 ?>

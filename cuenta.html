@@ -13,7 +13,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <!-- bootstrap css -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
         <!-- style css -->
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/style-custom.css">
@@ -36,84 +36,84 @@
                 <div class="module-inner">
                     <div class="side-bar">
                         <div class="user-info">
-                            <ul class="meta list list-unstyled">
-                                <li class="name">Rebecca Sanders
-                                    <label class="label label-info">UX Designer</label>
-                                </li>
-                                <li class="email"><a href="#">Rebecca.S@website.com</a></li>
-                                <li class="activity">Last logged in: Today at 2:18pm</li>
-                            </ul>
+                            <h1 class="label label-info">MI CUENTA</h1>
                         </div>
                     <nav class="side-menu">
                     <ul class="nav">
-                      <li class="active"><a href="#"><span class="fa fa-user"></span> Profile</a></li>
-                      <li><a href="#"><span class="fa fa-cog"></span> Settings</a></li>
-                      <li><a href="#"><span class="fa fa-credit-card"></span> Billing</a></li>
+                      <li class="active" ><a href="" id="perfil"><span class="fa fa-user"></span>Perfil</a></li>
+                      <li ><a href="" id="reservas"><span class="fa fa-credit-card"></span>Mis reservas</a></li>
                     </ul>
                     </nav>
                     </div>
                     <div class="content-panel">
-                        <h2 class="title">Profile<span class="pro-label label label-warning">PRO</span></h2>
-                        <form class="form-horizontal">
+                        <form id="form_perfil" class="form-horizontal">
                             <fieldset class="fieldset">
-                                <h3 class="fieldset-title">Personal Info</h3>
-                                <div class="form-group avatar">
-                                    <figure class="figure col-md-2 col-sm-3 col-xs-12">
-                                        <img class="img-rounded img-responsive" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
-                                    </figure>
-                                    <div class="form-inline col-md-10 col-sm-9 col-xs-12">
-                                        <input type="file" class="file-uploader pull-left">
-                                        <button type="submit" class="btn btn-sm btn-default-alt pull-left">Update Image</button>
-                                    </div>
-                                </div>
+                                <h3 class="fieldset-title">Información Personal</h3>
                                 <div class="form-group">
-                                    <label class="col-md-2 col-sm-3 col-xs-12 control-label">User Name</label>
+                                    <label class="col-md-2 col-sm-3 col-xs-12 control-label">Nombre de Usuario</label>
                                     <div class="col-md-10 col-sm-9 col-xs-12">
-                                        <input type="text" class="form-control" value="Rebecca">
+                                        <input type="text" class="form-control" id="nombre_usuario" name="nombre_usuario">
                                     </div>
                                 </div>
             
                                 <div class="form-group">
-                                    <label class="col-md-2 col-sm-3 col-xs-12 control-label">First Name</label>
+                                    <label class="col-md-2 col-sm-3 col-xs-12 control-label">Nombres</label>
                                     <div class="col-md-10 col-sm-9 col-xs-12">
-                                        <input type="text" class="form-control" value="Rebecca">
+                                        <input type="text" class="form-control" id="nombres" name="nombres">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-2 col-sm-3 col-xs-12 control-label">Last Name</label>
+                                    <label class="col-md-2 col-sm-3 col-xs-12 control-label">Apellidos</label>
                                     <div class="col-md-10 col-sm-9 col-xs-12">
-                                        <input type="text" class="form-control" value="Sanders">
+                                        <input type="text" class="form-control" id="apellidos" name="apellidos">
                                     </div>
                                 </div>
                             </fieldset>
                             <fieldset class="fieldset">
-                                <h3 class="fieldset-title">Contact Info</h3>
+                                <h3 class="fieldset-title">Información de Cuenta</h3>
                                 <div class="form-group">
                                     <label class="col-md-2  col-sm-3 col-xs-12 control-label">Email</label>
                                     <div class="col-md-10 col-sm-9 col-xs-12">
-                                        <input type="email" class="form-control" value="Rebecca@website.com">
-                                        <p class="help-block">This is the email </p>
+                                        <input type="email" class="form-control" id="correo" name="correo" > 
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-2  col-sm-3 col-xs-12 control-label">Twitter</label>
+                                    <label class="col-md-2  col-sm-3 col-xs-12 control-label">Contraseña Actual</label>
                                     <div class="col-md-10 col-sm-9 col-xs-12">
-                                        <input type="text" class="form-control" value="SpeedyBecky">
-                                        <p class="help-block">Your twitter username</p>
+                                        <input type="password" class="form-control" id="pass" name="pass">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-2  col-sm-3 col-xs-12 control-label">Linkedin</label>
+                                    <label class="col-md-2  col-sm-3 col-xs-12 control-label">Nueva Contraseña</label>
                                     <div class="col-md-10 col-sm-9 col-xs-12">
-                                        <input type="url" class="form-control" value="https://www.linkedin.com/in/lorem">
-                                        <p class="help-block">eg. https://www.linkedin.com/in/yourname</p>
+                                        <input type="password" class="form-control" id="newpass" name="newpass">
                                     </div>
                                 </div>
                             </fieldset>
                             <hr>
                             <div class="form-group">
                                 <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
-                                    <input class="btn btn-primary" type="submit" value="Update Profile">
+                                    <input class="btn btn-primary" type="submit" value="Actualizar cuenta">
+                                </div>
+                            </div>
+                        </form>
+                        <form id="mis_reservas" class="form-horizontal">
+                            <div>     
+                                <div class="col-md-12 table-responsive">
+                                    <table class="table table-bordered" id="dt_reserva">
+                                        <thead>
+                                            <tr>
+                                                <th>Número Reserva</th>
+                                                <th>Estado</th>
+                                                <th>Nombre Departamento</th>
+                                                <th>Región</th>
+                                                <th>Fecha Registro</th>
+                                                <th>Fecha Inicio</th>
+                                                <th>Fecha Termino</th>
+                                                <th>Acompañantes</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
                                 </div>
                             </div>
                         </form>
@@ -129,8 +129,14 @@
       <script src="js/jquery.min.js"></script>
       <script src="js/bootstrap.bundle.min.js"></script>
       <script src="js/custom.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
       <script src="js/jquery-3.0.0.min.js"></script>
       <script src="js/template.js"></script>
+      <script src="js/funciones_cuenta.js"></script>
       <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+      <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/af-2.4.0/b-2.2.3/b-colvis-2.2.3/b-html5-2.2.3/cr-1.5.6/date-1.1.2/fc-4.1.0/fh-3.2.4/kt-2.7.0/r-2.3.0/rg-1.2.0/rr-1.2.8/sc-2.0.7/sb-1.3.4/sp-2.0.2/sl-1.4.0/sr-1.1.1/datatables.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+      <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
    </body>
 </html>

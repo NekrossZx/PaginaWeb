@@ -148,6 +148,13 @@ img {
      margin-top: -50px;
      width: 150px;
      height: auto;
+     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 5px rgba(0, 0, 0, 0.24);
+     transition: all ease-in 0.15s;
+     border-radius: 10px;
+}
+.logo-top:hover{
+     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  transform: translate(0px, -3px) scale(1.02);
 }
 .logo-footer {
      margin-left: 80px;
@@ -314,7 +321,7 @@ header {
      padding: 33px 30px;
      position: fixed;
      z-index: 9999;
-     top: 1;
+     top: 0;
 }
 
 

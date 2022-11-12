@@ -154,7 +154,7 @@ $(document).ready(function () {
         'type': "GET",
         'global': false,
         'dataType': 'html',
-        'url': "api/login.php?a=1",
+        'url': "api/reserva.php?a=1",
         'data': { 'request': "", 'target': 'arrange_url', 'method': 'method_target' },
         'success': function (data) {
             servicio = JSON.parse(data);
@@ -318,7 +318,7 @@ $(document).ready(function () {
         'type': "GET",
         'global': false,
         'dataType': 'html',
-        'url': "api/login.php?a=2",
+        'url': "api/reserva.php?a=2",
         'data': { 'request': "", 'target': 'arrange_url', 'method': 'method_target' },
         'success': function (data) {
             tour = JSON.parse(data);

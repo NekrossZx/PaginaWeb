@@ -1,5 +1,5 @@
 <?php
-require ('data_dptos.php');
+require ('data_deptos.php');
 $accion = $_GET['a'];
 
 //AGREGAR NUEVO REGISTRO

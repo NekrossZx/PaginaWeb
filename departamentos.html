@@ -13,7 +13,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <!-- bootstrap css -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
         <!-- style css -->
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/style-custom.css">
@@ -33,34 +33,13 @@
       <div class="container-fluid">
         <div class="col-md-12">
           <form id="filtro">
-            <nav class="side-menu">
-              <ul class="nav">
-                <li class="active"><a href="#"><span class="fa fa-user"></span> Profile</a></li>
-                <li><a href="#"><span class="fa fa-cog"></span> Settings</a></li>
-                <li><a href="#"><span class="fa fa-credit-card"></span> Billing</a></li>
-              </ul>
+            <nav class="side-menu open">
+                <ul class="nav">
+                  <li class="active"><a href="#"><span class="fa fa-user"></span> Profile</a></li>
+                  <li><a href="#"><span class="fa fa-cog"></span> Settings</a></li>
+                  <li><a href="#"><span class="fa fa-credit-card"></span> Billing</a></li>
+                </ul>
               </nav>
-            <div class="filtro">
-              <div class="row">
-                <h1 class="text_align_center">Filtrar</h1><br>
-                <div class="col-md-4"><label for="">Región</label>
-                  <select name="filtro_region" id="filtro_region"class="form-control">
-                      <option value="0">Seleccione Región</option>
-                  </select>
-                </div>
-                <div class="col-md-4">
-                <p>
-                  <label for="amount">Rango Precio:</label>
-                  <input type="text" id="amount" class="form-control" readonly>
-                </p>
-                  <div id="slider-range"></div>
-                </div>
-                <div class="col-md-4">
-                  <button type="button" class="btn btn-filtro col-md-2">Filtrar</button>
-                  <button type="reset" class="btn btn-filtro col-md-2" id="limpiar">Limpiar</button>
-                </div>
-              </div>
-            </div>
           </form>
         </div>
       </div>

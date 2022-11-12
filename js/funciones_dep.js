@@ -50,7 +50,7 @@ $(document).ready(function () {
         'type': "GET",
         'global': false,
         'dataType': 'html',
-        'url': "api/login.php?a=4",
+        'url': "api/dptos.php?a=2",
         'data': { 'request': "", 'target': 'arrange_url', 'method': 'method_target' },
         'success': function (data) {
           region = JSON.parse(data);
@@ -72,7 +72,7 @@ $(document).ready(function () {
         'type': "GET",
         'global': false,
         'dataType': 'html',
-        'url': "api/login.php?a=3",
+        'url': "api/dptos.php?a=1",
         'data': { 'request': "", 'target': 'arrange_url', 'method': 'method_target' },
         'success': function (data) {
           deptos = JSON.parse(data);

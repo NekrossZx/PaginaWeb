@@ -188,7 +188,13 @@ class headerUser extends HTMLElement {
         <a href="services.html">Servicios</a>
         <a href="contact.html">Contacto</a>
         <a href="departamentos.html">Departamentos</a>
-        <a href="cuenta.html">Mi Cuenta</a>
+        <button class="dropdown-btn">Cuenta<i class="fa fa-caret-down" id="dropdown-arrow"></i>
+        </button>
+         <div class="dropdown-container">
+            <a href="#">Mis reservas</a>
+            <a href="cuenta.html">Mi cuenta</a>
+            <a href="#">Cerrar Sesión</a>
+         </div>
      </div>
      <!-- header -->
      <header>
@@ -218,3 +224,18 @@ class headerUser extends HTMLElement {
  }
      
  customElements.define('user-header', headerUser);
+
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+    this.classList.toggle("dropdown-active");
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+      dropdownContent.style.display = "block";
+    }
+  });
+}

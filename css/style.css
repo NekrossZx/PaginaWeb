@@ -374,16 +374,17 @@ ul.email li img {
      padding-top: 60px;
 }
 
-.sidepanel a {
+.sidepanel a, .dropdown-btn{
      padding: 8px 8px 8px 32px;
      text-decoration: none;
      font-size: 25px;
      color: #fff;
      display: block;
      transition: 0.3s;
+     background-color: transparent;
 }
 
-.sidepanel a:hover {
+.sidepanel a:hover, .dropdown-btn:hover {
      color: #fe9a0c;
 }
 
@@ -401,6 +402,20 @@ ul.email li img {
      border: none;
 }
 
+.dropdown-container {
+     display: none;
+     background-color: #262626;
+     padding-left: 8px;
+   }
+
+.dropdown-active{
+     background-color: #8b1310;
+     color: white;
+}
+
+#dropdown-arrow{
+     padding-left: 4.5em;
+}
 
 /** banner_main **/
 

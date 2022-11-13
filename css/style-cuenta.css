@@ -3,7 +3,8 @@ body{
     }
     .view-account{
     background:#FFFFFF; 
-    margin-top:100px;
+    margin:10em auto 1em auto;
+    border-radius: 10px;
     }
     .view-account .pro-label {
     font-size: 13px;
@@ -87,8 +88,8 @@ body{
     }
     
     .view-account .side-bar .side-menu .nav>li.active a {
-    color: #40babd;
-    border-bottom: 2px solid #40babd;
+    color: #8b1310;
+    border-bottom: 2px solid #8b1310;
     background: none;
     border-right: none
     }
@@ -115,7 +116,7 @@ body{
     }
     
     .view-account .content-panel {
-    padding: 30px
+    padding: 20px
     }
     
     .view-account .content-panel .title {
@@ -127,14 +128,10 @@ body{
     .view-account .content-panel .fieldset-title {
     padding-bottom: 15px;
     border-bottom: 1px solid #eaeaf1;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    margin-top: 20px;
     color: #616670;
     font-size: 16px
-    }
-    
-    .view-account .content-panel .avatar .figure img {
-    float: right;
-    width: 64px
     }
     
     .view-account .content-panel .content-header-wrapper {
@@ -340,7 +337,7 @@ body{
     }
     
     .drive-wrapper .drive-item-title a:hover {
-    color: #40babd
+    color: #8b1310
     }
     
     .theme-2 .drive-wrapper .drive-item-title a:hover {
@@ -417,7 +414,7 @@ body{
     }
     
     .drive-list-view a:hover {
-    color: #40babd
+    color: #8b1310
     }
     
     .theme-2 .drive-list-view a:hover {
@@ -561,7 +558,7 @@ body{
     }
     .view-account .side-bar .side-menu .nav>li.active a {
         background: #f9f9fb;
-        border-right: 4px solid #40babd;
+        border-right: 4px solid #8b1310;
         border-bottom: none
     }
     .theme-2 .view-account .side-bar .side-menu .nav>li.active a {
@@ -579,5 +576,9 @@ body{
         text-align: center;
         width: 40px;
         display: inline-block
+    }
+
+    #icon_perfil, #icon_reserva {
+        margin-right: 10px;
     }
     }

@@ -436,16 +436,25 @@ ul.email li img {
      justify-content: center;
      align-items: center;
 }
+
+#logo_banner{
+     width:400px;
+     height: auto;
+     border-radius: 50px;
+     opacity: 80%;
+}
 .banner_main2 {
      background: url(../images/service_bg.jpg);
-     background-size: 100% 100%;
+     background-size: 100% 150%;
      background-position: center;
      background-repeat: no-repeat;
      height: 1034px;
      display: flex;
      justify-content: center;
      align-items: center;
+     max-height: 100%;
 }
+
 .login {
      background: url(../images/service_bg.jpg);
      background-size: 100% 100%;
@@ -868,7 +877,7 @@ ul.email li img {
 
 .footer {
      background-image: linear-gradient(to bottom left, #540705, #8b1310);
-     padding-top: 62px;
+     padding-top: 10px;
      margin-bottom: -25px;
 }
 .index-footer {

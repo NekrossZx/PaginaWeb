@@ -25,23 +25,87 @@ $(document).ready(function () {
 
 //                                                                                 FILTRO
 
-  //MOSTRAR VALOR EN RANGE
+  //COMPLETA SERVICIO
+  let rango = null;
+  $.ajax({
+      'async': false,
+      'type': "GET",
+      'global': false,
+      'dataType': 'html',
+      'url': "api/deptos.php?a=3",
+      'data': { 'request': "", 'target': 'arrange_url', 'method': 'method_target' },
+      'success': function (data) {
+        rango = JSON.parse(data);
+      }
+  }); 
 
-    //-----JS for Price Range slider-----
+  $(rango).each(function (i, item) {
+    $("#rango_filtro").append(`<div class="wrapper-filter">
+      <div class="price-input">
+        <div class="field">
+          <span>Min</span>
+          <input type="number" class="input-min" value="`+item.MIN+`">
+        </div>
+        <div class="separator">-</div>
+        <div class="field">
+          <span>Max</span>
+          <input type="number" class="input-max" value="`+item.MAX+`">
+        </div>
+      </div>
+      <div class="slider">
+        <div class="progress"></div>
+      </div>
+      <div class="range-input">
+        <input type="range" class="range-min" min="`+item.MIN+`" max="`+item.MAX+`" value="`+item.MIN+`" step="10">
+        <input type="range" class="range-max" min="`+item.MIN+`" max="`+item.MAX+`" value="`+item.MAX+`" step="10">
+      </div>
+    </div>`)
+  });
+  
+    //MOSTRAR VALOR EN RANGE
+    const rangeInput = document.querySelectorAll(".range-input input"),
+    priceInput = document.querySelectorAll(".price-input input"),
+    range = document.querySelector(".slider .progress");
+    let priceGap = 1000;
 
-    $( function() {
-      $( "#slider-range" ).slider({
-        range: true,
-        min: 0,
-        max: 1450,
-        values: [ 0, 1450 ],
-        slide: function( event, ui ) {
-          $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-        }
-      });
-      $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-        " - $" + $( "#slider-range" ).slider( "values", 1 ) );
-    } );
+    priceInput.forEach(input =>{
+        input.addEventListener("input", e =>{
+            let minPrice = parseInt(priceInput[0].value),
+            maxPrice = parseInt(priceInput[1].value);
+            
+            if((maxPrice - minPrice >= priceGap) && maxPrice <= rangeInput[1].max){
+                if(e.target.className === "input-min"){
+                    rangeInput[0].value = minPrice;
+                    range.style.left = ((minPrice / rangeInput[0].max) * 100) + "%";
+                }else{
+                    rangeInput[1].value = maxPrice;
+                    range.style.right = 100 - (maxPrice / rangeInput[1].max) * 100 + "%";
+                }
+            }
+        });
+    });
+
+    rangeInput.forEach(input =>{
+        input.addEventListener("input", e =>{
+            let minVal = parseInt(rangeInput[0].value),
+            maxVal = parseInt(rangeInput[1].value);
+
+            if((maxVal - minVal) < priceGap){
+                if(e.target.className === "range-min"){
+                    rangeInput[0].value = maxVal - priceGap;
+                }else{
+                    rangeInput[1].value = minVal + priceGap;
+                }
+            }else{
+                priceInput[0].value = minVal;
+                priceInput[1].value = maxVal;
+                range.style.left = ((minVal / rangeInput[0].max) * 100) + "%";
+                range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
+            }
+        });
+    });
+
+      
 
     //COMPLETA SERVICIO
     let region = null;

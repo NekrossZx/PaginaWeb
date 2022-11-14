@@ -62,6 +62,7 @@ $(document).ready(function () {
     //ENVIAR RESERVA
     $("body").on("click", ".btn_guardar", function (e) {
         e.preventDefault();
+
         //OBTENEMOS DATOS DEL FORMULARIO
         let form = $("#reserva").serializeArray();
         
@@ -117,6 +118,8 @@ $(document).ready(function () {
 
             }
     });
+
+    
 
     $('#resumen_servicios').DataTable( {
         searching: false, 
@@ -280,11 +283,9 @@ $(document).ready(function () {
                     error = 1;
                     $("#" + item.name).addClass('bg-danger');
                 }
+
+                
             });
-    
-            if(fn_error = true){
-                error=1;
-            }
 
             if (error == 1) {
                 toastConfig();
@@ -301,10 +302,11 @@ $(document).ready(function () {
         $('#rut_acompanante').rut({
             fn_error : function(input){
                 toastConfig();
-                    Command: toastr["warning"]('El rut: ' + input.val() + ' es incorrecto', "Atención");      
+                    Command: toastr["warning"]('El rut: ' + input.val() + ' es incorrecto', "Atención");
+                    error = 1;      
             },
             placeholder: false,
-            blur:false
+            blur:false,
         });
     }); 
 
@@ -350,7 +352,7 @@ $(document).ready(function () {
             },
             columnDefs: [
                 {
-                    targets: -1,
+                    targets: 3,
                     data: null,
                     defaultContent: '<button class="btn-small remove"><i class="fa fa-trash"></i></button>',
                 }
@@ -392,14 +394,36 @@ $(document).ready(function () {
                 Command: toastr["warning"]("Faltan Datos Por Completar", "Atención");
             }
             else {
-                t.row.add([actividad, duracion , valor, counter]).draw(false);
+                t.row.add([actividad, duracion , valor]).draw(false);
                 $("#md_turismo")[0].reset();
                 $("#md_turismo .form-control").removeClass('bg-success');
                 $("#md_turismo .form-control").removeClass('bg-danger'); 
             }
         });
-     
+
+        $("body").on("click", "#btn_saveActividad", function (e) {
+            e.preventDefault();
+             
+            var table = $('#actividad').DataTable();
+            var data = table.rows(['tr']).data().toArray();
+            var json = JSON.stringify( data );
+    
+            console.log(json);
+    
+        });
+
+            $("body").on('click', '#btn_Cancelar_tour', function () {
+                let confirmar = confirm('¿Limpiar datos ingresados?');
+                var table = $('#actividad').DataTable();
+                if(confirmar==true){
+                    table.clear().draw();
+                }else{
+                    return false;
+                }
+            });
+
     });
 
 
+    
 });

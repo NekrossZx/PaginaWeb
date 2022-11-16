@@ -22,4 +22,18 @@ if($accion == 3)
     $data = db_getRango();
     echo $data;
 }
+
+//CARRUSEL 
+if($accion == 4)
+{
+    $data = db_getCarrusel();
+    echo $data;
+}
+
+//DETALLES 
+if($accion == 5)
+{
+    $data = db_getDetails();
+    echo $data;
+}
 ?>

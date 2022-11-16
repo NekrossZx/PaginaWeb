@@ -24,7 +24,7 @@ body {
   color: #333;
 }
 .details {
-  width: 95%;
+  width: 100%;
   margin: 0 auto 0.5em;
   padding-top: 10.5em;
   padding-bottom: 1em;
@@ -74,8 +74,8 @@ body {
 .image{
   position: relative;
   z-index: 2;
-  width: 85%;
-  height: 250px;
+  width: 95%;
+  height: 280px;
   margin: 10px auto -10em;
   background-size: cover;
   background-position: center;

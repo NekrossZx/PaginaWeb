@@ -53,7 +53,7 @@ $(document).ready(function () {
         </div>
       </div>
       <div class="slider">
-        <div class="progress"></div>
+        <div class="progress" style="left:0%; right:0%;"></div>
       </div>
       <div class="range-input">
         <input type="range" class="range-min" min="`+item.MIN+`" max="`+item.MAX+`" value="`+item.MIN+`" step="10">
@@ -126,10 +126,7 @@ $(document).ready(function () {
     });
 
 //                                                                         DEPARTAMENTOS
-
-    let contador = 1; 
-
-  //COMPLETA SERVICIO
+  //COMPLETA DEPARTAMENTOS
     let deptos = null;
     $.ajax({
         'async': false,
@@ -145,9 +142,9 @@ $(document).ready(function () {
 
     $(deptos).each(function (i, item) {
         $("#vista_depts").append(`
-        <div class="wrapper" id="dep`+contador+`">
+        <div class="wrapper" id="dep`+item.ID_DEPARTAMENTO+`">
         <h1 style="color:white; id="nombre">`+item.NOMBRE_REGION+`</h1>
-        <img class="image i1" src="images/deptos/depto`+contador+`.jpg" alt="img">
+        <img class="image i1" src="images/deptos/`+item.URL_IMAGEN+`" alt="img">
         <div class="details">
           <h1>Codigo:`+item.ID_DEPARTAMENTO+`<em id="codigo"></em></h1>
           <h2 id="`+item.NOMBRE+`">`+item.NOMBRE+`</h2>
@@ -155,11 +152,10 @@ $(document).ready(function () {
           <h1><em>AQUI VAN LOS SERVICIOS</em></h1>
         </div>
         <p style="color:white;">ARRIENDO DIARIO</p>
-        <h1 id="valor_diario">$`+item.ARRIENDO_DIARIO+`</h1>
-        <a type="button" href="dep`+contador+`.html" class="btn btn-custom-light">Detalles</a>
+        <h1>$`+item.ARRIENDO_DIARIO+`</h1>
+        <a id="btn_id" type="button" href="dep.html?id=`+item.ID_DEPARTAMENTO+`" class="btn btn-custom-light">Detalles</a>
       </div>
-      `)
-      contador++
+      `);
     });
 
 });

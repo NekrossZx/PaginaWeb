@@ -87,7 +87,8 @@ $(document).ready(function () {
         
     $(detalles).each(function (i, item) {
         $("#detalles").append(`  
-        <h2>`+item.NOMBRE+`</h2>              
+        <h2>`+item.NOMBRE+`</h2>
+        <h3>Código: `+item.ID_DEPARTAMENTO+`</h3>      
         <h3>`+item.NOMBRE_REGION+`</h3>
         <p>`+item.DESCRIPCION+`</p>
         <h1>Metros cuadrados: <em>`+item.METROS_CUADRADOS+`m²</em></h1>

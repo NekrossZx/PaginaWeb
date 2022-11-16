@@ -250,7 +250,7 @@ $(document).ready(function () {
                 {
                     targets: -1,
                     data: null,
-                    defaultContent: '<button class="btn-small remove"><i class="fa fa-trash"></i></button> <button class="btn-small editar"><i class="fa fa-edit"></i></button>',
+                    defaultContent: '<button class="btn-small remove"><i class="fa fa-trash"></i></button>',
                 }
             ],
         });
@@ -274,7 +274,7 @@ $(document).ready(function () {
 
             let form = $("#md_otros").serializeArray();
             let error = 0;
-            //console.log(error);
+            console.log(error);
 
             //VALIDACION
             $(form).each(function (i, item) {
@@ -282,14 +282,13 @@ $(document).ready(function () {
                 {
                     error = 1;
                     $("#" + item.name).addClass('bg-danger');
-                }
-
-                
+                }                
             });
 
-            if (error == 1) {
+            if (error === 1) {
                 toastConfig();
                 Command: toastr["warning"]("Faltan Datos Por Completar", "Atención");
+                console.log(error);
             }
             else {
                 t.row.add([rut, nombres , apellidos, counter]).draw(false);
@@ -297,17 +296,41 @@ $(document).ready(function () {
                 $("#md_otros .form-control").removeClass('bg-success');
                 $("#md_otros .form-control").removeClass('bg-danger'); 
             }
+
+            
         });
 
-        $('#rut_acompanante').rut({
+        $("#rut_acompanante").rut(error = 1,{
             fn_error : function(input){
                 toastConfig();
                     Command: toastr["warning"]('El rut: ' + input.val() + ' es incorrecto', "Atención");
-                    error = 1;      
             },
             placeholder: false,
-            blur:false,
+            blur:true,
         });
+
+        
+        $("body").on("click", "#btn_saveOtros", function (e) {
+            e.preventDefault();
+             
+            var table = $('#otros').DataTable();
+            var data = table.rows(['tr']).data().toArray();
+            var json = JSON.stringify( data );
+    
+            console.log(json);
+    
+        });
+
+        $("body").on('click', '#btn_Cancelar_otro', function () {
+            let confirmar = confirm('¿Limpiar datos ingresados?');
+            var table = $('#acompanante').DataTable();
+               if(confirmar==true){
+                    table.clear().draw();
+                }else{
+                    return false;
+                }  
+        });
+
     }); 
 
 

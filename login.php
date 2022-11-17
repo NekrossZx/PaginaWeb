@@ -1,3 +1,28 @@
+<?php
+    session_start();
+    $conn = oci_connect('ADMINS', '123', '192.168.56.1');
+
+    if(isset($_SESSION['logged'])){
+        header('Location:index.html');
+        exit();
+    }
+
+    if(isset($_POST['login'])){
+        $user = $_POST['email'];
+        $pass = $_POST['password'];
+        $sql = "SELECT * FROM CLIENTE WHERE email='$user' AND password='$pass'";
+        $s = oci_parse($conn, $sql);       
+        oci_execute($s);
+        $row = oci_fetch_all($s, $res);
+        if($row){
+            $_SESSION['logged'] = '1';
+            $_SESSION['user'] = $user;
+            exit("<p color='green'>Ingresado correctamente</p>");
+        }else{
+            exit("<p color='red'>Campo invalido</p>");
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
    <head>

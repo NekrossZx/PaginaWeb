@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
         blur:false
     });
 
-    $("body").on("blur", "#signupEmail",function validarEmail()
+    $("body").on("blur", "#signupEmail", function ()
     {
         var email = document.getElementById("signupEmail").value;
         var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
@@ -81,5 +81,18 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    $('#btn_login').on('click', function () {
+        $.ajax({
+            'async': false,
+            'type': "GET",
+            'global': false,
+            'dataType': 'html',
+            'url': "api/reserva.php?a=2",
+            'data': { 'request': "", 'target': 'arrange_url', 'method': 'method_target' },
+            'success': function (data) {
+                tour = JSON.parse(data);
+            }
+        }); 
+    });
 });
 

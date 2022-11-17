@@ -37,6 +37,26 @@ $(document).ready(function () {
         $('#fecha_reserva').val(today);
     });
 
+    //CALCULAR DIFERENCIA ENTRE FECHAS
+    $("body").on("change", "#fecha_termino", function (e){  
+        //define two variables and fetch the input from HTML form  
+        let date1 = new Date(document.getElementById("fecha_inicio").value);  
+        let date2 = new Date(document.getElementById("fecha_termino").value);  
+  
+        if (date1.getTime()&& date2.getTime()){
+          let timeDifference = date2.getTime() - date1.getTime();
+          let dayDifference = Math.abs((timeDifference / (1000 * 3600 * 24))+1);
+          $("#cantidad_dias").val(dayDifference);
+        }
+      });
+
+    $("#fecha_termino").on("change",function (e){ 
+        let valor_base = document.getElementById("arriendo").value;
+        let cantidad_dias = document.getElementById("cantidad_dias").value; 
+        let valor_total = valor_base * cantidad_dias;
+        $("#total").val(valor_total);
+    });
+
     //FUNCIONALIDAD ACORDION DETALLES
     $(document).ready(function () {
         var acc = document.getElementsByClassName("accordion");

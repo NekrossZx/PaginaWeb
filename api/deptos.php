@@ -35,5 +35,12 @@ if($accion == 5)
 {
     $data = db_getDetails();
     echo $data;
+    
+}
+
+if($accion == 6)
+{
+
+    
 }
 ?>

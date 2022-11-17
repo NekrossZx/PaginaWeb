@@ -72,6 +72,10 @@ $(document).ready(function () {
     });
 
     //COMPLETA DETALLES
+
+    let id = window.location.search;
+    console.log();
+
     let detalles = null;
     $.ajax({
         'async': false,
@@ -79,7 +83,7 @@ $(document).ready(function () {
         'global': false,
         'dataType': 'html',
         'url': "api/deptos.php?a=5",
-        'data': { 'request': "", 'target': 'arrange_url', 'method': 'method_target' },
+        'data': { 'request': id, 'target': 'arrange_url', 'method': 'method_target'},
         'success': function (data) {
             detalles = JSON.parse(data);
         }
@@ -98,12 +102,11 @@ $(document).ready(function () {
         <div>aqui van los Servicios</div>
         <p>Valor por día</p>
         <h1>$`+item.ARRIENDO_DIARIO+`</h1>
-        <a href="reserva.php?id=`+item.ID_DEPARTAMENTO+`" type="button" id="reservar" class="btn btn-custom-light">RESERVAR</a>
+        <a href="reserva.html?id=`+item.ID_DEPARTAMENTO+`" type="button" id="reservar" class="btn btn-custom-light">RESERVAR</a>
         <button type="button" class="btn btn-custom btn-block" onclick="history.back()">Volver</button>`)
     });
     
-    const queryString = window.location.search;
-    console.log(queryString);
+    
 });
 
 //FUNCIONES CARRUSEL

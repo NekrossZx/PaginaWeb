@@ -98,7 +98,7 @@ $(document).ready(function () {
         <div>aqui van los Servicios</div>
         <p>Valor por día</p>
         <h1>$`+item.ARRIENDO_DIARIO+`</h1>
-        <a href="reserva.html?id=`+item.ID_DEPARTAMENTO+`" type="button" id="reservar" class="btn btn-custom-light">RESERVAR</a>
+        <a href="reserva.php?id=`+item.ID_DEPARTAMENTO+`" type="button" id="reservar" class="btn btn-custom-light">RESERVAR</a>
         <button type="button" class="btn btn-custom btn-block" onclick="history.back()">Volver</button>`)
     });
     

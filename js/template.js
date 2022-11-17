@@ -182,6 +182,7 @@ class headerUser extends HTMLElement {
         <a href="contact.php">Contacto</a>
         <a href="departamentos.php">Departamentos</a>
         <a href="cuenta.php">Mi Cuenta</a>
+        <a href="logout.php">Cerrar Sesión</a>
      </div>
      <!-- header -->
      <header>

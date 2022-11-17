@@ -30,6 +30,4 @@ function db_getReservas(){
     echo json_encode($data);
 }
 
-
-
 ?>

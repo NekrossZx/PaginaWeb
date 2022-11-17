@@ -1,30 +1,5 @@
-<?php
-    session_start();
-    $conn = oci_connect('ADMINS', '123', '192.168.56.1');
-
-    if(isset($_SESSION['logged'])){
-        header('Location:index.html');
-        exit();
-    }
-
-    if(isset($_POST['login'])){
-        $user = $_POST['email'];
-        $pass = $_POST['password'];
-        $sql = "SELECT * FROM CLIENTE WHERE email='$user' AND password='$pass'";
-        $s = oci_parse($conn, $sql);       
-        oci_execute($s);
-        $row = oci_fetch_all($s, $res);
-        if($row){
-            $_SESSION['logged'] = '1';
-            $_SESSION['user'] = $user;
-            exit("<p color='green'>Ingresado correctamente</p>");
-        }else{
-            exit("<p color='red'>Campo invalido</p>");
-        }
-    }
-?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
    <head>
       <!-- basic -->
       <meta charset="utf-8">
@@ -54,15 +29,15 @@
       <div class="banner_main2">
          <div class="container">
             <!--LOGIN-->
-            <form class="form" id="login">
+            <form class="form" id="login" method="post" action="login_action.php">
                 <h1 class="form_title">Ingresar</h1><br>
                 <div class="form_input-group">
                     <input type="email" id="email" name="email" class="form-control" autofocus placeholder="Email">                    
                 </div>
                 <div class="form_input-group">
-                    <input type="password" id="password" name="password" class="form-control" autofocus placeholder="Contraseña">                   
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña">                   
                 </div>
-                <button class="form_button" id="btn_login">Ingresar</button>
+                <button class="form_button" id="btn_login" type="submit">Ingresar</button>
                 <p class="form_text">
                     <a href="#" class="form_link" id="lostPass">¿Olvidaste tu contraseña?</a>
                 </p>
@@ -74,21 +49,21 @@
             <form class="form form-hidden" id="signup" method="POST">
                 <h1 class="form_title">Crear Cuenta</h1><br>
                 <div class="form_input-group">
-                    <input type="text" id="signupRut" name="signupRut" class="form-control" autofocus placeholder="Rut">                  
+                    <input type="text" id="signupRut" name="signupRut" class="form-control" placeholder="Rut">                  
                 </div>
                 <div class="form_input-group">
-                    <input type="text" id="signupNombre" name="signupNombre" class="form-control" autofocus placeholder="Nombre(s)">                  
+                    <input type="text" id="signupNombre" name="signupNombre" class="form-control" placeholder="Nombre(s)">                  
                 </div>
                 <div class="form_input-group">
-                    <input type="text" id="signupApellido" name="signupApellido" class="form-control" autofocus placeholder="Apellido(s)">                  
+                    <input type="text" id="signupApellido" name="signupApellido" class="form-control" placeholder="Apellido(s)">                  
                 </div>
                 <div class="form_input-group">
-                    <input type="text" id="signupEmail" name="signupEmail" class="form-control" autofocus placeholder="Email">                    
+                    <input type="text" id="signupEmail" name="signupEmail" class="form-control" placeholder="Email">                    
                 </div>
                 <div class="form_input-group">
-                    <input type="password" id="signupPass" name="signupPass" class="form-control" autofocus placeholder="Password">                    
+                    <input type="password" id="signupPass" name="signupPass" class="form-control" placeholder="Password">                    
                 </div>
-                <button class="form_button" id="createAcc">Crear Cuenta</button>
+                <button class="form_button" id="createAcc" type="submit">Crear Cuenta</button>
                 <p class="form_text">
                     <a class="form_link" href="./" id="linkLogin">¿Ya tienes una cuenta? Ingresar</a>
                 </p>
@@ -97,7 +72,7 @@
             <form class="form form-hidden" id="recuperar">
                <h1 class="form_title">Recuperar contraseña</h1><br>
                <div class="form_input-group">
-                   <input type="email" id="recuperarEmail" name="recuperarEmail" class="form-control" autofocus placeholder="Email de Recuperación">
+                   <input type="email" id="recuperarEmail" name="recuperarEmail" class="form-control" placeholder="Email de Recuperación">
                </div>
                <button class="form_button" type="submit">Recuperar</button>
                <p class="form_text">

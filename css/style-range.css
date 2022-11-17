@@ -1,27 +1,22 @@
 .wrapper-filter{
-    width: auto;
+    width: 80%;
     background: rgba(80, 85, 112, 0.2);
     border-radius: 10px;
-    padding: 1px 10px 5px 5px;
+    padding: 10px 10px 5px 5px;
   }
   .price-input{
     width: 100%;
     display: flex;
-    margin: 0.25em 1em 1em 1em;
+    padding: 1em;
   }
   .price-input .field{
-    display: flex;
-    width: 100%;
-    height: 45px;
+    display: block;
+    width: 80%;
     align-items: center;
-    margin-left: 20px;
   }
   .field input{
-    width: 6em;
-    height: auto;
     outline: none;
-    font-size: 19px;
-    margin-left: 10px;
+    font-size: 15px;
     border-radius: 5px;
     text-align: center;
     border: 1px solid #999;
@@ -32,7 +27,7 @@
     font-size: 19px;
     align-items: center;
     justify-content: center;
-    margin: 10px;
+    margin: 5px;
   }
   .slider{
     height: 5px;
@@ -48,7 +43,7 @@
     right: 25%;
     position: absolute;
     border-radius: 5px;
-    background: #17A2B8;
+    background: #8b1310;
   }
   .range-input{
     position: relative;
@@ -68,7 +63,7 @@
     height: 17px;
     width: 17px;
     border-radius: 50%;
-    background: #17A2B8;
+    background: #fd990c;
     pointer-events: auto;
     -webkit-appearance: none;
     box-shadow: 0 0 6px rgba(0,0,0,0.05);
@@ -78,7 +73,7 @@
     width: 17px;
     border: none;
     border-radius: 50%;
-    background: #17A2B8;
+    background: #fd990c;
     pointer-events: auto;
     -moz-appearance: none;
     box-shadow: 0 0 6px rgba(0,0,0,0.05);

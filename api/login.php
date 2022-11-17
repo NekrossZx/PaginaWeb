@@ -20,4 +20,15 @@ if($accion == 1)
     );
 }
 
+if($accion == 2){
+  $form = json_decode($_POST['data']);
+
+  db_login(
+    //RUT
+    $form[0]->value,
+    //NOMBRES
+    $form[1]->value
+  );
+}
+
 ?>

@@ -41,7 +41,7 @@ $(document).ready(function () {
 
   $(rango).each(function (i, item) {
     $("#rango_filtro").append(`<div class="wrapper-filter">
-      <div class="price-input">
+      <div class="price-input ">
         <div class="field">
           <span>Min</span>
           <input type="number" class="input-min" value="`+item.MIN+`">
@@ -153,7 +153,7 @@ $(document).ready(function () {
         </div>
         <p style="color:white;">ARRIENDO DIARIO</p>
         <h1>$`+item.ARRIENDO_DIARIO+`</h1>
-        <a id="btn_id" type="button" href="dep.html?id=`+item.ID_DEPARTAMENTO+`" class="btn btn-custom-light">Detalles</a>
+        <a id="btn_id" type="button" href="dep.php?id=`+item.ID_DEPARTAMENTO+`" class="btn btn-custom-light">Detalles</a>
       </div>
       `);
     });

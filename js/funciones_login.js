@@ -143,3 +143,54 @@ $("body").on("click", "#createAcc", function (e) {
     }
 });
 //end VALIDAR LOGIN
+
+$("body").on("click", "#btn_login", function (e) {
+    e.preventDefault();
+
+    //OBTENEMOS DATOS DEL FORMULARIO
+    let form = $("#login").serializeArray();
+
+    //IMPRIME DEL NAVEGADOR 
+    console.log(form);
+
+    let error = 0;
+
+    //VALIDACION
+    $(form).each(function (i, item) {
+        if (item.value == '' || item.value == null || item.value == undefined || item.value == 0 )
+        {
+            error = 1;
+            $("#" + item.name).addClass('bg-danger');
+
+        }
+    });
+
+    if (error == 1) {
+        toastConfig();
+        Command: toastr["warning"]("Faltan Datos Por Completar", "Atención");
+    }
+    else {
+
+        localStorage.setItem("login", JSON.stringify(form));
+        //LLAMADA POR AJAX A API
+        $.ajax({
+            data: { data: JSON.stringify(form) },
+            url: "api/login.php?a=2",
+            type: 'POST',
+            success: function (data) {
+                if (data != null || data != '') {
+                    toastConfig();
+                    Command: toastr["success"]("Se ha iniciado correctamente", "Bienvenido/a");
+                    //LIMPIAR FORMULARIO
+                    $(".form-control").removeClass('bg-success');
+                    $(".form-control").removeClass('bg-danger');
+                }
+            },
+            error: function(data){
+                toastConfig();
+                    Command: toastr["danger"]("Error de conexión", "Error");
+            }
+        });
+
+    }
+});

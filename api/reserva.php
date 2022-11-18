@@ -16,4 +16,11 @@ if($accion == 2)
     echo $data;
 }
 
+//AGREGAR NUEVO REGISTRO
+if($accion == 3)
+{
+    $data = db_getDep();
+    echo $data;
+}
+
 ?>

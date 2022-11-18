@@ -24,6 +24,65 @@ $(document).ready(function () {
     }
 
     //                                                                                 FORMULARIO PRINCIPAL
+
+    //COMPLETA SERVICIO
+    let datos_dep = null;
+    $.ajax({
+        'async': false,
+        'type': "GET",
+        'global': false,
+        'dataType': 'html',
+        'url': "api/reserva.php?a=3",
+        'data': { 'request': "", 'target': 'arrange_url', 'method': 'method_target' },
+        'success': function (data) {
+            datos_dep = JSON.parse(data);
+        }
+    }); 
+
+    $(datos_dep).each(function (i, item) {
+        $("#datos_depto").append(`
+        <div class="col-md-12">
+        <h4 style="color: black;">DATOS DEPARTAMENTO</h4><br>
+        <div class="row">
+           <!--ID-->
+           <div class="col-md-2"><label for="">ID Departamento</label>
+              <input type="text" id="id" name="id" class="form-control" value="`+item.ID_DEPARTAMENTO+`" readonly><br>
+           </div>
+           <!--NOMBRE-->
+           <div class="col-md-2"><label for="">Nombre Departamento</label>
+              <input type="text" id="nombre" class="form-control" value="`+item.NOMBRE+`" readonly><br>
+           </div>
+           <!--REGION-->
+           <div class="col-md-2"><label for="">Región</label>
+              <input type="text" id="region" class="form-control" value="`+item.NOMBRE_REGION+`" readonly><br>
+           </div>
+           <!--DIRECCION-->
+           <div class="col-md-4"><label for="">Dirección</label>
+              <input type="text" id="direccion" class="form-control" value="`+item.DIRECCION+`" readonly><br>
+           </div>
+           <!--ARRIENDO DIARIO-->
+           <div class="col-md-2"><label for="">Arriendo Diario</label>
+              <input type="number" id="arriendo" class="form-control" value="`+item.ARRIENDO_DIARIO+`" readonly><br>
+           </div>
+           <!--DESCRIPCION-->
+           <div class="col-md-12"><label for="">Descripción</label>
+              <input type="text" id="descripcion" class="form-control" value="`+item.DESCRIPCION+`" readonly><br>
+           </div>
+           <!--SERVICIOS-->
+           <div class="col-md-12">
+              <details>
+                 <summary>SERVICIOS INCLUIDOS</summary>
+                 <div class="row">
+                    <!--LUGAR ORIGEN-->
+                    <div class="col-md-12"><label for=""></label>
+                    </div><br>
+                 </div>
+               </details>
+           </div><br>
+        </div><br>
+     </div>`)
+    });
+
     //FECHA VALOR 'TODAY'
     $(document).ready( function() {
         var now = new Date();
@@ -51,9 +110,9 @@ $(document).ready(function () {
       });
 
     $("#fecha_termino").on("change",function (e){ 
-        let valor_base = document.getElementById("arriendo").value;
-        let cantidad_dias = document.getElementById("cantidad_dias").value; 
-        let valor_total = valor_base * cantidad_dias;
+        var valor_base = document.getElementById("arriendo").value;
+        var cantidad_dias = document.getElementById("cantidad_dias").value; 
+        var valor_total = valor_base * cantidad_dias;
         $("#total").val(valor_total);
     });
 

@@ -197,7 +197,17 @@ $(document).ready(function () {
             }
     });
 
-    
+    $("body").on("click", ".btn_Cancelar", function (e) {
+        e.preventDefault();
+         let confirmar = confirm("¿Realmente deseas salir de esta página?");
+
+        if(confirmar === true){
+            history.back();
+        }else{
+            return false;
+        }
+
+    });
 
     $('#resumen_servicios').DataTable( {
         searching: false, 
@@ -379,7 +389,7 @@ $(document).ready(function () {
             
         });
 
-        $("#rut_acompanante").rut(error = 1,{
+        $("#rut_acompanante").rut({
             fn_error : function(input){
                 toastConfig();
                     Command: toastr["warning"]('El rut: ' + input.val() + ' es incorrecto', "Atención");

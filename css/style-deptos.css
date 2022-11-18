@@ -79,7 +79,7 @@
     box-sizing: border-box;
     text-align: center;
     border-radius: 10px 10px 0px 0px;
-    margin: 12em auto 0em auto;
+    margin: 1em auto 0em auto;
   }
 
   .details {
@@ -105,4 +105,9 @@
     box-shadow: none;
     object-fit: initial;
     border-radius: 10px 10px 0px 0px;
+}
+
+.btn_volver{
+  margin-top: 10em;
+  margin-left: 2.5em;
 }

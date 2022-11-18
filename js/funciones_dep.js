@@ -66,7 +66,7 @@ $(document).ready(function () {
     const rangeInput = document.querySelectorAll(".range-input input"),
     priceInput = document.querySelectorAll(".price-input input"),
     range = document.querySelector(".slider .progress");
-    let priceGap = 1000;
+    let priceGap = 100;
 
     priceInput.forEach(input =>{
         input.addEventListener("input", e =>{
@@ -144,7 +144,7 @@ $(document).ready(function () {
         $("#vista_depts").append(`
         <div class="wrapper" id="dep`+item.ID_DEPARTAMENTO+`">
         <h1 style="color:white; id="nombre">`+item.NOMBRE_REGION+`</h1>
-        <img class="image i1" src="images/deptos/`+item.URL_IMAGEN+`" alt="img">
+        <img class="image i1" src="images/deptos/`+item.IMAGEN+`" alt="img">
         <div class="details">
           <h1>Codigo:`+item.ID_DEPARTAMENTO+`<em id="codigo"></em></h1>
           <h2 id="`+item.NOMBRE+`">`+item.NOMBRE+`</h2>

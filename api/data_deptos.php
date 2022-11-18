@@ -2,10 +2,11 @@
 
 function db_getDeptos(){
     $connection = oci_connect('ADMINS', '123', '192.168.56.1');
-    $sql = "SELECT d.id_departamento, d.nombre, d.arriendo_diario, r.nombre as NOMBRE_REGION
+    $sql = "SELECT d.id_departamento, d.nombre, d.arriendo_diario, r.nombre as NOMBRE_REGION,f.url_imagen AS IMAGEN
     FROM departamento D 
     JOIN ubicacion U ON d.ubicacion_id_ubicacion = u.id_ubicacion 
     JOIN region R ON u.region_id_region = r.id_region
+    JOIN foto_muestra F ON f.departamento_id_departamento = d.id_departamento
     WHERE d.id_departamento != 0
     ORDER BY id_departamento";
 
@@ -41,7 +42,7 @@ function db_getRegion(){
 
 function db_getRango(){
     $connection = oci_connect('ADMINS', '123', '192.168.56.1');
-    $sql = "SELECT (MAX(arriendo_diario)) as MAX, (MIN(arriendo_diario)) AS MIN FROM departamento";
+    $sql = "SELECT (MAX(arriendo_diario)) as MAX, (MIN(arriendo_diario)) AS MIN FROM departamento WHERE id_departamento != 0 ";
 
     $stid = oci_parse($connection,$sql) or die("Query failed: ".oci_error()." Actual db_getRango");
     oci_execute($stid);

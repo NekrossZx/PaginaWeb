@@ -137,26 +137,6 @@ body {
   background: #06b9c0;
 }
 
-/* width */
-::-webkit-scrollbar {
-  width: 7px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1; 
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #fd990c; 
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #fa9201; 
-}
-
 @media screen and (max-width: 1000px) {
   .wrapper{
     width: 47%;

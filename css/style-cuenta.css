@@ -6,6 +6,11 @@ body{
     margin:10em auto 1em auto;
     border-radius: 10px;
     }
+    
+    .large{
+        width: 1300px;
+    }
+
     .view-account .pro-label {
     font-size: 13px;
     padding: 4px 5px;

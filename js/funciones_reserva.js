@@ -73,9 +73,8 @@ $(document).ready(function () {
               <details>
                  <summary>SERVICIOS INCLUIDOS</summary>
                  <div class="row">
-                    <!--LUGAR ORIGEN-->
-                    <div class="col-md-12"><label for=""></label>
-                    </div><br>
+                    <!--Servicios incluidos-->
+                    <p>NO EXISTEN SERVICIOS ASOCIADOS A ESTE DEPARTAMENTO</p>
                  </div>
                </details>
            </div><br>
@@ -374,6 +373,7 @@ $(document).ready(function () {
                 $("#md_otros")[0].reset();
                 $("#md_otros .form-control").removeClass('bg-success');
                 $("#md_otros .form-control").removeClass('bg-danger'); 
+                counter++;
             }
 
             
@@ -392,11 +392,13 @@ $(document).ready(function () {
         $("body").on("click", "#btn_saveOtros", function (e) {
             e.preventDefault();
              
-            var table = $('#otros').DataTable();
+            var table = $('#acompanante').DataTable();
             var data = table.rows(['tr']).data().toArray();
             var json = JSON.stringify( data );
     
             console.log(json);
+
+            localStorage.setItem("acompanante", JSON.stringify(json));
     
         });
 

@@ -6,6 +6,7 @@ function db_getDeptos(){
     FROM departamento D 
     JOIN ubicacion U ON d.ubicacion_id_ubicacion = u.id_ubicacion 
     JOIN region R ON u.region_id_region = r.id_region
+    WHERE d.id_departamento != 0
     ORDER BY id_departamento";
 
     $stid = oci_parse($connection,$sql) or die("Query failed: ".oci_error()." Actual db_getDeptos");

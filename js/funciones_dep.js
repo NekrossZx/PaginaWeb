@@ -25,7 +25,7 @@ $(document).ready(function () {
 
 //                                                                                 FILTRO
 
-  //COMPLETA SERVICIO
+  //COMPLETA RANGO
   let rango = null;
   $.ajax({
       'async': false,
@@ -40,29 +40,10 @@ $(document).ready(function () {
   }); 
 
   $(rango).each(function (i, item) {
-    $("#rango_filtro").append(`<div class="wrapper-filter">
-      <div class="price-input ">
-        <div class="field">
-          <span>Min</span>
-          <input type="number" class="input-min" value="`+item.MIN+`">
-        </div>
-        <div class="separator">-</div>
-        <div class="field">
-          <span>Max</span>
-          <input type="number" class="input-max" value="`+item.MAX+`">
-        </div>
-      </div>
-      <div class="slider">
-        <div class="progress" style="left:0%; right:0%;"></div>
-      </div>
-      <div class="range-input">
-        <input type="range" class="range-min" min="`+item.MIN+`" max="`+item.MAX+`" value="`+item.MIN+`" step="10">
-        <input type="range" class="range-max" min="`+item.MIN+`" max="`+item.MAX+`" value="`+item.MAX+`" step="10">
-      </div>
-    </div>`)
+    $("#filtro_precio").append('<option value="'+item.ARRIENDO_DIARIO+'">'+item.ARRIENDO_DIARIO+'</option>')
   });
   
-    //MOSTRAR VALOR EN RANGE
+    /*MOSTRAR VALOR EN RANGE
     const rangeInput = document.querySelectorAll(".range-input input"),
     priceInput = document.querySelectorAll(".price-input input"),
     range = document.querySelector(".slider .progress");
@@ -103,9 +84,7 @@ $(document).ready(function () {
                 range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
             }
         });
-    });
-
-      
+    });*/
 
     //COMPLETA SERVICIO
     let region = null;
@@ -123,6 +102,24 @@ $(document).ready(function () {
 
     $(region).each(function (i, item) {
         $("#filtro_region").append('<option value="'+item.NOMBRE+'">'+item.NOMBRE+'</option>')
+    });
+
+    //COMPLETA SERVICIO
+    let codigo = null;
+    $.ajax({
+        'async': false,
+        'type': "GET",
+        'global': false,
+        'dataType': 'html',
+        'url': "api/deptos.php?a=1",
+        'data': { 'request': "", 'target': 'arrange_url', 'method': 'method_target' },
+        'success': function (data) {
+          codigo = JSON.parse(data);
+        }
+    }); 
+
+    $(codigo).each(function (i, item) {
+        $("#codigo").append('<option value="'+item.ID_DEPARTAMENTO+'">')
     });
 
 //                                                                         DEPARTAMENTOS
@@ -153,7 +150,7 @@ $(document).ready(function () {
         </div>
         <p style="color:white;">ARRIENDO DIARIO</p>
         <h1>$`+item.ARRIENDO_DIARIO+`</h1>
-        <a id="btn_id" type="button" href="dep.html?id=`+item.ID_DEPARTAMENTO+`" class="btn btn-custom-light">Detalles</a>
+        <a id="btn_id" type="button" href="dep.html?id=`+item.ID_DEPARTAMENTO+`" data-value="`+item.ID_DEPARTAMENTO+`" class="btn btn-custom-light">Detalles</a>
       </div>
       `);
     });

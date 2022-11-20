@@ -81,18 +81,36 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    $('#btn_login').on('click', function () {
-        $.ajax({
-            'async': false,
-            'type': "GET",
-            'global': false,
-            'dataType': 'html',
-            'url': "api/reserva.php?a=2",
-            'data': { 'request': "", 'target': 'arrange_url', 'method': 'method_target' },
-            'success': function (data) {
-                tour = JSON.parse(data);
+    $('#btn_login').click(function()
+    {
+        var username=$("#email").val();
+        var password=$("#password").val();
+        var dataString = 'username='+username+'&password='+password;
+        if($.trim(username).length>0 && $.trim(password).length>0)
+        {
+            $.ajax({
+            type: "POST",
+            url: "api/login_action.php",
+            data: dataString,
+            cache: false,
+            beforeSend: function(){ $("#login").val('Connecting...');},
+            success: function(data){
+                if(data)
+                {
+                    //$("body").load("index.html").hide().fadeIn(1500).delay(6000);
+                    
+                    window.location.href = "index.html";
+                }
+                else
+                {
+                    //Shake animation effect.
+                    $("#login").val('Login')
+                    $("#error").html("<span style='color:#cc0000'>Error:</span> Invalid username and password. ");
+                }
             }
-        }); 
+            });
+        }
+        return false;
     });
 });
 

@@ -4,7 +4,7 @@ $accion = $_GET['a'];
 
 if($accion == 1)
 {
-    $form = json_decode($_POST['data']);
+    $form = json_decode($_POST[data]);
 
     db_addUsuario(
       //RUT

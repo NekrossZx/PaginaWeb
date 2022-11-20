@@ -40,9 +40,24 @@ function db_getRegion(){
     echo json_encode($data);
 }
 
-function db_getRango(){
+/*function db_getRango(){
     $connection = oci_connect('ADMINS', '123', '192.168.56.1');
     $sql = "SELECT (MAX(arriendo_diario)) as MAX, (MIN(arriendo_diario)) AS MIN FROM departamento WHERE id_departamento != 0 ";
+
+    $stid = oci_parse($connection,$sql) or die("Query failed: ".oci_error()." Actual db_getRango");
+    oci_execute($stid);
+
+    $data = array();
+    while($row = oci_fetch_object($stid))
+    {
+        $data[] = $row;     
+    }
+    echo json_encode($data);
+}*/
+
+function db_getRango(){
+    $connection = oci_connect('ADMINS', '123', '192.168.56.1');
+    $sql = "SELECT arriendo_diario FROM departamento WHERE id_departamento != '0' ";
 
     $stid = oci_parse($connection,$sql) or die("Query failed: ".oci_error()." Actual db_getRango");
     oci_execute($stid);

@@ -1,24 +1,25 @@
 <?php
-    include ("api/config.php");
+    include("api/config.php");
     session_start();
-    if(isset($_POST['login']))
+    if(isset($_POST['email']) && isset($_POST['password']))
     {
-        if(empty($_POST['email']) || empty($_POST['password']))
-        {
-            header("location:login.php?Empty=ingresar datos");
-        }else{
-            $sql="SELECT * FROM cliente WHERE email='".$_POST['email']."' AND contrasena = '".$_POST['password']."' ";
-            $stid = oci_parse($conn,$sql) or die("Query failed: ".oci_error()." Actual");
-            oci_execute($stid);
+        // username and password sent from Form
+        $username=oci_real_escape_string($conn,$_POST['email']); 
+        //Here converting passsword into MD5 encryption. 
+        $password=oci_real_escape_string($conn,$_POST['password']); 
 
-            if(oci_fetch_assoc($stid))
-            {
-                $_SESSION['user'] = $_POST['email'];
-                header("location:index.php");
-            }
-            else{
-                header("location:index.php?invalid");
-            }
+        $sql = "SELECT * FROM cliente WHERE email='$username' and password='$password'" ;
+    
+        $result=oci_parse($conn, $sql);
+        oci_execute($result);
+        $count=oci_num_rows($result);
+        $row=oci_fetch_array($result);
+        // If result matched $username and $password, table row  must be 1 row
+        if($count==1)
+        {
+            $_SESSION['login_user']=$row['email']; //Storing user session value.
+            echo $row['email'];
         }
+    
     }
 ?>

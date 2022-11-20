@@ -86,30 +86,30 @@ document.addEventListener("DOMContentLoaded", () => {
         var username=$("#email").val();
         var password=$("#password").val();
         var dataString = 'username='+username+'&password='+password;
-        if($.trim(username).length>0 && $.trim(password).length>0)
+        if($.trim(username).length>5 && $.trim(password).length>8)
         {
             $.ajax({
             type: "POST",
             url: "api/login_action.php",
             data: dataString,
             cache: false,
-            beforeSend: function(){ $("#login").val('Connecting...');},
+            beforeSend: function(){ $("#btn_login").val('Connecting...');},
             success: function(data){
                 if(data)
                 {
                     //$("body").load("index.html").hide().fadeIn(1500).delay(6000);
                     
-                    window.location.href = "index.html";
+                    console.log(data);
                 }
                 else
                 {
                     //Shake animation effect.
-                    $("#login").val('Login')
-                    $("#error").html("<span style='color:#cc0000'>Error:</span> Invalid username and password. ");
+                    toastConfig(); Command: toastr["warning"]('Email no valido', "Atención");
                 }
             }
             });
         }
+        toastConfig(); Command: toastr["warning"]('Ingresar un email valido', "Atención");
         return false;
     });
 });

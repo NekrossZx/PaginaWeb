@@ -1,6 +1,7 @@
 <?php
-    include("api/config.php");
     session_start();
+    $conn = oci_connect('ADMINS', '123', '192.168.56.1');
+
     if(isset($_POST['email']) && isset($_POST['password']))
     {
         // username and password sent from Form

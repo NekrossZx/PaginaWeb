@@ -38,9 +38,4 @@ if($accion == 5)
     
 }
 
-if($accion == 6)
-{
-
-    
-}
 ?>

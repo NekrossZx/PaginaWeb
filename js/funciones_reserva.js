@@ -115,6 +115,15 @@ $(document).ready(function () {
         $("#total").val(valor_total);
     });
 
+    $(function() {
+        $('input[name="daterange"]').daterangepicker({
+          opens: 'center',
+          autoApplay: true
+        }, function(start, end, label) {
+          console.log("A new date selection was made: " + start.format('DD-MM-YYYY') + ' to ' + end.format('DD-MM-YYYY'));
+        });
+      });
+
     //FUNCIONALIDAD ACORDION DETALLES
     $(document).ready(function () {
         var acc = document.getElementsByClassName("accordion");
@@ -328,99 +337,25 @@ $(document).ready(function () {
     //                                                                               ACOMPAÑANTES
     //AGREGAR A LA TABLA ACOMPAÑANTE
     $(document).ready(function () {
-        
-        $('#acompanante').DataTable( {
-            searching: false, paging: false, info: false,
-            "language": {
-                "emptyTable": "SIN DATOS INGRESADOS"
-            },
-            columnDefs: [
-                {
-                    targets: -1,
-                    data: null,
-                    defaultContent: '<button class="btn-small remove"><i class="fa fa-trash"></i></button>',
-                }
-            ],
-        });
 
-        $('#acompanante').on('click', '.remove', function () {
-            var table = $('#acompanante').DataTable();
-            table
-                .row($(this).parents('tr'))
-                .remove()
-            .draw();
-        });
-
-
-        var t = $('#acompanante').DataTable();
-        var counter = 1;
-
-        $('#btn_addPersona').on('click', function () {
-            var rut = document.getElementById("rut_acompanante").value;
-            var nombres = document.getElementById("nombres_acompanante").value;
-            var apellidos = document.getElementById("apellidos_acompanante").value;
-
-            let form = $("#md_otros").serializeArray();
-            let error = 0;
-            console.log(error);
-
-            //VALIDACION
-            $(form).each(function (i, item) {
-                if (item.value == '' || item.value == null || item.value == undefined || item.value == 0 )
-                {
-                    error = 1;
-                    $("#" + item.name).addClass('bg-danger');
-                }                
-            });
-
-            if (error === 1) {
-                toastConfig();
-                Command: toastr["warning"]("Faltan Datos Por Completar", "Atención");
-                console.log(error);
-            }
-            else {
-                t.row.add([rut, nombres , apellidos, counter]).draw(false);
-                $("#md_otros")[0].reset();
-                $("#md_otros .form-control").removeClass('bg-success');
-                $("#md_otros .form-control").removeClass('bg-danger'); 
-                counter++;
-            }
-
-            
-        });
-
-        $("#rut_acompanante").rut({
-            fn_error : function(input){
-                toastConfig();
-                    Command: toastr["warning"]('El rut: ' + input.val() + ' es incorrecto', "Atención");
-            },
-            placeholder: false,
-            blur:true,
-        });
-
-        
-        $("body").on("click", "#btn_saveOtros", function (e) {
+        $(".form-control").on("change", function (e) {
             e.preventDefault();
              
-            var table = $('#acompanante').DataTable();
-            var data = table.rows(['tr']).data().toArray();
-            var json = JSON.stringify( data );
-    
-            console.log(json);
-
-            localStorage.setItem("acompanante", JSON.stringify(json));
+            let form = $("#md_otros").serializeArray();
+            localStorage.setItem("acompanante", JSON.stringify(form));
+            //console.log(form);
     
         });
 
-        $("body").on('click', '#btn_Cancelar_otro', function () {
-            let confirmar = confirm('¿Limpiar datos ingresados?');
-            var table = $('#acompanante').DataTable();
-               if(confirmar==true){
-                    table.clear().draw();
-                }else{
-                    return false;
-                }  
+        $("#btn_Cancelar_otro").on("click", function (e) {
+            e.preventDefault();
+             
+            let form = $("#md_otros").clear();
+            localStorage.setItem("acompanante", JSON.stringify(form));
+            //console.log(form);
+    
         });
+
 
     }); 
 

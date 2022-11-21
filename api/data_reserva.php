@@ -1,7 +1,7 @@
 <?php
 
 function db_getServicio(){
-    $connection = oci_connect('ADMINS', '123', '192.168.56.1');
+    $connection = oci_connect('ADMINS', '1234', '192.168.56.1');
     $sql = "SELECT * FROM servicio_extra WHERE disponibilidad != 'N'";
 
     $stid = oci_parse($connection,$sql) or die("Query failed: ".oci_error()." Actual db_getServicio");
@@ -16,7 +16,7 @@ function db_getServicio(){
 }
 
 function db_getActividad(){
-    $connection = oci_connect('ADMINS', '123', '192.168.56.1');
+    $connection = oci_connect('ADMINS', '1234', '192.168.56.1');
     $sql = "SELECT * FROM actividad_tour";
 
     $stid = oci_parse($connection,$sql) or die("Query failed: ".oci_error()." Actual db_getActividad");
@@ -31,7 +31,7 @@ function db_getActividad(){
 }
 
 function db_getDep(){
-    $connection = oci_connect('ADMINS', '123', '192.168.56.1');
+    $connection = oci_connect('ADMINS', '1234', '192.168.56.1');
     $sql = "SELECT d.id_departamento, d.nombre, d.arriendo_diario, r.nombre as NOMBRE_REGION, d.descripcion, u.direccion
     FROM departamento D 
     JOIN ubicacion U ON d.ubicacion_id_ubicacion = u.id_ubicacion 

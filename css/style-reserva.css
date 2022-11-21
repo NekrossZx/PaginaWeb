@@ -46,3 +46,20 @@
     margin-top: 350px;
     transform: translate(-50%, -50%);
   }
+
+  .daterangepicker .drp-buttons .btn{
+    background-color:#8b1310;
+    color: white;
+  }
+
+  .daterangepicker td.in-range{
+    background-color:#fd990c !important;
+  }
+  
+  .daterangepicker td.active, .daterangepicker td.active:hover{
+    background-color:#8b1310 !important;
+    color: white !important;
+  }
+
+  
+  

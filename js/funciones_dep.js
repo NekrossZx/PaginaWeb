@@ -52,7 +52,7 @@ $(document).ready(function () {
       'url': "api/deptos.php?a=2",
       'data': { 'request': "", 'target': 'arrange_url', 'method': 'method_target' },
       'success': function (data) {
-        region = JSON.parse[data];
+        region = JSON.parse(data);
       }
   }); 
 

@@ -84,9 +84,9 @@
            </div>
            <!--SERVICIOS-->
            <div class="col-md-12">
-              <details id="servicios">
+              <details>
                  <summary>SERVICIOS INCLUIDOS</summary>
-                 <div class="row">
+                 <div class="row" id="servicios">
                     <!--Servicios incluidos-->
                     <p>NO EXISTEN SERVICIOS ASOCIADOS A ESTE DEPARTAMENTO</p>
                  </div>
@@ -94,6 +94,24 @@
            </div><br>
         </div><br>
      </div>`)
+    });
+
+    //COMPLETA ACTIVIDAD TOUR
+    let asociados = null;
+    $.ajax({
+        'async': false,
+        'type': "GET",
+        'global': false,
+        'dataType': 'html',
+        'url': "api/reserva.php?a=2",
+        'data': { 'request': "", 'target': 'arrange_url', 'method': 'method_target' },
+        'success': function (data) {
+            asociados = JSON.parse(data);
+        }
+    }); 
+
+    $(asociados).each(function (i, item) {
+        $("#servicios").append('<p>'+item.NOMBRE+'</p>')
     });
 
     //FECHA VALOR 'TODAY'

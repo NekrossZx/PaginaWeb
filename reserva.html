@@ -17,6 +17,7 @@
       <!-- style css -->
       <link rel="stylesheet" href="css/style.css">
       <link rel="stylesheet" href="css/style-reserva.css">
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
       <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
       <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/af-2.4.0/b-2.2.3/b-colvis-2.2.3/b-html5-2.2.3/cr-1.5.6/date-1.1.2/fc-4.1.0/fh-3.2.4/kt-2.7.0/r-2.3.0/rg-1.2.0/rr-1.2.8/sc-2.0.7/sb-1.3.4/sp-2.0.2/sl-1.4.0/sr-1.1.1/datatables.min.css"/>
       <link rel="stylesheet" href="css/toastr.css">
@@ -34,94 +35,105 @@
       <!-- reserva-->
       <div class="about top_layer">
          <div class="container">
-            <div class="row">
-               <div class="col-sm-12">
-                  <div class="col-md-12 text_align_center">
-                     <button type="button" data-toggle="modal" data-target="#modalTransporte" class="btn btn-custom-light btn_transporte">Transporte</button>
-                     <button type="button" data-toggle="modal" data-target="#modalExtra" class="btn btn-custom-light btn_extras">Servicios Extras</button>
-                     <button type="button" data-toggle="modal" data-target="#modalAcompanante" class="btn btn-custom-light btn_otros">Acompañantes</button>
-                     <button type="button" data-toggle="modal" data-target="#modalTurismo" class="btn btn-custom-light btn_turismo">Turismo</button>
-                  </div><br>
-                  <div class="titlepage text_align_center">
-                     <h1 class="form_title">RESERVA</h1>
-                     <form id="reserva">
-                        <div id="datos_depto"  class="container-fluid">
+            <div class="view-account">
+               <section class="module">
+                  <div class="module-inner">
+                     <div class="side-bar">
+                        <h1 class="text_align_center">MODULOS</h1><br>
+                        <div class="text_align_center">
+                           <button type="button" data-toggle="modal" data-target="#modalTransporte" class="btn btn-custom-light">Transporte</button>
+                           <button type="button" data-toggle="modal" data-target="#modalExtra" class="btn btn-custom-light">Servicios Extras</button>
+                           <button type="button" data-toggle="modal" data-target="#modalAcompanante" class="btn btn-custom-light">Acompañantes</button>
+                           <button type="button" data-toggle="modal" data-target="#modalTurismo" class="btn btn-custom-light">Turismo</button>
+                        </div><br>
+                        <div class="col-md-12">
+                           <h1 class="text_align_center">RESUMEN</h1><br>
+                           <button class="accordion">Transporte</button>
+                           <div class="panel">
+                           </div>
+                           <button class="accordion">Servicios Extras</button>
+                           <div class="panel">
+                              <table id="resumen_servicios">
+                                 <thead>
+                                    <tr>
+                                       <th>Cantidad Servicio</th>
+                                       <th>Valor Total</th>
+                                       <th>Servicios Elegidos</th>
+                                    </tr>
+                                 </thead>
+                              </table>
+                           </div>
+                           <button class="accordion">Acompañantes</button>
+                           <div class="panel">
+                              <table id="resumen_otros">
+                                 <thead>
+                                    <tr>
+                                       <th>RUT</th>
+                                       <th>Nombre</th>
+                                       <th>Apellido</th>
+                                    </tr>
+                                 </thead>
+                              </table>
+                           </div>
+                           <button class="accordion">Turismo</button>
+                           <div class="panel">
+                              <table id="resumen_tour">
+                                 <thead>
+                                    <tr>
+                                       <th>Cantidad Actividades</th>
+                                       <th>Duración Total</th>
+                                       <th>Valor Total</th>
+                                       <th>Actividades Elegidas</th>
+                                    </tr>
+                                 </thead>
+                              </table>
+                           </div>
                         </div>
-                        <div class="container-fluid">
+                     </div>
+                     <div class="content-panel">
+                        <div class="row">
                            <div class="col-md-12">
-                              <h4 style="color: black;">DATOS RESERVA</h4><br>
-                              <div class="row">
-                                 <!--CANTIDAD PERSONAS-->
-                                 <div class="col-md-2"><label for="">Número personas</label>
-                                    <input type="number" id="nro" name="nro" class="form-control" value="1" readonly><br>
-                                 </div>
-                                 <!--FECHA RESERVA-->
-                                 <div class="col-md-2" readonly><label for="">Fecha Reserva</label>
-                                    <input type="date" id="fecha_reserva" name="fecha_reserva" class="form-control required"><br>
-                                 </div>
-                                 <!--FECHA INICIO-->
-                                 <div class="col-md-3"><label for="">Fecha de estadia</label>
-                                    <input type="text" name="daterange" class="form-control"><br>
-                                 </div>
-                                 <div class="col-md-2"><label for="">Cantidad de dias</label>
-                                    <input type="number" id="cantidad_dias" name="cantidad_dias" class="form-control required" readonly><br>
-                                 </div>
-                                 <div class="col-md-2"><label for="">Valor total por dias</label>
-                                    <input type="number" id="total" name="total" class="form-control" readonly><br>
-                                 </div>
+                              <div class="titlepage text_align_center">
+                                 <h1 class="form_title">RESERVA</h1>
+                                 <form id="reserva">
+                                    <div id="datos_depto"  class="container-fluid">
+                                    </div>
+                                    <div class="container-fluid">
+                                       <div class="col-md-12">
+                                          <h4 style="color: black;">DATOS RESERVA</h4><br>
+                                          <div class="row">
+                                             <!--CANTIDAD PERSONAS-->
+                                             <div class="col-md-2"><label for="">Número personas</label>
+                                                <input type="number" id="nro" name="nro" class="form-control" value="1" readonly><br>
+                                             </div>
+                                             <!--FECHA RESERVA-->
+                                             <div class="col-md-2" readonly><label for="">Fecha Reserva</label>
+                                                <input type="date" id="fecha_reserva" name="fecha_reserva" class="form-control required"><br>
+                                             </div>
+                                             <!--FECHA INICIO-->
+                                             <div class="col-md-3"><label for="">Fecha de estadia</label>
+                                                <input type="text" name="daterange" class="form-control"><br>
+                                             </div>
+                                             <div class="col-md-2"><label for="">Cantidad de dias</label>
+                                                <input type="number" id="cantidad_dias" name="cantidad_dias" class="form-control required" readonly><br>
+                                             </div>
+                                             <div class="col-md-2"><label for="">Valor total por dias</label>
+                                                <input type="number" id="total" name="total" class="form-control" readonly><br>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div>
+                                       <button type="button" class="btn btn-custom btn_guardar btn-block">Ir a pagar</button>
+                                       <button type="button" class="btn btn-custom btn_cancelar btn-block" onclick="history.back()">Cancelar</button>                              
+                                    </div>
+                              </form>
                               </div>
                            </div>
                         </div>
-                        <div>
-                           <button type="button" class="btn btn-custom btn_guardar btn-block">Ir a pagar</button>
-                           <button type="button" class="btn btn-custom btn_cancelar btn-block" onclick="history.back()">Cancelar</button>                              
-                        </div>
-                    </form>
-                  </div>
-                  <h1 class="text_align_center">RESUMEN</h1><br>
-                  <div class="col-md-12">
-                     <button class="accordion">Transporte</button>
-                     <div class="panel">
-                     </div>
-                     <button class="accordion">Servicios Extras</button>
-                     <div class="panel">
-                        <table id="resumen_servicios">
-                           <thead>
-                              <tr>
-                                 <th>Cantidad Servicio</th>
-                                 <th>Valor Total</th>
-                                 <th>Servicios Elegidos</th>
-                              </tr>
-                           </thead>
-                        </table>
-                     </div>
-                     <button class="accordion">Acompañantes</button>
-                     <div class="panel">
-                        <table id="resumen_otros">
-                           <thead>
-                              <tr>
-                                 <th>RUT</th>
-                                 <th>Nombre</th>
-                                 <th>Apellido</th>
-                              </tr>
-                           </thead>
-                        </table>
-                     </div>
-                     <button class="accordion">Turismo</button>
-                     <div class="panel">
-                        <table id="resumen_tour">
-                           <thead>
-                              <tr>
-                                 <th>Cantidad Actividades</th>
-                                 <th>Duración Total</th>
-                                 <th>Valor Total</th>
-                                 <th>Actividades Elegidas</th>
-                              </tr>
-                           </thead>
-                        </table>
                      </div>
                   </div>
-               </div>
+               </section>
             </div>
          </div>
       </div>
@@ -140,48 +152,44 @@
                   <form id="md_transporte">
                      <div class="col-md-12">
                         <div class="modal-body">
-                           <details open>
+                           <details id="ida" open>
                               <summary>IDA</summary>
                               <div class="row">
-                                 <!--LUGAR ORIGEN-->
-                                 <div class="col-md-12"><label for="">Origen</label>
-                                    <select id="origen_ida" name="origen_ida" class="form-control required">
-                                       <option value="0">Seleccione Origen</option>
-                                    </select>
-                                 </div><br>
-                                 <!--LUGAR DESTINO-->
-                                 <div class="col-md-12"><label for="">Destino</label>
-                                    <select id="destino_ida" name="destino_ida" class="form-control required">
-                                       <option value="0">Seleccione Destino</option>
-                                    </select>
-                                 </div><br>
                                  <!--HORARIO-->
-                                 <div class="col-md-12"><label for="">Hora Recogida</label>
-                                    <input type="time" id="horario_ida" name="horario_ida" class="form-control required">
-                                 </div>
+                                 <div class="col-md-4"><label for="">Fecha/Hora Recogida</label>
+                                    <input type="text" id="ida_hora" name="ida_hora" class="form-control ida">
+                                 </div><br>
+                                 <!--DIRECCIÓN ORIGEN-->
+                                 <div class="col-md-12"><label for="">Dirección Origen</label>
+                                    <input id="ida_origen" name="ida_origen" class="form-control required ida" placeholder="Formato: Calle, Número, Comuna o Región">
+                                 </div><br>
+                                 <!--DIRECCIÓN DESTINO-->
+                                 <div class="col-md-12"><label for="">Dirección Destino</label>
+                                    <input id="ida_destino" name="ida_destino" class="form-control required ida" placeholder="Formato: Calle, Número, Comuna o Región">
+                                 </div><br>
                               </div>
-                            </details>
-                            <details>
+                           </details>
+                           <details id="vuelta" class="hidden">
                               <summary>VUELTA</summary>
                               <div class="row">
-                                 <!--LUGAR ORIGEN-->
-                                 <div class="col-md-12"><label for="">Origen</label>
-                                    <select id="origen_vuelta" name="origen_vuelta" class="form-control required">
-                                       <option value="0">Seleccione Origen</option>
-                                    </select>
-                                 </div><br>
-                                 <!--LUGAR DESTINO-->
-                                 <div class="col-md-12"><label for="">Destino</label>
-                                    <select id="destino_vuelta" name="destino_vuelta" class="form-control required">
-                                       <option value="0">Seleccione Destino</option>
-                                    </select>
-                                 </div><br>
                                  <!--HORARIO-->
-                                 <div class="col-md-12"><label for="">Hora Recogida</label>
-                                    <input type="time" id="horario_vuelta" name="horario_vuelta" class="form-control required">
-                                 </div>
+                                 <div class="col-md-4"><label for="">Fecha/Hora Recogida</label>
+                                    <input type="text" id="vuelta_hora" name="vuelta_hora" class="form-control">
+                                 </div><br>
+                                 <!--DIRECCIÓN ORIGEN-->
+                                 <div class="col-md-12"><label for="">Dirección Origen</label>
+                                    <input id="vuelta_origen" name="vuelta_origen" class="form-control required" placeholder="Formato: Calle, Número, Comuna o Región">
+                                 </div><br>
+                                 <!--DIRECCIÓN DESTINO-->
+                                 <div class="col-md-12"><label for="">Dirección Destino</label>
+                                    <input id="vuelta_destino" name="vuelta_destino" class="form-control required" placeholder="Formato: Calle, Número, Comuna o Región">
+                                 </div><br>
                               </div>
-                           </details> 
+                           </details>
+                           <div class="check">
+                              <label for="">Invertir datos de <strong>IDA</strong> para la <strong>VUELTA</strong></label>
+                              <input type="checkbox" id="same_data" checked>
+                           </div>
                         </div>
                      </div>
                   </form>
@@ -211,17 +219,18 @@
                            <!--AGREGAR SERVICIO-->
                            <div class="col-md-12"><label class="text_align_center" >Agregar Servicio</label>
                               <div class="row">
-                                 <div class="col-md-12"><label for="">Servicio Extra</label>
+                                 <div class="col-md-8"><label for="">Servicio Extra</label>
                                     <select id="servicio_extra" name="servicio_extra" class="form-control required">
                                        <option value="0">Seleccione Servicio</option>
                                     </select>
                                  </div>
-                                 <div class="col-md-6"><label for="">Descripción</label>
-                                    <input type="text" id="descripcion_extra" class="form-control" readonly>
-                                 </div>
-                                 <div class="col-md-6"><label for="">Valor</label>
+                                 <div class="col-md-4"><label for="">Valor</label>
                                     <input type="number" id="valor_extra" class="form-control" readonly>
                                  </div>
+                                 <div class="col-md-12"><label for="">Descripción</label>
+                                    <input type="text" id="descripcion_extra" class="form-control" readonly>
+                                 </div>
+                                 
                               </div>
                            </div><br>
                            <table id="extra_service">
@@ -236,7 +245,7 @@
                         </div>
                         <button type="button" id="btn_addServicio" class="btn btn-custom">Añadir</button>
                         <div class="col-md-12 modal-footer">
-                           <button type="button" id="btn_addTransporte" class="btn btn-custom" >Agregar Servicios</button>
+                           <button type="button" id="btn_saveServicio" class="btn btn-custom" >Agregar Servicios</button>
                            <button type="button" id="btn_Cancelar" class="btn btn-custom" data-dismiss="modal">Cancelar</button>
                         </div>
                      </div>
@@ -304,7 +313,7 @@
                                        <option value="0">Seleccione Actividad</option>
                                     </select>
                                  </div><br>
-                                 <div class="col-md-6"><label for="">Duración</label>
+                                 <div class="col-md-6"><label for="">Duración <strong>(en minutos)</strong></label>
                                     <input type="text" id="actividad_duracion" class="form-control" readonly>
                                  </div><br>
                                  <div class="col-md-6"><label for="">Valor</label>
@@ -318,7 +327,7 @@
                                        <thead>
                                           <tr>
                                              <th>Nombre</th>
-                                             <th>Duración</th>
+                                             <th>Duración (minutos)</th>
                                              <th>Valor</th>
                                              <th>Acciones</th>
                                           </tr>
@@ -340,6 +349,20 @@
          </div>
       </div>
       <!-- end Modal Turismo-->
+      <!-- Modal Acompañantes-->
+      <div class="modal fade" id="modalPago" tabindex="-1" role="dialog">
+         <div class="modal-dialog" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h1 class="text_align_center">Pago</h1>
+                  <button type="button" class="close" data-dismiss="modal">
+                     <span aria-hidden="true">×</span>
+                  </button>
+               </div>       
+            </div>
+         </div>
+      </div>
+      <!-- end Modal Acompañantes-->
       <my-footer></my-footer>
       
       <!-- Javascript files-->

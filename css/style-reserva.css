@@ -1,3 +1,7 @@
+.close{
+  background-color: transparent;
+  font-size: 25px;
+}
 /* Style the buttons that are used to open and close the accordion panel */
 .accordion {
     background-color: #eee;
@@ -26,24 +30,46 @@
 
   details {
     background-color: #eee;
-    color: #444;
+    color: #8b1310;
     cursor: pointer;
     padding: 18px;
     width: 100%;
     text-align: center;
-    border: none;
     outline: none;
     transition: 0.4s;
+    border-radius: 10px 10px 0px 0px;
   }
 
-   #modalAcompanante .modal-content {
+  #vuelta{
+    border-radius: 0px;
+  }
+  .check{
+    background-color: #eee;
+    color: #8b1310;
+    padding: 18px;
+    width: 100%;
+    text-align: center;
+    outline: none;
+    transition: 0.4s;
+    border-radius: 0px 0px 10px 10px;
+  }
+  #servicios{
+    border-radius: 10px;
+  }
+
+
+  .modal-open{
+    overflow: hidden !important;
+  }
+
+   #modalTransporte .modal-content {
     display: flex;
     flex-direction: column;
     width: 750px;
     position: relative;
     left: 50%;
     top: 50%;
-    margin-top: 350px;
+    margin-top: 425px;
     transform: translate(-50%, -50%);
   }
 
@@ -61,5 +87,64 @@
     color: white !important;
   }
 
-  
-  
+  .hidden{
+    display: none;
+  }
+
+  .view-account .btn-custom-light{
+    margin: 0em 0em 0em -0.3em;
+    padding: 24px;
+    border: 0;
+    border-radius: 0;
+  }
+  .view-account .btn-custom-light:hover{
+    color: #fd990c;
+    transition: all ease-in 0.15s !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 5px rgba(0, 0, 0, 0.24);
+  }
+
+  /*CSS DE CUENTA.CSS*/
+    .view-account{
+    background:#FFFFFF; 
+    margin:4em auto 1em auto;
+    border-radius: 10px;
+    }
+
+    .view-account .pro-label {
+    font-size: 13px;
+    padding: 4px 5px;
+    position: relative;
+    top: -5px;
+    margin-left: 10px;
+    display: inline-block
+    }
+    
+    .view-account .content-panel {
+    padding: 20px
+    }
+
+    .view-account .content-panel {
+      width: 100%;
+        border-left: 1px solid #f3f3f7;
+        margin-left: 165px
+    }
+    .view-account .mail-subject .subject {
+        max-width: 280px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis
+    }
+    .view-account .side-bar {
+        position: absolute;
+        width: 550px;
+        left: 0;
+        padding-bottom: 30px
+    }
+
+    .view-account .accordion{
+      color: white;
+      background-color: #fd990c;
+    }
+    .view-account .accordion:hover{
+      background-color: #e48500;
+    }

@@ -409,7 +409,7 @@ $(document).ready(function () {
             Command: toastr["warning"]("Faltan Datos Por Completar", "Atención");
         }
         else {
-  
+          $(".form-control").removeClass('bg-success');
             localStorage.setItem("licencias", JSON.stringify(form));
   
             //CONFIRMACION

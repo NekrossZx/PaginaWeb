@@ -23,4 +23,13 @@ if($accion == 3)
     echo $data;
 }
 
+//                                              SUBIR FORMULARIOS
+
+if($accion == 4)
+{
+    $data = db_setTransporte();
+    echo $data;
+}
+
+
 ?>

@@ -124,7 +124,7 @@
                                        </div>
                                     </div>
                                     <div>
-                                       <button type="button" class="btn btn-custom btn_guardar btn-block">Ir a pagar</button>
+                                       <button type="button" data-toggle="modal" data-target="#modalPago" class="btn btn-custom btn_guardar btn-block">Ir a pagar</button>
                                        <button type="button" class="btn btn-custom btn_cancelar btn-block" onclick="history.back()">Cancelar</button>                              
                                     </div>
                               </form>
@@ -349,20 +349,47 @@
          </div>
       </div>
       <!-- end Modal Turismo-->
-      <!-- Modal Acompañantes-->
+      <!-- Modal PAGO-->
       <div class="modal fade" id="modalPago" tabindex="-1" role="dialog">
          <div class="modal-dialog" role="document">
             <div class="modal-content">
                <div class="modal-header">
-                  <h1 class="text_align_center">Pago</h1>
+                  <h1>Pago</h1>
                   <button type="button" class="close" data-dismiss="modal">
                      <span aria-hidden="true">×</span>
                   </button>
-               </div>       
+               </div>   
+               <div class="modal-body">
+                  <h1 class="text_align_center">Métodos de pago</h1>
+                  <div class="details">
+                     <div class="col-md-12">
+                        <div class="modal-body">
+                           <div class="row">
+                              <div class="col-md-12">
+                                 <div class="row">
+                                    <div class="col-md-12 pago">
+                                       <input type="radio" id="transferencia" name="pago" value="transferencia">
+                                       <label for="transferencia">Transferencia Electronica</label><br>
+                                    </div>
+                                    <div class="col-md-12 pago">
+                                       <input type="radio" id="webpay" name="pago" value="webpay" disabled>
+                                       <label for="webpay">WebPay</label><br>
+                                    </div>
+                                    <div class="col-md-12 pago">
+                                       <input type="radio" id="mercado" name="pago" value="mercado" disabled>
+                                       <label for="mercado">Mercado Pago</label>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>            
+                  </div>
+               </div>
             </div>
          </div>
       </div>
-      <!-- end Modal Acompañantes-->
+      <!-- end Modal PAGO-->
       <my-footer></my-footer>
       
       <!-- Javascript files-->

@@ -652,4 +652,10 @@
 
     });
 
+    $("#modalPago").on('check', '.pago', function () {
+
+        console.log("holi");
+
+    });
+
 });

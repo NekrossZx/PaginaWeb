@@ -361,29 +361,35 @@
                </div>   
                <div class="modal-body">
                   <h1 class="text_align_center">Métodos de pago</h1>
-                  <div class="details">
-                     <div class="col-md-12">
-                        <div class="modal-body">
+                  <div class="metodo">
+                     <p>Por el momento, solo están disponibles las transferencias. Sentimos las molestias.</p>
+                     <div class="row">
+                        <div class="col-md-12">
                            <div class="row">
-                              <div class="col-md-12">
-                                 <div class="row">
-                                    <div class="col-md-12 pago">
-                                       <input type="radio" id="transferencia" name="pago" value="transferencia">
-                                       <label for="transferencia">Transferencia Electronica</label><br>
-                                    </div>
-                                    <div class="col-md-12 pago">
-                                       <input type="radio" id="webpay" name="pago" value="webpay" disabled>
-                                       <label for="webpay">WebPay</label><br>
-                                    </div>
-                                    <div class="col-md-12 pago">
-                                       <input type="radio" id="mercado" name="pago" value="mercado" disabled>
-                                       <label for="mercado">Mercado Pago</label>
-                                    </div>
-                                 </div>
+                              <div class="col-md-12 pago">
+                                 <input type="radio" id="transferencia" name="pago" value="transferencia">
+                                 <label for="transferencia">Transferencia Electronica</label><br>
+                              </div>
+                              <div class="col-md-12 pago">
+                                 <input type="radio" id="webpay" name="pago" value="webpay" disabled>
+                                 <label for="webpay">WebPay</label><br>
+                              </div>
+                              <div class="col-md-12 pago">
+                                 <input type="radio" id="mercado" name="pago" value="mercado" disabled>
+                                 <label for="mercado">Mercado Pago</label>
                               </div>
                            </div>
                         </div>
-                     </div>            
+                     </div>
+                  </div>
+                  <div id="datos_trans" class="">
+                     <h1 class="text_align_center">DATOS DE TRANSFERENCIA</h1>
+                     <div class="detalles">
+                        <p>Banco: Banco de Chile</p>
+                        <p>Número de cuenta:1233567890</p>
+                        <p>Correo electronico: reservas@turismoreal.cl</p>
+                        <p>Total a pagar por la reserva (40% del total final): $ <p id="ver_total"></p></p>
+                     </div>
                   </div>
                </div>
             </div>

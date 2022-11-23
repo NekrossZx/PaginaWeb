@@ -88,7 +88,6 @@
                  <summary>SERVICIOS INCLUIDOS</summary>
                  <div class="row" id="servicios">
                     <!--Servicios incluidos-->
-                    <p>NO EXISTEN SERVICIOS ASOCIADOS A ESTE DEPARTAMENTO</p>
                  </div>
                </details>
            </div><br>
@@ -103,17 +102,30 @@
         'type': "GET",
         'global': false,
         'dataType': 'html',
-        'url': "api/reserva.php?a=2",
+        'url': "api/reserva.php?a=4",
         'data': { 'request': "", 'target': 'arrange_url', 'method': 'method_target' },
         'success': function (data) {
             asociados = JSON.parse(data);
         }
     }); 
 
-    $(asociados).each(function (i, item) {
-        $("#servicios").append('<p>'+item.NOMBRE+'</p>')
-    });
+    if(asociados === null || asociados == 0 || asociados == undefined || asociados == ''){
+        $("#servicios").append('<p>DEPARTAMENTO SIN SERVICIO ASOCIADO</p>')
+    }else{
+        $(asociados).each(function (i, item) {
+            $("#servicios").append(`
+            <div class="tooltip">`+item.NOMBRE_SERVICIO+`<span class="tooltiptext">`+item.DESCRIPCION+`</span></div>`)
+        });
+    }
 
+    $("#modalAcompanante").on("change", ".form-control", function (e){
+        var ninos = parseInt(document.getElementById('cantidad_ninos').value);
+        var adultos = parseInt(document.getElementById('cantidad_adultos').value);
+        var personas = ninos + adultos;
+
+        $("#nro").val(personas + 1);
+    });
+    
     //FECHA VALOR 'TODAY'
     $(document).ready( function() {
         var now = new Date();
@@ -137,7 +149,7 @@
           let timeDifference = date2.getTime() - date1.getTime();
           let dayDifference = Math.abs((timeDifference / (1000 * 3600 * 24))+1);
           $("#cantidad_dias").val(dayDifference);
-          console.log(dayDifference);
+          //console.log(dayDifference);
         }
       });
 
@@ -190,7 +202,7 @@
         let form = $("#reserva").serializeArray();
         
         //IMPRIME DEL NAVEGADOR 
-        console.log(form);
+        //console.log(form);
         let error = 0;
             
         //VALIDACION
@@ -342,7 +354,7 @@
         let form = $("#md_transporte").serializeArray();
   
         //IMPRIME DEL NAVEGADOR 
-        console.log(form);
+        //console.log(form);
   
         let error = 0;
   
@@ -450,7 +462,7 @@
             var data = table.rows(['tr']).data().toArray();
             var json = JSON.stringify( data );
     
-            console.log(json);
+            //console.log(json);
 
             localStorage.setItem("servicios_extra", JSON.stringify(json));
         });
@@ -462,7 +474,7 @@
             var valor = document.getElementById("valor_extra").value;
             let form = $("#md_extras").serializeArray();
             let error = 0;
-            console.log(error);
+            //console.log(error);
   
             //VALIDACION
             $(form).each(function (i, item) {
@@ -485,7 +497,7 @@
 
                 var data = t.rows(['tr']).data().toArray();
                 var json = JSON.stringify( data );
-                console.log(json);
+                //console.log(json);
                 localStorage.setItem("servicios_extra", JSON.stringify(json));
             }
         });
@@ -497,7 +509,7 @@
             var data = table.rows(['tr']).data().toArray();
             var json = JSON.stringify( data );
     
-            console.log(json);
+            //console.log(json);
 
             localStorage.setItem("servicios_extra", JSON.stringify(json));
     
@@ -596,7 +608,7 @@
 
             var data = table.rows(['tr']).data().toArray();
             var json = JSON.stringify( data );
-            console.log(json);
+            //console.log(json);
 
             localStorage.setItem("tour", JSON.stringify(json));
         });
@@ -612,7 +624,7 @@
 
             let form = $("#md_turismo").serializeArray();
             let error = 0;
-            console.log(error);
+            //console.log(error);
   
             //VALIDACION
             $(form).each(function (i, item) {
@@ -634,7 +646,7 @@
 
                 var data = t.rows(['tr']).data().toArray();
                 var json = JSON.stringify( data );
-                console.log(json);
+                //console.log(json);
     
                 localStorage.setItem("tour", JSON.stringify(json));
             }
@@ -646,7 +658,7 @@
             var table = $('#actividad').DataTable();
             var data = table.rows(['tr']).data().toArray();
             var json = JSON.stringify( data );
-            console.log(json);
+            //console.log(json);
 
             localStorage.setItem("tour", JSON.stringify(json));
     
@@ -660,7 +672,7 @@
 
                 var data = table.rows(['tr']).data().toArray();
                 var json = JSON.stringify( data );
-                console.log(json);
+                //console.log(json);
     
                 localStorage.setItem("tour", JSON.stringify(json));
             }else{
@@ -672,7 +684,7 @@
 
     $("#modalPago").on('check', '.pago', function () {
 
-        console.log("holi");
+        //console.log("holi");
 
     });
 

@@ -193,12 +193,10 @@ $(document).ready(function () {
     if(confirmar===true){
       $.ajax({
         data: { data: JSON.stringify(form) },
-        url: "api/index_licencias.php?a=2",
+        url: "api/cuenta.php?a=3",
         type: 'POST',
         success: function (data) {
             if (data != null || data != '') {
-                toastConfig();
-                Command: toastr["success"]("Se ha guardado la información", "Operación Exitosa");
                 //LIMPIAR FORMULARIO
                 table.row($(this).parents('tr')).remove().draw();
                 let dt = $('#dt_maestro').DataTable();

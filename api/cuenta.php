@@ -18,8 +18,15 @@ if($accion == 2)
 //ACTUALIZAR RESERVA
 if($accion == 3)
 {
-    $data = db_updateReserva();
+    $form = json_decode($_POST['data']);
+    $data = db_updateReserva(
+        //ID
+        $form[0]->value,
+        //ID
+        $form[1]->value
+    );
     echo $data;
+
 }
 
 

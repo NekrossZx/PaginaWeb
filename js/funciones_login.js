@@ -112,5 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
         toastConfig(); Command: toastr["warning"]('Ingresar un email valido', "Atención");
         return false;
     });
+
+    
 });
 

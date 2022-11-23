@@ -83,14 +83,14 @@
               <input type="text" id="descripcion" class="form-control" value="`+item.DESCRIPCION+`" readonly><br>
            </div>
            <!--SERVICIOS-->
-           <div class="col-md-12">
-              <details>
-                 <summary>SERVICIOS INCLUIDOS</summary>
-                 <div class="row" id="servicios">
+           <details>
+                <summary>SERVICIOS INCLUIDOS</summary>
                     <!--Servicios incluidos-->
-                 </div>
-               </details>
-           </div><br>
+                    <div class="col-md-12">
+                        <div class="row" id="servicios">
+                        </div>
+                    </div>
+            </details>
         </div><br>
      </div>`)
     });
@@ -113,8 +113,7 @@
         $("#servicios").append('<p>DEPARTAMENTO SIN SERVICIO ASOCIADO</p>')
     }else{
         $(asociados).each(function (i, item) {
-            $("#servicios").append(`
-            <div class="tooltip">`+item.NOMBRE_SERVICIO+`<span class="tooltiptext">`+item.DESCRIPCION+`</span></div>`)
+            $("#servicios").append(`<a type="button" class="btn btn-secondary col-md-3" data-toggle="tooltip" data-placement="bottom" title="`+item.DESCRIPCION+`">`+item.NOMBRE_SERVICIO+`</a>`)
         });
     }
 
@@ -682,10 +681,15 @@
 
     });
 
-    $("#modalPago").on('check', '.pago', function () {
-
-        //console.log("holi");
-
+    //                                                                          PAGO
+    $(document).ready(function () { 
+        var datos = document.getElementById("datos_trans");
+        if( $('input[id="transferencia"]:checked').length != 0){
+            datos.classList.remove("hidden");
+            console.log("holi");
+        }else{
+            datos.classList.add("hidden");
+        }
     });
 
 });

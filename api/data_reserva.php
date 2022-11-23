@@ -51,7 +51,7 @@ function db_getDep(){
 
 function db_getAsoc(){
     $connection = oci_connect('ADMINS', '1234', '192.168.56.1');
-    $sql = "SELECT sa.nombre_servicio FROM DEPA_ASOC A JOIN servicio_asociado SA ON a.servicio_asociado_id_servicio = sa.id_servicio  WHERE a.departamento_id_departamento = 1";
+    $sql = "SELECT sa.nombre_servicio, sa.descripcion FROM DEPA_ASOC A JOIN servicio_asociado SA ON a.servicio_asociado_id_servicio = sa.id_servicio  WHERE a.departamento_id_departamento = 1";
 
     $stid = oci_parse($connection,$sql) or die("Query failed: ".oci_error()." Actual db_getAsoc");
     oci_execute($stid);

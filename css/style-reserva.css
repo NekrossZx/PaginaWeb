@@ -187,3 +187,7 @@
       transition: all ease-in 0.15s !important;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 5px rgba(0, 0, 0, 0.24);
     }
+
+    .btn-secondary{
+      border-radius: 0;
+    }

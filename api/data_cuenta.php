@@ -36,4 +36,20 @@ function db_getReservas(){
     echo json_encode($data);
 }
 
+function db_updateReserva(){
+    $connection = oci_connect('ADMINS', '1234', '192.168.56.1');
+    $sql = "UPDATE reserva SET estado = 'estado' WHERE id_reserva = '1' ";
+
+    $stid = oci_parse($connection,$sql) or die("Query failed: ".oci_error()." Actual db_getReservas");
+    oci_execute($stid);
+
+    $data = array();
+    while($row = oci_fetch_object($stid))
+    {
+        $data[] = $row;     
+    }
+    echo json_encode($data);
+}
+
+
 ?>

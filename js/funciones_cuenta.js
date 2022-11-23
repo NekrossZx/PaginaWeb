@@ -111,82 +111,108 @@ $(document).ready(function () {
       ordering: true,
       info: true,
       autoWidth: true,
-      select: true,
-      responsive:true,
+      responsive: true,
     language: {
       search: '<i class="fa fa-search"></i>',
       searchPlaceholder: "Buscar...",
       emptyTable: "SIN DATOS INGRESADOS",
     },
-      columns: [
-        {
-          className: "dt-nro_reserva",
-            render: function (data, type, dt) {
-                return validarVacio(dt.NRO_RESERVA);
-            }
-        },
-        {
-            className: "text-nowrap dt-estado",
-              render: function (data, type, dt) {
-                  return validarVacio(dt.ESTADO);
-              }
-        },
-        {
-            className: "text-nowrap dt-nombre_depto",
-              render: function (data, type, dt) {
-                  return validarVacio(dt.NOMBRE);
-              }
-        },
-        {
-            className: "text-nowrap dt-region",
-              render: function (data, type, dt) {
-                  return validarVacio(dt.NOMBRE_REGION);
-              }
-        },
-        {
-            className: "text-nowrap dt-fecha_reserva",
-              render: function (data, type, dt) {
-                  return validarVacio(dt.FECHA_RESERVA);
-              }
-          },
-          {
-            className: "text-nowrap dt-fecha_inicio",
-              render: function (data, type, dt) {
-                  return validarVacio(dt.RESERVA_INICIO);
-              }
-          },
-          {
-            className: "text-nowrap dt-fecha_termino",
-              render: function (data, type, dt) {
-                  return validarVacio(dt.RESERVA_TERMINO);
-              }
-          },
-          {
-            className: "dt-valor_total",
-              render: function (data, type, dt) {
-                  return validarVacio(dt.VALOR_TOTAL);
-              }
-          },
-    ],
-    columnDefs: [
+    columns: [
       {
-          targets: -1,
-          data: null,
-          defaultContent: '<button class="btn-small remove"><i class="fa fa-trash"></i></button>',
-      }
-    ],
-  });
-  
-        
-      function validarVacio(txt)
-    {
-        let valor = txt;
-        if (txt == null || txt == undefined || txt == '')
-        {
-            valor = 'Sin Información';
+        className: "dt-nro_reserva",
+        render: function (data, type, dt) {
+          return validarVacio(dt.NRO_RESERVA);
         }
-  
-        return valor;  
+      },
+      {
+        className: "text-nowrap dt-estado",
+        render: function (data, type, dt) {
+          return validarVacio(dt.ESTADO);
+        }
+      },
+      {
+        className: "text-nowrap dt-nombre_depto",
+        render: function (data, type, dt) {
+          return validarVacio(dt.NOMBRE);
+        }
+      },
+      {
+        className: "text-nowrap dt-region",
+        render: function (data, type, dt) {
+          return validarVacio(dt.NOMBRE_REGION);
+        }
+      },
+      {
+        className: "text-nowrap dt-fecha_reserva",
+        render: function (data, type, dt) {
+          return validarVacio(dt.FECHA_RESERVA);
+        }
+      },
+      {
+        className: "text-nowrap dt-fecha_inicio",
+        render: function (data, type, dt) {
+          return validarVacio(dt.RESERVA_INICIO);
+        }
+      },
+      {
+        className: "text-nowrap dt-fecha_termino",
+        render: function (data, type, dt) {
+          return validarVacio(dt.RESERVA_TERMINO);
+        }
+      },
+      {
+        className: "dt-valor_total",
+        render: function (data, type, dt) {
+          return validarVacio(dt.VALOR_TOTAL);
+        }
+      },
+      {
+        targets: -1,
+        data: null,
+        defaultContent: '<button class="btn-small remove"><i class="fa fa-trash"></i></button>',
+      }
+    ]
+  });
+
+  function validarVacio(txt)
+  {
+    let valor = txt;
+    if (txt == null || txt == undefined || txt == '')
+    {
+      valor = 'Sin Información';
+    }
+    return valor;  
+  }
+
+  $('#dt_reserva').on('click', '.remove', function () {
+    var table = $('#dt_reserva').DataTable();
+    var data = table.rows(['tr']).data().toArray();
+    var form = JSON.stringify( data );
+    var confirmar = confirm("¿Desea cancelar la reserva seleccionada?");
+
+    if(confirmar===true){
+      $.ajax({
+        data: { data: JSON.stringify(form) },
+        url: "api/index_licencias.php?a=2",
+        type: 'POST',
+        success: function (data) {
+            if (data != null || data != '') {
+                toastConfig();
+                Command: toastr["success"]("Se ha guardado la información", "Operación Exitosa");
+                //LIMPIAR FORMULARIO
+                table.row($(this).parents('tr')).remove().draw();
+                let dt = $('#dt_maestro').DataTable();
+                dt.ajax.reload();
+            }
+            else {
+                toastConfig();
+                Command: toastr["danger"]("Error de conexión", "Error");
+            }
+        }
+      });
+    }else{
+      return false;
     }
 
+  });
 });

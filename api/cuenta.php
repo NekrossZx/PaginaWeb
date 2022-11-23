@@ -15,5 +15,12 @@ if($accion == 2)
     $data = db_getUsuario();
     echo $data;
 }
+//ACTUALIZAR RESERVA
+if($accion == 3)
+{
+    $data = db_updateReserva();
+    echo $data;
+}
+
 
 ?>

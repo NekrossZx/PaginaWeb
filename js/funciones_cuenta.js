@@ -94,204 +94,89 @@ $(document).ready(function () {
     </form>`);
   });
 
-
-  function format(d) {
-    return (
-        'Full name: ' +
-        d.first_name +
-        ' ' +
-        d.last_name +
-        '<br>' +
-        'Salary: ' +
-        d.salary +
-        '<br>' +
-        'The child row can contain any data you wish, including links, images, inner tables etc.'
-    );
-}
- 
-$(document).ready(function () {
-    var dt = $('#example').DataTable({
-        processing: true,
-        serverSide: true,
-        ajax: 'scripts/ids-objects.php',
-        columns: [
-            {
-                class: 'details-control',
-                orderable: false,
-                data: null,
-                defaultContent: '',
-            },
-            { data: 'first_name' },
-            { data: 'last_name' },
-            { data: 'position' },
-            { data: 'office' },
-        ],
-        order: [[1, 'asc']],
-    });
- 
-    // Array to track the ids of the details displayed rows
-    var detailRows = [];
- 
-    $('#dt_reserva tbody').on('click', 'tr td.details-control', function () {
-        var tr = $(this).closest('tr');
-        var row = dt.row(tr);
-        var idx = detailRows.indexOf(tr.attr('id'));
- 
-        if (row.child.isShown()) {
-            tr.removeClass('details');
-            row.child.hide();
- 
-            // Remove from the 'open' array
-            detailRows.splice(idx, 1);
-        } else {
-            tr.addClass('details');
-            row.child(format(row.data())).show();
- 
-            // Add to the 'open' array
-            if (idx === -1) {
-                detailRows.push(tr.attr('id'));
+  $("#dt_reserva").DataTable({
+    "ajax":{
+      "url": "api/cuenta.php?a=1",
+      "type": "POST",
+      "dataSrc": ""
+    },
+    aaSorting: [0, 'desc'],
+      bDestroy: false,
+      processing: false,
+      serverSide: false,
+      pageLength: 7,
+      lengthChange: true,
+      paging: true,
+      searching: false,
+      ordering: true,
+      info: true,
+      autoWidth: true,
+      select: true,
+      responsive:true,
+    language: {
+      search: '<i class="fa fa-search"></i>',
+      searchPlaceholder: "Buscar...",
+      emptyTable: "SIN DATOS INGRESADOS",
+    },
+      columns: [
+        {
+          className: "dt-nro_reserva",
+            render: function (data, type, dt) {
+                return validarVacio(dt.NRO_RESERVA);
             }
-        }
-    });
- 
-    // On each draw, loop over the `detailRows` array and show any child rows
-    dt.on('draw', function () {
-        detailRows.forEach(function(id, i) {
-            $('#' + id + ' td.details-control').trigger('click');
-        });
-    });
-});
-
-    $("#dt_reserva").DataTable({
-        "ajax": {
-          "url": "api/cuenta.php?a=1",
-          "type": "POST",
-          "dataSrc": ""
         },
-        dom: 'Bfrtip',
-        buttons: [
-          {text: 'Recargar Reservas',
-            action: function ( e, dt, node, config ) 
-              {dt.ajax.reload();}
-          },
-          {
-            extend: 'selected',
-            text: 'Editar',
-            action: function ( e, dt, button, config ) {
-              $("#modalEditar").modal('show');
-            }
-          },
-          {
-            extend: 'selected',
-            text: 'Eliminar',
-            action: function ( e, dt, button, config ) {
-              $("#modalEliminar").modal('show');
-            }
-          },
-          {
-            extend: 'selected',
-            text: 'Sin Iniciar',
-            action: function ( e, dt, button, config ) {
-              $("#modalIniciar").modal('show');
-            }
-          },
-          {
-            extend: 'selected',
-            text: 'En Proceso',
-            action: function ( e, dt, button, config ) {
-              $("#modalProceso").modal('show');
-            }
-          },
-          {
-            extend: 'selected',
-            text: 'Finalizada',
-            action: function ( e, dt, button, config ) {
-              $("#modalFinalizar").modal('show');
-            }
-          },
-          {
-            extend: 'selected',
-            text: 'Rechazada',
-            action: function ( e, dt, button, config ) {
-              $("#modalRechazar").modal('show');
-            }
-          },
-          {
-            extend: 'selected',
-            text: 'Aceptada',
-            action: function ( e, dt, button, config ) {
-              $("#modalAceptar").modal('show');
-            }
-          },
-        ],
-        aaSorting: [0, 'desc'],
-          bDestroy: true,
-          processing: false,
-          serverSide: false,
-          pageLength: 7,
-          lengthChange: true,
-          paging: true,
-          searching: true,
-          ordering: true,
-          info: true,
-          autoWidth: true,
-          select: 'single',
-        language: {
-          search: '<i class="fa fa-search"></i>',
-          searchPlaceholder: "Buscar...",
+        {
+            className: "text-nowrap dt-estado",
+              render: function (data, type, dt) {
+                  return validarVacio(dt.ESTADO);
+              }
         },
-          columns: [
-            {
-              className: "dt-nro_reserva",
-                render: function (data, type, dt) {
-                    return validarVacio(dt.NRO_RESERVA);
-                }
-            },
-            {
-                className: "text-nowrap dt-estado",
-                  render: function (data, type, dt) {
-                      return validarVacio(dt.ESTADO);
-                  }
-            },
-            {
-                className: "dt-nombre_depto",
-                  render: function (data, type, dt) {
-                      return validarVacio(dt.NOMBRE);
-                  }
-            },
-            {
-                className: "text-nowrap dt-region",
-                  render: function (data, type, dt) {
-                      return validarVacio(dt.REGION);
-                  }
-            },
-            {
-                className: "dt-fecha_reserva",
-                  render: function (data, type, dt) {
-                      return validarVacio(dt.FECHA_RESERVA);
-                  }
-              },
-              {
-                className: "dt-fecha_inicio",
-                  render: function (data, type, dt) {
-                      return validarVacio(dt.RESERVA_INICIO);
-                  }
-              },
-              {
-                className: "dt-fecha_termino",
-                  render: function (data, type, dt) {
-                      return validarVacio(dt.RESERVA_TERMINO);
-                  }
-              },
-              {
-                className: "text-nowrap dt-acompanantes",
-                  render: function (data, type, dt) {
-                      return validarVacio(dt.ACOMPANANTES);
-                  }
-              },
-            
-        ]
-      });
+        {
+            className: "text-nowrap dt-nombre_depto",
+              render: function (data, type, dt) {
+                  return validarVacio(dt.NOMBRE);
+              }
+        },
+        {
+            className: "text-nowrap dt-region",
+              render: function (data, type, dt) {
+                  return validarVacio(dt.NOMBRE_REGION);
+              }
+        },
+        {
+            className: "text-nowrap dt-fecha_reserva",
+              render: function (data, type, dt) {
+                  return validarVacio(dt.FECHA_RESERVA);
+              }
+          },
+          {
+            className: "text-nowrap dt-fecha_inicio",
+              render: function (data, type, dt) {
+                  return validarVacio(dt.RESERVA_INICIO);
+              }
+          },
+          {
+            className: "text-nowrap dt-fecha_termino",
+              render: function (data, type, dt) {
+                  return validarVacio(dt.RESERVA_TERMINO);
+              }
+          },
+          {
+            className: "dt-valor_total",
+              render: function (data, type, dt) {
+                  return validarVacio(dt.VALOR_TOTAL);
+              }
+          },
+    ],
+    columnDefs: [
+      {
+          targets: -1,
+          data: null,
+          defaultContent: '<button class="btn-small remove"><i class="fa fa-trash"></i></button>',
+      }
+    ],
+  });
+  
         
       function validarVacio(txt)
     {
@@ -303,6 +188,5 @@ $(document).ready(function () {
   
         return valor;  
     }
-
 
 });

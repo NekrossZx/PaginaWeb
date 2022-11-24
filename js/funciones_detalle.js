@@ -99,11 +99,33 @@ $(document).ready(function () {
         <h1>Habitaciones: <em>`+item.HABITACIONES+`</em></h1>
         <h1>Baños: <em>`+item.BANOS+`</em></h1>
         <h1><em>Servicios incluidos</em></h1>
-        <div>aqui van los Servicios</div>
+        <div id="servicios"></div>
         <p>Valor por día</p>
         <h1>$`+item.ARRIENDO_DIARIO+`</h1>
         <a href="reserva.html?id=`+item.ID_DEPARTAMENTO+`" type="button" id="reservar" class="btn btn-custom-light">RESERVAR</a>`)
     });
+
+    let asociados = null;
+    $.ajax({
+        'async': false,
+        'type': "GET",
+        'global': false,
+        'dataType': 'html',
+        'url': "api/deptos.php?a=6",
+        'data': { 'request': id, 'target': 'arrange_url', 'method': 'method_target'},
+        'success': function (data) {
+            asociados = JSON.parse(data);
+        }
+    }); 
+        
+    if(asociados === null || asociados == 0 || asociados == undefined || asociados == '')
+    {
+        $("#servicios").append('<p>DEPARTAMENTO SIN SERVICIO ASOCIADO</p>');
+    }else{
+    $(asociados).each(function (i, item) {
+        $("#servicios").append(`<a type="button" class="btn btn-secondary col-md-3" data-toggle="tooltip" data-placement="bottom" title="`+item.DESCRIPCION+`">`+item.NOMBRE_SERVICIO+`</a>`)
+    });
+    }
     
     
 });

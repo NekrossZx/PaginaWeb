@@ -38,4 +38,12 @@ if($accion == 5)
     
 }
 
+//SERVICIOS ASOCIADOS 
+if($accion == 6)
+{
+    $data = db_getAsociados();
+    echo $data;
+    
+}
+
 ?>

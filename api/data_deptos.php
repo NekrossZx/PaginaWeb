@@ -89,5 +89,24 @@ function db_getDetails(){
     echo json_encode($data);
 }
 
+function db_getAsociados(){
+    $connection = oci_connect('ADMINS', '1234', '192.168.56.1');
+    $sql = "SELECT sa.nombre_servicio, sa.descripcion
+    FROM departamento D 
+    JOIN ubicacion U ON d.ubicacion_id_ubicacion = u.id_ubicacion 
+    JOIN region R ON u.region_id_region = r.id_region
+    JOIN DEPA_ASOC A ON a.departamento_id_departamento = d.id_departamento
+    JOIN servicio_asociado SA ON a.servicio_asociado_id_servicio = sa.id_servicio
+    WHERE d.id_departamento = 1 ";
 
+    $stid = oci_parse($connection,$sql) or die("Query failed: ".oci_error()." Actual db_getAsociados");
+    oci_execute($stid);
+
+    $data = array();
+    while($row = oci_fetch_object($stid))
+    {
+        $data[] = $row;     
+    }
+    echo json_encode($data);
+}
 ?>

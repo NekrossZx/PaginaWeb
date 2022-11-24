@@ -21,22 +21,7 @@
       preventDuplicates: true,        
       };
       return toastr.options;
-    }
-    $("body").on("blur", ".form-control", function (e) {
-        e.preventDefault();
-        let valor = $(this).val();
-  
-        if (valor == '' || valor == null || valor == undefined)
-        {
-            $(this).addClass('bg-danger');
-        }
-        else
-        {
-            $(this).removeClass('bg-danger'); 
-     }
-    });
-
-    
+    }    
     //                                                                                 FORMULARIO PRINCIPAL
 
     //COMPLETA SERVICIO
@@ -161,15 +146,16 @@
 
     $(function() {
         $('input[name="daterange"]').daterangepicker({
-          opens: 'center',
-          drops: 'up',
-          autoApplay: true,
-          locale: {
-            format: 'DD/MM/YYYY'
-          }
-        }
-        );
-      });
+            opens: 'center',
+            drops: 'up',
+            autoApplay: true,
+            timePicker: true,
+            timePicker24Hour: true,
+            locale: {
+                format: 'DD/MM/YYYY hh:mm'
+            }
+        });
+    });
 
     //FUNCIONALIDAD ACORDION DETALLES
     $(document).ready(function () {

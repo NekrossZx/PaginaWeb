@@ -75,7 +75,7 @@ $(document).ready(function () {
           <div class="form-group">
               <label class="col-md-2  col-sm-3 col-xs-12 control-label">Contraseña Actual</label>
               <div class="col-md-12 col-sm-9 col-xs-10">
-                  <input type="password" class="form-control" id="pass" name="pass" value="`+item.CONTRASENA+`">
+                  <input type="password" class="form-control" id="pass" name="pass">
               </div>
           </div>
           <div class="form-group">

@@ -81,36 +81,31 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    $('#btn_login').click(function()
+    $('#btn_login').on('click', function()
     {
-        var username=$("#email").val();
-        var password=$("#password").val();
-        var dataString = 'username='+username+'&password='+password;
-        if($.trim(username).length>5 && $.trim(password).length>8)
-        {
-            $.ajax({
-            type: "POST",
-            url: "api/login_action.php",
-            data: dataString,
-            cache: false,
-            beforeSend: function(){ $("#btn_login").val('Connecting...');},
-            success: function(data){
-                if(data)
-                {
-                    //$("body").load("index.html").hide().fadeIn(1500).delay(6000);
-                    
-                    console.log(data);
+        let form = $("#signup").serializeArray();
+        console.log(form);
+        localStorage.setItem("createAcc", JSON.stringify(form));
+
+        var confirmar = confirm("¿Desea registrar la información?");
+        if(confirmar===true){
+        $.ajax({
+        data: { data: JSON.stringify(form) },
+        url: "api/data_login.php?a=1",
+        type: 'POST',
+            success: function (data) {
+                if (data != null || data != '') {
+
                 }
-                else
-                {
-                    //Shake animation effect.
-                    toastConfig(); Command: toastr["warning"]('Email no valido', "Atención");
+                else {
+                    toastConfig();
+                    Command: toastr["danger"]("Error de conexión", "Error");
                 }
             }
-            });
-        }
-        toastConfig(); Command: toastr["warning"]('Ingresar un email valido', "Atención");
+        });
+        }else{
         return false;
+        }
     });
 
     

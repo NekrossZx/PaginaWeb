@@ -42,7 +42,7 @@ $(document).ready(function () {
 
   $(usuario).each(function (i, item) {
     $("#form_perfil").append(`
-    <form  class="form-horizontal">
+    <form id="actualizar_perfil" class="form-horizontal">
       <fieldset class="fieldset">
           <h3 class="fieldset-title">Información Personal</h3>
           <div class="form-group">
@@ -88,7 +88,7 @@ $(document).ready(function () {
       <hr>
       <div class="form-group">
           <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
-              <button class="btn btn-custom-light">Actualizar cuenta</button>
+              <button id="actualizar" class="btn btn-custom-light">Actualizar cuenta</button>
           </div>
       </div>
     </form>`);
@@ -211,6 +211,32 @@ $(document).ready(function () {
     }else{
       return false;
     }
+  });
 
+  $('#actualizar').on('click', function () {
+
+    let form = $("#actualizar_perfil").serializeArray();
+    console.log(form);
+    localStorage.setItem("update", JSON.stringify(form));
+
+    var confirmar = confirm("¿Desea actualizar la información?");
+    if(confirmar===true){
+      $.ajax({
+        data: { data: JSON.stringify(form) },
+        url: "api/cuenta.php?a=4",
+        type: 'POST',
+        success: function (data) {
+            if (data != null || data != '') {
+
+            }
+            else {
+                toastConfig();
+                Command: toastr["danger"]("Error de conexión", "Error");
+            }
+        }
+      });
+    }else{
+      return false;
+    }
   });
 });

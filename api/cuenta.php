@@ -26,8 +26,20 @@ if($accion == 3)
         $form[1]->value
     );
     echo $data;
-
 }
 
+//ACTUALIZAR USUARIO
+if($accion == 4)
+{
+    $form = json_decode($_POST['data']);
+    $data = db_updateUser(
+        $form[0]->value,
+        $form[1]->value,
+        $form[2]->value,
+        $form[3]->value,
+        $form[4]->value
+    );
+    echo $data;
+}
 
 ?>

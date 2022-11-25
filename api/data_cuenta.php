@@ -42,13 +42,14 @@ function db_updateReserva(){
 
     $stid = oci_parse($connection,$sql) or die("Query failed: ".oci_error()." Actual db_getReservas");
     oci_execute($stid);
+}
 
-    $data = array();
-    while($row = oci_fetch_object($stid))
-    {
-        $data[] = $row;     
-    }
-    echo json_encode($data);
+function db_updateUser($rut,$nombres, $apellidos, $correo, $pass){
+    $connection = oci_connect('ADMINS', '1234', '192.168.56.1');
+    $sql = "UPDATE cliente SET nombres = '".$nombres."', apellidos = '".$apellidos."', email = '".$correo."'  WHERE rut_cliente = '".$rut."' AND contrasena = ".$pass." ";
+
+    $stid = oci_parse($connection,$sql) or die("Query failed: ".oci_error()." Actual db_updateUser");
+    oci_execute($stid);
 }
 
 

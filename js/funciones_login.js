@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    $('#btn_login').on('click', function()
+    $('#createAcc').on('click', function()
     {
         let form = $("#signup").serializeArray();
         console.log(form);
@@ -89,20 +89,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
         var confirmar = confirm("¿Desea registrar la información?");
         if(confirmar===true){
-        $.ajax({
-        data: { data: JSON.stringify(form) },
-        url: "api/data_login.php?a=1",
-        type: 'POST',
-            success: function (data) {
-                if (data != null || data != '') {
+            $.ajax({
+            data: { data: JSON.stringify(form) },
+            url: "api/login.php?a=1",
+            type: 'POST',
+                success: function (data) {
+                    if (data != null || data != '') {
 
+                    }
+                    else {
+                        toastConfig();
+                        Command: toastr["danger"]("Error de conexión", "Error");
+                    }
                 }
-                else {
-                    toastConfig();
-                    Command: toastr["danger"]("Error de conexión", "Error");
-                }
-            }
-        });
+            });
         }else{
         return false;
         }

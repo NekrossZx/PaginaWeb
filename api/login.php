@@ -5,8 +5,7 @@ $accion = $_GET['a'];
 if($accion == 1)
 {
   $form = json_decode($_POST['data']);
-  $data = db_addUsuario
-  (
+  $data = db_addUsuario(
     //RUT
     $form[0]->value,
     //NOMBRES

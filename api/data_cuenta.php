@@ -52,5 +52,13 @@ function db_updateUser($rut,$nombres, $apellidos, $correo, $pass){
     oci_execute($stid);
 }
 
+function db_updatePass($rut,$nombres, $apellidos, $correo, $pass , $newpass){
+    $connection = oci_connect('ADMINS', '1234', '192.168.56.1');
+    $sql = "UPDATE cliente SET nombres = '".$nombres."', apellidos = '".$apellidos."', email = '".$correo."', contrasena = '".$newpass."'  WHERE rut_cliente = '".$rut."' AND contrasena = ".$pass." ";
+
+    $stid = oci_parse($connection,$sql) or die("Query failed: ".oci_error()." Actual db_updateUser");
+    oci_execute($stid);
+}
+
 
 ?>

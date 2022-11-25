@@ -75,7 +75,7 @@ $(document).ready(function () {
           <div class="form-group">
               <label class="col-md-2  col-sm-3 col-xs-12 control-label">Contraseña Actual</label>
               <div class="col-md-12 col-sm-9 col-xs-10">
-                  <input type="password" class="form-control" id="pass" name="pass">
+                  <input type="password" class="form-control" id="pass" name="pass" required>
               </div>
           </div>
           <div class="form-group">
@@ -215,26 +215,44 @@ $(document).ready(function () {
 
   $('#actualizar').on('click', function () {
 
+    let newpass = document.getElementById(newpass).value;
     let form = $("#actualizar_perfil").serializeArray();
     console.log(form);
     localStorage.setItem("update", JSON.stringify(form));
 
     var confirmar = confirm("¿Desea actualizar la información?");
     if(confirmar===true){
-      $.ajax({
-        data: { data: JSON.stringify(form) },
-        url: "api/cuenta.php?a=4",
-        type: 'POST',
-        success: function (data) {
-            if (data != null || data != '') {
+      if(newpass == 0 || newpass == null || newpass == '' || newpass == undefined){
+        $.ajax({
+          data: { data: JSON.stringify(form) },
+          url: "api/cuenta.php?a=4",
+          type: 'POST',
+          success: function (data) {
+              if (data != null || data != '') {
 
-            }
-            else {
-                toastConfig();
-                Command: toastr["danger"]("Error de conexión", "Error");
-            }
-        }
-      });
+              }
+              else {
+                  toastConfig();
+                  Command: toastr["danger"]("Error de conexión", "Error");
+              }
+          }
+        });
+      }else{
+        $.ajax({
+          data: { data: JSON.stringify(form) },
+          url: "api/cuenta.php?a=5",
+          type: 'POST',
+          success: function (data) {
+              if (data != null || data != '') {
+
+              }
+              else {
+                  toastConfig();
+                  Command: toastr["danger"]("Error de conexión", "Error");
+              }
+          }
+        });
+      }
     }else{
       return false;
     }

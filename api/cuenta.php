@@ -41,5 +41,19 @@ if($accion == 4)
     );
     echo $data;
 }
+//ACTUALIZAR CONTRASEÑA
+if($accion == 5)
+{
+    $form = json_decode($_POST['data']);
+    $data = db_updatePass(
+        $form[0]->value,
+        $form[1]->value,
+        $form[2]->value,
+        $form[3]->value,
+        $form[4]->value,
+        $form[5]->value
+    );
+    echo $data;
+}
 
 ?>

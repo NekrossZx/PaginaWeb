@@ -86,16 +86,27 @@ $(document).ready(function () {
     }); 
         
     $(detalles).each(function (i, item) {
-        $("#detalles").append(`  
-        <h2>`+item.NOMBRE+`</h2>
-        <h3>Código: `+item.ID_DEPARTAMENTO+`</h3>      
-        <h3>`+item.NOMBRE_REGION+`</h3>
-        <p>`+item.DESCRIPCION+`</p>
-        <h1>Metros cuadrados: <em>`+item.METROS_CUADRADOS+`m²</em></h1>
-        <h1>Habitaciones: <em>`+item.HABITACIONES+`</em></h1>
-        <h1>Baños: <em>`+item.BANOS+`</em></h1>
-        <h1><em>Servicios incluidos</em></h1>
-        <div id="servicios"></div>
+        $("#detalles").append(`
+        <div class="row text_align_center">
+            <h3 class="col-md-4">`+item.NOMBRE_REGION+`</h3> 
+            <h2 class="col-md-4">`+item.NOMBRE+`</h2>
+            <h3 class="col-md-4">Código: `+item.ID_DEPARTAMENTO+`</h3>
+        </div>     
+        <textarea readonly>`+item.DESCRIPCION+`</textarea>
+        <table class="table">
+            <tr>
+                <th>Metros Cuadrados</th>
+                <th>Habitaciones</th>
+                <th>Baños</th>
+            </tr>
+            <tr>
+                <td><em>`+item.METROS_CUADRADOS+` m²</em></td>
+                <td><em>`+item.HABITACIONES+`</em></td>
+                <td><em>`+item.BANOS+`</em></td>
+            </tr>
+        </table>
+        <h3>Servicios Incluidos</h3>
+        <div id="servicios"></div><br>
         <p>Valor por día</p>
         <h1>$`+item.ARRIENDO_DIARIO+`</h1>
         <a href="reserva.html?id=`+item.ID_DEPARTAMENTO+`" type="button" id="reservar" class="btn btn-custom-light">RESERVAR</a>`)
@@ -119,7 +130,7 @@ $(document).ready(function () {
         $("#servicios").append('<p>DEPARTAMENTO SIN SERVICIO ASOCIADO</p>');
     }else{
     $(asociados).each(function (i, item) {
-        $("#servicios").append(`<a type="button" class="btn btn-secondary col-md-3" data-toggle="tooltip" data-placement="bottom" title="`+item.DESCRIPCION+`">`+item.NOMBRE_SERVICIO+`</a>`)
+        $("#servicios").append(`<a type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="`+item.DESCRIPCION+`">&#10095; `+item.NOMBRE_SERVICIO+`</a>`)
     });
     }
     

@@ -89,6 +89,7 @@
     background-color: #f1f1f1;
     color: #333;
     border-radius: 0px 0px 10px 10px;
+    box-shadow: none;
   }
   
   .thumb{
@@ -107,16 +108,65 @@
     border-radius: 10px 10px 0px 0px;
 }
 
+  textarea{
+    width: 100%;
+    border: 1px;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 16px;
+    text-align: center;
+    align-self: center;
+    background-color: rgba(118, 118, 118, 0.1);
+    min-height: 50px;
+    height: 50px;
+    font-weight: 600;
+  }
+
+  .details .btn-custom-light{
+    width: 100%;
+  }
+  .btn-secondary{
+    margin-top: 10px;
+    border-radius: 0;
+    margin-right: 5px;
+  }
+
   .btn_volver{
     margin-top: 10em;
     margin-left: 2.5em;
   }
 
+  td em{
+    font-size: 2em;
+  }
 
-  @media (max-width: 575px) {
+  td,th{
+    width: 45%;
+  }
+
+  .row h3{
+    margin-top: 15px;
+  }
+
+  h2{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+
+  table{
+    width: 75% !important;
+    margin-left: 12% !important;
+  }
+  h3,#servicios,p,h1{
+    text-align: center;
+  }
+
+  .details>p, .details>h1{
+    font-size: 26px;
+  }
+  @media (min-width: 576px) and (max-width: 767px) { 
     .btn_volver{
-      margin-top: 8em;
-      margin-left: 0.5em;
+      margin-top: 7em;
+      margin-left: 1.5em;
     }
 
     .image{
@@ -137,6 +187,95 @@
     .details{
       margin: 0em auto 1em auto;
       width: 90%;
-      box-shadow: none;
+      padding: 10px;
+    }
+
+    .row h3{
+      margin-top: 5px;
+    }
+    .details h2{
+      text-align: center;
+    }
+    .details h1{
+      font-size: 30px;
+    }
+    .details p {
+      font-size: 20px;
+      font-weight: lighter;
+    }
+    th{
+      font-size: 10px;
+    }
+
+    .btn-secondary{
+      border-radius: 0;
+      font-size: 10px;
+    }
+
+    td em{
+      font-size: 2em;
+    }
+
+    textarea{
+      min-height: 60px;
+    }
+
+  }
+
+  @media (max-width: 575px) {
+    .btn_volver{
+      margin-top: 7em;
+      margin-left: 1.5em;
+    }
+
+    .image{
+      height: 300px;
+    }
+
+    .carrusel{
+      width: 90%;
+    }
+    .carrusel .column{
+      width: 20%;
+    }
+
+    .thumb{
+      height: auto;
+    }
+
+    .details{
+      margin: 0em auto 1em auto;
+      width: 90%;
+      padding: 10px;
+    }
+
+    .row h3{
+      margin-top: 5px;
+    }
+    .details h2{
+      text-align: center;
+    }
+    .details h1{
+      font-size: 30px;
+    }
+    .details p {
+      font-size: 20px;
+      font-weight: lighter;
+    }
+    th{
+      font-size: 10px;
+    }
+
+    .btn-secondary{
+      border-radius: 0;
+      font-size: 10px;
+    }
+
+    td em{
+      font-size: 2em;
+    }
+
+    textarea{
+      min-height: 60px;
     }
   }

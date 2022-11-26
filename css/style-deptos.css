@@ -163,14 +163,201 @@
   .details>p, .details>h1{
     font-size: 26px;
   }
-  @media (min-width: 576px) and (max-width: 767px) { 
+  @media (min-width: 1200px) and (max-width: 1320px) { 
     .btn_volver{
-      margin-top: 7em;
-      margin-left: 1.5em;
+      margin-top: 10em;
+      margin-left: 1.3em;
     }
 
     .image{
-      height: 300px;
+      height: 520px;
+    }
+
+    .prev, .next{
+      top: 56%;
+    }
+
+    .carrusel{
+      width: 95%;
+    }
+    .carrusel .column{
+      width: 16%;
+    }
+
+    .thumb{
+      height: auto;
+    }
+
+    .details{
+      margin: 0em auto 1em auto;
+      width: 95%;
+      padding: 10px;
+    }
+
+    .row h3{
+      margin-top: 5px;
+    }
+    .details h2{
+      text-align: center;
+    }
+    .details h1{
+      font-size: 30px;
+    }
+    .details p {
+      font-size: 20px;
+      font-weight: lighter;
+    }
+    th{
+      font-size: 10px;
+    }
+
+    .btn-secondary{
+      border-radius: 0;
+      font-size: 10px;
+    }
+
+    td em{
+      font-size: 2em;
+    }
+
+    textarea{
+      min-height: 60px;
+    }
+
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) { 
+    .btn_volver{
+      margin-top: 10em;
+      margin-left: 1.3em;
+    }
+
+    .image{
+      height: 520px;
+    }
+
+    .prev, .next{
+      top: 56%;
+    }
+
+    .carrusel{
+      width: 95%;
+    }
+    .carrusel .column{
+      width: 20%;
+    }
+
+    .thumb{
+      height: auto;
+    }
+
+    .details{
+      margin: 0em auto 1em auto;
+      width: 95%;
+      padding: 10px;
+    }
+
+    .row h3{
+      margin-top: 5px;
+    }
+    .details h2{
+      text-align: center;
+    }
+    .details h1{
+      font-size: 30px;
+    }
+    .details p {
+      font-size: 20px;
+      font-weight: lighter;
+    }
+    th{
+      font-size: 10px;
+    }
+
+    .btn-secondary{
+      border-radius: 0;
+      font-size: 10px;
+    }
+
+    td em{
+      font-size: 2em;
+    }
+
+    textarea{
+      min-height: 60px;
+    }
+
+  }
+  @media (min-width: 768px) and (max-width: 991px) {
+    .btn_volver{
+      margin-top: 10em;
+      margin-left: 2.4em;
+    }
+
+    .image{
+      height: 550px;
+    }
+
+    .carrusel{
+      width: 92%;
+    }
+    .carrusel .column{
+      width: 20%;
+    }
+
+    .thumb{
+      height: auto;
+    }
+
+    .details{
+      margin: 0em auto 1em auto;
+      width: 92%;
+      padding: 10px;
+    }
+
+    .row h3{
+      margin-top: 5px;
+    }
+    .details h2{
+      text-align: center;
+    }
+    .details h1{
+      font-size: 30px;
+    }
+    .details p {
+      font-size: 20px;
+      font-weight: lighter;
+    }
+    th{
+      font-size: 10px;
+    }
+
+    .btn-secondary{
+      border-radius: 0;
+      font-size: 10px;
+    }
+
+    td em{
+      font-size: 2em;
+    }
+
+    textarea{
+      min-height: 60px;
+    }
+
+    .prev, .next{
+      top: 63%;
+    }
+   }
+
+  @media (min-width: 576px) and (max-width: 767px) { 
+    .btn_volver{
+      margin-top: 11em;
+      margin-left: 2em;
+    }
+
+    .image{
+      height: 400px;
     }
 
     .carrusel{

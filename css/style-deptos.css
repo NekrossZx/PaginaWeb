@@ -107,7 +107,36 @@
     border-radius: 10px 10px 0px 0px;
 }
 
-.btn_volver{
-  margin-top: 10em;
-  margin-left: 2.5em;
-}
+  .btn_volver{
+    margin-top: 10em;
+    margin-left: 2.5em;
+  }
+
+
+  @media (max-width: 575px) {
+    .btn_volver{
+      margin-top: 8em;
+      margin-left: 0.5em;
+    }
+
+    .image{
+      height: 300px;
+    }
+
+    .carrusel{
+      width: 90%;
+    }
+    .carrusel .column{
+      width: 20%;
+    }
+
+    .thumb{
+      height: auto;
+    }
+
+    .details{
+      margin: 0em auto 1em auto;
+      width: 90%;
+      box-shadow: none;
+    }
+  }

@@ -23,7 +23,7 @@ class MyHeader extends HTMLElement {
                      <ul class="email text_align_right">
                         <li class="d_none"><i class="fa fa-phone" aria-hidden="true"></i>+56  2 12345678</a></li>
                         <li class="d_none"> <a href="contacto@turismoreal.cl"><i class="fa fa-envelope" aria-hidden="true"></i>contacto@turismoreal.cl</a></li>
-                        <li class="d_none"> <a href="login.html">Login <i class="fa fa-user" aria-hidden="true"></i></a> </li>
+                        <li class="d_none" id="user"> <a href="login.html">Login <i class="fa fa-user" aria-hidden="true"></i></a> </li>
                         <li> <button class="openbtn" onclick="openNav()"><img src="images/menu_btn.png"></button></li>
                      </ul>
                   </div>
@@ -131,7 +131,7 @@ class MyHeader extends HTMLElement {
                        <ul class="xple_menu">
                           <li><a href="index.html">Home</a></li>
                           <li><a href="contact.html">Contactanos</a></li>
-                          <li><a href="departamentos.html">Contactanos</a></li>
+                          <li><a href="departamentos.html">Departamentos</a></li>
                        </ul>
                     </div>
                  </div>
@@ -199,7 +199,7 @@ class headerUser extends HTMLElement {
                     <ul class="email text_align_right">
                        <li class="d_none"><i class="fa fa-phone" aria-hidden="true"></i>+56  2 12345678</a></li>
                        <li class="d_none"> <a href="contacto@turismoreal.cl"><i class="fa fa-envelope" aria-hidden="true"></i>contacto@turismoreal.cl</a></li>
-                       <li class="d_none"> <a href="cuenta.html">Usuario <i class="fa fa-user" aria-hidden="true"></i></a> </li>
+                       <li class="d_none" id="user"> <a href="cuenta.html">Usuario <i class="fa fa-user" aria-hidden="true"></i></a> </li>
                        <li> <button class="openbtn" onclick="openNav()"><img src="images/menu_btn.png"></button></li>
                     </ul>
                  </div>

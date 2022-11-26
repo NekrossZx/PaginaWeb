@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:200,400|Playfair+Display');
 body {
-  background-image: linear-gradient(180deg, rgba(0, 0, 99, .05) 40%, #8b1310 100%);
   padding: 0;
   margin: 0;
 }
@@ -136,17 +135,101 @@ body {
 .price-range-slider .range-bar .ui-slider-handle + span {
   background: #06b9c0;
 }
-
-@media screen and (max-width: 1000px) {
+@media (min-width: 1200px) and (max-width: 1300px) { 
   .wrapper{
-    width: 47%;
+    width: 29%;
+  }
+  .wrapper .i1{
+    height: 15em;
   }
 }
-@media screen and(max-width:700px){
+@media (min-width: 992px) and (max-width: 1199px) {
+  .wrapper{
+    width: 45%;
+  }
+
+  .filtro{
+    width: 100%;
+    height: auto;
+    box-shadow: none;
+    border-radius: 0px ;
+    top: 20%;
+    left: 50%;
+  }
+  .btn-filtro{
+    margin-top: 22px;
+  }
+  .filtro .form-control{
+    margin-bottom: 8px;
+  }
+
+  .deps{
+    margin-top: 19em;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) { 
+
+  .filtro{
+    width: 100%;
+    height: auto;
+    box-shadow: none;
+    border-radius: 0px ;
+    top: 20%;
+    left: 50%;
+  }
+  .btn-filtro{
+    margin-top: 22px;
+  }
+  .filtro .form-control{
+    margin-bottom: 8px;
+  }
   .wrapper{
     float: none;
-    width: 70%;
+    width: 80%;
     margin: 1em auto;
+  }
+  .wrapper .i1{
+    height: 25em;
+  }
+
+  .wrapper .btn-custom-light{
+    width: 100%;
+  }
+
+}
+@media (min-width: 576px) and (max-width: 767px) { 
+  .wrapper{
+    float: none;
+    width: 80%;
+    margin: 1em auto;
+  }
+
+  .wrapper .btn-custom-light{
+    width: 100%;
+  }
+
+  .filtro{
+    width: 80%;
+    height: 31%;
+    box-shadow: none;
+    border-radius: 0px 0px 10px 10px;
+    top: 27%;
+    left: 50%;
+  }
+  .btn-filtro{
+    margin: 0px;
+  }
+
+  .filtro .form-control{
+    margin-bottom: 8px;
+  }
+
+  .deps{
+    margin-top: 28em;
+  }
+
+  .footer{
+    margin-top: 0;
   }
 }
 @media (max-width: 575px){
@@ -155,5 +238,29 @@ body {
     width: 100%;
     margin: 1em auto;
   }
+  .wrapper .btn-custom-light{
+    width: 100%;
+  }
+
+  .filtro{
+    width: 80%;
+    height: 31%;
+    box-shadow: none;
+    border-radius: 10px;
+    top: 27%;
+    left: 50%;
+  }
+  .btn-filtro{
+    margin: 0px;
+  }
+
+  .form-control{
+    margin-bottom: 8px;
+  }
+
+  .deps{
+    margin-top: 31em;
+  }
+
 }
 

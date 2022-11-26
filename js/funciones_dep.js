@@ -88,7 +88,7 @@ $(deptos).each(function (i, item) {
     </div>
     <p style="color:white;">ARRIENDO DIARIO</p>
     <h1>$`+item.ARRIENDO_DIARIO+`</h1>
-    <a id="btn_id" type="button" href="dep.html?id=`+item.ID_DEPARTAMENTO+`" data-value="`+item.ID_DEPARTAMENTO+`" class="btn btn-custom-light">Detalles</a>
+    <a type="button" href="dep.html?id=`+item.ID_DEPARTAMENTO+`" value="`+item.ID_DEPARTAMENTO+`" class="btn btn-custom-light">Detalles</a>
   </div>
   `);
 });

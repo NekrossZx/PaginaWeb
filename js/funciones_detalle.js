@@ -72,10 +72,6 @@ $(document).ready(function () {
     });
 
     //COMPLETA DETALLES
-
-    let id = window.location.search;
-    console.log();
-
     let detalles = null;
     $.ajax({
         'async': false,
@@ -83,7 +79,7 @@ $(document).ready(function () {
         'global': false,
         'dataType': 'html',
         'url': "api/deptos.php?a=5",
-        'data': { 'request': id, 'target': 'arrange_url', 'method': 'method_target'},
+        'data': { 'request': '', 'target': 'arrange_url', 'method': 'method_target'},
         'success': function (data) {
             detalles = JSON.parse(data);
         }
@@ -112,7 +108,7 @@ $(document).ready(function () {
         'global': false,
         'dataType': 'html',
         'url': "api/deptos.php?a=6",
-        'data': { 'request': id, 'target': 'arrange_url', 'method': 'method_target'},
+        'data': { 'request': '', 'target': 'arrange_url', 'method': 'method_target'},
         'success': function (data) {
             asociados = JSON.parse(data);
         }

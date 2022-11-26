@@ -181,7 +181,7 @@ img {
 .btn-custom-light {
      margin-top: 20px;
      background-color: #8b1310 !important;
-     border: 2px solid #ddd;
+     border: 0;
      padding: 12px 40px;
      font-size: 16px;
      color: white;
@@ -613,7 +613,6 @@ ul.email li img {
      line-height: 46px;
      color: #251d12;
      text-transform: uppercase;
-     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .read_more {

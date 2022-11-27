@@ -157,7 +157,7 @@ img {
   transform: translate(0px, -3px) scale(1.02);
 }
 .logo-footer {
-     margin-left: 80px;
+     margin-left: 50px;
      margin-bottom: -50px ;
      width: 245px;
      height: auto;
@@ -185,7 +185,6 @@ img {
      padding: 12px 40px;
      font-size: 16px;
      color: white;
-     border-radius: 10px;
 }
 
 .btn-filtro {
@@ -210,9 +209,11 @@ img {
      height: 2em;
      cursor: pointer;
 }
-.btn-custom:hover,.btn-custom-light:hover, .btn-filtro:hover{
+.btn-custom:hover,.btn-custom-light:hover, .btn-filtro:hover, .btn-custom:focus,.btn-custom-light:focus, .btn-filtro:focus{
      color: white;
-     border: 2px solid #fe9a0c;
+     border: 0;
+     box-shadow: 0 7px 14px rgb(0 0 0 / 25%), 0 7px 7px rgb(0 0 0 / 22%);
+     transform: translate(0px, -2px) scale(1.0);
 }
 
 .lead {
@@ -633,6 +634,10 @@ ul.email li img {
      background: #fd990c;
      color: #fff;
      transition: ease-in all 0.5s;
+}
+
+.footer .read_more{
+     width: 100%;
 }
 
 

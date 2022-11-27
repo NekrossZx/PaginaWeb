@@ -4,6 +4,7 @@
     .about_box_img {
         margin-right: -20px;
     }
+    
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -161,7 +162,7 @@
         text-align: center;
         display: block;
         width: auto;
-        margin: -80px 0px -90px -15px ;
+        margin: -80px 0px -90px 0px ;
     }
     .banner_main {
         padding-top: 120px;
@@ -264,6 +265,7 @@
     }
     .reader p {
         padding-bottom: 20px;
+        text-align: center;
     }
     .main_form {
         padding-bottom: 30px;
@@ -300,10 +302,10 @@
         border-radius: 0;
     }
     .logo-footer{
-        margin-left: 100px;
+        margin-left: 130px;
         margin-top: -50px;
         display: flex;
-        width: 240px;
+        width: 280px;
     }
     .reader p{
         text-align: center;
@@ -431,5 +433,9 @@
     }
     .index-footer {
         margin-top: -250px;
+    }
+
+    .read_more{
+        max-width: 100%;
     }
 }

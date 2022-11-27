@@ -512,7 +512,7 @@ body{
     }
     }
     
-    @media (min-width:992px) {
+@media (min-width:992px) {
     .view-account .content-panel {
         min-height: 800px;
         border-left: 1px solid #f3f3f7;
@@ -586,4 +586,45 @@ body{
     #icon_perfil, #icon_reserva {
         margin-right: 10px;
     }
+}
+
+@media (min-width:575px) {
+
+    .fieldset{
+        padding: 10px;
     }
+
+    #actualizar{
+        margin: 10px;
+    }
+
+    hr{
+        margin: 0;
+    }
+
+    .view-account .side-bar{
+        padding: 0;
+    }
+
+    .view-account .side-bar .user-info{
+        padding-top: 30px;
+        padding-bottom: 15px;
+        margin: 0;
+    }
+    .view-account .side-bar .side-menu{
+        padding: 10px;
+        height: 40px;
+    }
+
+    .view-account .content-panel .fieldset-title{
+        margin-top: 40px;
+    }
+
+    .view-account .side-bar .side-menu .nav>li a{
+        font-size: 20px;
+    }
+
+    table{
+        max-width: 10px !important;
+    }
+}

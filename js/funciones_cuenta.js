@@ -102,15 +102,15 @@ $(document).ready(function () {
     },
     aaSorting: [0, 'desc'],
       bDestroy: false,
-      processing: false,
+      processing: true,
       serverSide: false,
-      pageLength: 7,
-      lengthChange: true,
-      paging: true,
+      pageLength: 10,
+      lengthChange: false,
+      paging: false,
       searching: false,
       ordering: true,
-      info: true,
-      autoWidth: true,
+      info: false,
+      autoWidth: false,
       responsive: true,
     language: {
       search: '<i class="fa fa-search"></i>',
@@ -134,12 +134,6 @@ $(document).ready(function () {
         className: "text-nowrap dt-nombre_depto",
         render: function (data, type, dt) {
           return validarVacio(dt.NOMBRE);
-        }
-      },
-      {
-        className: "text-nowrap dt-region",
-        render: function (data, type, dt) {
-          return validarVacio(dt.NOMBRE_REGION);
         }
       },
       {

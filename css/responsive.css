@@ -153,9 +153,9 @@
     #user{
         display: block !important; 
     }
-    .logo {
-        text-align: center;
-        display: block;
+    .logo-top{
+        margin-top: -36px;
+        border-radius: 0px 0px 10px 10px;
     }
     .logo-footer {
         text-align: center;

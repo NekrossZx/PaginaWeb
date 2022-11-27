@@ -33,7 +33,7 @@
    <body class="main-layout">
       <user-header></user-header>
       <!-- reserva-->
-      <div class="about top_layer">
+      <div class="container-fluid">
          <div class="container">
             <div class="view-account">
                <section class="module">
@@ -42,10 +42,10 @@
                         <h1 class="text_align_center">MODULOS</h1><br>
                         <div class="col-md-12 text_align_center">
                            <div class="row">
-                              <button type="button" data-toggle="modal" data-target="#modalTransporte" class="btn btn-custom-light col-md-12">Transporte</button>
-                              <button type="button" data-toggle="modal" data-target="#modalExtra" class="btn btn-custom-light col-md-12">Servicios Extras</button>
-                              <button type="button" data-toggle="modal" data-target="#modalAcompanante" class="btn btn-custom-light col-md-12">Acompañantes</button>
-                              <button type="button" data-toggle="modal" data-target="#modalTurismo" class="btn btn-custom-light col-md-12">Turismo</button>
+                              <button type="button" data-toggle="modal" data-target="#modalTransporte" class="btn btn-custom-light col-md-3">Transporte</button>
+                              <button type="button" data-toggle="modal" data-target="#modalExtra" class="btn btn-custom-light col-md-3">Servicios Extras</button>
+                              <button type="button" data-toggle="modal" data-target="#modalAcompanante" class="btn btn-custom-light col-md-3">Acompañantes</button>
+                              <button type="button" data-toggle="modal" data-target="#modalTurismo" class="btn btn-custom-light col-md-3">Turismo</button>
                            </div>
                         </div>
                         <!--div class="col-md-12">
@@ -109,7 +109,7 @@
                                  <form id="reserva">
                                     <div id="datos_depto"  class="container-fluid">
                                     </div>
-                                    <div class="container-fluid">
+                                    <div id="datos_reserva" class="container-fluid">
                                        <div class="col-md-12">
                                           <h4 style="color: black;">DATOS RESERVA</h4><br>
                                           <div class="row">
@@ -119,10 +119,10 @@
                                              </div>
                                              <!--FECHA RESERVA-->
                                              <div class="col-md-2" readonly><label for="">Fecha Reserva</label>
-                                                <input type="datetime-local" id="fecha_reserva" name="fecha_reserva" class="form-control required" readonly><br>
+                                                <input type="date" id="fecha_reserva" name="fecha_reserva" class="form-control required" readonly><br>
                                              </div>
                                              <!--FECHA INICIO-->
-                                             <div class="col-md-4"><label for="">Fecha de estadia</label>
+                                             <div class="col-md-4"><label for="">Duración de estadía</label>
                                                 <input type="text" name="daterange" class="form-control"><br>
                                              </div>
                                              <div class="col-md-2"><label for="">Cantidad de dias</label>
@@ -162,45 +162,43 @@
                <div class="modal-body">
                   <form id="md_transporte">
                      <div class="col-md-12">
-                        <div class="modal-body">
-                           <details id="ida" open>
-                              <summary>IDA</summary>
-                              <div class="row">
-                                 <!--HORARIO-->
-                                 <div class="col-md-4"><label for="">Fecha/Hora Recogida</label>
-                                    <input type="text" id="ida_hora" name="ida_hora" class="form-control ida">
-                                 </div><br>
-                                 <!--DIRECCIÓN ORIGEN-->
-                                 <div class="col-md-12"><label for="">Dirección Origen</label>
-                                    <input id="ida_origen" name="ida_origen" class="form-control required ida" placeholder="Formato: Calle, Número, Comuna o Región">
-                                 </div><br>
-                                 <!--DIRECCIÓN DESTINO-->
-                                 <div class="col-md-12"><label for="">Dirección Destino</label>
-                                    <input id="ida_destino" name="ida_destino" class="form-control required ida" placeholder="Formato: Calle, Número, Comuna o Región">
-                                 </div><br>
-                              </div>
-                           </details>
-                           <details id="vuelta" class="hidden">
-                              <summary>VUELTA</summary>
-                              <div class="row">
-                                 <!--HORARIO-->
-                                 <div class="col-md-4"><label for="">Fecha/Hora Recogida</label>
-                                    <input type="text" id="vuelta_hora" name="vuelta_hora" class="form-control">
-                                 </div><br>
-                                 <!--DIRECCIÓN ORIGEN-->
-                                 <div class="col-md-12"><label for="">Dirección Origen</label>
-                                    <input id="vuelta_origen" name="vuelta_origen" class="form-control required" placeholder="Formato: Calle, Número, Comuna o Región">
-                                 </div><br>
-                                 <!--DIRECCIÓN DESTINO-->
-                                 <div class="col-md-12"><label for="">Dirección Destino</label>
-                                    <input id="vuelta_destino" name="vuelta_destino" class="form-control required" placeholder="Formato: Calle, Número, Comuna o Región">
-                                 </div><br>
-                              </div>
-                           </details>
-                           <div class="check">
-                              <label for="">Invertir datos de <strong>IDA</strong> para la <strong>VUELTA</strong></label>
-                              <input type="checkbox" id="same_data" checked>
+                        <details id="ida" open>
+                           <summary>IDA</summary>
+                           <div class="row">
+                              <!--HORARIO-->
+                              <div class="col-md-4"><label for="">Fecha/Hora Recogida</label>
+                                 <input type="text" id="ida_hora" name="ida_hora" class="form-control ida">
+                              </div><br>
+                              <!--DIRECCIÓN ORIGEN-->
+                              <div class="col-md-12"><label for="">Dirección Origen</label>
+                                 <input id="ida_origen" name="ida_origen" class="form-control required ida" placeholder="Formato: Calle, Número, Comuna o Región">
+                              </div><br>
+                              <!--DIRECCIÓN DESTINO-->
+                              <div class="col-md-12"><label for="">Dirección Destino</label>
+                                 <input id="ida_destino" name="ida_destino" class="form-control required ida" placeholder="Formato: Calle, Número, Comuna o Región">
+                              </div><br>
                            </div>
+                        </details>
+                        <details id="vuelta" class="hidden">
+                           <summary>VUELTA</summary>
+                           <div class="row">
+                              <!--HORARIO-->
+                              <div class="col-md-4"><label for="">Fecha/Hora Recogida</label>
+                                 <input type="text" id="vuelta_hora" name="vuelta_hora" class="form-control">
+                              </div><br>
+                              <!--DIRECCIÓN ORIGEN-->
+                              <div class="col-md-12"><label for="">Dirección Origen</label>
+                                 <input id="vuelta_origen" name="vuelta_origen" class="form-control required" placeholder="Formato: Calle, Número, Comuna o Región">
+                              </div><br>
+                              <!--DIRECCIÓN DESTINO-->
+                              <div class="col-md-12"><label for="">Dirección Destino</label>
+                                 <input id="vuelta_destino" name="vuelta_destino" class="form-control required" placeholder="Formato: Calle, Número, Comuna o Región">
+                              </div><br>
+                           </div>
+                        </details>
+                        <div class="check">
+                           <label for="">Invertir datos de <strong>IDA</strong> para la <strong>VUELTA</strong></label>
+                           <input type="checkbox" id="same_data" checked>
                         </div>
                      </div>
                   </form>
@@ -228,7 +226,7 @@
                      <div class="modal-body">
                         <div class="row">
                            <!--AGREGAR SERVICIO-->
-                           <div class="col-md-12"><label class="text_align_center" >Agregar Servicio</label>
+                           <div class="col-md-12">
                               <div class="row">
                                  <div class="col-md-8"><label for="">Servicio Extra</label>
                                     <select id="servicio_extra" name="servicio_extra" class="form-control required">
@@ -281,7 +279,7 @@
                      <div class="modal-body">
                         <div class="row">
                            <!--AGREGAR ACOMPAÑANTE-->
-                           <div class="col-md-12 text_align_center"><label for="">Agregar Acompañante</label>
+                           <div class="col-md-12 text_align_center">
                               <div class="row">
                                  <div class="col-md-6"><label for="">Cantidad Niños</label>
                                     <input type="number" id="cantidad_ninos" name="cantidad_ninos" min="0" value="0" class="form-control">
@@ -314,7 +312,7 @@
                      <div class="modal-body">
                         <div class="row">
                            <!--AGREGAR ACTIVIDAD-->
-                           <div class="col-md-12"><label>Agregar Actividad</label>
+                           <div class="col-md-12">
                               <div class="row">
                                  <div class="col-md-12"><label for="">Nombre Actividad</label>
                                     <select id="actividad_nombre" name="actividad_nombre" class="form-control required">

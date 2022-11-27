@@ -1,193 +1,346 @@
+textarea{
+  width: 100%;
+  border: 1px;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 16px;
+  text-align: center;
+  align-self: center;
+  background-color: rgba(118, 118, 118, 0.1);
+  min-height: 50px;
+  height: 50px;
+  font-weight: 600;
+}
+
+.hidden{
+  display: none;
+}
+
+.modal-footer .btn-custom{
+  margin-top: 0;
+}
+
+#datos_reserva .form-control, #datos_depto .form-control{
+  font-size: 20px;
+  text-align: center;
+}
+
 .close{
   background-color: transparent;
   font-size: 25px;
 }
 /* Style the buttons that are used to open and close the accordion panel */
 .accordion {
-    background-color: #eee;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    text-align: center;
-    border: none;
-    outline: none;
-    transition: 0.4s;
-  }
-  
-  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-  .active, .accordion:hover {
-    background-color: #ccc;
-  }
-  
-  /* Style the accordion panel. Note: hidden by default */
-  .panel {
-    padding: 0 18px;
-    background-color: white;
-    display: none;
-    overflow: hidden;
-  }
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: center;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
 
-  details {
-    background-color: #eee;
-    color: #8b1310;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    text-align: center;
-    outline: none;
-    transition: 0.4s;
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  display: none;
+  overflow: hidden;
+}
+
+details {
+  background-color: #eee;
+  color: #8b1310;
+  cursor: pointer;
+  padding: 18px;
+  text-align: center;
+  outline: none;
+  transition: 0.4s;
+  border-radius: 10px 10px 0px 0px;
+  margin-left: 10px;
+  width: 98.6% !important;
+}
+.check{
+  background-color: #eee;
+  color: #8b1310;
+  cursor: pointer;
+  padding: 18px;
+  text-align: center;
+  outline: none;
+  transition: 0.4s;
+  border-radius: 0px 0px 10px 10px;
+  margin-left: 10px;
+  width: 98.6% !important;
+}
+#vuelta{
+  border-radius: 0px;
+}
+#servicios{
+  border-radius: 10px;
+}
+
+.modal-open{
+  overflow: hidden !important;
+}
+
+ #modalTransporte .modal-content {
+  display: flex;
+  flex-direction: column;
+  width: 750px;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  margin-top: 425px;
+  transform: translate(-50%, -50%);
+}
+
+.daterangepicker .drp-buttons .btn{
+  background-color:#8b1310;
+  color: white;
+}
+
+.daterangepicker td.in-range{
+  background-color:#fd990c !important;
+}
+
+.daterangepicker td.active, .daterangepicker td.active:hover{
+  background-color:#8b1310 !important;
+  color: white !important;
+}
+
+.pago{
+  margin: 23px;
+  padding: 0px;
+  color: black;
+}
+
+.pago label:hover{
+  font-weight: bolder;
+}
+
+.metodo {
+  width: 100%;
+  margin: 1em 0em 1em 0em;
+  padding: 0px;
+  background-color: #f1f1f1;
+  color: #333;
+}
+
+.metodo p {
+  background-color: rgba(139, 19, 16, 0.7);
+  padding: 10px;
+  color: white;
+}
+
+#modalPago .modal-body{
+  padding: 0;
+}
+
+.detalles{
+  width: 100%;
+  margin: 0em;
+  padding: 0em;
+  background-color: #f1f1f1;
+  color: #333;
+}
+
+.detalles p{
+  margin: 10px;
+}
+
+/*CSS DE CUENTA.CSS*/
+  .view-account{
+    background:#FFFFFF; 
+    margin:4em auto 1em auto;
     border-radius: 10px;
   }
 
-  #vuelta{
-    border-radius: 0px;
-  }
-  .check{
-    background-color: #eee;
-    color: #8b1310;
-    padding: 18px;
-    width: 100%;
-    text-align: center;
-    outline: none;
-    transition: 0.4s;
-    border-radius: 0px 0px 10px 10px;
-  }
-  #servicios{
-    border-radius: 10px;
-  }
-
-
-  .modal-open{
-    overflow: hidden !important;
-  }
-
-   #modalTransporte .modal-content {
-    display: flex;
-    flex-direction: column;
-    width: 750px;
+  .view-account .pro-label {
+    font-size: 13px;
+    padding: 4px 5px;
     position: relative;
-    left: 50%;
-    top: 50%;
-    margin-top: 425px;
-    transform: translate(-50%, -50%);
-  }
-
-  .daterangepicker .drp-buttons .btn{
-    background-color:#8b1310;
-    color: white;
-  }
-
-  .daterangepicker td.in-range{
-    background-color:#fd990c !important;
+    top: -5px;
+    margin-left: 10px;
+    display: inline-block
   }
   
-  .daterangepicker td.active, .daterangepicker td.active:hover{
-    background-color:#8b1310 !important;
-    color: white !important;
+  .view-account .content-panel {
+  padding: 20px
   }
 
-  .hidden{
-    display: none;
-  }
-
-  .pago{
-    margin: 23px;
-    padding: 0px;
-    color: black;
-  }
-
-  .pago label:hover{
-    font-weight: bolder;
-  }
-
-  .metodo {
+  .view-account .content-panel {
     width: 100%;
-    margin: 1em 0em 1em 0em;
-    padding: 0px;
-    background-color: #f1f1f1;
-    color: #333;
+    border-left: none;
+    margin-left: 0px
+  }
+  .view-account .mail-subject .subject {
+    max-width: 280px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+  }
+  .view-account .side-bar {
+    position: relative;
+    width: 100%;
+    left: 0;
+    padding-bottom: 10px;
+    margin-top: 10em;
   }
 
-  .metodo p {
-    background-color: rgba(139, 19, 16, 0.7);
-    padding: 10px;
+  .view-account .accordion{
     color: white;
+    background-color: #fd990c;
+  }
+  .view-account .accordion:hover{
+    background-color: #e48500;
   }
 
-  #modalPago .modal-body{
-    padding: 0;
+  .view-account .btn-custom-light{
+    margin: 0em 0em 0em -0.3em;
+    padding: 24px;
+    border: 0;
+    border-radius: 0;
+  }
+  .view-account .btn-custom-light:hover{
+    color: #fd990c;
+    transition: all ease-in 0.15s !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 5px rgba(0, 0, 0, 0.24);
   }
 
-  .detalles{
+  .btn-secondary{
+    border-radius: 0;
+  } 
+
+@media (min-width: 1321px) {
+  .container{
+    max-width: 1700px;
+  }
+  
+}
+@media (min-width: 1200px) and (max-width: 1320px){
+  .view-account .side-bar{
+    position: relative;
     width: 100%;
-    margin: 0em;
-    padding: 0em;
-    background-color: #f1f1f1;
-    color: #333;
+    margin-top: 10em;
+    margin-bottom: 2em;
+    padding-bottom: 0;
   }
 
-  .detalles p{
-    margin: 10px;
+  .view-account .content-panel{
+    margin-left: 0;
+    border-left: 0;
   }
-  /*CSS DE CUENTA.CSS*/
-    .view-account{
-      background:#FFFFFF; 
-      margin:4em auto 1em auto;
-      border-radius: 10px;
-    }
 
-    .view-account .pro-label {
-      font-size: 13px;
-      padding: 4px 5px;
-      position: relative;
-      top: -5px;
-      margin-left: 10px;
-      display: inline-block
-    }
-    
-    .view-account .content-panel {
-    padding: 20px
-    }
+  .view-account .btn-custom-light{
+    margin: 0px 0px 5px 13px ;
+    padding: 24px 0px 24px 0px;
+    width: 95%;
+  }
 
-    .view-account .content-panel {
-      width: 100%;
-      border-left: 1px solid #f3f3f7;
-      margin-left: 165px
-    }
-    .view-account .mail-subject .subject {
-      max-width: 280px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis
-    }
-    .view-account .side-bar {
-      position: absolute;
-      width: 550px;
-      left: 0;
-      padding-bottom: 30px
-    }
+  #datos_depto .col-md-2, #datos_depto .col-md-4, #datos_reserva .col-md-2, #datos_reserva .col-md-4{
+    width: 50%;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .view-account .side-bar{
+    position: relative;
+    width: 100%;
+    margin-top: 10em;
+    margin-bottom: 2em;
+    padding-bottom: 0;
+  }
 
-    .view-account .accordion{
-      color: white;
-      background-color: #fd990c;
-    }
-    .view-account .accordion:hover{
-      background-color: #e48500;
-    }
+  .view-account .content-panel{
+    margin-left: 0;
+    border-left: 0;
+  }
 
-    .view-account .btn-custom-light{
-      margin: 0em 0em 0em -0.3em;
-      padding: 24px;
-      border: 0;
-      border-radius: 0;
-    }
-    .view-account .btn-custom-light:hover{
-      color: #fd990c;
-      transition: all ease-in 0.15s !important;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 5px rgba(0, 0, 0, 0.24);
-    }
+  .view-account .btn-custom-light{
+    margin: 0px 0px 5px 13px ;
+    padding: 24px 0px 24px 0px;
+    width: 95%;
+  }
 
-    .btn-secondary{
-      border-radius: 0;
-    }
+  #datos_depto .col-md-2, #datos_depto .col-md-4, #datos_reserva .col-md-2, #datos_reserva .col-md-4{
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .view-account .side-bar{
+    position: relative;
+    width: 100%;
+    margin-top: 10em;
+    margin-bottom: 2em;
+    padding-bottom: 0;
+  }
+
+  .view-account .content-panel{
+    margin-left: 0;
+    border-left: 0;
+  }
+
+  .view-account .btn-custom-light{
+    margin: 0px 0px 5px 13px ;
+    padding: 24px 0px 24px 0px;
+    width: 95%;
+  }
+
+  #datos_depto .col-md-2, #datos_depto .col-md-4, #datos_reserva .col-md-2, #datos_reserva .col-md-4{
+    width: 100%;
+  }
+  .modal-content{
+    margin-top: 50px;
+  }
+
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .view-account .side-bar{
+    position: relative;
+    width: 100%;
+    margin-top: 10em;
+    margin-bottom: 2em;
+    padding-bottom: 0;
+  }
+
+  .view-account .content-panel{
+    margin-left: 0;
+    border-left: 0;
+  }
+
+  .view-account .btn-custom-light{
+    margin: 0px 0px 5px 13px ;
+    padding: 24px 0px 24px 0px;
+    width: 95%;
+  }
+
+  .modal-content{
+    margin-top: 50px;
+  }
+}
+@media (max-width: 575px) {
+  .view-account .side-bar{
+    position: relative;
+    margin-top: 9em;
+    margin-bottom: 2em;
+  }
+
+  .view-account .content-panel{
+    margin-left: 0;
+    border-left: 0;
+  }
+
+  .view-account .btn-custom-light{
+    margin: 0px 0px 5px 13px ;
+    padding: 24px 0px 24px 0px;
+    width: 95%;
+  }
+}

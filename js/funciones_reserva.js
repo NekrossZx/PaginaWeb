@@ -65,7 +65,7 @@
            </div>
            <!--DESCRIPCION-->
            <div class="col-md-12"><label for="">Descripción</label>
-              <input type="text" id="descripcion" class="form-control" value="`+item.DESCRIPCION+`" readonly><br>
+              <textarea type="text" id="descripcion" class="form-control"readonly>`+item.DESCRIPCION+`</textarea>
            </div>
            <!--SERVICIOS-->
            <details>

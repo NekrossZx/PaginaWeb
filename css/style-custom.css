@@ -22,6 +22,12 @@ body {
   letter-spacing: .15em;
   color: #333;
 }
+
+.wrapper .btn-custom-light:hover{
+  color: black;
+  transition: ease-in all 0.2s;
+  background-color: white !important;
+}
 .details {
   width: 100%;
   margin: 0 auto 0.5em;
@@ -143,12 +149,35 @@ body {
 .form_button{
   margin-bottom: 1em;
 }
+
+option:hover{
+  color: white;
+  background-color: #fd990c;
+}
+@media (min-width: 1301px) {
+  .filtro{
+    width: 100%;
+    height: auto;
+    box-shadow: none;
+    border-radius: 0px ;
+    top: 19.1%;
+    left: 50%;
+  }
+}
 @media (min-width: 1200px) and (max-width: 1300px) { 
   .wrapper{
     width: 29%;
   }
   .wrapper .i1{
     height: 15em;
+  }
+  .filtro{
+    width: 100%;
+    height: auto;
+    box-shadow: none;
+    border-radius: 0px ;
+    top: 19.1%;
+    left: 50%;
   }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -161,7 +190,7 @@ body {
     height: auto;
     box-shadow: none;
     border-radius: 0px ;
-    top: 20%;
+    top: 19.1%;
     left: 50%;
   }
   .btn-filtro{
@@ -182,7 +211,7 @@ body {
     height: auto;
     box-shadow: none;
     border-radius: 0px ;
-    top: 20%;
+    top: 19.1%;
     left: 50%;
   }
   .btn-filtro{

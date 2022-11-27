@@ -211,9 +211,7 @@ img {
 }
 .btn-custom:hover,.btn-custom-light:hover, .btn-filtro:hover, .btn-custom:focus,.btn-custom-light:focus, .btn-filtro:focus{
      color: white;
-     border: 0;
-     box-shadow: 0 7px 14px rgb(0 0 0 / 25%), 0 7px 7px rgb(0 0 0 / 22%);
-     transform: translate(0px, -2px) scale(1.0);
+     border: 2px solid #fe9a0c;
 }
 
 .lead {

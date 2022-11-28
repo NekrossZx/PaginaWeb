@@ -4,7 +4,7 @@
       <!-- basic -->
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      
       <!-- mobile metas -->
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
@@ -198,46 +198,35 @@
                            <summary>IDA</summary>
                            <div class="row">
                               <!--HORARIO-->
-                              <div class="col-md-3"><label for="">Fecha/Hora Recogida</label>
-                                 <input type="text" id="ida_hora" name="ida_hora" class="form-control ida">
+                              <div class="col-md-4"><label for="">Fecha/Hora Recogida</label>
+                                 <input type="text" id="ida_hora" name="ida_hora" class="form-control ida time">
                               </div><br>
-                              <!--REGION ORIGEN-->
-                              <div class="col-md-6"><label for="">Región Origen</label>
-                                 <select type="text" id="ida_region_origen" name="ida_region_origen" class="form-control">
-                                    <option value="1">Región Arica</option>
-                                    <option value="2">Región de Tarapacá</option>
-                                    <option value="3">Región Antofagasta</option>
-                                    <option value="4">Región Atacama</option>
-                                    <option value="5">Región Coquimbo</option>
-                                    <option value="6">Región Valparaíso</option>
-                                    <option value="7">Región Metropolitana</option>
-                                    <option value="8">Región Libertador General Bernardo O'H</option>
-                                    <option value="9">Región del Maule</option>
-                                    <option value="10">Región del Ñuble</option>
-                                    <option value="11">Región del Biobío</option>
-                                    <option value="12">Región de la Araucanía</option>
-                                    <option value="13">Región de los Ríos</option>
-                                    <option value="14">Región de los Lagos</option>
-                                    <option value="15">Región de Aysén</option>
-                                    <option value="16">Región de Magallanes</option>
-                                 </select>
+                              <div class="col-md-4">
                               </div><br>
                               <!--VALOR IDA-->
-                              <div class="col-md-3"><label for="">Valor viaje</label>
-                                 <input type="text" id="ida_valor" name="ida_valor" class="form-control" readonly>
+                              <div class="col-md-4"><label for="">Valor viaje</label>
+                                 <input type="text" id="ida_valor" name="ida_valor" class="form-control ida time" readonly>
                               </div><br>
-                              <!--DIRECCIÓN ORIGEN-->
-                              <div class="col-md-12"><label for="">Dirección Origen</label>
-                                 <input id="ida_origen" name="ida_origen" class="form-control required ida" placeholder="Formato: Calle, Número">
-                              </div><br>
+                              <p>ORIGEN</p>
                               <!--REGION ORIGEN-->
                               <div class="col-md-6"><label for="">Región Origen</label>
-                                 <select type="text" id="ida_region_destino" name="ida_region_destino" class="form-control">
+                                 <select type="text" id="ida_region_origen" name="ida_region_origen" class="form-control ida">
+                                    <option value="0">Seleccione Región</option>
+                                 </select>
+                              </div><br>
+                              <!--DIRECCIÓN ORIGEN-->
+                              <div class="col-md-6"><label for="">Dirección Origen</label>
+                                 <input id="ida_origen" name="ida_origen" class="form-control required ida" placeholder="Formato: Calle, Número">
+                              </div><br>
+                              <p>DESTINO</p>
+                              <!--REGION DESTINO-->
+                              <div class="col-md-6"><label for="">Región Destino</label>
+                                 <select type="text" id="ida_region_destino" name="ida_region_destino" class="form-control ida">
                                     <option value="0">Seleccione Región</option>
                                  </select>
                               </div><br>
                               <!--DIRECCIÓN DESTINO-->
-                              <div class="col-md-12"><label for="">Dirección Destino</label>
+                              <div class="col-md-6"><label for="">Dirección Destino</label>
                                  <input id="ida_destino" name="ida_destino" class="form-control required ida" placeholder="Formato: Calle, Número">
                               </div><br>
                            </div>
@@ -247,15 +236,35 @@
                            <div class="row">
                               <!--HORARIO-->
                               <div class="col-md-4"><label for="">Fecha/Hora Recogida</label>
-                                 <input type="text" id="vuelta_hora" name="vuelta_hora" class="form-control">
+                                 <input type="text" id="vuelta_ida" name="vuelta_hora" class="form-control time">
+                              </div><br>
+                              <div class="col-md-4">
+                              </div><br>
+                              <!--VALOR IDA-->
+                              <div class="col-md-4"><label for="">Valor viaje</label>
+                                 <input type="text" id="vuelta_valor" name="vuelta_valor" class="form-control time" readonly>
+                              </div><br>
+                              <p>ORIGEN</p>
+                              <!--REGION ORIGEN-->
+                              <div class="col-md-6"><label for="">Región Origen</label>
+                                 <select type="text" id="vuelta_region_origen" name="vuelta_region_origen" class="form-control">
+                                    <option value="0">Seleccione Región</option>
+                                 </select>
                               </div><br>
                               <!--DIRECCIÓN ORIGEN-->
-                              <div class="col-md-12"><label for="">Dirección Origen</label>
-                                 <input id="vuelta_origen" name="vuelta_origen" class="form-control required" placeholder="Formato: Calle, Número, Comuna o Región">
+                              <div class="col-md-6"><label for="">Dirección Origen</label>
+                                 <input id="vuelta_origen" name="vuelta_origen" class="form-control required" placeholder="Formato: Calle, Número">
+                              </div><br>
+                              <p>DESTINO</p>
+                              <!--REGION DESTINO-->
+                              <div class="col-md-6"><label for="">Región Destino</label>
+                                 <select type="text" id="vuelta_region_destino" name="vuelta_region_destino" class="form-control">
+                                    <option value="0">Seleccione Región</option>
+                                 </select>
                               </div><br>
                               <!--DIRECCIÓN DESTINO-->
-                              <div class="col-md-12"><label for="">Dirección Destino</label>
-                                 <input id="vuelta_destino" name="vuelta_destino" class="form-control required" placeholder="Formato: Calle, Número, Comuna o Región">
+                              <div class="col-md-6"><label for="">Dirección Destino</label>
+                                 <input id="vuelta_destino" name="vuelta_destino" class="form-control required" placeholder="Formato: Calle, Número">
                               </div><br>
                            </div>
                         </details>

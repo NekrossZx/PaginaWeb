@@ -83,11 +83,9 @@ $(deptos).each(function (i, item) {
     <div class="details">
       <h1>Codigo:`+item.ID_DEPARTAMENTO+`<em id="codigo"></em></h1>
       <h2 id="`+item.NOMBRE+`">`+item.NOMBRE+`</h2>
-      <h1><em>Incluye</em></h1>
-      <h1><em>AQUI VAN LOS SERVICIOS</em></h1>
     </div>
-    <p style="color:white;">ARRIENDO DIARIO</p>
-    <h1>$`+item.ARRIENDO_DIARIO+`</h1>
+    <p>ARRIENDO DIARIO</p>
+    <h2>$`+item.ARRIENDO_DIARIO+`</h2>
     <a type="button" href="dep.html?id=`+item.ID_DEPARTAMENTO+`" value="`+item.ID_DEPARTAMENTO+`" class="btn btn-custom-light">Detalles</a>
   </div>
   `);

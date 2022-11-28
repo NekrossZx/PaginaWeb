@@ -53,7 +53,7 @@
            </div>
            <!--REGION-->
            <div class="col-md-2"><label for="">Región</label>
-              <input type="text" accept-charset="character_set UTF-8" id="region" class="form-control" value="`+item.NOMBRE_REGION+`" readonly><br>
+              <label id="region" class="form-control">`+item.NOMBRE_REGION+`</label>
            </div>
            <!--DIRECCION-->
            <div class="col-md-4"><label for="">Dirección</label>
@@ -80,7 +80,7 @@
      </div>`)
     });
 
-    //COMPLETA ACTIVIDAD TOUR
+    //COMPLETA SERVICIOS ASOCIADOS
     let asociados = null;
     $.ajax({
         'async': false,

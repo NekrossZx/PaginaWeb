@@ -53,7 +53,7 @@
            </div>
            <!--REGION-->
            <div class="col-md-2"><label for="">Región</label>
-              <input type="text" id="region" class="form-control" value="`+item.NOMBRE_REGION+`" readonly><br>
+              <input type="text" accept-charset="character_set UTF-8" id="region" class="form-control" value="`+item.NOMBRE_REGION+`" readonly><br>
            </div>
            <!--DIRECCION-->
            <div class="col-md-4"><label for="">Dirección</label>

@@ -39,7 +39,7 @@
                <section class="module">
                   <div class="module-inner">
                      <div class="side-bar">
-                        <h1 class="text_align_center">MODULOS</h1><br>
+                        <h1 class="text_align_center">MÓDULOS</h1><br>
                         <div class="col-md-12 text_align_center">
                            <div class="row">
                               <button type="button" data-toggle="modal" data-target="#modalTransporte" class="btn btn-custom-light col-md-3">Transporte</button>
@@ -107,6 +107,37 @@
                               <div class="titlepage text_align_center">
                                  <h1 class="form_title">RESERVA</h1>
                                  <form id="reserva">
+                                    <div class="container-fluid">
+                                       <h4 style="color: black;">DATOS CLIENTE</h4><br>
+                                       <details id="datos_cliente">
+                                          <summary>CLIENTE</summary>
+                                              <!--Servicios incluidos-->
+                                              <div class="col-md-12">
+                                                  <div class="row">
+                                                      <!--RUT CLIENTE-->
+                                                      <div class="col-md-2"><label for="">RUT</label>
+                                                         <input type="text" id="rut_cliente" name="rut_cliente" class="form-control" required>
+                                                      </div>
+                                                      <!--EMAIL CLIENTE-->
+                                                      <div class="col-md-4"><label for="">Email</label>
+                                                         <input type="text" id="email_cliente" name="email_cliente" class="form-control" required>
+                                                      </div>
+                                                      <!--NOMBRE CLIENTE-->
+                                                      <div class="col-md-2"><label for="">Nombres</label>
+                                                         <input type="text" id="nombre_cliente" name="nombre_cliente" class="form-control" required>
+                                                      </div>
+                                                      <!--APELLIDO CLIENTE-->
+                                                      <div class="col-md-2"><label for="">Apellidos</label>
+                                                         <input type="text" id="apellido_cliente" name="apellido_cliente" class="form-control" required>
+                                                      </div>
+                                                      <!--TELEFONO CLIENTE-->
+                                                      <div class="col-md-2"><label for="">Teléfono</label>
+                                                         <input type="tel" id="telefono_cliente" name="telefono_cliente" class="form-control">
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                      </details><br>
+                                    </div>
                                     <div id="datos_depto"  class="container-fluid">
                                     </div>
                                     <div id="datos_reserva" class="container-fluid">
@@ -166,16 +197,47 @@
                            <summary>IDA</summary>
                            <div class="row">
                               <!--HORARIO-->
-                              <div class="col-md-4"><label for="">Fecha/Hora Recogida</label>
+                              <div class="col-md-3"><label for="">Fecha/Hora Recogida</label>
                                  <input type="text" id="ida_hora" name="ida_hora" class="form-control ida">
+                              </div><br>
+                              <!--REGION ORIGEN-->
+                              <div class="col-md-6"><label for="">Región Origen</label>
+                                 <select type="text" id="ida_region_origen" name="ida_region_origen" class="form-control">
+                                    <option value="1">Región Arica</option>
+                                    <option value="2">Región de Tarapacá</option>
+                                    <option value="3">Región Antofagasta</option>
+                                    <option value="4">Región Atacama</option>
+                                    <option value="5">Región Coquimbo</option>
+                                    <option value="6">Región Valparaíso</option>
+                                    <option value="7">Región Metropolitana</option>
+                                    <option value="8">Región Libertador General Bernardo O'H</option>
+                                    <option value="9">Región del Maule</option>
+                                    <option value="10">Región del Ñuble</option>
+                                    <option value="11">Región del Biobío</option>
+                                    <option value="12">Región de la Araucanía</option>
+                                    <option value="13">Región de los Ríos</option>
+                                    <option value="14">Región de los Lagos</option>
+                                    <option value="15">Región de Aysén</option>
+                                    <option value="16">Región de Magallanes</option>
+                                 </select>
+                              </div><br>
+                              <!--VALOR IDA-->
+                              <div class="col-md-3"><label for="">Valor viaje</label>
+                                 <input type="text" id="ida_valor" name="ida_valor" class="form-control" readonly>
                               </div><br>
                               <!--DIRECCIÓN ORIGEN-->
                               <div class="col-md-12"><label for="">Dirección Origen</label>
-                                 <input id="ida_origen" name="ida_origen" class="form-control required ida" placeholder="Formato: Calle, Número, Comuna o Región">
+                                 <input id="ida_origen" name="ida_origen" class="form-control required ida" placeholder="Formato: Calle, Número">
+                              </div><br>
+                              <!--REGION ORIGEN-->
+                              <div class="col-md-6"><label for="">Región Origen</label>
+                                 <select type="text" id="ida_region_destino" name="ida_region_destino" class="form-control">
+                                    <option value="0">Seleccione Región</option>
+                                 </select>
                               </div><br>
                               <!--DIRECCIÓN DESTINO-->
                               <div class="col-md-12"><label for="">Dirección Destino</label>
-                                 <input id="ida_destino" name="ida_destino" class="form-control required ida" placeholder="Formato: Calle, Número, Comuna o Región">
+                                 <input id="ida_destino" name="ida_destino" class="form-control required ida" placeholder="Formato: Calle, Número">
                               </div><br>
                            </div>
                         </details>
@@ -205,6 +267,7 @@
                </div>
                <div class="col-md-12 modal-footer">
                   <button type="button" id="btn_addTransporte" class="btn btn-custom" >Agregar Transporte</button>
+                  <button type="button" id="btn_Limpiar_Transporte" class="btn btn-custom" >Limpiar datos</button>
                   <button type="button" id="btn_Cancelar_transporte" class="btn btn-custom" data-dismiss="modal">Cancelar</button>
                </div>      
             </div>
@@ -253,6 +316,7 @@
                            </table>
                         </div>
                         <button type="button" id="btn_addServicio" class="btn btn-custom">Añadir</button>
+                        <button type="button" id="btn_Limpiar_Servicio" class="btn btn-custom">Limpiar datos</button>
                         <div class="col-md-12 modal-footer">
                            <button type="button" id="btn_saveServicio" class="btn btn-custom" >Agregar Servicios</button>
                            <button type="button" id="btn_Cancelar" class="btn btn-custom" data-dismiss="modal">Cancelar</button>
@@ -344,9 +408,10 @@
                            </div>
                         </div>
                         <button type="button" id="btn_addActividad" class="btn btn-custom">Añadir</button>
+                        <button type="button" id="btn_Limpiar_Tour" class="btn btn-custom">Limpiar datos</button>
                         <div class="col-md-12 modal-footer">
                            <button type="button" id="btn_saveActividad" class="btn btn-custom">Guardar</button>
-                           <button type="button" id="btn_Cancelar_tour" class="btn btn-custom">Cancelar</button>
+                           <button type="button" id="btn_Cancelar_tour" class="btn btn-custom" data-dismiss="modal">Cancelar</button>
                         </div>   
                      </div>
                   </div>
@@ -355,6 +420,52 @@
          </div>
       </div>
       <!-- end Modal Turismo-->
+      <!-- Modal CLIENTE-->
+      <div class="modal fade" id="modalCliente" tabindex="-1" role="dialog">
+         <div class="modal-dialog" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h1>Cliente</h1>
+                  <button type="button" class="close" data-dismiss="modal">
+                     <span aria-hidden="true">×</span>
+                  </button>
+               </div>   
+               <div class="modal-body">
+                  <h1 class="text_align_center">Cliente</h1>
+                  <div class="metodo">
+                     <div class="row">
+                        <div class="col-md-12">
+                           <div class="row">
+                              <div class="col-md-12 pago">
+                                 <input type="radio" id="transferencia" name="pago" value="transferencia">
+                                 <label for="transferencia">Transferencia Electronica</label><br>
+                              </div>
+                              <div class="col-md-12 pago">
+                                 <input type="radio" id="webpay" name="pago" value="webpay" disabled>
+                                 <label for="webpay">WebPay</label><br>
+                              </div>
+                              <div class="col-md-12 pago">
+                                 <input type="radio" id="mercado" name="pago" value="mercado" disabled>
+                                 <label for="mercado">Mercado Pago</label>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div id="datos_trans" class="hidden">
+                     <h1 class="text_align_center">DATOS DE TRANSFERENCIA</h1>
+                     <div class="detalles">
+                        <p>Banco: Banco de Chile</p>
+                        <p>Número de cuenta:1233567890</p>
+                        <p>Correo electronico: reservas@turismoreal.cl</p>
+                        <p>Total a pagar por la reserva (40% del total final): $ <p id="ver_total"></p></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- end Modal CLIENTE-->
       <!-- Modal PAGO-->
       <div class="modal fade" id="modalPago" tabindex="-1" role="dialog">
          <div class="modal-dialog" role="document">

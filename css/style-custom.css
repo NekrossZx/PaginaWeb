@@ -14,6 +14,7 @@ body {
   text-align: center;
   border-radius: 10px;
   margin: 1.5em  auto 2em 3em;
+  max-height: 595px;
 }
 .wrapper>h1 {
   font-family: "Lato", sans-serif;
@@ -27,6 +28,7 @@ body {
   color: black;
   transition: ease-in all 0.2s;
   background-color: white !important;
+  margin-bottom: -5px;
 }
 .details {
   width: 100%;
@@ -167,6 +169,7 @@ option:hover{
 @media (min-width: 1200px) and (max-width: 1300px) { 
   .wrapper{
     width: 29%;
+    height: 540px;
   }
   .wrapper .i1{
     height: 15em;
@@ -183,6 +186,7 @@ option:hover{
 @media (min-width: 992px) and (max-width: 1199px) {
   .wrapper{
     width: 45%;
+    max-height: 590px;
   }
 
   .filtro{
@@ -224,6 +228,7 @@ option:hover{
     float: none;
     width: 80%;
     margin: 1em auto;
+    max-height: 666px;
   }
   .wrapper .i1{
     height: 25em;
@@ -239,6 +244,7 @@ option:hover{
     float: none;
     width: 80%;
     margin: 1em auto;
+    max-height: 590px;
   }
 
   .wrapper .btn-custom-light{

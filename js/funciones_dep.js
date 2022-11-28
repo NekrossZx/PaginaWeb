@@ -57,7 +57,7 @@ $(document).ready(function () {
   }); 
 
   $(region).each(function (i, item) {
-      $("#filtro_region").append('<option value="'+item.NOMBRE+'">'+item.NOMBRE+'</option>')
+      $("#filtro_region").append('<option value="'+item.ID_REGION+'">'+item.NOMBRE+'</option>')
   });
 
 //                                                                         DEPARTAMENTOS

@@ -23,7 +23,7 @@ function db_getDeptos(){
 
 function db_getRegion(){
     $connection = oci_connect('ADMINS', '1234', '192.168.56.1');
-    $sql = "SELECT nombre FROM region ORDER BY id_region";
+    $sql = "SELECT id_region, nombre FROM region ORDER BY nombre";
 
     $stid = oci_parse($connection,$sql) or die("Query failed: ".oci_error()." Actual db_getRegion");
     oci_execute($stid);

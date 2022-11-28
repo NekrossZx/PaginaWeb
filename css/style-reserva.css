@@ -67,6 +67,18 @@ details {
   margin-left: 10px;
   width: 98.6% !important;
 }
+.container-fluid details{
+  border-radius: 10px;
+}
+
+#datos_cliente{
+  width: 100% !important;
+  margin-left: 0;
+}
+
+#datos_cliente .form-control{
+  font-size: 20px;
+}
 .check{
   background-color: #eee;
   color: #8b1310;

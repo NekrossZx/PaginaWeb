@@ -500,9 +500,9 @@
     
         });
         
-        $("body").on('click', '#btn_Cancelar_tour', function () {
+        $("body").on('click', '#btn_Limpiar_Servicio', function () {
             let confirmar = confirm('¿Limpiar datos ingresados?');
-            var table = $('#actividad').DataTable();
+            var table = $('#extra_service').DataTable();
             if(confirmar==true){
                 table.clear().draw();
             }else{
@@ -523,18 +523,6 @@
             //console.log(form);
     
         });
-
-        $("#btn_Cancelar_otro").on("click", function (e) {
-            e.preventDefault();
-
-            $("#cantidad_ninos").val(0);
-            $("#cantidad_adultos").val(0);
-            let form = $("#md_otros").serializeArray();
-
-            localStorage.setItem("acompanante", JSON.stringify(form));
-            //console.log(form);
-        });
-
     });
 
     //                                                           TOUR
@@ -649,7 +637,7 @@
     
         });
 
-        $("body").on('click', '#btn_Cancelar_tour', function () {
+        $("body").on('click', '#btn_Limpiar_Tour', function () {
             let confirmar = confirm('¿Limpiar datos ingresados?');
             var table = $('#actividad').DataTable();
             if(confirmar==true){

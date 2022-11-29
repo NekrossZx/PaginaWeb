@@ -1,7 +1,7 @@
 <?php
 
 function db_getUsuario(){
-    $connection = oci_connect('ADMINS', '1234', '192.168.56.1');
+    $connection = oci_connect('ADMINS', '1234', 'localhost');
     $sql = "SELECT * FROM cliente WHERE rut_cliente = '17465789-3' ";
 
     $stid = oci_parse($connection,$sql) or die("Query failed: ".oci_error()." Actual db_getUsuario");
@@ -16,7 +16,7 @@ function db_getUsuario(){
 }
 
 function db_getReservas(){
-    $connection = oci_connect('ADMINS', '1234', '192.168.56.1');
+    $connection = oci_connect('ADMINS', '1234', 'localhost');
     $sql = "SELECT r.nro_reserva, r.estado, d.nombre, re.nombre AS nombre_region, r.fecha_reserva, r.valor_total, rd.reserva_inicio, rd.reserva_termino 
     FROM RESERVA R 
     JOIN reserva_depto RD ON r.nro_reserva = rd.reserva_nro_reserva 
@@ -37,7 +37,7 @@ function db_getReservas(){
 }
 
 function db_updateReserva(){
-    $connection = oci_connect('ADMINS', '1234', '192.168.56.1');
+    $connection = oci_connect('ADMINS', '1234', 'localhost');
     $sql = "UPDATE reserva SET estado = 'estado' WHERE id_reserva = '1' ";
 
     $stid = oci_parse($connection,$sql) or die("Query failed: ".oci_error()." Actual db_getReservas");
@@ -45,7 +45,7 @@ function db_updateReserva(){
 }
 
 function db_updateUser($rut,$nombres, $apellidos, $correo, $pass){
-    $connection = oci_connect('ADMINS', '1234', '192.168.56.1');
+    $connection = oci_connect('ADMINS', '1234', 'localhost');
     $sql = "UPDATE cliente SET nombres = '".$nombres."', apellidos = '".$apellidos."', email = '".$correo."'  WHERE rut_cliente = '".$rut."' AND contrasena = ".$pass." ";
 
     $stid = oci_parse($connection,$sql) or die("Query failed: ".oci_error()." Actual db_updateUser");
@@ -53,7 +53,7 @@ function db_updateUser($rut,$nombres, $apellidos, $correo, $pass){
 }
 
 function db_updatePass($rut,$nombres, $apellidos, $correo, $pass , $newpass){
-    $connection = oci_connect('ADMINS', '1234', '192.168.56.1');
+    $connection = oci_connect('ADMINS', '1234', 'localhost');
     $sql = "UPDATE cliente SET nombres = '".$nombres."', apellidos = '".$apellidos."', email = '".$correo."', contrasena = '".$newpass."'  WHERE rut_cliente = '".$rut."' AND contrasena = ".$pass." ";
 
     $stid = oci_parse($connection,$sql) or die("Query failed: ".oci_error()." Actual db_updateUser");

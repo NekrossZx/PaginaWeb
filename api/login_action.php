@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $conn = oci_connect('ADMINS', '1234', '192.168.56.1');
+    $conn = oci_connect('ADMINS', '1234', 'localhost');
 
     if(isset($_POST['email']) && isset($_POST['password']))
     {

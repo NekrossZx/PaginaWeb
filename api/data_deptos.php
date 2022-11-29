@@ -1,7 +1,7 @@
 <?php
 
 function db_getDeptos(){
-    $connection = oci_connect('ADMINS', '1234', '192.168.56.1');
+    $connection = oci_connect('ADMINS', '1234', 'localhost');
     $sql = "SELECT d.id_departamento, d.nombre, d.arriendo_diario, r.nombre as NOMBRE_REGION,f.url_imagen AS IMAGEN
     FROM departamento D 
     JOIN ubicacion U ON d.ubicacion_id_ubicacion = u.id_ubicacion 
@@ -22,7 +22,7 @@ function db_getDeptos(){
 }
 
 function db_getRegion(){
-    $connection = oci_connect('ADMINS', '1234', '192.168.56.1');
+    $connection = oci_connect('ADMINS', '1234', 'localhost');
     $sql = "SELECT nombre FROM region";
 
     $stid = oci_parse($connection,$sql) or die("Query failed: ".oci_error()." Actual db_getRegion");
@@ -37,7 +37,7 @@ function db_getRegion(){
 }
 
 function db_getRango(){
-    $connection = oci_connect('ADMINS', '1234', '192.168.56.1');
+    $connection = oci_connect('ADMINS', '1234', 'localhost');
     $sql = "SELECT arriendo_diario FROM departamento WHERE id_departamento != '0' GROUP BY arriendo_diario ORDER BY arriendo_diario ASC";
 
     $stid = oci_parse($connection,$sql) or die("Query failed: ".oci_error()." Actual db_getRango");
@@ -53,7 +53,7 @@ function db_getRango(){
 
 function db_getCarrusel(){
 
-    $connection = oci_connect('ADMINS', '1234', '192.168.56.1');
+    $connection = oci_connect('ADMINS', '1234', 'localhost');
     $sql = "SELECT f.url_imagen, f.descripcion 
     FROM foto F 
     JOIN departamento D ON f.departamento_id_departamento = d.id_departamento 
@@ -71,7 +71,7 @@ function db_getCarrusel(){
 }
 
 function db_getDetails(){
-    $connection = oci_connect('ADMINS', '1234', '192.168.56.1');
+    $connection = oci_connect('ADMINS', '1234', 'localhost');
     $sql = "SELECT d.id_departamento, d.nombre, d.arriendo_diario, r.nombre as NOMBRE_REGION, d.banos, d.metros_cuadrados, d.habitaciones, d.descripcion
     FROM departamento D 
     JOIN ubicacion U ON d.ubicacion_id_ubicacion = u.id_ubicacion 
@@ -90,7 +90,7 @@ function db_getDetails(){
 }
 
 function db_getAsociados(){
-    $connection = oci_connect('ADMINS', '1234', '192.168.56.1');
+    $connection = oci_connect('ADMINS', '1234', 'localhost');
     $sql = "SELECT sa.nombre_servicio, sa.descripcion
     FROM departamento D 
     JOIN ubicacion U ON d.ubicacion_id_ubicacion = u.id_ubicacion 

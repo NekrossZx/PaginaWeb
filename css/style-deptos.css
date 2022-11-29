@@ -59,7 +59,7 @@
   /* Six columns side by side */
   .column {
     float: left;
-    width: 12%;
+    width: 12em;
   }
   
   /* Add a transparency effect for thumnbail images */
@@ -79,7 +79,7 @@
     box-sizing: border-box;
     text-align: center;
     border-radius: 10px 10px 0px 0px;
-    margin: 1em auto 0em auto;
+    margin-left: 3em;
   }
 
   .details {
@@ -166,7 +166,7 @@
   @media (min-width: 1200px) and (max-width: 1320px) { 
     .btn_volver{
       margin-top: 10em;
-      margin-left: 1.3em;
+      margin-left: 2em;
     }
 
     .image{
@@ -179,6 +179,7 @@
 
     .carrusel{
       width: 95%;
+      margin-left: 2.3em;
     }
     .carrusel .column{
       width: 16%;
@@ -189,7 +190,7 @@
     }
 
     .details{
-      margin: 0em auto 1em auto;
+      margin-left: 2.3em;
       width: 95%;
       padding: 10px;
     }
@@ -229,7 +230,7 @@
   @media (min-width: 992px) and (max-width: 1199px) { 
     .btn_volver{
       margin-top: 10em;
-      margin-left: 1.3em;
+      margin-left: 1.9em;
     }
 
     .image{
@@ -242,6 +243,7 @@
 
     .carrusel{
       width: 95%;
+      margin-left: 2.2em;
     }
     .carrusel .column{
       width: 20%;
@@ -252,7 +254,7 @@
     }
 
     .details{
-      margin: 0em auto 1em auto;
+      margin-left: 2.2em;
       width: 95%;
       padding: 10px;
     }
@@ -291,7 +293,7 @@
   @media (min-width: 768px) and (max-width: 991px) {
     .btn_volver{
       margin-top: 10em;
-      margin-left: 2.4em;
+      margin-left: 2.2em;
     }
 
     .image{
@@ -300,6 +302,7 @@
 
     .carrusel{
       width: 92%;
+      margin-left: 2.5em;
     }
     .carrusel .column{
       width: 20%;
@@ -310,7 +313,7 @@
     }
 
     .details{
-      margin: 0em auto 1em auto;
+      margin-left: 2.5em;
       width: 92%;
       padding: 10px;
     }
@@ -351,8 +354,11 @@
    }
 
   @media (min-width: 576px) and (max-width: 767px) { 
+    .logo-top{
+      margin-top: -67px !important;
+    }
     .btn_volver{
-      margin-top: 11em;
+      margin-top: 8em;
       margin-left: 2em;
     }
 
@@ -362,6 +368,7 @@
 
     .carrusel{
       width: 90%;
+      margin-left: 2em;
     }
     .carrusel .column{
       width: 20%;
@@ -372,7 +379,7 @@
     }
 
     .details{
-      margin: 0em auto 1em auto;
+      margin-left: 2em;
       width: 90%;
       padding: 10px;
     }
@@ -421,6 +428,7 @@
 
     .carrusel{
       width: 90%;
+      margin-left: 2em;
     }
     .carrusel .column{
       width: 20%;
@@ -431,7 +439,7 @@
     }
 
     .details{
-      margin: 0em auto 1em auto;
+      margin-left: 2em;
       width: 90%;
       padding: 10px;
     }

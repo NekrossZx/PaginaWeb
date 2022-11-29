@@ -22,6 +22,21 @@
       };
       return toastr.options;
     }    
+
+    $("body").on("blur", ".form-control", function (e) {
+        e.preventDefault();
+        let valor = $(this).val();
+  
+        if (valor == '' || valor == null || valor == undefined)
+        {
+            $(this).addClass('bg-danger');
+        }
+        else
+        {
+            $(this).removeClass('bg-danger'); 
+     }
+    }); 
+
     //                                                                                 FORMULARIO PRINCIPAL
 
     //COMPLETA SERVICIO
@@ -102,14 +117,6 @@
         });
     }
 
-    $("#modalAcompanante").on("change", ".form-control", function (e){
-        var ninos = parseInt(document.getElementById('cantidad_ninos').value);
-        var adultos = parseInt(document.getElementById('cantidad_adultos').value);
-        var personas = ninos + adultos;
-
-        $("#nro").val(personas + 1);
-    });
-    
     //FECHA VALOR 'TODAY'
     $(document).ready( function() {
         var now = new Date();
@@ -123,7 +130,7 @@
         $('#fecha_reserva').val(today);
     });
 
-    //CALCULAR DIFERENCIA ENTRE FECHAS
+    /*CALCULAR DIFERENCIA ENTRE FECHAS
     $("body").on("change", "#daterange", function (e){  
         //define two variables and fetch the input from HTML form  
         let date1 = new Date(document.getElementById("daterange").value);  
@@ -136,14 +143,7 @@
           //console.log(dayDifference);
         }
       });
-
-    $("#daterange").on("change",function (e){ 
-        var valor_base = document.getElementById("arriendo").value;
-        var cantidad_dias = document.getElementById("cantidad_dias").value; 
-        var valor_total = valor_base * cantidad_dias;
-        $("#total").val(valor_total);
-    });
-
+    */
     $(function() {
         $('input[name="daterange"]').daterangepicker({
             opens: 'center',
@@ -220,7 +220,7 @@
                                 toastConfig();
                                 Command: toastr["success"]("Se ha guardado la información", "Operación Exitosa");
                                 //LIMPIAR FORMULARIO
-                                $("#licencias")[0].reset();
+                                $("#")[0].reset();
                                 $(".form-control").removeClass('bg-danger');  
                             }
                             else {
@@ -328,12 +328,39 @@
         let ida_origen = document.getElementById("ida_origen").value;
         let ida_destino = document.getElementById("ida_destino").value;
         let ida_hora = document.getElementById("ida_hora").value;
+        let ida_valor = document.getElementById("ida_valor").value;
+        let ida_region_origen = document.getElementById("ida_region_origen").value;
+        let ida_region_destino = document.getElementById("ida_region_destino").value;
         //console.log(ida_origen, ida_destino, ida_hora);
 
         $("#vuelta_destino").val(ida_origen);
         $("#vuelta_origen").val(ida_destino);
         $("#vuelta_hora").val(ida_hora);
+        $("#vuelta_valor").val(ida_valor);
+        $("#vuelta_region_destino").val(ida_region_origen);
+        $("#vuelta_region_origen").val(ida_region_destino);
       });
+
+        //COMPLETA SERVICIO
+        let region = null;
+        $.ajax({
+            'async': false,
+            'type': "GET",
+            'global': false,
+            'dataType': 'html',
+            'url': "api/deptos.php?a=2",
+            'data': { 'request': "", 'target': 'arrange_url', 'method': 'method_target' },
+            'success': function (data) {
+                region = JSON.parse(data);
+            }
+        }); 
+
+        $(region).each(function (i, item) {
+            $("#ida_region_destino").append('<option value="'+item.NOMBRE+'">'+item.NOMBRE+'</option>');
+            $("#ida_region_origen").append('<option value="'+item.NOMBRE+'">'+item.NOMBRE+'</option>');
+            $("#vuelta_region_destino").append('<option value="'+item.NOMBRE+'">'+item.NOMBRE+'</option>');
+            $("#vuelta_region_origen").append('<option value="'+item.NOMBRE+'">'+item.NOMBRE+'</option>');
+        });
 
       $("#btn_addTransporte").on("click",function(){
         let form = $("#md_transporte").serializeArray();
@@ -373,7 +400,6 @@
                         if (data != null || data != '') {
                             toastConfig();
                             Command: toastr["success"]("Se ha guardado la información", "Operación Exitosa");
-                            $('#modalTransporte').modal().hide();
                         }
                         else {
                             toastConfig();
@@ -486,19 +512,6 @@
                 localStorage.setItem("servicios_extra", JSON.stringify(json));
             }
         });
-
-        $("body").on("click", "#btn_saveServicio", function (e) {
-            e.preventDefault();
-             
-            var table = $('#extra_service').DataTable();
-            var data = table.rows(['tr']).data().toArray();
-            var json = JSON.stringify( data );
-    
-            //console.log(json);
-
-            localStorage.setItem("servicios_extra", JSON.stringify(json));
-    
-        });
         
         $("body").on('click', '#btn_Limpiar_Servicio', function () {
             let confirmar = confirm('¿Limpiar datos ingresados?');
@@ -508,12 +521,20 @@
             }else{
                 return false;
             }
+
+            var data = table.rows(['tr']).data().toArray();
+            var json = JSON.stringify( data );
+            localStorage.setItem("servicios_extra", JSON.stringify(json));
         });
     });
 
     //                                                                               ACOMPAÑANTES
     //AGREGAR A LA TABLA ACOMPAÑANTE
     $(document).ready(function () {
+        $("#cantidad_ninos").val(0);
+        $("#cantidad_adultos").val(0);
+        let form = $("#md_otros").serializeArray();
+        localStorage.setItem("acompanante", JSON.stringify(form));
 
         $('#md_otros').on("change", ".form-control", function (e) {
             e.preventDefault();
@@ -522,6 +543,14 @@
             localStorage.setItem("acompanante", JSON.stringify(form));
             //console.log(form);
     
+        });
+
+        $("#modalAcompanante").on("change", ".form-control", function (e){
+            var ninos = parseInt(document.getElementById('cantidad_ninos').value);
+            var adultos = parseInt(document.getElementById('cantidad_adultos').value);
+            var personas = ninos + adultos;
+
+            $("#nro").val(personas + 1);
         });
     });
 

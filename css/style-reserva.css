@@ -17,6 +17,7 @@ textarea{
 
 .modal-footer .btn-custom{
   margin-top: 0;
+  padding: 6px 40px;
 }
 
 .time{
@@ -133,6 +134,9 @@ details {
   color: white !important;
 }
 
+.daterangepicker select.hourselect, .daterangepicker select.minuteselect, .daterangepicker select.secondselect, .daterangepicker select.ampmselect{
+  font-size: 18px !important;
+}
 .pago{
   margin: 23px;
   padding: 0px;

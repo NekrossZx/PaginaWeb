@@ -22,7 +22,10 @@
       };
       return toastr.options;
     }    
-
+    /*$(window).bind('beforeunload', function(){
+        return "¿Estás seguro/a de querer abandonar? Se perderan los datos ingresados";
+      });*/
+    
     $("body").on("blur", ".form-control", function (e) {
         e.preventDefault();
         let valor = $(this).val();
@@ -38,6 +41,38 @@
     }); 
 
     //                                                                                 FORMULARIO PRINCIPAL
+    $(document).ready(function () {
+        var date = new Date();
+        var current_date = date.getFullYear()+(date.getMonth()+1)+date.getDate();
+        var current_time = date.getHours()+date.getMinutes()+date.getSeconds();
+        var current_millisecond = date.getMilliseconds();
+        var date_time = current_date.toString() + current_time.toString() + current_millisecond.toString();
+        $("#id_reserva").val(date_time);
+        //console.log(date_time);
+    });
+
+    $('#rut_cliente').rut({
+        fn_error : function(input){
+            toastConfig();
+                Command: toastr["warning"]('El rut: ' + input.val() + ' es incorrecto', "Atención");      
+        },
+        placeholder: false,
+        blur:false
+    });
+
+    $("body").on("blur", "#email_cliente", function ()
+    {
+        var email = document.getElementById("email_cliente").value;
+        var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+        if(email.match(pattern))
+        {
+            return true;
+        }else{
+            toastConfig();
+                Command: toastr["warning"]('Email no valido', "Atención");
+        }
+    });
 
     //COMPLETA SERVICIO
     let datos_dep = null;
@@ -76,7 +111,7 @@
            </div>
            <!--ARRIENDO DIARIO-->
            <div class="col-md-2"><label for="">Arriendo Diario</label>
-              <input type="number" id="arriendo" class="form-control" value="`+item.ARRIENDO_DIARIO+`" readonly><br>
+              <input type="number" id="arriendo" class="form-control" value="`+item.ARRIENDO_DIARIO+`" data-value="`+item.ARRIENDO_DIARIO+`" readonly><br>
            </div>
            <!--DESCRIPCION-->
            <div class="col-md-12"><label for="">Descripción</label>
@@ -119,7 +154,7 @@
 
     //FECHA VALOR 'TODAY'
     $(document).ready( function() {
-        var now = new Date();
+        /*var now = new Date();
         var month = (now.getMonth() + 1);               
         var day = now.getDate();
         if (month < 10) 
@@ -127,14 +162,24 @@
         if (day < 10) 
             day = "0" + day;
         var today = now.getFullYear() + '-' + month + '-' + day;
-        $('#fecha_reserva').val(today);
+        $('#fecha_reserva').val(today);*/
+
+        var ahora = new Date(moment());
+        var dia = ahora.getDay();
+        var mes = ahora.getMonth();
+        var año = ahora.getFullYear();
+        var hora = ahora.getHours();
+        var minutos = ahora.getMinutes();
+        var segundos = ahora.getSeconds();
+        var hoy = dia +'/'+ mes +'/'+ año +' '+ hora +':'+ minutos +':'+ segundos;
+        $('#fecha_reserva').val(hoy);
     });
 
-    /*CALCULAR DIFERENCIA ENTRE FECHAS
-    $("body").on("change", "#daterange", function (e){  
+    //CALCULAR DIFERENCIA ENTRE FECHAS
+    /*$("body").on("change", ".date", function (e){  
         //define two variables and fetch the input from HTML form  
-        let date1 = new Date(document.getElementById("daterange").value);  
-        let date2 = new Date(document.getElementById("daterange").value);  
+        let date1 = new Date(document.getElementById("fecha_inicio").value);  
+        let date2 = new Date(document.getElementById("fecha_termino").value);  
   
         if (date1.getTime()&& date2.getTime()){
           let timeDifference = date2.getTime() - date1.getTime();
@@ -142,20 +187,69 @@
           $("#cantidad_dias").val(dayDifference);
           //console.log(dayDifference);
         }
+      });*/
+
+      $(function() {
+        $('input[name="fecha_inicio"]').daterangepicker({
+          opens: 'center',
+          singleDatePicker: true,
+          timePicker:true,
+          timePicker24Hour:false,
+          locale: {
+            format: 'DD/MM hh:mm'
+          }
+        });
+        $('input[name="fecha_termino"]').daterangepicker({
+            opens: 'center',
+            singleDatePicker: true,
+            timePicker:true,
+            timePicker24Hour:false,
+            locale: {
+              format: 'DD/MM hh:mm'
+            }
+          });
       });
-    */
-    $(function() {
-        $('input[name="daterange"]').daterangepicker({
+
+    $(document).ready(function() {
+        $('#daterange').daterangepicker({
             opens: 'center',
             drops: 'up',
             autoApplay: true,
             timePicker: true,
-            timePicker24Hour: true,
+            timePicker24Hour: false,
+            startDate:moment().startOf('hour'),
+            endDate:moment().endOf('hour').add(72, 'hour'),
+            minDate:moment().startOf('hour'),
             locale: {
                 format: 'DD/MM/YYYY hh:mm'
             }
         });
+
+        $('#daterange').on('apply.daterangepicker', function(ev, picker) {
+            let fecha_inicio = picker.startDate.format('DD/MM/YYYY hh:mm');
+            let fecha_termino = picker.endDate.format('DD/MM/YYYY hh:mm');
+
+            $("#fecha_inicio").val(fecha_inicio);
+            $("#fecha_termino").val(fecha_termino);
+        });
+
+        $('#daterange').on('apply.daterangepicker', function(ev, picker) {
+            let fecha_inicio = new Date(picker.startDate);
+            let fecha_termino = new Date(picker.endDate);
+
+            if (fecha_inicio.getTime()&& fecha_termino.getTime()){
+                let timeDifference = fecha_termino.getTime() - fecha_inicio.getTime();
+                let dayDifference = Math.abs(Math.round(timeDifference / (1000 * 3600 * 24))+1);
+                $("#cantidad_dias").val(dayDifference);
+
+                let arriendo_diario = $("body").find('#arriendo').data('value');
+                let valor_dias = parseInt(arriendo_diario * dayDifference);
+                $("#valor_dias").val(valor_dias);
+            }
+        });
     });
+
+    
 
     //FUNCIONALIDAD ACORDION DETALLES
     $(document).ready(function () {
@@ -250,7 +344,7 @@
 
     });
 
-    $('#resumen_servicios').DataTable( {
+    /*$('#resumen_servicios').DataTable( {
         searching: false, 
         paging: false, 
         info: false,
@@ -273,16 +367,17 @@
         "language": {
             "emptyTable": "SIN DATOS INGRESADOS",
         }
-    } );
+    });*/
     //                                                       TRANSPORTE
 
     $(function() {
         $('input[name="vuelta_hora"]').daterangepicker({
-          opens: 'center',
-          singleDatePicker: true,
-          timePicker:true,
-          timePicker24Hour:true,
-          locale: {
+            opens: 'center',
+            singleDatePicker: true,
+            timePicker:true,
+            timePicker24Hour:false,
+            minDate:moment().startOf('hour').add(24,'hour'),
+            locale: {
             format: 'DD/MM hh:mm'
           }
         });
@@ -290,7 +385,8 @@
             opens: 'center',
             singleDatePicker: true,
             timePicker:true,
-            timePicker24Hour:true,
+            timePicker24Hour:false,
+            minDate:moment().startOf('hour').add(3,'hour'),
             locale: {
               format: 'DD/MM hh:mm'
             }
@@ -545,13 +641,28 @@
     
         });
 
-        $("#modalAcompanante").on("change", ".form-control", function (e){
+        $("#md_otros").on("change", ".form-control", function (e){
             var ninos = parseInt(document.getElementById('cantidad_ninos').value);
             var adultos = parseInt(document.getElementById('cantidad_adultos').value);
             var personas = ninos + adultos;
 
             $("#nro").val(personas + 1);
         });
+
+        $('#btn_Limpiar_otro').on("click", function (e) { 
+            var confirmar = confirm("¿Desea eliminar acompañantes?");
+
+            if(confirmar === true){
+                $("#cantidad_ninos").val(0);
+                $("#cantidad_adultos").val(0);
+
+                let form = $("#md_otros").serializeArray();
+                localStorage.setItem("acompanante", JSON.stringify(form));
+            }else{
+                return false;
+            }
+        });
+
     });
 
     //                                                           TOUR

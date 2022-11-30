@@ -136,6 +136,8 @@ details {
 
 .daterangepicker select.hourselect, .daterangepicker select.minuteselect, .daterangepicker select.secondselect, .daterangepicker select.ampmselect{
   font-size: 18px !important;
+  border: 1px !important;
+  padding: 0 !important;
 }
 .pago{
   margin: 23px;

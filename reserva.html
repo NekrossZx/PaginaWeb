@@ -181,7 +181,7 @@
                                        </div>
                                     </div>
                                     <div>
-                                       <button type="button" data-toggle="modal" data-target="#modalPago" class="btn btn-custom btn_guardar btn-block" disabled>Ir a pagar</button>
+                                       <button type="button" data-toggle="modal" data-target="#modalPago" class="btn btn-custom btn_guardar btn-block">Ir a pagar</button>
                                        <button type="button" class="btn btn-custom btn_cancelar btn-block" onclick="history.back()">Cancelar</button>                              
                                     </div>
                               </form>
@@ -439,7 +439,6 @@
             <div class="modal-content">
                <div class="modal-header">
                   <h1>Cliente</h1>
-                  
                </div>   
                <div class="modal-body">
                   <h1 class="text_align_center">Cliente</h1>
@@ -463,12 +462,15 @@
                         </div>
                      </div>
                   </div>
-                  <div id="datos_trans" class="hidden">
+                  <div id="datos_transf">
                      <h1 class="text_align_center">DATOS DE TRANSFERENCIA</h1>
                      <div class="detalles">
-                        <p>Banco: Banco de Chile</p>
-                        <p>Número de cuenta:1233567890</p>
+                        <p>Banco: Santander</p>
+                        <p>Tipo de cuenta: Corriente</p>
+                        <p>Número de cuenta: 12345678</p>
+                        <p>Rut: 76.798.465-3</p>
                         <p>Correo electronico: reservas@turismoreal.cl</p>
+                        <p>Asunto: Indique número de reserva</p> <p id="reserva_asunto"></p>
                         <p>Total a pagar por la reserva (40% del total final): $ <p id="ver_total"></p></p>
                      </div>
                   </div>

@@ -63,13 +63,14 @@ class MyHeader extends HTMLElement {
                         <h3>Explorar</h3>
                         <ul class="xple_menu">
                            <li><a href="index.html">Home</a></li>
+                           <li><a href="departamentos.html">Departamentos</a></li>
                            <li><a href="contact.html">Contactanos</a></li>
                         </ul>
                      </div>
                   </div>
                   <div class="col-md-3 col-sm-6">
                      <div class="reader">
-                        <h3>Departamentos</h3>
+                        <h3>Publicaciones</h3>
                         <ul class="re_post">
                            <li><img src="images/re_img1.jpg" alt="#"/></li>
                            <li><img src="images/re_img2.jpg" alt="#"/></li>

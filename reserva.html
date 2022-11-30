@@ -49,58 +49,6 @@
                               <button type="button" data-toggle="modal" data-target="#modalTurismo" class="btn btn-custom-light col-md-3">Turismo</button>
                            </div>
                         </div>
-                        <!--div class="col-md-12">
-                           <h1 class="text_align_center">RESUMEN</h1><br>
-                           <button class="accordion">Transporte</button>
-                           <div class="panel">
-                              <table id="resumen_transporte">
-                                 <thead>
-                                    <tr>
-                                       <th>Cantidad Servicio</th>
-                                       <th>Valor Total</th>
-                                       <th>Servicios Elegidos</th>
-                                    </tr>
-                                 </thead>
-                              </table>
-                           </div>
-                           <button class="accordion">Servicios Extras</button>
-                           <div class="panel">
-                              <table id="resumen_servicios">
-                                 <thead>
-                                    <tr>
-                                       <th>Cantidad Servicio</th>
-                                       <th>Valor Total</th>
-                                       <th>Servicios Elegidos</th>
-                                    </tr>
-                                 </thead>
-                              </table>
-                           </div>
-                           <button class="accordion">Acompañantes</button>
-                           <div class="panel">
-                              <table id="resumen_otros">
-                                 <thead>
-                                    <tr>
-                                       <th>RUT</th>
-                                       <th>Nombre</th>
-                                       <th>Apellido</th>
-                                    </tr>
-                                 </thead>
-                              </table>
-                           </div>
-                           <button class="accordion">Turismo</button>
-                           <div class="panel">
-                              <table id="resumen_tour">
-                                 <thead>
-                                    <tr>
-                                       <th>Cantidad Actividades</th>
-                                       <th>Duración Total</th>
-                                       <th>Valor Total</th>
-                                       <th>Actividades Elegidas</th>
-                                    </tr>
-                                 </thead>
-                              </table>
-                           </div>
-                        </div-->
                      </div>
                      <div class="content-panel">
                         <div class="row">
@@ -433,59 +381,12 @@
          </div>
       </div>
       <!-- end Modal Turismo-->
-      <!-- Modal CLIENTE-->
-      <div class="modal fade" id="modalCliente" tabindex="-1" role="dialog">
-         <div class="modal-dialog" role="document">
-            <div class="modal-content">
-               <div class="modal-header">
-                  <h1>Cliente</h1>
-               </div>   
-               <div class="modal-body">
-                  <h1 class="text_align_center">Cliente</h1>
-                  <div class="metodo">
-                     <div class="row">
-                        <div class="col-md-12">
-                           <div class="row">
-                              <div class="col-md-12 pago">
-                                 <input type="radio" id="transferencia" name="pago" value="transferencia">
-                                 <label for="transferencia">Transferencia Electronica</label><br>
-                              </div>
-                              <div class="col-md-12 pago">
-                                 <input type="radio" id="webpay" name="pago" value="webpay" disabled>
-                                 <label for="webpay">WebPay</label><br>
-                              </div>
-                              <div class="col-md-12 pago">
-                                 <input type="radio" id="mercado" name="pago" value="mercado" disabled>
-                                 <label for="mercado">Mercado Pago</label>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div id="datos_transf">
-                     <h1 class="text_align_center">DATOS DE TRANSFERENCIA</h1>
-                     <div class="detalles">
-                        <p>Banco: Santander</p>
-                        <p>Tipo de cuenta: Corriente</p>
-                        <p>Número de cuenta: 12345678</p>
-                        <p>Rut: 76.798.465-3</p>
-                        <p>Correo electronico: reservas@turismoreal.cl</p>
-                        <p>Asunto: Indique número de reserva</p> <p id="reserva_asunto"></p>
-                        <p>Total a pagar por la reserva (40% del total final): $ <p id="ver_total"></p></p>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- end Modal CLIENTE-->
       <!-- Modal PAGO-->
       <div class="modal fade" id="modalPago" tabindex="-1" role="dialog">
          <div class="modal-dialog" role="document">
             <div class="modal-content">
                <div class="modal-header">
                   <h1>Pago</h1>
-                  
                </div>   
                <div class="modal-body">
                   <h1 class="text_align_center">Métodos de pago</h1>
@@ -495,7 +396,7 @@
                         <div class="col-md-12">
                            <div class="row">
                               <div class="col-md-12 pago">
-                                 <input type="radio" id="transferencia" name="pago" value="transferencia">
+                                 <input type="radio" id="transferencia" name="pago" value="transferencia" disabled>
                                  <label for="transferencia">Transferencia Electronica</label><br>
                               </div>
                               <div class="col-md-12 pago">
@@ -510,14 +411,22 @@
                         </div>
                      </div>
                   </div>
-                  <div id="datos_trans" class="hidden">
+                  <div id="datos_trans">
                      <h1 class="text_align_center">DATOS DE TRANSFERENCIA</h1>
                      <div class="detalles">
-                        <p>Banco: Banco de Chile</p>
-                        <p>Número de cuenta:1233567890</p>
+                        <p>Banco: Santander</p>
+                        <p>Tipo de cuenta: Corriente</p>
+                        <p>Número de cuenta: 12345698</p>
+                        <p>Rut: 76.657.489-5</p>
+                        <p>Nombre: Turismo Real spa</p>
                         <p>Correo electronico: reservas@turismoreal.cl</p>
+                        <p>Asunto: Indicar el número de reserva</p><p id="asunto_reserva"></p>
                         <p>Total a pagar por la reserva (40% del total final): $ <p id="ver_total"></p></p>
                      </div>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-custom" id="btn_completar">Listo</button>
+                     <button type="button" class="btn btn-custom" data-dismiss="modal">Cancelar</button>
                   </div>
                </div>
             </div>

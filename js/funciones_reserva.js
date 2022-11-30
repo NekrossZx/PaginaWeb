@@ -796,14 +796,8 @@
     });
 
     //                                                                          PAGO
-    $(document).ready(function () { 
-        var datos = document.getElementById("datos_trans");
-        if( $('input[id="transferencia"]:checked').length != 0){
-            datos.classList.remove("hidden");
-            console.log("holi");
-        }else{
-            datos.classList.add("hidden");
-        }
+    $("#btn_completar").on("click",function () { 
+        alert("holi");
     });
 
 });

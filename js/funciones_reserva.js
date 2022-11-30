@@ -797,7 +797,7 @@
 
     //                                                                          PAGO
     $("#btn_completar").on("click",function () { 
-        alert("holi");
+        window.location.replace('transferencia.html');
     });
 
 });

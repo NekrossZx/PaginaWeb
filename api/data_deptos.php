@@ -1,5 +1,4 @@
 <?php
-
 function db_getDeptos(){
     $connection = oci_connect('TURISMOREAL', '123', 'localhost');
     $sql = "SELECT d.id_departamento, d.nombre, d.arriendo_diario, r.nombre as NOMBRE_REGION,f.url_imagen AS IMAGEN

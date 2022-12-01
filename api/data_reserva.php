@@ -64,4 +64,11 @@ function db_getAsoc(){
     echo json_encode($data);
 }
 
+function db_addReserva(){
+    $connection = oci_connect('TURISMOREAL', '123', 'localhost');
+    $sql = "INSERT INTO reserva () VALUES ('$','$', '$', '$', '$')";
+
+    $stid = oci_parse($connection,$sql) or die("Query failed: ".oci_error()." Actual db_addReserva");
+    oci_execute($stid);
+}
 ?>

@@ -47,7 +47,10 @@
         var current_time = date.getHours()+date.getMinutes()+date.getSeconds();
         var current_millisecond = date.getMilliseconds();
         var date_time = current_date.toString() + current_time.toString() + current_millisecond.toString();
-        $("#id_reserva").val(date_time);
+        $("#nro_reserva").val(date_time);
+        $("#nro_reserva_transporte").val(date_time);
+        $("#nro_reserva_depto").val(date_time);
+        
         //console.log(date_time);
     });
 
@@ -95,7 +98,7 @@
         <div class="row">
            <!--ID-->
            <div class="col-md-2"><label for="">ID Departamento</label>
-              <input type="text" id="id" name="id" class="form-control" value="`+item.ID_DEPARTAMENTO+`" readonly><br>
+              <input type="text" id="id_depto" name="id_depto" form="reserva_depto" class="form-control" value="`+item.ID_DEPARTAMENTO+`" readonly><br>
            </div>
            <!--NOMBRE-->
            <div class="col-md-2"><label for="">Nombre Departamento</label>
@@ -265,23 +268,21 @@
             /* Toggle between hiding and showing the active panel */
             var panel = this.nextElementSibling;
             if (panel.style.display === "block") {
-            panel.style.display = "none";
+                panel.style.display = "none";
             } else {
-            panel.style.display = "block";
-            }
+                panel.style.display = "block";
+                }
             });
         }
     });
 
     //ENVIAR RESERVA
-    $("body").on("click", ".btn_guardar", function (e) {
+    $("#pagar").on("click", function (e) {
         e.preventDefault();
 
-        //OBTENEMOS DATOS DEL FORMULARIO
         let form = $("#reserva").serializeArray();
-        
-        //IMPRIME DEL NAVEGADOR 
-        //console.log(form);
+        console.log(form);
+
         let error = 0;
             
         //VALIDACION
@@ -300,6 +301,7 @@
             }
             else {
                 localStorage.setItem("reserva", JSON.stringify(form));
+
                 //CONFIRMACION
                 let confirmar = confirm('¿Estas seguro/a de realizar esta acción?');
             
@@ -330,18 +332,6 @@
                 }
 
             }
-    });
-
-    $("body").on("click", ".btn_Cancelar", function (e) {
-        e.preventDefault();
-         let confirmar = confirm("¿Realmente deseas salir de esta página?");
-
-        if(confirmar === true){
-            history.back();
-        }else{
-            return false;
-        }
-
     });
 
     /*$('#resumen_servicios').DataTable( {
@@ -462,7 +452,7 @@
         let form = $("#md_transporte").serializeArray();
   
         //IMPRIME DEL NAVEGADOR 
-        //console.log(form);
+        console.log(form);
   
         let error = 0;
   
@@ -646,7 +636,7 @@
             var adultos = parseInt(document.getElementById('cantidad_adultos').value);
             var personas = ninos + adultos;
 
-            $("#nro").val(personas + 1);
+            $("#total_personas").val(personas + 1);
         });
 
         $('#btn_Limpiar_otro').on("click", function (e) { 

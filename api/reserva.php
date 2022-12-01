@@ -36,5 +36,23 @@ if($accion == 5)
     echo $data;
 }
 
+if($accion == 6)
+{
+    $form = json_decode($_POST['data']);
+    $data = db_addReserva(
+        //RUT
+        $form[0]->value,
+        //NOMBRES
+        $form[1]->value,
+        //APELLIDOS
+        $form[2]->value,
+        //EMAIL
+        $form[3]->value,
+        //PASSWORD
+        $form[4]->value
+  );
+  echo $data;
+}
+
 
 ?>

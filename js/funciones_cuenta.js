@@ -78,12 +78,6 @@ $(document).ready(function () {
                   <input type="password" class="form-control" id="pass" name="pass">
               </div>
           </div>
-          <div class="form-group">
-              <label class="col-md-2  col-sm-3 col-xs-12 control-label">Nueva Contraseña</label>
-              <div class="col-md-12 col-sm-9 col-xs-10">
-                  <input type="password" class="form-control" id="newpass" name="newpass">
-              </div>
-          </div>
       </fieldset>
       <hr>
       <div class="form-group">

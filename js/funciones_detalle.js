@@ -90,7 +90,7 @@ $(document).ready(function () {
         <div class="row text_align_center">
             <h3 class="col-md-4">`+item.NOMBRE_REGION+`</h3> 
             <h2 class="col-md-4">`+item.NOMBRE+`</h2>
-            <h3 class="col-md-4">Código: `+item.ID_DEPARTAMENTO+`</h3>
+            <h3 class="col-md-4" id="codigo" data-value="`+item.ID_DEPARTAMENTO+`">Código: `+item.ID_DEPARTAMENTO+`</h3>
         </div>     
         <textarea readonly>`+item.DESCRIPCION+`</textarea>
         <table class="table">
@@ -134,6 +134,11 @@ $(document).ready(function () {
     });
     }
     
+    /*$(document).ready(function () {
+        let codigo = $("body").find('#codigo').data('value');
+        console.log(codigo);
+
+    });*/
     
 });
 

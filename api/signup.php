@@ -1,5 +1,5 @@
 <?php
-require ('data_login.php');
+require ('data_signup.php');
 $accion = $_GET['a'];
 
 if($accion == 1)
@@ -19,4 +19,6 @@ if($accion == 1)
   );
   echo $data;
 }
+
+
 ?>

@@ -81,6 +81,20 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    $("body").on("blur", "#email", function ()
+    {
+        var email = document.getElementById("email").value;
+        var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+        if(email.match(pattern))
+        {
+            return true;
+        }else{
+            toastConfig();
+                Command: toastr["warning"]('Email no valido', "Atención");
+        }
+    });
+
     $('#createAcc').on('click', function()
     {
         let form = $("#signup").serializeArray();
@@ -91,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if(confirmar===true){
             $.ajax({
             data: { data: JSON.stringify(form) },
-            url: "api/login.php?a=1",
+            url: "api/signup.php?a=1",
             type: 'POST',
                 success: function (data) {
                     if (data != null || data != '') {
@@ -108,6 +122,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    $('#btn_login').on('click', function()
+    {
+    });
     
 });
 

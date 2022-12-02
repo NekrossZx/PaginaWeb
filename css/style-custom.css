@@ -151,6 +151,47 @@ body {
   padding: 1em;
   margin-bottom: 2em;
 }
+.comprobante{
+  margin-top: 20em;
+  padding: 1em;
+  margin-bottom: 10em;
+  background-color: #fd990c;
+  border-radius: 20px;
+}
+
+.comprobante embed{
+  height: 500px;
+}
+
+::-webkit-file-upload-button{
+  margin-top: 20px;
+  background-color: #8b1310 !important;
+  border: 0;
+  padding: 12px 40px;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+}
+
+#comprobante{
+  font-size: 16px;
+  font-weight: bolder;
+}
+
+#subir_comprobante:disabled{
+  color: black;
+  background-color: #f1f1f1 !important;
+}
+#subir_comprobante:hover{
+  border: 0;
+  color: #fd990c;
+}
+.fondo{
+  background-image: url('/paginaweb/images/bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .form_button{
   margin-bottom: 1em;
 }

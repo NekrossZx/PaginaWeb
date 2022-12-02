@@ -22,9 +22,9 @@
       };
       return toastr.options;
     }    
-    /*$(window).bind('beforeunload', function(){
+    $(window).bind('beforeunload', function(){
         return "¿Estás seguro/a de querer abandonar? Se perderan los datos ingresados";
-      });*/
+      });
     
     $("body").on("blur", ".form-control", function (e) {
         e.preventDefault();
@@ -197,18 +197,18 @@
           opens: 'center',
           singleDatePicker: true,
           timePicker:true,
-          timePicker24Hour:false,
+          timePicker24Hour:true,
           locale: {
-            format: 'DD/MM hh:mm'
+            format: 'DD/MM HH:mm'
           }
         });
         $('input[name="fecha_termino"]').daterangepicker({
             opens: 'center',
             singleDatePicker: true,
             timePicker:true,
-            timePicker24Hour:false,
+            timePicker24Hour:true,
             locale: {
-              format: 'DD/MM hh:mm'
+              format: 'DD/MM HH:mm'
             }
           });
       });
@@ -219,12 +219,12 @@
             drops: 'up',
             autoApplay: true,
             timePicker: true,
-            timePicker24Hour: false,
+            timePicker24Hour: true,
             startDate:moment().startOf('hour'),
             endDate:moment().endOf('hour').add(72, 'hour'),
             minDate:moment().startOf('hour'),
             locale: {
-                format: 'DD/MM/YYYY hh:mm'
+                format: 'DD/MM/YYYY HH:mm'
             }
         });
 
@@ -248,6 +248,8 @@
                 let arriendo_diario = $("body").find('#arriendo').data('value');
                 let valor_dias = parseInt(arriendo_diario * dayDifference);
                 $("#valor_dias").val(valor_dias);
+
+                $('#pagar').prop('disabled', false);
             }
         });
     });
@@ -287,7 +289,7 @@
             
         //VALIDACION
         $(form).each(function (i, item) {
-            if (item.value == '' || item.value == null || item.value == undefined || item.value == 0 )
+            if (item.value == '' || item.value == null || item.value == undefined)
                 {
                     error = 1;
                     $("#" + item.name).addClass('bg-danger');
@@ -365,20 +367,20 @@
             opens: 'center',
             singleDatePicker: true,
             timePicker:true,
-            timePicker24Hour:false,
+            timePicker24Hour:true,
             minDate:moment().startOf('hour').add(24,'hour'),
             locale: {
-            format: 'DD/MM hh:mm'
+            format: 'DD/MM HH:mm '
           }
         });
         $('input[name="ida_hora"]').daterangepicker({
             opens: 'center',
             singleDatePicker: true,
             timePicker:true,
-            timePicker24Hour:false,
+            timePicker24Hour:true,
             minDate:moment().startOf('hour').add(3,'hour'),
             locale: {
-              format: 'DD/MM hh:mm'
+              format: 'DD/MM HH:mm '
             }
           });
       });
@@ -540,7 +542,7 @@
             paging: false, 
             info: false,
             "language": {
-                "emptyTable": "SIN DATOS INGRESADOS",
+                "emptyTable": "NO HAY SERVICIOS DISPONIBLES",
                 "thousands": "."
             },
             columnDefs: [
@@ -690,7 +692,7 @@
         $('#actividad').DataTable( {
             searching: false, paging: false, info: false,
             "language": {
-                "emptyTable": "SIN DATOS INGRESADOS",
+                "emptyTable": "NO HAY ACTIVIDADES DISPONIBLES",
                 "thousands": "."
             },
             columnDefs: [
@@ -787,7 +789,10 @@
 
     //                                                                          PAGO
     $("#btn_completar").on("click",function () { 
-        window.location.replace('transferencia.html');
+        setTimeout(function () {
+            $(window).unbind('beforeunload');
+            window.location.replace('transferencia.html');
+        },2000);
     });
 
 });

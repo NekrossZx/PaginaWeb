@@ -135,10 +135,10 @@
                                           </form>
                                        </div>
                                     </div>
-                                    <div>
-                                       <button type="button" data-toggle="modal" data-target="#modalPago" class="btn btn-custom btn-block" id="pagar">Ir a pagar</button>
-                                       <button type="button" class="btn btn-custom btn_cancelar btn-block" onclick="history.back()">Cancelar</button>                              
+                                    <div data-toggle="tooltip" data-placement="bottom" title="Primero debes elegir una fecha">
+                                       <button type="button" data-toggle="modal" data-target="#modalPago" class="btn btn-custom btn-block col-md-12" id="pagar" disabled>Ir a pagar</button>                             
                                     </div>
+                                    <button type="button" class="btn btn-custom btn_cancelar btn-block col-md-12" onclick="history.back()">Cancelar</button> 
                               </div>
                            </div>
                         </div>
@@ -181,6 +181,7 @@
                               <div class="col-md-6"><label for="">Región Origen</label>
                                  <select type="text" id="ida_region_origen" name="ida_region_origen" class="form-control ida">
                                     <option value="0">Seleccione Región</option>
+                                    <option value="1" hidden>SIN TRANSPORTE</option>
                                  </select>
                               </div><br>
                               <!--DIRECCIÓN ORIGEN-->
@@ -192,6 +193,7 @@
                               <div class="col-md-6"><label for="">Región Destino</label>
                                  <select type="text" id="ida_region_destino" name="ida_region_destino" class="form-control ida">
                                     <option value="0">Seleccione Región</option>
+                                    <option value="1" hidden>SIN TRANSPORTE</option>
                                  </select>
                               </div><br>
                               <!--DIRECCIÓN DESTINO-->

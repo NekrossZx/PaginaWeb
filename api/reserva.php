@@ -40,16 +40,38 @@ if($accion == 6)
 {
     $form = json_decode($_POST['data']);
     $data = db_addReserva(
-        //RUT
+        //NRO RESERVA
         $form[0]->value,
-        //NOMBRES
+        //TOTAL PERSONAS
         $form[1]->value,
-        //APELLIDOS
+        //FECHA RESERVA
         $form[2]->value,
-        //EMAIL
+        //VALOR DIAS
         $form[3]->value,
-        //PASSWORD
-        $form[4]->value
+        //VALOR TOTAL
+        $form[4]->value,
+        //RUT CLIENTE
+        $form[5]->value,
+        //CANTIDAD NIÑOS
+        $form[6]->value,
+        //CANTIDAD ADULTOS
+        $form[7]->value
+  );
+  echo $data;
+}
+
+if($accion == 7)
+{
+    $form = json_decode($_POST['data']);
+    $data = db_addReserva_Depto(
+        //ID DEPARTAMENTO
+        $form[0]->value,
+        //NRO RESERVA
+        $form[1]->value,
+        //FECHA INICIO
+        $form[2]->value,
+        //FECHA TERMINO
+        $form[3]->value
   );
   echo $data;
 }

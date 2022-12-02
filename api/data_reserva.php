@@ -64,11 +64,21 @@ function db_getAsoc(){
     echo json_encode($data);
 }
 
-function db_addReserva(){
+function db_addReserva($nro_reserva,$total_personas,$fecha_reserva,$valor_dias,$valor_total,$rut_cliente2,$cantidad_ninos,$cantidad_adultos){
     $connection = oci_connect('TURISMOREAL', '123', 'localhost');
-    $sql = "INSERT INTO reserva () VALUES ('$','$', '$', '$', '$')";
+    $sql = "INSERT INTO reserva (nro_reserva, total_personas, fecha_reserva , valor_dias, valor_total, cliente_rut_cliente,cantidad_ninos,cantidad_adultos,estado) 
+    VALUES ('$nro_reserva','$total_personas', '$fecha_reserva', '$valor_dias', '$valor_total','$rut_cliente2','$cantidad_ninos','$cantidad_adultos','REGISTRADA')";
 
     $stid = oci_parse($connection,$sql) or die("Query failed: ".oci_error()." Actual db_addReserva");
+    oci_execute($stid);
+}
+
+function db_addReserva_Depto($nro_reserva_depto,$id_depto,$fecha_inicio,$fecha_termino){
+    $connection = oci_connect('TURISMOREAL', '123', 'localhost');
+    $sql = "INSERT INTO reserva_depto (reserva_nro_reserva, departamento_id_departamento, reserva_inicio , reserva_termino) 
+    VALUES ('$nro_reserva_depto','$id_depto','$fecha_inicio','$fecha_termino')";
+
+    $stid = oci_parse($connection,$sql) or die("Query failed: ".oci_error()." Actual db_addReserva_Depto");
     oci_execute($stid);
 }
 ?>

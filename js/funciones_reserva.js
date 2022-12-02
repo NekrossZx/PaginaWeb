@@ -248,7 +248,7 @@
                 let arriendo_diario = $("body").find('#arriendo').data('value');
                 let valor_dias = parseInt(arriendo_diario * dayDifference);
                 $("#valor_dias").val(valor_dias);
-
+                $("#valor_total").val(valor_dias);
                 $('#pagar').prop('disabled', false);
             }
         });
@@ -282,58 +282,15 @@
     $("#pagar").on("click", function (e) {
         e.preventDefault();
 
-        let form = $("#reserva").serializeArray();
-        console.log(form);
+        let reserva = $("#reserva").serializeArray();
+        let transporte = $("#md_transporte").serializeArray();
+        let departamento = $("#reserva_depto").serializeArray();
+        console.log(reserva,transporte, departamento);
 
-        let error = 0;
-            
-        //VALIDACION
-        $(form).each(function (i, item) {
-            if (item.value == '' || item.value == null || item.value == undefined)
-                {
-                    error = 1;
-                    $("#" + item.name).addClass('bg-danger');
-            
-                }
-            });
-            
-            if (error == 1) {
-                toastConfig();
-                Command: toastr["warning"]("Faltan Datos Por Completar", "Atención");
-            }
-            else {
-                localStorage.setItem("reserva", JSON.stringify(form));
+        localStorage.setItem("reserva", JSON.stringify(reserva));
+        localStorage.setItem("transporte", JSON.stringify(transporte));
+        localStorage.setItem("departamento", JSON.stringify(departamento));
 
-                //CONFIRMACION
-                let confirmar = confirm('¿Estas seguro/a de realizar esta acción?');
-            
-                if (confirmar == true) {
-                    //LLAMADA POR AJAX A API
-                    $.ajax({
-                        data: { data: JSON.stringify(form) },
-                        url: "",
-                        type: 'POST',
-                        success: function (data) {
-                            if (data != null || data != '') {
-                                toastConfig();
-                                Command: toastr["success"]("Se ha guardado la información", "Operación Exitosa");
-                                //LIMPIAR FORMULARIO
-                                $("#")[0].reset();
-                                $(".form-control").removeClass('bg-danger');  
-                            }
-                            else {
-                                toastConfig();
-                                Command: toastr["danger"]("Error de conexión", "Error");
-                            }
-                        }
-                    });
-                
-                }
-                else {
-                    return false;
-                }
-
-            }
     });
 
     /*$('#resumen_servicios').DataTable( {
@@ -621,14 +578,14 @@
     $(document).ready(function () {
         $("#cantidad_ninos").val(0);
         $("#cantidad_adultos").val(0);
-        let form = $("#md_otros").serializeArray();
-        localStorage.setItem("acompanante", JSON.stringify(form));
+        let form = $("#reserva").serializeArray();
+        localStorage.setItem("reserva", JSON.stringify(form));
 
         $('#md_otros').on("change", ".form-control", function (e) {
             e.preventDefault();
              
-            let form = $("#md_otros").serializeArray();
-            localStorage.setItem("acompanante", JSON.stringify(form));
+            let form = $("#reserva").serializeArray();
+            localStorage.setItem("reserva", JSON.stringify(form));
             //console.log(form);
     
         });
@@ -648,8 +605,8 @@
                 $("#cantidad_ninos").val(0);
                 $("#cantidad_adultos").val(0);
 
-                let form = $("#md_otros").serializeArray();
-                localStorage.setItem("acompanante", JSON.stringify(form));
+                let form = $("#reserva").serializeArray();
+                localStorage.setItem("reserva", JSON.stringify(form));
             }else{
                 return false;
             }
@@ -789,10 +746,58 @@
 
     //                                                                          PAGO
     $("#btn_completar").on("click",function () { 
-        setTimeout(function () {
-            $(window).unbind('beforeunload');
-            window.location.replace('transferencia.html');
-        },2000);
+        //CONFIRMACION
+
+        let reserva = $("#reserva").serializeArray();
+        localStorage.setItem("reserva", JSON.stringify(reserva));
+        let reserva_depto = $("#reserva_depto").serializeArray();
+        localStorage.setItem("reserva_depto", JSON.stringify(reserva_depto));
+        console.log(reserva);
+        console.log(reserva_depto);
+
+        let confirmar = confirm('¿Estas seguro/a de realizar esta acción?');
+            
+        if (confirmar == true) {
+            //LLAMADA POR AJAX A API
+            $.ajax({
+                data: { data: JSON.stringify(reserva) },
+                url: "api/reserva.php?a=6",
+                type: 'POST',
+                success: function (data) {
+                    if (data != null || data != '') {
+                        toastConfig();
+                        Command: toastr["success"]("Se ha guardado la información", "Operación Exitosa");
+                        //LIMPIAR FORMULARIO
+                    }
+                    else {
+                        toastConfig();
+                        Command: toastr["danger"]("Error de conexión", "Error");
+                    }
+                }
+            });
+            setTimeout(function () {
+                //LLAMADA POR AJAX A API
+                $.ajax({
+                    data: { data: JSON.stringify(reserva_depto) },
+                    url: "api/reserva.php?a=7",
+                    type: 'POST',
+                    success: function (data) {
+                        if (data != null || data != '') {
+                        }
+                        else {
+                            toastConfig();
+                            Command: toastr["danger"]("Error de conexión", "Error");
+                        }
+                    }
+                });
+                $(window).unbind('beforeunload');
+                window.location.replace('transferencia.html');
+            },2000); 
+        }
+        else {
+            return false;
+        }
+
     });
 
 });

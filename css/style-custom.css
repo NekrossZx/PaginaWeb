@@ -163,6 +163,14 @@ body {
   height: 500px;
 }
 
+.comprobante>h2{
+  background-color: #8b1310;
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
+}
+
 ::-webkit-file-upload-button{
   margin-top: 20px;
   background-color: #8b1310 !important;
@@ -191,6 +199,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 
 .form_button{
   margin-bottom: 1em;

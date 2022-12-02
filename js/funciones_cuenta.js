@@ -203,44 +203,19 @@ $(document).ready(function () {
 
   $('#actualizar').on('click', function () {
 
-    let newpass = document.getElementById(newpass);
     let form = $("#actualizar_perfil").serializeArray();
     console.log(form);
     localStorage.setItem("update", JSON.stringify(form));
 
     var confirmar = confirm("¿Desea actualizar la información?");
     if(confirmar===true){
-      /*if(newpass == 0 || newpass == null || newpass == '' || newpass == undefined){
-        $.ajax({
-          data: { data: JSON.stringify(form) },
-          url: "api/cuenta.php?a=4",
-          type: 'POST',
-          success: function (data) {
-              if (data != null || data != '') {
-
-              }
-              else {
-                  toastConfig();
-                  Command: toastr["danger"]("Error de conexión", "Error");
-              }
-          }
-        });
-      }else{
-        $.ajax({
-          data: { data: JSON.stringify(form) },
-          url: "api/cuenta.php?a=5",
-          type: 'POST',
-          success: function (data) {
-              if (data != null || data != '') {
-
-              }
-              else {
-                  toastConfig();
-                  Command: toastr["danger"]("Error de conexión", "Error");
-              }
-          }
-        });
-      }*/
+      $.ajax({
+        data: { data: JSON.stringify(form) },
+        url: "api/cuenta.php?a=4",
+        type: 'POST',
+        success: function (data) {
+        }
+      });
     }else{
       return false;
     }

@@ -441,7 +441,7 @@
                         <p>Nombre: Turismo Real spa</p>
                         <p>Correo electronico: reservas@turismoreal.cl</p>
                         <p>Asunto: Indicar el número de reserva</p><p id="asunto_reserva"></p>
-                        <p>Total a pagar por la reserva (40% del total final): $ <p id="ver_total"></p></p>
+                        <p id="ver_total"></p>
                      </div>
                   </div>
                   <div class="modal-footer">

@@ -110,7 +110,7 @@ $(document).ready(function () {
         <div id="servicios"></div><br>
         <p>Valor por día</p>
         <h1>$`+item.ARRIENDO_DIARIO+`</h1>
-        <a href="reserva.html?id=`+item.ID_DEPARTAMENTO+`" type="button" id="reservar" class="btn btn-custom-light">RESERVAR</a>`)
+        <a href="reserva.php?id=`+item.ID_DEPARTAMENTO+`" type="button" id="reservar" class="btn btn-custom-light">RESERVAR</a>`)
     });
 
     let asociados = null;

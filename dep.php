@@ -32,7 +32,7 @@
       <!--DETALLES DEPARTAMENTOS-->
         <!-- Container for the image gallery -->
         <div class="container-fluid">
-            <a type="button" class="btn btn-custom btn-block btn_volver" href="departamentos.html">&#10094; Volver</a>
+            <a type="button" class="btn btn-custom btn-block btn_volver" href="departamentos.php">&#10094; Volver</a>
             <div class="carrusel">
                 <div id="slide">
                 </div>

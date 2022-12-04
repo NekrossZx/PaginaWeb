@@ -795,7 +795,7 @@
                     }
                 });
                 $(window).unbind('beforeunload');
-                window.location.replace('transferencia.html');
+                window.location.replace('transferencia.php');
             },2000); 
         }
         else {

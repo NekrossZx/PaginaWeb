@@ -75,7 +75,7 @@ $(document).ready(function () {
     let form = $("#detalle_depto").serializeArray();
     localStorage.setItem("detalle", JSON.stringify(form));
 
-    window.location.replace("dep.html?id="+select);
+    window.location.replace("dep.php?id="+select);
   });
 
 });

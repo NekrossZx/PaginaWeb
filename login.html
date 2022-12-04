@@ -34,10 +34,10 @@
                     <form class="form" id="login">
                         <h1 class="form_title">Ingresar</h1><br>
                         <div class="form_input-group">
-                            <input type="email" id="email" name="email" class="form-control" autofocus placeholder="Email">                    
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Email">                    
                         </div>
                         <div class="form_input-group">
-                            <input type="password" id="contrasena" name="contrasena" class="form-control" autofocus placeholder="Contraseña">                   
+                            <input type="password" id="contrasena" name="contrasena" class="form-control" placeholder="Contraseña">                   
                         </div>
                         <button class="form_button" id="btn_login">Ingresar</button>
                         <p class="form_text">
@@ -50,22 +50,23 @@
                     <!--SIGN UP-->
                     <form class="form form-hidden" id="signup">
                         <h1 class="form_title">Crear Cuenta</h1><br>
-                        <div class="form_input-group">
-                            <input type="text" id="signupRut" name="signupRut" class="form-control" autofocus placeholder="Rut">                  
+                        <div class="form_input-group">  
+                            <input type="text" id="signupRut" name="signupRut" class="form-control" placeholder="Rut">                  
                         </div>
                         <div class="form_input-group">
-                            <input type="text" id="signupNombre" name="signupNombre" class="form-control" autofocus placeholder="Nombre(s)">                  
+                            <input type="text" id="signupNombre" name="signupNombre" class="form-control" placeholder="Nombre(s)">                  
                         </div>
                         <div class="form_input-group">
-                            <input type="text" id="signupApellido" name="signupApellido" class="form-control" autofocus placeholder="Apellido(s)">                  
+                            <input type="text" id="signupApellido" name="signupApellido" class="form-control" placeholder="Apellido(s)">                  
                         </div>
                         <div class="form_input-group">
-                            <input type="text" id="signupEmail" name="signupEmail" class="form-control" autofocus placeholder="Email">                    
+                            <input type="text" id="signupEmail" name="signupEmail" class="form-control" placeholder="Email">                    
                         </div>
                         <div class="form_input-group">
-                            <input type="password" id="signupPass" name="signupPass" class="form-control" autofocus placeholder="Password">                    
+                            <input type="password" id="signupPass" name="signupPass" class="form-control" placeholder="Password">
+                            <span>La contraseña debe tener mínimo 8 caracteres.</span>           
                         </div>
-                        <button class="form_button" id="createAcc">Crear Cuenta</button>
+                        <button type="button" class="form_button" id="createAcc">Crear Cuenta</button>
                         <p class="form_text">
                             <a class="form_link" href="./" id="linkLogin">¿Ya tienes una cuenta? Ingresar</a>
                         </p>
@@ -74,7 +75,7 @@
                     <form class="form form-hidden" id="recuperar">
                         <h1 class="form_title">Recuperar contraseña</h1><br>
                         <div class="form_input-group">
-                            <input type="email" id="recuperarEmail" name="recuperarEmail" class="form-control" autofocus placeholder="Email de Recuperación">
+                            <input type="email" id="recuperarEmail" name="recuperarEmail" class="form-control" placeholder="Email de Recuperación">
                         </div>
                         <button class="form_button" type="submit">Recuperar</button>
                         <p class="form_text">

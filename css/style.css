@@ -9,7 +9,6 @@
 /*--------------------------------------------------------------------- import Files ---------------------------------------------------------------------*/
 
 @import url(font-awesome.min.css);
-@import url(owl.carousel.min.css);
 
 /*--------------------------------------------------------------------- basic ---------------------------------------------------------------------*/
 
@@ -1165,6 +1164,16 @@ ul.re_post li {
      font-size: 16px;
      color: white;
  }
+
+ .form_button:disabled{
+     margin-top: 20px;
+     background-color: #ddd !important;
+     border: 2px solid #ddd;
+     padding: 12px 40px;
+     font-size: 16px;
+     color: white;
+     border-radius: 10px;
+}
  
  .form_button:hover {
      background: #007f67;

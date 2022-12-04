@@ -30,7 +30,7 @@ if($accion == 2)
     //CONTRASENA
     $form[1]->value
   );
-  echo ($data);
+  echo $data;
 }
 
 ?>

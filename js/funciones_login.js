@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    $('#createAcc').on('click', function()
+    $('#btn_createAcc').on('click', function()
     {
         let form = $("#signup").serializeArray();
         let clave = $("#signupPass").val();
@@ -171,7 +171,6 @@ document.addEventListener("DOMContentLoaded", () => {
             Command: toastr["warning"]("Faltan Datos Por Completar", "Atención");
         }
         else {
-            console.log("holi");
             localStorage.setItem("createAcc", JSON.stringify(form));
             var confirmar = confirm("¿Desea registrar la información?");
             if(confirmar===true){
@@ -179,14 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 data: { data: JSON.stringify(form) },
                 url: "api/signup.php?a=1",
                 type: 'POST',
-                    success: function (data) {
-                        if (data != null || data != '') {
-
-                        }
-                        else {
-                            toastConfig();
-                            Command: toastr["danger"]("Error de conexión", "Error");
-                        }
+                    success: function (data) {  
                     }
                 });
             }else{
@@ -204,13 +196,7 @@ document.addEventListener("DOMContentLoaded", () => {
             data: {data: JSON.stringify(form)} ,
             url: "api/signup.php?a=2",
             type: 'POST',
-                success: function (response) {
-                    if(response == "1"){
-                        console.log("ya existe");
-                     }else{
-                        console.log("no existe");
-                    }
-                }
+                success: function (data) {}
             });
     });
 

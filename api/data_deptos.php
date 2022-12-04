@@ -69,13 +69,13 @@ function db_getCarrusel(){
     echo json_encode($data);
 }
 
-function db_getDetails(){
+function db_getDetails($detalle_depto){
     $connection = oci_connect('TURISMOREAL', '123', 'localhost');
     $sql = "SELECT d.id_departamento, d.nombre, d.arriendo_diario, r.nombre as NOMBRE_REGION, d.banos, d.metros_cuadrados, d.habitaciones, d.descripcion
     FROM departamento D 
     JOIN ubicacion U ON d.ubicacion_id_ubicacion = u.id_ubicacion 
     JOIN region R ON u.region_id_region = r.id_region
-    WHERE d.id_departamento = 1 ";
+    WHERE d.id_departamento = '$detalle_depto' ";
 
     $stid = oci_parse($connection,$sql) or die("Query failed: ".oci_error()." Actual db_getDetails");
     oci_execute($stid);

@@ -72,15 +72,16 @@ $(document).ready(function () {
     });
 
     //COMPLETA DETALLES
+    let request = localStorage.getItem("detalle");
     let detalles = null;
     $.ajax({
-        'async': false,
-        'type': "GET",
-        'global': false,
-        'dataType': 'html',
-        'url': "api/deptos.php?a=5",
-        'data': { 'request': '', 'target': 'arrange_url', 'method': 'method_target'},
-        'success': function (data) {
+        async: false,
+        type: "GET",
+        global: false,
+        dataType: 'html',
+        url: "api/deptos.php?a=5",
+        data: {'request': JSON.stringify(request), 'target': 'arrange_url', 'method': 'method_target'},
+        success: function (data) {
             detalles = JSON.parse(data);
         }
     }); 

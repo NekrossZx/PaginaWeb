@@ -6,7 +6,6 @@ function db_getDeptos(){
     JOIN ubicacion U ON d.ubicacion_id_ubicacion = u.id_ubicacion 
     JOIN region R ON u.region_id_region = r.id_region
     JOIN foto_muestra F ON f.departamento_id_departamento = d.id_departamento
-    WHERE d.id_departamento != 0
     ORDER BY id_departamento";
 
     $stid = oci_parse($connection,$sql);
@@ -75,7 +74,7 @@ function db_getDetails($detalle_depto){
     FROM departamento D 
     JOIN ubicacion U ON d.ubicacion_id_ubicacion = u.id_ubicacion 
     JOIN region R ON u.region_id_region = r.id_region
-    WHERE d.id_departamento = '$detalle_depto' ";
+    WHERE d.id_departamento = '.$detalle_depto' ";
 
     $stid = oci_parse($connection,$sql) or die("Query failed: ".oci_error()." Actual db_getDetails");
     oci_execute($stid);

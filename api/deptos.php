@@ -33,7 +33,7 @@ if($accion == 4)
 //DETALLES 
 if($accion == 5)
 {
-    $form = json_decode($_POST['data']);
+    $form = json_decode($_GET['data']);
     $data = db_getDetails(
         //ID DEPARTAMENTO
         $form[0]->value

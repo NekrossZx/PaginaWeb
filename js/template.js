@@ -4,9 +4,9 @@ class MyHeader extends HTMLElement {
       this.innerHTML = `
       <div id="mySidepanel" class="sidepanel">
          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-         <a href="index.html">Home</a>
-         <a href="contact.html">Contacto</a>
-         <a href="departamentos.html">Departamentos</a>
+         <a href="index.php">Home</a>
+         <a href="contact.php">Contacto</a>
+         <a href="departamentos.php">Departamentos</a>
       </div>
       <!-- header -->
       <header>
@@ -16,14 +16,14 @@ class MyHeader extends HTMLElement {
                <div class="row">
                   <div class="col-sm-3">
                      <div class="logo">
-                        <a href="index.html"><img src="images/logo1.png" class="logo-top"/></a>
+                        <a href="index.php"><img src="images/logo1.png" class="logo-top"/></a>
                      </div>
                   </div>
                   <div class="col-sm-9">
                      <ul class="email text_align_right">
                         <li class="d_none"><i class="fa fa-phone" aria-hidden="true"></i>+56  2 12345678</a></li>
                         <li class="d_none"> <a href="contacto@turismoreal.cl"><i class="fa fa-envelope" aria-hidden="true"></i>contacto@turismoreal.cl</a></li>
-                        <li class="d_none" id="user"> <a href="login.html">Login <i class="fa fa-user" aria-hidden="true"></i></a> </li>
+                        <li class="d_none" id="user"> <a href="login.php">Login <i class="fa fa-user" aria-hidden="true"></i></a> </li>
                         <li> <button class="openbtn" onclick="openNav()"><img src="images/menu_btn.png"></button></li>
                      </ul>
                   </div>
@@ -54,7 +54,7 @@ class MyHeader extends HTMLElement {
                   </div>
                   <div class="col-md-4 col-sm-6">
                      <div class="reader">
-                        <a href="index.html"><img class="logo-footer text_align_right" src="images/logo_blanco.png"/></a>
+                        <a href="index.php"><img class="logo-footer text_align_right" src="images/logo_blanco.png"/></a>
                         <p class= "text_align_right">La mejor empresa de turismo y alojamiento en Chile.</p>
                      </div>
                   </div>
@@ -62,9 +62,9 @@ class MyHeader extends HTMLElement {
                      <div class="reader">
                         <h3>Explorar</h3>
                         <ul class="xple_menu">
-                           <li><a href="index.html">Home</a></li>
-                           <li><a href="departamentos.html">Departamentos</a></li>
-                           <li><a href="contact.html">Contactanos</a></li>
+                           <li><a href="index.php">Home</a></li>
+                           <li><a href="departamentos.php">Departamentos</a></li>
+                           <li><a href="contact.php">Contactanos</a></li>
                         </ul>
                      </div>
                   </div>
@@ -83,7 +83,7 @@ class MyHeader extends HTMLElement {
                      <div class="reader">
                         <h3>Contactanos</h3>
                         <ul class="re_post">
-                           <a class="read_more" href="contact.html">Contacto</a>
+                           <a class="read_more" href="contact.php">Contacto</a>
                         </ul>
                      </div>
                   </div>
@@ -122,7 +122,7 @@ class MyHeader extends HTMLElement {
                  </div>
                  <div class="col-md-4 col-sm-6">
                     <div class="reader">
-                       <a href="index.html"><img class="logo-footer text_align_right" src="images/logo_blanco.png"/></a>
+                       <a href="index.php"><img class="logo-footer text_align_right" src="images/logo_blanco.png"/></a>
                        <p>La mejor empresa de turismo y alojamiento en Chile.</p>
                     </div>
                  </div>
@@ -130,9 +130,9 @@ class MyHeader extends HTMLElement {
                     <div class="reader">
                        <h3>Explorar</h3>
                        <ul class="xple_menu">
-                          <li><a href="index.html">Home</a></li>
-                          <li><a href="contact.html">Contactanos</a></li>
-                          <li><a href="departamentos.html">Departamentos</a></li>
+                          <li><a href="index.php">Home</a></li>
+                          <li><a href="contact.php">Contactanos</a></li>
+                          <li><a href="departamentos.php">Departamentos</a></li>
                        </ul>
                     </div>
                  </div>
@@ -151,7 +151,7 @@ class MyHeader extends HTMLElement {
                     <div class="reader">
                        <h3>Contactanos</h3>
                        <ul class="re_post">
-                          <a class="read_more" href="contact.html">Contacto</a>
+                          <a class="read_more" href="contact.php">Contacto</a>
                        </ul>
                     </div>
                  </div>
@@ -179,11 +179,11 @@ class headerUser extends HTMLElement {
      this.innerHTML = `
      <div id="mySidepanel" class="sidepanel">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-        <a href="index.html">Home</a>
-        <a href="contact.html">Contacto</a>
-        <a href="departamentos.html">Departamentos</a>
-        <a href="cuenta.html">Mi Cuenta</a>
-        <a href="index.html">Cerrar Sesión</a>
+        <a href="index.php">Home</a>
+        <a href="contact.php">Contacto</a>
+        <a href="departamentos.php">Departamentos</a>
+        <a href="cuenta.php">Mi Cuenta</a>
+        <a href="index.php">Cerrar Sesión</a>
      </div>
      <!-- header -->
      <header>
@@ -193,14 +193,14 @@ class headerUser extends HTMLElement {
               <div class="row">
                  <div class="col-sm-3">
                     <div class="logo">
-                       <a href="index.html"><img src="images/logo1.png" class="logo-top"/></a>
+                       <a href="index.php"><img src="images/logo1.png" class="logo-top"/></a>
                     </div>
                  </div>
                  <div class="col-sm-9">
                     <ul class="email text_align_right">
                        <li class="d_none"><i class="fa fa-phone" aria-hidden="true"></i>+56  2 12345678</a></li>
                        <li class="d_none"> <a href="contacto@turismoreal.cl"><i class="fa fa-envelope" aria-hidden="true"></i>contacto@turismoreal.cl</a></li>
-                       <li class="d_none" id="user"> <a href="cuenta.html">Usuario <i class="fa fa-user" aria-hidden="true"></i></a> </li>
+                       <li class="d_none" id="user"> <a href="cuenta.php">Usuario <i class="fa fa-user" aria-hidden="true"></i></a> </li>
                        <li> <button class="openbtn" onclick="openNav()"><img src="images/menu_btn.png"></button></li>
                     </ul>
                  </div>

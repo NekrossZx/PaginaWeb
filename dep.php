@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <!-- basic -->
-        <meta charset="UTF-8">
+        <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <!-- mobile metas -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,8 +17,7 @@
         <!-- style css -->
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/style-custom.css">
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-        <link rel="stylesheet" href="css/style-range.css">
+        <link rel="stylesheet" href="css/style-deptos.css">
         <!-- responsive-->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- awesome fontfamily -->
@@ -30,41 +29,28 @@
      <!-- body -->
     <body class="main-layout">
       <user-header></user-header>
-      <!--FILTRO-->
-      <div class="container-fluid">
-        <div class="col-md-12">
-          <form id="filtro">
-            <div class="filtro">
-              <div class="row">
-                <h1 class="text_align_center">Filtrar</h1><br>
-                <div class="col-md-4"><label for="">Región</label>
-                  <select name="filtro_region" id="filtro_region"class="form-control">
-                      <option value="0">Seleccione Región</option>
-                  </select>
+      <!--DETALLES DEPARTAMENTOS-->
+        <!-- Container for the image gallery -->
+        <div class="container-fluid">
+            <a type="button" class="btn btn-custom btn-block btn_volver" href="departamentos.php">&#10094; Volver</a>
+            <div class="carrusel">
+                <div id="slide">
                 </div>
-                <div class="col-md-4"><label for="">Rango Precio</label>
-                  <select name="filtro_precio" id="filtro_precio"class="form-control">
-                    <option value="0">Seleccione Precio Máximo</option>
-                  </select>
+                <!-- Next and previous buttons -->
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                <!-- Image text -->
+                <div  class="caption-container">
+                    <p id="caption">Imágenes</p>
                 </div>
-                <div class="col-md-4">
-                  <button type="button" class="btn btn-filtro col-md-1">Filtrar</button>
-                  <button type="reset" class="btn btn-filtro col-md-1" id="limpiar">Limpiar</button>
+                <!-- Thumbnail images -->
+                <div id="thumbnails" class="row">
                 </div>
-              </div>
             </div>
-          </form>
+            <div id="detalles" class="details">
+            </div>
         </div>
-      </div>
-      <!--END FILTRO-->
-      <!-- Departamentos-->
-      <div class="container-fluid">
-        <div class="row">
-          <div class="deps" id="vista_depts">
-          </div>
-        </div>
-      </div>
-      <!-- end Departamentos-->
+      <!-- end DETALLES DEPARTAMENTOS-->
       <my-footer></my-footer>
       <!-- Javascript files-->
       <script src="js/jquery.min.js"></script>
@@ -72,7 +58,6 @@
       <script src="js/custom.js"></script>
       <script src="js/jquery-3.0.0.min.js"></script>
       <script src="js/template.js"></script>
-      <script src="js/funciones_dep.js"></script>
-      <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+      <script src="js/funciones_detalle.js"></script>
    </body>
 </html>

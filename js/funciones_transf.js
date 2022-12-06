@@ -30,7 +30,7 @@ $('#subir_comprobante').on("click", async function(){
     toastConfig();
         Command: toastr["success"]('El comprobante se envió con éxito', "ENVIADO!");
         setTimeout(function () { 
-            window.location.replace("cuenta.html");
+            window.location.replace("cuenta.php");
         },2000);
 });
 

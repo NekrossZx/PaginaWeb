@@ -291,6 +291,10 @@
         localStorage.setItem("transporte", JSON.stringify(transporte));
         localStorage.setItem("departamento", JSON.stringify(departamento));
 
+        let total = $("input[name=valor_total]").val();
+        let porcentaje = total*0.4;
+        $("#ver_total").text("Total a pagar (40% del total final): $"+porcentaje);
+
     });
 
     /*$('#resumen_servicios').DataTable( {
@@ -791,7 +795,7 @@
                     }
                 });
                 $(window).unbind('beforeunload');
-                window.location.replace('transferencia.html');
+                window.location.replace('transferencia.php');
             },2000); 
         }
         else {

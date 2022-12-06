@@ -58,12 +58,13 @@ body{
     }
     
     .view-account .side-bar .side-menu {
-    text-align: center
+    text-align: center;
+    padding: 0 !important;
     }
     
     .view-account .side-bar .side-menu .nav {
-    display: inline-block;
-    margin: 0 auto
+        display: inline-block;
+        margin: 0 auto;
     }
     
     .view-account .side-bar .side-menu .nav>li {

@@ -72,15 +72,16 @@ $(document).ready(function () {
     });
 
     //COMPLETA DETALLES
+    let request = localStorage.getItem("detalle");
     let detalles = null;
     $.ajax({
-        'async': false,
-        'type': "GET",
-        'global': false,
-        'dataType': 'html',
-        'url': "api/deptos.php?a=5",
-        'data': { 'request': '', 'target': 'arrange_url', 'method': 'method_target'},
-        'success': function (data) {
+        async: false,
+        type: "GET",
+        global: false,
+        dataType: 'html',
+        url: "api/deptos.php?a=5",
+        data: {'request': JSON.stringify(request), 'target': 'arrange_url', 'method': 'method_target'},
+        success: function (data) {
             detalles = JSON.parse(data);
         }
     }); 
@@ -109,7 +110,7 @@ $(document).ready(function () {
         <div id="servicios"></div><br>
         <p>Valor por día</p>
         <h1>$`+item.ARRIENDO_DIARIO+`</h1>
-        <a href="reserva.html?id=`+item.ID_DEPARTAMENTO+`" type="button" id="reservar" class="btn btn-custom-light">RESERVAR</a>`)
+        <a href="reserva.php?id=`+item.ID_DEPARTAMENTO+`" type="button" id="reservar" class="btn btn-custom-light">RESERVAR</a>`)
     });
 
     let asociados = null;

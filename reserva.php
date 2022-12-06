@@ -62,26 +62,32 @@
                                               <!--Servicios incluidos-->
                                               <div class="col-md-12">
                                                   <div class="row">
-                                                      <!--RUT CLIENTE-->
-                                                      <div class="col-md-2"><label for="">RUT</label>
-                                                         <input type="text" id="rut_cliente" name="rut_cliente" class="form-control" required>
-                                                      </div>
-                                                      <!--EMAIL CLIENTE-->
-                                                      <div class="col-md-4"><label for="">Email</label>
-                                                         <input type="text" id="email_cliente" name="email_cliente" class="form-control" required>
-                                                      </div>
-                                                      <!--NOMBRE CLIENTE-->
-                                                      <div class="col-md-2"><label for="">Nombres</label>
-                                                         <input type="text" id="nombre_cliente" name="nombre_cliente" class="form-control" required>
-                                                      </div>
-                                                      <!--APELLIDO CLIENTE-->
-                                                      <div class="col-md-2"><label for="">Apellidos</label>
-                                                         <input type="text" id="apellido_cliente" name="apellido_cliente" class="form-control" required>
-                                                      </div>
-                                                      <!--TELEFONO CLIENTE-->
-                                                      <div class="col-md-2"><label for="">Teléfono</label>
-                                                         <input type="tel" id="telefono_cliente" name="telefono_cliente" class="form-control">
-                                                      </div>
+                                                      <!--INFORMACION CLIENTE-->
+                                                         <div class="col-md-2"></div>
+                                                         <!--RUT CLIENTE-->
+                                                         <div class="col-md-2"><label for="">RUT</label>
+                                                            <input type="text" id="rut_cliente" name="rut_cliente" class="form-control" required>
+                                                         </div>
+                                                         <!--NOMBRE CLIENTE-->
+                                                         <div class="col-md-3"><label for="">Nombres</label>
+                                                            <input type="text" id="nombre_cliente" name="nombre_cliente" class="form-control" required>
+                                                         </div>
+                                                         <!--APELLIDO CLIENTE-->
+                                                         <div class="col-md-3"><label for="">Apellidos</label>
+                                                            <input type="text" id="apellido_cliente" name="apellido_cliente" class="form-control" required>
+                                                         </div>
+                                                         <div class="col-md-2"></div>
+                                                      <!--CONTACTO CLIENTE-->
+                                                         <div class="col-md-3"></div>
+                                                         <!--TELEFONO CLIENTE-->
+                                                         <div class="col-md-3"><label for="">Teléfono</label>
+                                                            <input type="tel" id="telefono_cliente" name="telefono_cliente" class="form-control">
+                                                         </div>
+                                                         <!--EMAIL CLIENTE-->
+                                                         <div class="col-md-3"><label for="">Email</label>
+                                                            <input type="text" id="email_cliente" name="email_cliente" class="form-control" required>
+                                                         </div>
+                                                         <div class="col-md-3"></div>
                                                   </div>
                                               </div>
                                       </details><br>
@@ -113,7 +119,7 @@
                                                 </div>
                                                 <!--RANGO FECHA-->
                                                 <div class="col-md-4"><label for="">Duración de estadía</label>
-                                                   <input type="text" id="daterange" class="form-control"><br>
+                                                   <input type="text" id="daterange" class="form-control" readonly><br>
                                                 </div>
                                                 <!--FECHA INICIO-->
                                                 <div class="col-md-2" hidden><label for="">Fecha inicio</label>
@@ -143,7 +149,7 @@
                                           </form>
                                        </div>
                                     </div>
-                                    <div data-toggle="tooltip" data-placement="bottom" title="Primero debes elegir una fecha">
+                                    <div data-toggle="tooltip" data-placement="bottom" title="Primero debes elegir una fecha de estadía">
                                        <button type="button" data-toggle="modal" data-target="#modalPago" class="btn btn-custom btn-block col-md-12" id="pagar" disabled>Ir a pagar</button>                             
                                     </div>
                                     <button type="button" class="btn btn-custom btn_cancelar btn-block col-md-12" onclick="history.back()">Cancelar</button> 
@@ -257,7 +263,7 @@
                <div class="col-md-12 modal-footer">
                   <div class="row">
                      <button type="button" id="btn_addTransporte" class="btn btn-custom col-md-6">Agregar Transporte</button>
-                     <button type="button" id="btn_Cancelar_transporte" class="btn btn-custom col-md-6" data-dismiss="modal">Cancelar</button>
+                     <button type="button" id="btn_Cancelar_transporte" class="btn btn-custom col-md-6" data-dismiss="modal">Salir</button>
                   </div>
                </div>      
             </div>
@@ -270,16 +276,17 @@
             <div class="modal-content">
                <div class="modal-header">
                   <h1 class="text_align_center">Servicios extra</h1>                 
-               </div>
-               <form id="">
-                  <div class="col-md-12">
-                     <div class="modal-body">
-                        <!--AGREGAR SERVICIO-->
-                        <div class="col-md-12">
+               </div>   
+               <div class="col-md-12">
+                  <div class="modal-body">
+                     <!--AGREGAR SERVICIO-->
+                     <div class="col-md-12">
+                        <details>
+                           <summary>Información de los servicios</summary>
                            <div class="row">
                               <div class="col-md-8"><label for="">Servicio Extra</label>
                                  <select id="servicio_extra" name="servicio_extra" class="form-control required">
-                                    <option value="0">Seleccione Servicio</option>
+                                    <option value="0">SELECCIONE SERVICIO</option>
                                  </select>
                               </div>
                               <div class="col-md-4"><label for="">Valor</label>
@@ -289,26 +296,37 @@
                                  <input type="text" id="descripcion_extra" class="form-control" readonly>
                               </div>
                            </div>
-                        </div><br>
-                        <table id="extra_service">
-                           <thead>
-                              <tr>
-                                 <th>Nombre Servicio</th>
-                                 <th>Valor</th>
-                                 <th>Acciones</th>
-                              </tr>
-                           </thead>
-                        </table>
-                        <div class="col-md-12 modal-footer">
-                           <div class="row">
-                              <button type="button" id="btn_addServicio" class="btn btn-custom col-md-4">Añadir</button>
-                              <button type="button" id="btn_Limpiar_Servicio" class="btn btn-custom col-md-4">Limpiar datos</button>
-                              <button type="button" id="btn_Cancelar" class="btn btn-custom col-md-4" data-dismiss="modal">Cancelar</button>
-                           </div>      
+                        </details>
+                        <br>
+                        <form id="form_extra"></form>
+                        <h3>Servicios Extras Agregados</h3>
+                        <br>
+                        <div class="row">
+                           <div class="col-md-12 text_align_center"><label for="">Servicio Extra 1</label>
+                              <select id="servicio_extra1" name="servicio_extra1" form="form_extra" class="form-control required">
+                                 <option value="0">SELECCIONE SERVICIO</option>
+                              </select>
+                           </div>
+                           <div class="col-md-12 text_align_center"><label for="">Servicio Extra 2</label>
+                              <select id="servicio_extra2" name="servicio_extra2" form="form_extra" class="form-control required">
+                                 <option value="0">SELECCIONE SERVICIO</option>
+                              </select>
+                           </div>
+                           <div class="col-md-12 text_align_center"><label for="">Servicio Extra 3</label>
+                              <select id="servicio_extra3" name="servicio_extra3" form="form_extra" class="form-control required">
+                                 <option value="0">SELECCIONE SERVICIO</option>
+                              </select>
+                           </div>
                         </div>
                      </div>
+                     <div class="col-md-12 modal-footer">
+                        <div class="row">
+                           <button type="button" id="btn_Limpiar_Servicio" class="btn btn-custom col-md-6">Limpiar datos</button>
+                           <button type="button" id="btn_Cancelar" class="btn btn-custom col-md-6" data-dismiss="modal">Salir</button>
+                        </div>      
+                     </div>
                   </div>
-               </form>       
+               </div>   
             </div>
          </div>
       </div>
@@ -358,40 +376,51 @@
                      <div class="modal-body">
                         <!--AGREGAR ACTIVIDAD-->
                         <div class="col-md-12">
+                        <details>
+                           <summary>Información de las actividades</summary>
                            <div class="row">
-                              <div class="col-md-12"><label for="">Nombre Actividad</label>
-                                 <select id="actividad_nombre" name="actividad_nombre" class="form-control required">
-                                    <option value="0">Seleccione Actividad</option>
+                              <div class="col-md-12"><label for="">Activdiad Turistica</label>
+                                 <select id="servicio_extra" name="servicio_extra" class="form-control required">
+                                    <option value="0">SELECCIONE ACTIVIDAD</option>
                                  </select>
-                              </div><br>
-                              <div class="col-md-6"><label for="">Duración <strong>(en minutos)</strong></label>
-                                 <input type="text" id="actividad_duracion" class="form-control" readonly>
-                              </div><br>
+                              </div>
+                              <div class="col-md-6"><label for="">Duración</label>
+                                 <input type="number" id="valor_extra" class="form-control" readonly>
+                              </div>
                               <div class="col-md-6"><label for="">Valor</label>
-                                 <input type="number" id="actividad_valor" class="form-control" readonly>
-                              </div><br>
+                                 <input type="number" id="valor_extra" class="form-control" readonly>
+                              </div>
                               <div class="col-md-12"><label for="">Descripción</label>
-                                 <input type="text" id="actividad_descripcion" class="form-control" readonly>
-                              </div><br>
-                              <div class="col-md-12">
-                                 <table class="col-md-6" id="actividad">
-                                    <thead>
-                                       <tr>
-                                          <th>Nombre</th>
-                                          <th>Duración (minutos)</th>
-                                          <th>Valor</th>
-                                          <th>Acciones</th>
-                                       </tr>
-                                    </thead>
-                                 </table>
+                                 <input type="text" id="descripcion_extra" class="form-control" readonly>
                               </div>
                            </div>
+                        </details>
+                        <br>
+                        <form id="form_extra"></form>
+                        <h3>Actividades Agregadas</h3>
+                        <br>
+                        <div class="row">
+                           <div class="col-md-12 text_align_center"><label for="">Actividad 1</label>
+                              <select id="actividad1" name="actividad1" form="form_extra" class="form-control required">
+                                 <option value="0">SELECCIONE ACTIVIDAD</option>
+                              </select>
+                           </div>
+                           <div class="col-md-12 text_align_center"><label for="">Actividad 2</label>
+                              <select id="actividad2" name="actividad2" form="form_extra" class="form-control required">
+                                 <option value="0">SELECCIONE ACTIVIDAD</option>
+                              </select>
+                           </div>
+                           <div class="col-md-12 text_align_center"><label for="">Actividad 3</label>
+                              <select id="actividad2" name="actividad2" form="form_extra" class="form-control required">
+                                 <option value="0">SELECCIONE ACTIVIDAD</option>
+                              </select>
+                           </div>
                         </div>
+                     </div>
                         <div class="col-md-12 modal-footer">
                            <div class="row">
-                              <button type="button" id="btn_addActividad" class="btn btn-custom col-md-4">Añadir</button>
-                              <button type="button" id="btn_Limpiar_Tour" class="btn btn-custom col-md-4">Limpiar datos</button>
-                              <button type="button" id="btn_Cancelar_tour" class="btn btn-custom col-md-4" data-dismiss="modal">Cancelar</button>
+                              <button type="button" id="btn_Limpiar_Tour" class="btn btn-custom col-md-6">Limpiar datos</button>
+                              <button type="button" id="btn_Cancelar_tour" class="btn btn-custom col-md-6" data-dismiss="modal">Salir</button>
                            </div>
                         </div>   
                      </div>
@@ -446,7 +475,7 @@
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-custom" id="btn_completar">Listo</button>
-                     <button type="button" class="btn btn-custom" data-dismiss="modal">Cancelar</button>
+                     <button type="button" class="btn btn-custom" data-dismiss="modal">Salir</button>
                   </div>
                </div>
             </div>

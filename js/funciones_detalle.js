@@ -134,13 +134,7 @@ $(document).ready(function () {
         $("#servicios").append(`<a type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="`+item.DESCRIPCION+`">&#10095; `+item.NOMBRE_SERVICIO+`</a>`)
     });
     }
-    
-    /*$(document).ready(function () {
-        let codigo = $("body").find('#codigo').data('value');
-        console.log(codigo);
-
-    });*/
-    
+  
 });
 
 //FUNCIONES CARRUSEL

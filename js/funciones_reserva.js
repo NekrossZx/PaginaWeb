@@ -157,16 +157,6 @@
 
     //FECHA VALOR 'TODAY'
     $(document).ready( function() {
-        /*var now = new Date();
-        var month = (now.getMonth() + 1);               
-        var day = now.getDate();
-        if (month < 10) 
-            month = "0" + month;
-        if (day < 10) 
-            day = "0" + day;
-        var today = now.getFullYear() + '-' + month + '-' + day;
-        $('#fecha_reserva').val(today);*/
-
         var ahora = new Date(moment());
         var dia = ahora.getDay();
         var mes = ahora.getMonth();
@@ -179,19 +169,6 @@
     });
 
     //CALCULAR DIFERENCIA ENTRE FECHAS
-    /*$("body").on("change", ".date", function (e){  
-        //define two variables and fetch the input from HTML form  
-        let date1 = new Date(document.getElementById("fecha_inicio").value);  
-        let date2 = new Date(document.getElementById("fecha_termino").value);  
-  
-        if (date1.getTime()&& date2.getTime()){
-          let timeDifference = date2.getTime() - date1.getTime();
-          let dayDifference = Math.abs((timeDifference / (1000 * 3600 * 24))+1);
-          $("#cantidad_dias").val(dayDifference);
-          //console.log(dayDifference);
-        }
-      });*/
-
       $(function() {
         $('input[name="fecha_inicio"]').daterangepicker({
           opens: 'center',
@@ -296,31 +273,6 @@
         $("#ver_total").text("Total a pagar (40% del total final): $"+porcentaje);
 
     });
-
-    /*$('#resumen_servicios').DataTable( {
-        searching: false, 
-        paging: false, 
-        info: false,
-        "language": {
-            "emptyTable": "SIN DATOS INGRESADOS",
-        }
-    } );
-    $('#resumen_otros').DataTable( {
-        searching: false, 
-        paging: false, 
-        info: false,
-        "language": {
-            "emptyTable": "SIN DATOS INGRESADOS",
-        }
-    } );
-    $('#resumen_tour').DataTable( {
-        searching: false, 
-        paging: false, 
-        info: false,
-        "language": {
-            "emptyTable": "SIN DATOS INGRESADOS",
-        }
-    });*/
     //                                                       TRANSPORTE
 
     $(function() {
@@ -482,10 +434,11 @@
     }); 
 
     $(servicio).each(function (i, item) {
-        $("#servicio_extra").append('<option id="'+item.ID_SERVICIOEXTRA+'" value="'+item.NOMBRE+'" data-target="'+item.DESCRIPCION+'" data-value="'+item.VALOR+'">'+item.NOMBRE+'</option>')
+        $("#servicio_extra").append('<option id="'+item.ID_SERVICIOEXTRA+'" value="'+item.NOMBRE+'" data-target="'+item.DESCRIPCION+'" data-value="'+item.VALOR+'">'+item.NOMBRE+'</option>');
+        $("#servicio_extra1").append('<option id="'+item.ID_SERVICIOEXTRA+'" value="'+item.NOMBRE+'">'+item.NOMBRE+'</option>')
+        $("#servicio_extra2").append('<option id="'+item.ID_SERVICIOEXTRA+'" value="'+item.NOMBRE+'">'+item.NOMBRE+'</option>')
+        $("#servicio_extra3").append('<option id="'+item.ID_SERVICIOEXTRA+'" value="'+item.NOMBRE+'">'+item.NOMBRE+'</option>')
     });
-
-    
 
     //VALORES SEGUN SERVICIO INGRESADO
     $("#servicio_extra").on("change", function (e) {	
@@ -496,85 +449,24 @@
         $("#valor_extra").val(valor);
     });
 
-    //AGREGAR A LA TABLA SERVICIOS EXTRA
-    $(document).ready(function () {
-        $('#extra_service').DataTable( {
-            searching: false, 
-            paging: false, 
-            info: false,
-            "language": {
-                "emptyTable": "NO HAY SERVICIOS DISPONIBLES",
-                "thousands": "."
-            },
-            columnDefs: [
-                {
-                    targets: 2,
-                    data: null,
-                    defaultContent: '<button class="btn-small remove"><i class="fa fa-trash"></i></button>',
-                }
-            ]
-        } );
+    $("#modalExtra").on("change", '.form-control',function (e) {
+        let form = $("#form_extra").serializeArray();
+        localStorage.setItem("servicios", JSON.stringify(form));
+    });
 
-        $('#extra_service').on('click', '.remove', function () {
-            var table = $('#extra_service').DataTable();
-            table.row($(this).parents('tr')).remove().draw();
+    $('#btn_Limpiar_Servicio').on("click", function (e) { 
+        var confirmar = confirm("¿Desea eliminar los servicios?");
 
-            var data = table.rows(['tr']).data().toArray();
-            var json = JSON.stringify( data );
-    
-            //console.log(json);
+        if(confirmar === true){
+            $("#servicio_extra1").val(0);
+            $("#servicio_extra2").val(0);
+            $("#servicio_extra3").val(0);
 
-            localStorage.setItem("servicios_extra", JSON.stringify(json));
-        });
-
-        var t = $('#extra_service').DataTable();
-     
-        $('#btn_addServicio').on('click', function () {
-            var servicio = document.getElementById("servicio_extra").value;
-            var valor = document.getElementById("valor_extra").value;
-            let form = $("#md_extras").serializeArray();
-            let error = 0;
-            //console.log(error);
-  
-            //VALIDACION
-            $(form).each(function (i, item) {
-                if (item.value == '' || item.value == null || item.value == undefined || item.value == 0 )
-                {
-                    error = 1;
-                    $("#" + item.name).addClass('bg-danger');
-                }
-            });
-    
-            if (error == 1) {
-                toastConfig();
-                Command: toastr["warning"]("Faltan Datos Por Completar", "Atención");
-            }
-            else {
-                t.row.add([servicio, valor]).draw(false);
-                $("#md_extras")[0].reset();
-                $("#md_extras .form-control").removeClass('bg-danger');
-                //$("option[value='"+nombre+"']").remove(); 
-
-                var data = t.rows(['tr']).data().toArray();
-                var json = JSON.stringify( data );
-                //console.log(json);
-                localStorage.setItem("servicios_extra", JSON.stringify(json));
-            }
-        });
-        
-        $("body").on('click', '#btn_Limpiar_Servicio', function () {
-            let confirmar = confirm('¿Limpiar datos ingresados?');
-            var table = $('#extra_service').DataTable();
-            if(confirmar==true){
-                table.clear().draw();
-            }else{
-                return false;
-            }
-
-            var data = table.rows(['tr']).data().toArray();
-            var json = JSON.stringify( data );
-            localStorage.setItem("servicios_extra", JSON.stringify(json));
-        });
+            let form = $("#form_extra").serializeArray();
+            localStorage.setItem("servicios", JSON.stringify(form));
+        }else{
+            return false;
+        }
     });
 
     //                                                                               ACOMPAÑANTES
@@ -650,37 +542,6 @@
 
     //AGREGAR A LA TABLA ACTIVIDAD
     $(document).ready(function () {
-        $('#actividad').DataTable( {
-            searching: false, paging: false, info: false,
-            "language": {
-                "emptyTable": "NO HAY ACTIVIDADES DISPONIBLES",
-                "thousands": "."
-            },
-            columnDefs: [
-                {
-                    targets: 3,
-                    data: null,
-                    defaultContent: '<button class="btn-small remove"><i class="fa fa-trash"></i></button>',
-                }
-            ]
-        } );
-
-        $('#actividad').on('click', '.remove', function () {
-            var table = $('#actividad').DataTable();
-            table
-                .row($(this).parents('tr'))
-                .remove()
-            .draw();
-
-            var data = table.rows(['tr']).data().toArray();
-            var json = JSON.stringify( data );
-            //console.log(json);
-
-            localStorage.setItem("tour", JSON.stringify(json));
-        });
-
-        var t = $('#actividad').DataTable();
-        var counter = 1;
      
         $('#btn_addActividad').on('click', function () {
             //VARIABLES
@@ -706,46 +567,9 @@
                 Command: toastr["warning"]("Faltan Datos Por Completar", "Atención");
             }
             else {
-                t.row.add([actividad, duracion , valor]).draw(false);
-                $("#md_turismo")[0].reset();
-                $("#md_turismo .form-control").removeClass('bg-danger');
-
-                var data = t.rows(['tr']).data().toArray();
-                var json = JSON.stringify( data );
-                //console.log(json);
-    
-                localStorage.setItem("tour", JSON.stringify(json));
             }
         });
-
-        $("body").on("click", "#btn_saveActividad", function (e) {
-            e.preventDefault();
-             
-            var table = $('#actividad').DataTable();
-            var data = table.rows(['tr']).data().toArray();
-            var json = JSON.stringify( data );
-            //console.log(json);
-
-            localStorage.setItem("tour", JSON.stringify(json));
-    
-        });
-
-        $("body").on('click', '#btn_Limpiar_Tour', function () {
-            let confirmar = confirm('¿Limpiar datos ingresados?');
-            var table = $('#actividad').DataTable();
-            if(confirmar==true){
-                table.clear().draw();
-
-                var data = table.rows(['tr']).data().toArray();
-                var json = JSON.stringify( data );
-                //console.log(json);
-    
-                localStorage.setItem("tour", JSON.stringify(json));
-            }else{
-                return false;
-            }
-        }); 
-
+ 
     });
 
     //                                                                          PAGO

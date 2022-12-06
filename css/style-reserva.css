@@ -78,6 +78,13 @@ details {
   margin-left: 10px;
   width: 98.6% !important;
 }
+
+#modalExtra details, #modalTurismo details {
+  border-radius: 10px;
+  width: 100%;
+  margin: 0;
+}
+
 .container-fluid details{
   border-radius: 10px;
 }

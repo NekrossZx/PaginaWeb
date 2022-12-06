@@ -42,9 +42,9 @@ $(document).ready(function () {
 
     $(carrusel).each(function (i, item) {
         if(i===0){
-            $("#slide").append(`<div class="mySlides" active><img class="image" src="images/deptos/`+item.URL_IMAGEN+`"></div>`);
+            $("#slide").append(`<div class="mySlides" active><img class="image" src="images/deptos/`+item.URL_IMAGEN+`.jpg"></div>`);
         }else{
-            $("#slide").append(`<div class="mySlides" style="display:none;"><img class="image" src="images/deptos/`+item.URL_IMAGEN+`"></div>`);
+            $("#slide").append(`<div class="mySlides" style="display:none;"><img class="image" src="images/deptos/`+item.URL_IMAGEN+`.jpg"></div>`);
         }
     });
 
@@ -65,7 +65,7 @@ $(document).ready(function () {
         $("#thumbnails").append(`
         <!-- Thumbnail images -->
                 <div class="column">
-                    <img class="demo cursor thumb" src="images/deptos/`+item.URL_IMAGEN+`" onclick="currentSlide(`+contador_foto+`)" alt="`+item.DESCRIPCION+`">
+                    <img class="demo cursor thumb" src="images/deptos/`+item.URL_IMAGEN+`.jpg" onclick="currentSlide(`+contador_foto+`)" alt="`+item.DESCRIPCION+`">
                 </div>`
         )
         contador_foto++;

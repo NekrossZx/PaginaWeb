@@ -1,7 +1,7 @@
 <?php
 session_start();
-if(isset($_SESSION['emailUser'])){
-    $usuario = $_SESSION['emailUser'];
+if(isset($_SESSION['emailuser'])){
+    $usuario = $_SESSION['emailuser'];
     echo "<script> alert('SESION INICIADA');</script>";
 }else{
     echo "<script> alert('SESION NO INICIADA');</script>";
@@ -34,7 +34,7 @@ if(isset($_SESSION['emailUser'])){
    </head>
    <!-- body -->
    <body class="main-layout">
-      <my-header></my-header>
+      <user-header></user-header>
       <!-- end header -->
       <!-- six_box-->
       <div id="about" class="banner_main">

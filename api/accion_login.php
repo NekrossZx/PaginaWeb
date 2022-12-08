@@ -3,6 +3,10 @@
 session_start();
 if(isset($_SESSION['emailUser'])){
     echo "<script> alert('SESION INICIADA');</script>";
+    echo "HOLI";
+}else{
+    echo "<script> alert('SESION NO INICIADA');</script>";
+    echo "CHAO";
 }
 
 if(isset($_POST['btn_login'])){
@@ -12,7 +16,7 @@ if(isset($_POST['btn_login'])){
     $email = $_POST['email'];
     $clave = $_POST['contrasena'];
 
-    $sql = "SELECT * FROM cliente WHERE email = '.$email.' AND contrasena = '.$clave.' ";
+    $sql = "SELECT * FROM cliente WHERE email = '".$email."' AND contrasena = '".$clave."' ";
     $stid = oci_parse($connection,$sql);
     oci_execute($stid);
 

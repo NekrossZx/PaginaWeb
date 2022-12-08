@@ -1,13 +1,33 @@
-<?php
+<?php 
 session_start();
-if(isset($_SESSION['emailUser'])){
-    $usuario = $_SESSION['emailUser'];
+if(isset($_SESSION['emailuser'])){
     echo "<script> alert('SESION INICIADA');</script>";
-}else{
-    echo "<script> alert('SESION NO INICIADA');</script>";
 }
-?>
 
+if(isset($_POST['btn_login'])){
+
+    $connection = oci_connect('TURISMOREAL', '123', 'localhost');
+
+    $email = $_POST['email'];
+    $clave = $_POST['contrasena'];
+
+    $sql = "SELECT * FROM cliente WHERE email = '".$email."' AND contrasena = '".$clave."' ";
+    $stid = oci_parse($connection,$sql);
+    oci_execute($stid);
+
+    $nro = oci_num_rows($stid);
+
+    if(!isset($_SESSION['emailuser'])){
+        if($nro==1){
+            $_SESSION['emailuser'] = $email;
+            echo "<script> alert('USUARIO ENCONTRADO');</script>";
+        }else{
+            echo "<script> alert('USUARIO no ENCONTRADO');</script>";
+        }
+    }
+    
+}
+?>  
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -35,13 +55,13 @@ if(isset($_SESSION['emailUser'])){
    </head>
    <!-- body -->
     <body class="main-layout">
-        <my-header></my-header>
+        <user-header></user-header>
         <!-- six_box-->
         <div class="container-fluid">
             <div class="container">
                 <div class="formulario">
                     <!--LOGIN-->
-                    <form class="form" id="login" method="post" ">
+                    <form class="form" id="login" method="POST">
                         <h1 class="form_title">Ingresar</h1><br>
                         <div class="form_input-group">
                             <input type="email" id="email" name="email" class="form-control" placeholder="Email">                    
@@ -109,3 +129,5 @@ if(isset($_SESSION['emailUser'])){
         <script src="js/jquery.rut.chileno.min.js"></script>
     </body>
 </html>
+
+

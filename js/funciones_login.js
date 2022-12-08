@@ -187,18 +187,18 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    $('#btn_login').on('click', function()
+    /*$('#btn_login').on('click', function()
     {
         let form = $("#login").serializeArray();
         console.log(form);
         localStorage.setItem("user", JSON.stringify(form));
         $.ajax({
             data: {data: JSON.stringify(form)} ,
-            url: "api/signup.php?a=2",
+            url: "api/accion_logion.php",
             type: 'POST',
                 success: function (data) {}
             });
-    });
+    });*/
 
     //CAMBIO DE COLOR SEGUN VERIFICACIÓN
     $("body").on("blur", ".form-control", function (e) {

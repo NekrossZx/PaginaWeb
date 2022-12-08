@@ -1,42 +1,3 @@
-//HEADER
-class MyHeader extends HTMLElement {
-    connectedCallback() {
-      this.innerHTML = `
-      <div id="mySidepanel" class="sidepanel">
-         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-         <a href="index.php">Home</a>
-         <a href="contact.php">Contacto</a>
-         <a href="departamentos.php">Departamentos</a>
-      </div>
-      <!-- header -->
-      <header>
-         <!-- header inner -->
-         <div class="head-top">
-            <div class="container-fluid">
-               <div class="row">
-                  <div class="col-sm-3">
-                     <div class="logo">
-                        <a href="index.php"><img src="images/logo1.png" class="logo-top"/></a>
-                     </div>
-                  </div>
-                  <div class="col-sm-9">
-                     <ul class="email text_align_right">
-                        <li class="d_none"><i class="fa fa-phone" aria-hidden="true"></i>+56  2 12345678</a></li>
-                        <li class="d_none"> <a href="contacto@turismoreal.cl"><i class="fa fa-envelope" aria-hidden="true"></i>contacto@turismoreal.cl</a></li>
-                        <li class="d_none" id="user"> <a href="login.php">Login <i class="fa fa-user" aria-hidden="true"></i></a> </li>
-                        <li> <button class="openbtn" onclick="openNav()"><img src="images/menu_btn.png"></button></li>
-                     </ul>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </header>
-      <!-- end header -->`;
-    }
-  }
-      
-  customElements.define('my-header', MyHeader);
-
 //FOOTER
   class MyFooter extends HTMLElement {
     connectedCallback() {
@@ -183,7 +144,7 @@ class headerUser extends HTMLElement {
         <a href="contact.php">Contacto</a>
         <a href="departamentos.php">Departamentos</a>
         <a href="cuenta.php">Mi Cuenta</a>
-        <a href="index.php">Cerrar Sesión</a>
+        <button type="submit" id="logout">Cerrar Sesión</button>
      </div>
      <!-- header -->
      <header>

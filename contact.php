@@ -26,7 +26,7 @@
    </head>
    <!-- body -->
    <body class="main-layout inner_page">
-      <my-header></my-header>
+      <user-header></user-header>
       <!-- contact -->
       <div class="contact">
          <div class="container">
@@ -73,7 +73,5 @@
       <script src="js/custom.js"></script>
       <script src="js/jquery-3.0.0.min.js"></script>
       <script src="js/template.js"></script>
-      
-      
    </body>
 </html>

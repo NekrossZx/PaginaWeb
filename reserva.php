@@ -302,6 +302,9 @@
                         <h3>Servicios Extras Agregados</h3>
                         <br>
                         <div class="row">
+                           <div class="col-md-12">
+                              <input type="text" id="nro_reserva_extras" name="nro_reserva_extras" form="form_extra" class="form-control" readonly>
+                           </div>
                            <div class="col-md-12 text_align_center"><label for="">Servicio Extra 1</label>
                               <select id="servicio_extra1" name="servicio_extra1" form="form_extra" class="form-control required">
                                  <option value="0">SELECCIONE SERVICIO</option>
@@ -379,7 +382,7 @@
                         <details>
                            <summary>Información de las actividades</summary>
                            <div class="row">
-                              <div class="col-md-12"><label for="">Activdiad Turistica</label>
+                              <div class="col-md-12"><label for="">Actividad Turistica</label>
                                  <select id="servicio_extra" name="servicio_extra" class="form-control required">
                                     <option value="0">SELECCIONE ACTIVIDAD</option>
                                  </select>
@@ -396,22 +399,25 @@
                            </div>
                         </details>
                         <br>
-                        <form id="form_extra"></form>
+                        <form id="form_tour"></form>
                         <h3>Actividades Agregadas</h3>
                         <br>
                         <div class="row">
+                           <div class="col-md-12">
+                              <input type="text" id="nro_reserva_tour" name="nro_reserva_tour" form="form_tour" class="form-control" readonly>
+                           </div>
                            <div class="col-md-12 text_align_center"><label for="">Actividad 1</label>
-                              <select id="actividad1" name="actividad1" form="form_extra" class="form-control required">
+                              <select id="actividad1" name="actividad1" form="form_tour" class="form-control required">
                                  <option value="0">SELECCIONE ACTIVIDAD</option>
                               </select>
                            </div>
                            <div class="col-md-12 text_align_center"><label for="">Actividad 2</label>
-                              <select id="actividad2" name="actividad2" form="form_extra" class="form-control required">
+                              <select id="actividad2" name="actividad2" form="form_tour" class="form-control required">
                                  <option value="0">SELECCIONE ACTIVIDAD</option>
                               </select>
                            </div>
                            <div class="col-md-12 text_align_center"><label for="">Actividad 3</label>
-                              <select id="actividad2" name="actividad2" form="form_extra" class="form-control required">
+                              <select id="actividad2" name="actividad2" form="form_tour" class="form-control required">
                                  <option value="0">SELECCIONE ACTIVIDAD</option>
                               </select>
                            </div>

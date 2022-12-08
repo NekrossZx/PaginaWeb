@@ -50,6 +50,8 @@
         $("#nro_reserva").val(date_time);
         $("#nro_reserva_transporte").val(date_time);
         $("#nro_reserva_depto").val(date_time);
+        $("#nro_reserva_tour").val(date_time);
+        $("#nro_reserva_extras").val(date_time);
         
         //console.log(date_time);
     });
@@ -434,10 +436,10 @@
     }); 
 
     $(servicio).each(function (i, item) {
-        $("#servicio_extra").append('<option id="'+item.ID_SERVICIOEXTRA+'" value="'+item.NOMBRE+'" data-target="'+item.DESCRIPCION+'" data-value="'+item.VALOR+'">'+item.NOMBRE+'</option>');
-        $("#servicio_extra1").append('<option id="'+item.ID_SERVICIOEXTRA+'" value="'+item.NOMBRE+'">'+item.NOMBRE+'</option>')
-        $("#servicio_extra2").append('<option id="'+item.ID_SERVICIOEXTRA+'" value="'+item.NOMBRE+'">'+item.NOMBRE+'</option>')
-        $("#servicio_extra3").append('<option id="'+item.ID_SERVICIOEXTRA+'" value="'+item.NOMBRE+'">'+item.NOMBRE+'</option>')
+        $("#servicio_extra").append('<option id="'+item.ID_SERVICIOEXTRA+'" value="'+item.ID_SERVICIOEXTRA+'" data-target="'+item.DESCRIPCION+'" data-value="'+item.VALOR+'">'+item.NOMBRE+'</option>');
+        $("#servicio_extra1").append('<option id="'+item.ID_SERVICIOEXTRA+'" value="'+item.ID_SERVICIOEXTRA+'">'+item.NOMBRE+'</option>')
+        $("#servicio_extra2").append('<option id="'+item.ID_SERVICIOEXTRA+'" value="'+item.ID_SERVICIOEXTRA+'">'+item.NOMBRE+'</option>')
+        $("#servicio_extra3").append('<option id="'+item.ID_SERVICIOEXTRA+'" value="'+item.ID_SERVICIOEXTRA+'">'+item.NOMBRE+'</option>')
     });
 
     //VALORES SEGUN SERVICIO INGRESADO

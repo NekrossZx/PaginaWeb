@@ -1,3 +1,13 @@
+<?php
+session_start();
+if(isset($_SESSION['emailUser'])){
+    $usuario = $_SESSION['emailUser'];
+    echo "<script> alert('SESION INICIADA');</script>";
+}else{
+    echo "<script> alert('SESION NO INICIADA');</script>";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -31,7 +41,7 @@
             <div class="container">
                 <div class="formulario">
                     <!--LOGIN-->
-                    <form class="form" id="login">
+                    <form class="form" id="login" method="post" ">
                         <h1 class="form_title">Ingresar</h1><br>
                         <div class="form_input-group">
                             <input type="email" id="email" name="email" class="form-control" placeholder="Email">                    
@@ -39,7 +49,7 @@
                         <div class="form_input-group">
                             <input type="password" id="contrasena" name="contrasena" class="form-control" placeholder="Contraseña">                   
                         </div>
-                        <button class="form_button" id="btn_login">Ingresar</button>
+                        <button type="submit" class="form_button" id="btn_login">Ingresar</button>
                         <p class="form_text">
                             <a href="#" class="form_link" id="lostPass">¿Olvidaste tu contraseña?</a>
                         </p>
@@ -85,17 +95,17 @@
                 </div>
             </div>
         </div>
-      <!-- end six_box-->
-      <my-footer></my-footer> 
-      <!-- Javascript files-->
-      <script src="js/jquery.min.js"></script>
-      <script src="js/bootstrap.bundle.min.js"></script>
-      <script src="js/funciones_login.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-      <script src="js/custom.js"></script>
-      <script src="js/jquery-3.0.0.min.js"></script>
-      <script src="js/template.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-      <script src="js/jquery.rut.chileno.min.js"></script>
-   </body>
+        <!-- end six_box-->
+        <my-footer></my-footer> 
+        <!-- Javascript files-->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/funciones_login.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+        <script src="js/custom.js"></script>
+        <script src="js/jquery-3.0.0.min.js"></script>
+        <script src="js/template.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+        <script src="js/jquery.rut.chileno.min.js"></script>
+    </body>
 </html>

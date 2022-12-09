@@ -33,13 +33,8 @@ if($accion == 4)
 //DETALLES 
 if($accion == 5)
 {
-    $form = json_decode($_GET['data']);
-    $data = db_getDetails(
-        //ID DEPARTAMENTO
-        $form[0]->value
-    );
+    $data = db_getDetails();
     echo $data;
-    
 }
 
 //SERVICIOS ASOCIADOS 
@@ -47,7 +42,6 @@ if($accion == 6)
 {
     $data = db_getAsociados();
     echo $data;
-    
 }
 
 ?>

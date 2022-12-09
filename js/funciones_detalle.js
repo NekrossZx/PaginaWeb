@@ -49,13 +49,14 @@ $(document).ready(function () {
     });
 
     let thumbnails = null;
+    let detalle_imagen = localStorage.getItem('detalle');
     $.ajax({
         'async': false,
         'type': "GET",
         'global': false,
         'dataType': 'html',
         'url': "api/deptos.php?a=4",
-        'data': { 'request': "", 'target': 'arrange_url', 'method': 'method_target' },
+        'data': { data: JSON.stringify(detalle_imagen) },
         'success': function (data) {
             thumbnails = JSON.parse(data);
         }
@@ -72,7 +73,6 @@ $(document).ready(function () {
     });
 
     //COMPLETA DETALLES
-    let request = localStorage.getItem("detalle");
     let detalles = null;
     $.ajax({
         async: false,
@@ -80,7 +80,7 @@ $(document).ready(function () {
         global: false,
         dataType: 'html',
         url: "api/deptos.php?a=5",
-        data: {'request': JSON.stringify(request), 'target': 'arrange_url', 'method': 'method_target'},
+        data: {data: JSON.stringify(detalle_imagen)},
         success: function (data) {
             detalles = JSON.parse(data);
         }

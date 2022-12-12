@@ -62,7 +62,7 @@
           <div class="deps" id="vista_depts">
           </div>
           <form id="detalle">
-            <input id="detalle_depto" name="detalle_depto" type="text">
+            <input id="detalle_depto" name="detalle_depto" type="text" hidden>
           </form>
         </div>
       </div>
@@ -78,9 +78,3 @@
       <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
    </body>
 </html>
-
-<?php 
-
-
-
-?>

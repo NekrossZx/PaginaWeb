@@ -79,6 +79,8 @@
         }
     });
 
+
+    let info_dep = localStorage.getItem('detalle');
     //COMPLETA SERVICIO
     let datos_dep = null;
     $.ajax({
@@ -87,7 +89,7 @@
         'global': false,
         'dataType': 'html',
         'url': "api/reserva.php?a=3",
-        'data': { 'request': "", 'target': 'arrange_url', 'method': 'method_target' },
+        'data': { data : info_dep },
         'success': function (data) {
             datos_dep = JSON.parse(data);
         }
@@ -143,7 +145,7 @@
         'global': false,
         'dataType': 'html',
         'url': "api/reserva.php?a=4",
-        'data': { 'request': "", 'target': 'arrange_url', 'method': 'method_target' },
+        'data': { data : info_dep },
         'success': function (data) {
             asociados = JSON.parse(data);
         }
@@ -272,7 +274,7 @@
 
         let total = $("input[name=valor_total]").val();
         let porcentaje = total*0.4;
-        $("#ver_total").text("Total a pagar (40% del total final): $"+porcentaje);
+        $("#ver_total").text('$'+porcentaje);
 
     });
     //                                                       TRANSPORTE
@@ -540,38 +542,6 @@
         $("#actividad_descripcion").val(descripcion);
         $("#actividad_duracion").val(duracion);
         $("#actividad_valor").val(valor);
-    });
-
-    //AGREGAR A LA TABLA ACTIVIDAD
-    $(document).ready(function () {
-     
-        $('#btn_addActividad').on('click', function () {
-            //VARIABLES
-            var actividad = document.getElementById("actividad_nombre").value;
-            var duracion = document.getElementById("actividad_duracion").value;
-            var valor = document.getElementById("actividad_valor").value;
-
-            let form = $("#md_turismo").serializeArray();
-            let error = 0;
-            //console.log(error);
-  
-            //VALIDACION
-            $(form).each(function (i, item) {
-                if (item.value == '' || item.value == null || item.value == undefined || item.value == 0 )
-                {
-                    error = 1;
-                    $("#" + item.name).addClass('bg-danger');
-                }
-            });
-    
-            if (error == 1) {
-                toastConfig();
-                Command: toastr["warning"]("Faltan Datos Por Completar", "Atención");
-            }
-            else {
-            }
-        });
- 
     });
 
     //                                                                          PAGO

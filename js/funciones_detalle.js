@@ -23,6 +23,7 @@ $(document).ready(function () {
       return toastr.options;
     }
 
+    let detalle_imagen = localStorage.getItem('detalle');
     //COMPLETA DEPARTAMENTOS
     let carrusel = null;
     $.ajax({
@@ -31,14 +32,11 @@ $(document).ready(function () {
         'global': false,
         'dataType': 'html',
         'url': "api/deptos.php?a=4",
-        'data': { 'request': "", 'target': 'arrange_url', 'method': 'method_target' },
+        'data': { data: detalle_imagen },
         'success': function (data) {
           carrusel = JSON.parse(data);
         }
     }); 
-
-    let contador_foto = 1;
-    
 
     $(carrusel).each(function (i, item) {
         if(i===0){
@@ -48,15 +46,15 @@ $(document).ready(function () {
         }
     });
 
+    let contador_foto = 1;
     let thumbnails = null;
-    let detalle_imagen = localStorage.getItem('detalle');
     $.ajax({
         'async': false,
         'type': "GET",
         'global': false,
         'dataType': 'html',
         'url': "api/deptos.php?a=4",
-        'data': { data: JSON.stringify(detalle_imagen) },
+        'data': { data: detalle_imagen },
         'success': function (data) {
             thumbnails = JSON.parse(data);
         }
@@ -73,6 +71,7 @@ $(document).ready(function () {
     });
 
     //COMPLETA DETALLES
+
     let detalles = null;
     $.ajax({
         async: false,
@@ -80,7 +79,7 @@ $(document).ready(function () {
         global: false,
         dataType: 'html',
         url: "api/deptos.php?a=5",
-        data: {data: JSON.stringify(detalle_imagen)},
+        data: {data: detalle_imagen},
         success: function (data) {
             detalles = JSON.parse(data);
         }
@@ -120,7 +119,7 @@ $(document).ready(function () {
         'global': false,
         'dataType': 'html',
         'url': "api/deptos.php?a=6",
-        'data': { 'request': '', 'target': 'arrange_url', 'method': 'method_target'},
+        'data': { data: detalle_imagen},
         'success': function (data) {
             asociados = JSON.parse(data);
         }

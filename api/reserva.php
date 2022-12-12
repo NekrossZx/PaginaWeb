@@ -19,13 +19,15 @@ if($accion == 2)
 //AGREGAR NUEVO REGISTRO
 if($accion == 3)
 {
-    $data = db_getDep();
+    $form = json_decode($_GET['data']);
+    $data = db_getDep($form[0]->value);
     echo $data;
 }
 //AGREGAR NUEVO REGISTRO
 if($accion == 4)
 {
-    $data = db_getAsoc();
+    $form = json_decode($_GET['data']);
+    $data = db_getAsoc($form[0]->value);
     echo $data;
 }
 //                                              SUBIR FORMULARIOS

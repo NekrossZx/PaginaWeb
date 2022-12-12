@@ -302,7 +302,7 @@
                         <h3>Servicios Extras Agregados</h3>
                         <br>
                         <div class="row">
-                           <div class="col-md-12">
+                           <div class="col-md-12" hidden>
                               <input type="text" id="nro_reserva_extras" name="nro_reserva_extras" form="form_extra" class="form-control" readonly>
                            </div>
                            <div class="col-md-12 text_align_center"><label for="">Servicio Extra 1</label>
@@ -403,7 +403,7 @@
                         <h3>Actividades Agregadas</h3>
                         <br>
                         <div class="row">
-                           <div class="col-md-12">
+                           <div class="col-md-12" hidden>
                               <input type="text" id="nro_reserva_tour" name="nro_reserva_tour" form="form_tour" class="form-control" readonly>
                            </div>
                            <div class="col-md-12 text_align_center"><label for="">Actividad 1</label>
@@ -469,14 +469,14 @@
                   <div id="datos_trans">
                      <h1 class="text_align_center">DATOS DE TRANSFERENCIA</h1>
                      <div class="detalles">
-                        <p>Banco: Santander</p>
-                        <p>Tipo de cuenta: Corriente</p>
-                        <p>Número de cuenta: 12345698</p>
-                        <p>Rut: 76.657.489-5</p>
-                        <p>Nombre: Turismo Real spa</p>
-                        <p>Correo electronico: reservas@turismoreal.cl</p>
-                        <p>Asunto: Indicar el número de reserva</p><p id="asunto_reserva"></p>
-                        <p id="ver_total"></p>
+                        <p class="col-md-6"><strong>Banco:</strong> Santander</p>
+                        <p class="col-md-6"><strong>Tipo de cuenta:</strong> Corriente</p>
+                        <p class="col-md-12"><strong>Número de cuenta:</strong> 12345698</p>
+                        <p class="col-md-12"><strong>Rut:</strong> 76.657.489-5</p>
+                        <p class="col-md-12"><strong>Nombre:</strong> Turismo Real spa</p>
+                        <p class="col-md-12"><strong>Correo electronico:</strong> reservas@turismoreal.cl</p>
+                        <p class="col-md-12"><strong>Asunto:</strong> Indicar el número de reserva</p><p id="asunto_reserva"></p>
+                        <p><strong>Total a pagar (40% del total final):</strong><h2 id="ver_total"></h2></p>
                      </div>
                   </div>
                   <div class="modal-footer">

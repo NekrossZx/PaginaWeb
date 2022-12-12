@@ -25,22 +25,26 @@ if($accion == 3)
 
 //CARRUSEL 
 if($accion == 4)
-{
-    $data = db_getCarrusel();
+{   $form = json_decode($_GET['data']);
+    $data = db_getCarrusel($form[0]->value);
     echo $data;
 }
 
 //DETALLES 
 if($accion == 5)
 {
-    $data = db_getDetails();
+    $form = json_decode($_GET['data']);
+    $data = db_getDetails(
+        $form[0]->value
+    );
     echo $data;
 }
 
 //SERVICIOS ASOCIADOS 
 if($accion == 6)
 {
-    $data = db_getAsociados();
+    $form = json_decode($_GET['data']);
+    $data = db_getAsociados($form[0]->value);
     echo $data;
 }
 

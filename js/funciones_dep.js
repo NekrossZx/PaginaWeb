@@ -64,7 +64,7 @@ $(document).ready(function () {
       </div>
       <p>ARRIENDO DIARIO</p>
       <h2>$`+item.ARRIENDO_DIARIO+`</h2>
-      <button type="submit" value="`+item.ID_DEPARTAMENTO+`" id="btn_`+item.ID_DEPARTAMENTO+`" class="btn btn-custom-light btn-detalle" form="detalle">Detalles</button>
+      <button value="`+item.ID_DEPARTAMENTO+`" id="btn_`+item.ID_DEPARTAMENTO+`" class="btn btn-custom-light btn-detalle">Detalles</button>
     </div>
     `);
   });

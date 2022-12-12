@@ -374,8 +374,7 @@
                <div class="modal-header">
                   <h1 class="text_align_center">Turismo</h1>                 
                </div>
-               <form id="">
-                  <div class="col-md-12">
+               <div class="col-md-12">
                      <div class="modal-body">
                         <!--AGREGAR ACTIVIDAD-->
                         <div class="col-md-12">
@@ -383,18 +382,18 @@
                            <summary>Información de las actividades</summary>
                            <div class="row">
                               <div class="col-md-12"><label for="">Actividad Turistica</label>
-                                 <select id="servicio_extra" name="servicio_extra" class="form-control required">
+                                 <select id="actividad" name="actividad" class="form-control required">
                                     <option value="0">SELECCIONE ACTIVIDAD</option>
                                  </select>
                               </div>
                               <div class="col-md-6"><label for="">Duración</label>
-                                 <input type="number" id="valor_extra" class="form-control" readonly>
+                                 <input type="number" id="actividad_duracion" class="form-control" readonly>
                               </div>
                               <div class="col-md-6"><label for="">Valor</label>
-                                 <input type="number" id="valor_extra" class="form-control" readonly>
+                                 <input type="number" id="actividad_valor" class="form-control" readonly>
                               </div>
                               <div class="col-md-12"><label for="">Descripción</label>
-                                 <input type="text" id="descripcion_extra" class="form-control" readonly>
+                                 <textarea type="text" id="actividad_descripcion" class="form-control"readonly></textarea>
                               </div>
                            </div>
                         </details>
@@ -417,7 +416,7 @@
                               </select>
                            </div>
                            <div class="col-md-12 text_align_center"><label for="">Actividad 3</label>
-                              <select id="actividad2" name="actividad2" form="form_tour" class="form-control required">
+                              <select id="actividad3" name="actividad3" form="form_tour" class="form-control required">
                                  <option value="0">SELECCIONE ACTIVIDAD</option>
                               </select>
                            </div>
@@ -430,8 +429,7 @@
                            </div>
                         </div>   
                      </div>
-                  </div>
-               </form>       
+                  </div>      
             </div>
          </div>
       </div>
@@ -469,13 +467,13 @@
                   <div id="datos_trans">
                      <h1 class="text_align_center">DATOS DE TRANSFERENCIA</h1>
                      <div class="detalles">
-                        <p class="col-md-6"><strong>Banco:</strong> Santander</p>
-                        <p class="col-md-6"><strong>Tipo de cuenta:</strong> Corriente</p>
-                        <p class="col-md-12"><strong>Número de cuenta:</strong> 12345698</p>
-                        <p class="col-md-12"><strong>Rut:</strong> 76.657.489-5</p>
-                        <p class="col-md-12"><strong>Nombre:</strong> Turismo Real spa</p>
-                        <p class="col-md-12"><strong>Correo electronico:</strong> reservas@turismoreal.cl</p>
-                        <p class="col-md-12"><strong>Asunto:</strong> Indicar el número de reserva</p><p id="asunto_reserva"></p>
+                        <p><strong>Banco:</strong> Santander</p>
+                        <p><strong>Tipo de cuenta:</strong> Corriente</p>
+                        <p><strong>Número de cuenta:</strong> 12345698</p>
+                        <p><strong>Rut:</strong> 76.657.489-5</p>
+                        <p><strong>Nombre:</strong> Turismo Real spa</p>
+                        <p><strong>Correo electronico:</strong> reservas@turismoreal.cl</p>
+                        <p><strong>Asunto:</strong> Indicar el número de reserva</p><p id="asunto_reserva"></p>
                         <p><strong>Total a pagar (40% del total final):</strong><h2 id="ver_total"></h2></p>
                      </div>
                   </div>

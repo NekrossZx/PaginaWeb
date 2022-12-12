@@ -530,11 +530,14 @@
     }); 
 
     $(tour).each(function (i, item) {
-        $("#actividad_nombre").append('<option value="'+item.NOMBRE+'" data-target="'+item.DESCRIPCION+'" data-value="'+item.VALOR+'" data-long="'+item.DURACION+'">'+item.NOMBRE+'</option>')
+        $("#actividad").append('<option value="'+item.NOMBRE+'" data-target="'+item.DESCRIPCION+'" data-value="'+item.VALOR+'" data-long="'+item.DURACION+'">'+item.NOMBRE+'</option>');
+        $("#actividad1").append('<option value="'+item.NOMBRE+'">'+item.NOMBRE+'</option>');
+        $("#actividad2").append('<option value="'+item.NOMBRE+'">'+item.NOMBRE+'</option>');
+        $("#actividad3").append('<option value="'+item.NOMBRE+'">'+item.NOMBRE+'</option>');
     });
 
     //VALORES SEGUN ACTIVIDAD TOUR
-    $("#actividad_nombre").on("change", function (e) {	
+    $("#actividad").on("change", function (e) {	
         let descripcion = $(this).find('option:selected').data('target');
         let duracion = $(this).find('option:selected').data('long');
         let valor = $(this).find('option:selected').data('value');
@@ -542,6 +545,26 @@
         $("#actividad_descripcion").val(descripcion);
         $("#actividad_duracion").val(duracion);
         $("#actividad_valor").val(valor);
+    });
+
+    $("#modalTurismo").on("change", '.form-control',function (e) {
+        let form = $("#form_tour").serializeArray();
+        localStorage.setItem("tour", JSON.stringify(form));
+    });
+
+    $('#btn_Limpiar_Tour').on("click", function (e) { 
+        var confirmar = confirm("¿Desea eliminar las actividades?");
+
+        if(confirmar === true){
+            $("#actividad1").val(0);
+            $("#actividad2").val(0);
+            $("#actividad3").val(0);
+
+            let form = $("#form_tour").serializeArray();
+            localStorage.setItem("tour", JSON.stringify(form));
+        }else{
+            return false;
+        }
     });
 
     //                                                                          PAGO

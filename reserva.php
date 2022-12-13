@@ -195,7 +195,7 @@
                               <div class="col-md-6"><label for="">Región Origen</label>
                                  <select type="text" id="ida_region_origen" name="ida_region_origen" class="form-control ida">
                                     <option value="0">Seleccione Región</option>
-                                    <option value="1" hidden>SIN TRANSPORTE</option>
+                                    <option value="1" hidden>NO TRANSPORTE</option>
                                  </select>
                               </div><br>
                               <!--DIRECCIÓN ORIGEN-->
@@ -207,7 +207,7 @@
                               <div class="col-md-6"><label for="">Región Destino</label>
                                  <select type="text" id="ida_region_destino" name="ida_region_destino" class="form-control ida">
                                     <option value="0">Seleccione Región</option>
-                                    <option value="1" hidden>SIN TRANSPORTE</option>
+                                    <option value="1" hidden>NO TRANSPORTE</option>
                                  </select>
                               </div><br>
                               <!--DIRECCIÓN DESTINO-->
@@ -234,6 +234,7 @@
                               <div class="col-md-6"><label for="">Región Origen</label>
                                  <select type="text" id="vuelta_region_origen" name="vuelta_region_origen" class="form-control">
                                     <option value="0">Seleccione Región</option>
+                                    <option value="1" hidden>NO TRANSPORTE</option>
                                  </select>
                               </div><br>
                               <!--DIRECCIÓN ORIGEN-->
@@ -245,6 +246,7 @@
                               <div class="col-md-6"><label for="">Región Destino</label>
                                  <select type="text" id="vuelta_region_destino" name="vuelta_region_destino" class="form-control">
                                     <option value="0">Seleccione Región</option>
+                                    <option value="1" hidden>NO TRANSPORTE</option>
                                  </select>
                               </div><br>
                               <!--DIRECCIÓN DESTINO-->
@@ -308,16 +310,19 @@
                            <div class="col-md-12 text_align_center"><label for="">Servicio Extra 1</label>
                               <select id="servicio_extra1" name="servicio_extra1" form="form_extra" class="form-control required">
                                  <option value="0">SELECCIONE SERVICIO</option>
+                                 <option value="1" hidden>SIN SERVICIO</option>
                               </select>
                            </div>
                            <div class="col-md-12 text_align_center"><label for="">Servicio Extra 2</label>
                               <select id="servicio_extra2" name="servicio_extra2" form="form_extra" class="form-control required">
                                  <option value="0">SELECCIONE SERVICIO</option>
+                                 <option value="1" hidden>SIN SERVICIO</option>
                               </select>
                            </div>
                            <div class="col-md-12 text_align_center"><label for="">Servicio Extra 3</label>
                               <select id="servicio_extra3" name="servicio_extra3" form="form_extra" class="form-control required">
                                  <option value="0">SELECCIONE SERVICIO</option>
+                                 <option value="1" hidden>SIN SERVICIO</option>
                               </select>
                            </div>
                         </div>
@@ -408,16 +413,19 @@
                            <div class="col-md-12 text_align_center"><label for="">Actividad 1</label>
                               <select id="actividad1" name="actividad1" form="form_tour" class="form-control required">
                                  <option value="0">SELECCIONE ACTIVIDAD</option>
+                                 <option value="1" hidden>SIN ACTIVIDAD</option>
                               </select>
                            </div>
                            <div class="col-md-12 text_align_center"><label for="">Actividad 2</label>
                               <select id="actividad2" name="actividad2" form="form_tour" class="form-control required">
                                  <option value="0">SELECCIONE ACTIVIDAD</option>
+                                 <option value="1" hidden>SIN ACTIVIDAD</option>
                               </select>
                            </div>
                            <div class="col-md-12 text_align_center"><label for="">Actividad 3</label>
                               <select id="actividad3" name="actividad3" form="form_tour" class="form-control required">
                                  <option value="0">SELECCIONE ACTIVIDAD</option>
+                                 <option value="1" hidden>SIN ACTIVIDAD</option>
                               </select>
                            </div>
                         </div>

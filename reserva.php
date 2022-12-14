@@ -221,7 +221,7 @@
                            <div class="row">
                               <!--HORARIO-->
                               <div class="col-md-4"><label for="">Fecha/Hora Recogida</label>
-                                 <input type="text" id="vuelta_ida" name="vuelta_hora" class="form-control time" readonly>
+                                 <input type="text" id="vuelta_hora" name="vuelta_hora" class="form-control time" readonly>
                               </div><br>
                               <div class="col-md-4">
                               </div><br>

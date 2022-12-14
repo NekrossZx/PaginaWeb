@@ -85,11 +85,11 @@ function db_addReserva_Depto($id_depto,$nro_reserva_depto,$fecha_inicio,$fecha_t
     oci_execute($stid);
 }
 
-function db_addTransporte($reserva_nro_reserva, $ida_horario, $ida_region_origen, $ida_origen, $ida_region_destino, $ida_destino, $vuelta_horario, $vuelta_region_origen, $vuelta_origen, $vuelta_region_destino, $vuelta_destino, $valor_ida, $valor_vuelta, $valor_total){
+function db_addTransporte($nro_reserva_transporte, $ida_hora, $ida_valor, $ida_region_origen, $ida_origen, $ida_region_destino, $ida_destino, $vuelta_hora, $vuelta_valor, $vuelta_region_origen, $vuelta_origen, $vuelta_region_destino, $vuelta_destino, $valor_total){
     $connection = oci_connect('TURISMOREAL', '123', 'localhost');
-    $sql = "INSERT INTO transporte_reserva (reserva_nro_reserva, ida_horario, ida_region_origen, ida_origen, ida_region_destino, 
+    $sql = "INSERT INTO transporte_reserva (VEHI_COND_VEHICULO_PATENTE, VEHI_COND_COND_RUT_CONDUCTOR, reserva_nro_reserva, ida_horario, ida_region_origen, ida_origen, ida_region_destino, 
     ida_destino, vuelta_horario, vuelta_region_origen, vuelta_origen, vuelta_region_destino, vuelta_destino, valor_ida, valor_vuelta, valor_total) 
-    VALUES ('$reserva_nro_reserva', '$ida_horario', '$ida_region_origen', '$ida_origen', '$ida_region_destino', '$ida_destino', '$vuelta_horario', '$vuelta_region_origen', '$vuelta_origen', '$vuelta_region_destino', '$vuelta_destino', '$valor_ida', '$valor_vuelta', '$valor_total')";
+    VALUES (null,null,'$nro_reserva_transporte', '$ida_hora', '$ida_region_origen', '$ida_origen', '$ida_region_destino', '$ida_destino', '$vuelta_hora', '$vuelta_region_origen', '$vuelta_origen', '$vuelta_region_destino', '$vuelta_destino', '$ida_valor', '$vuelta_valor', '$valor_total')";
 
     $stid = oci_parse($connection,$sql) or die("Query failed: ".oci_error()." Actual db_addTransporte");
     oci_execute($stid);

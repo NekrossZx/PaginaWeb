@@ -364,7 +364,6 @@
             $("#ida_destino").val("NO TRANSPORTE");
             $("#ida_destino").attr('readonly', true);
         }else{
-            $("#ida_destino").val(null);
             $("#ida_destino").attr('readonly', false);
         }
         //VALORES NULL REGION ORIGEN IDA
@@ -372,7 +371,6 @@
             $("#ida_origen").val("NO TRANSPORTE");
             $("#ida_origen").attr('readonly', true);
         }else{
-            $("#ida_origen").val(null);
             $("#ida_origen").attr('readonly', false);
         }
         //VALORES NULL REGION DESTINO VUELTA
@@ -380,7 +378,6 @@
             $("#vuelta_destino").val("NO TRANSPORTE");
             $("#vuelta_destino").attr('readonly', true);
         }else{
-            $("#vuelta_destino").val(null);
             $("#vuelta_destino").attr('readonly', false);
         }
         //VALORES NULL REGION ORIGEN VUELTA
@@ -388,7 +385,6 @@
             $("#vuelta_origen").val("NO TRANSPORTE");
             $("#vuelta_origen").attr('readonly', true);
         }else{
-            $("#vuelta_origen").val(null);
             $("#vuelta_origen").attr('readonly', false);
         }
 
@@ -446,70 +442,76 @@
 
 
     //                                                    SERVICIOS EXTRAS
-    //COMPLETA SERVICIO
-    let servicio = null;
-    $.ajax({
-        'async': false,
-        'type': "GET",
-        'global': false,
-        'dataType': 'html',
-        'url': "api/reserva.php?a=1",
-        'data': { 'request': "", 'target': 'arrange_url', 'method': 'method_target' },
-        'success': function (data) {
-            servicio = JSON.parse(data);
-        }
-    }); 
+    $(document).ready(function () {
 
-    $(servicio).each(function (i, item) {
-        $("#servicio_extra").append('<option id="'+item.NOMBRE+'" value="'+item.NOMBRE+'" data-target="'+item.DESCRIPCION+'" data-value="'+item.VALOR+'">'+item.NOMBRE+'</option>');
-        $("#servicio_extra1").append('<option id="'+item.NOMBRE+'" value="'+item.NOMBRE+'" data-value="'+item.VALOR+'">'+item.NOMBRE+'</option>')
-        $("#servicio_extra2").append('<option id="'+item.NOMBRE+'" value="'+item.NOMBRE+'" data-value="'+item.VALOR+'">'+item.NOMBRE+'</option>')
-        $("#servicio_extra3").append('<option id="'+item.NOMBRE+'" value="'+item.NOMBRE+'" data-value="'+item.VALOR+'">'+item.NOMBRE+'</option>')
-    });
+        let form_extra = $("#form_extra").serializeArray();
+        localStorage.setItem("servicios", JSON.stringify(form_extra));
 
-    //VALORES SEGUN SERVICIO INGRESADO
-    $("#servicio_extra").on("change", function (e) {	
-        let descripcion = $(this).find('option:selected').data('target');
-        let valor = $(this).find('option:selected').data('value');
+        //COMPLETA SERVICIO
+        let servicio = null;
+        $.ajax({
+            'async': false,
+            'type': "GET",
+            'global': false,
+            'dataType': 'html',
+            'url': "api/reserva.php?a=1",
+            'data': { 'request': "", 'target': 'arrange_url', 'method': 'method_target' },
+            'success': function (data) {
+                servicio = JSON.parse(data);
+            }
+        }); 
 
-        $("#descripcion_extra").val(descripcion);
-        $("#valor_extra").val(valor);
-    });
+        $(servicio).each(function (i, item) {
+            $("#servicio_extra").append('<option id="'+item.NOMBRE+'" value="'+item.NOMBRE+'" data-target="'+item.DESCRIPCION+'" data-value="'+item.VALOR+'">'+item.NOMBRE+'</option>');
+            $("#servicio_extra1").append('<option id="'+item.NOMBRE+'" value="'+item.NOMBRE+'" data-value="'+item.VALOR+'">'+item.NOMBRE+'</option>')
+            $("#servicio_extra2").append('<option id="'+item.NOMBRE+'" value="'+item.NOMBRE+'" data-value="'+item.VALOR+'">'+item.NOMBRE+'</option>')
+            $("#servicio_extra3").append('<option id="'+item.NOMBRE+'" value="'+item.NOMBRE+'" data-value="'+item.VALOR+'">'+item.NOMBRE+'</option>')
+        });
 
-    $("#modalExtra").on("change", '.required', function (e) {	
-        let servicio1 = $("#servicio_extra1").find('option:selected').data('value');
-        let servicio2 = $("#servicio_extra2").find('option:selected').data('value');
-        let servicio3 = $("#servicio_extra3").find('option:selected').data('value');
-        $("#total_extra").val(servicio1 + servicio2 + servicio3);
-    });
+        //VALORES SEGUN SERVICIO INGRESADO
+        $("#servicio_extra").on("change", function (e) {	
+            let descripcion = $(this).find('option:selected').data('target');
+            let valor = $(this).find('option:selected').data('value');
 
-    $("#servicio_extra").on("change", function (e) {	
-        let descripcion = $(this).find('option:selected').data('target');
-        let valor = $(this).find('option:selected').data('value');
+            $("#descripcion_extra").val(descripcion);
+            $("#valor_extra").val(valor);
+        });
 
-        $("#descripcion_extra").val(descripcion);
-        $("#valor_extra").val(valor);
-    });
+        $("#modalExtra").on("change", '.required', function (e) {	
+            let servicio1 = $("#servicio_extra1").find('option:selected').data('value');
+            let servicio2 = $("#servicio_extra2").find('option:selected').data('value');
+            let servicio3 = $("#servicio_extra3").find('option:selected').data('value');
+            $("#total_extra").val(servicio1 + servicio2 + servicio3);
+        });
 
-    $("#modalExtra").on("change", '.form-control',function (e) {
-        let form = $("#form_extra").serializeArray();
-        localStorage.setItem("servicios", JSON.stringify(form));
-    });
+        $("#servicio_extra").on("change", function (e) {	
+            let descripcion = $(this).find('option:selected').data('target');
+            let valor = $(this).find('option:selected').data('value');
 
-    $('#btn_Limpiar_Servicio').on("click", function (e) { 
-        var confirmar = confirm("¿Desea eliminar los servicios?");
+            $("#descripcion_extra").val(descripcion);
+            $("#valor_extra").val(valor);
+        });
 
-        if(confirmar === true){
-            $("#servicio_extra1").val(0);
-            $("#servicio_extra2").val(0);
-            $("#servicio_extra3").val(0);
-            $("#total_extra").val(0);
-
+        $("#modalExtra").on("change", '.form-control',function (e) {
             let form = $("#form_extra").serializeArray();
             localStorage.setItem("servicios", JSON.stringify(form));
-        }else{
-            return false;
-        }
+        });
+
+        $('#btn_Limpiar_Servicio').on("click", function (e) { 
+            var confirmar = confirm("¿Desea eliminar los servicios?");
+
+            if(confirmar === true){
+                $("#servicio_extra1").val(0);
+                $("#servicio_extra2").val(0);
+                $("#servicio_extra3").val(0);
+                $("#total_extra").val(0);
+
+                let form = $("#form_extra").serializeArray();
+                localStorage.setItem("servicios", JSON.stringify(form));
+            }else{
+                return false;
+            }
+        });
     });
 
     //                                                                               ACOMPAÑANTES
@@ -554,70 +556,77 @@
     });
 
     //                                                           TOUR
-    //COMPLETA ACTIVIDAD TOUR
-    let tour = null;
-    $.ajax({
-        'async': false,
-        'type': "GET",
-        'global': false,
-        'dataType': 'html',
-        'url': "api/reserva.php?a=2",
-        'data': { 'request': "", 'target': 'arrange_url', 'method': 'method_target' },
-        'success': function (data) {
-            tour = JSON.parse(data);
-        }
-    }); 
+    $(document).ready(function () {
+        let form_tour = $("#form_tour").serializeArray();
+        localStorage.setItem("tour", JSON.stringify(form_tour));
 
-    $(tour).each(function (i, item) {
-        $("#actividad").append('<option value="'+item.NOMBRE+'" data-target="'+item.DESCRIPCION+'" data-value="'+item.VALOR+'" data-long="'+item.DURACION+'">'+item.NOMBRE+'</option>');
-        $("#actividad1").append('<option value="'+item.NOMBRE+'" data-value="'+item.VALOR+'" data-long="'+item.DURACION+'">'+item.NOMBRE+'</option>');
-        $("#actividad2").append('<option value="'+item.NOMBRE+'" data-value="'+item.VALOR+'" data-long="'+item.DURACION+'">'+item.NOMBRE+'</option>');
-        $("#actividad3").append('<option value="'+item.NOMBRE+'" data-value="'+item.VALOR+'" data-long="'+item.DURACION+'">'+item.NOMBRE+'</option>');
-    });
+        //COMPLETA ACTIVIDAD TOUR
+        let tour = null;
+        $.ajax({
+            'async': false,
+            'type': "GET",
+            'global': false,
+            'dataType': 'html',
+            'url': "api/reserva.php?a=2",
+            'data': { 'request': "", 'target': 'arrange_url', 'method': 'method_target' },
+            'success': function (data) {
+                tour = JSON.parse(data);
+            }
+        }); 
 
-    //VALORES SEGUN ACTIVIDAD TOUR
-    $("#actividad").on("change", function (e) {	
-        let descripcion = $(this).find('option:selected').data('target');
-        let duracion = $(this).find('option:selected').data('long');
-        let valor = $(this).find('option:selected').data('value');
+        $(tour).each(function (i, item) {
+            $("#actividad").append('<option value="'+item.NOMBRE+'" data-target="'+item.DESCRIPCION+'" data-value="'+item.VALOR+'" data-long="'+item.DURACION+'">'+item.NOMBRE+'</option>');
+            $("#actividad1").append('<option value="'+item.NOMBRE+'" data-value="'+item.VALOR+'" data-long="'+item.DURACION+'">'+item.NOMBRE+'</option>');
+            $("#actividad2").append('<option value="'+item.NOMBRE+'" data-value="'+item.VALOR+'" data-long="'+item.DURACION+'">'+item.NOMBRE+'</option>');
+            $("#actividad3").append('<option value="'+item.NOMBRE+'" data-value="'+item.VALOR+'" data-long="'+item.DURACION+'">'+item.NOMBRE+'</option>');
+        });
 
-        $("#actividad_descripcion").val(descripcion);
-        $("#actividad_duracion").val(duracion);
-        $("#actividad_valor").val(valor);
-    });
 
-    $("#modalTurismo").on("change", '.required', function (e) {	
-        let valor_actividad1 = $("#actividad1").find('option:selected').data('value');
-        let valor_actividad2 = $("#actividad2").find('option:selected').data('value');
-        let valor_actividad3 = $("#actividad3").find('option:selected').data('value');
-        let duracion_actividad1 = $("#actividad1").find('option:selected').data('long');
-        let duracion_actividad2 = $("#actividad2").find('option:selected').data('long');
-        let duracion_actividad3 = $("#actividad3").find('option:selected').data('long');
 
-        $("#total_tour").val(valor_actividad1 + valor_actividad2 + valor_actividad3);
-        $("#duracion_tour").val(duracion_actividad1 + duracion_actividad2 + duracion_actividad3);
-    });
+        //VALORES SEGUN ACTIVIDAD TOUR
+        $("#actividad").on("change", function (e) {	
+            let descripcion = $(this).find('option:selected').data('target');
+            let duracion = $(this).find('option:selected').data('long');
+            let valor = $(this).find('option:selected').data('value');
 
-    $("#modalTurismo").on("change", '.form-control',function (e) {
-        let form = $("#form_tour").serializeArray();
-        localStorage.setItem("tour", JSON.stringify(form));
-    });
+            $("#actividad_descripcion").val(descripcion);
+            $("#actividad_duracion").val(duracion);
+            $("#actividad_valor").val(valor);
+        });
 
-    $('#btn_Limpiar_Tour').on("click", function (e) { 
-        var confirmar = confirm("¿Desea eliminar las actividades?");
+        $("#modalTurismo").on("change", '.required', function (e) {	
+            let valor_actividad1 = $("#actividad1").find('option:selected').data('value');
+            let valor_actividad2 = $("#actividad2").find('option:selected').data('value');
+            let valor_actividad3 = $("#actividad3").find('option:selected').data('value');
+            let duracion_actividad1 = $("#actividad1").find('option:selected').data('long');
+            let duracion_actividad2 = $("#actividad2").find('option:selected').data('long');
+            let duracion_actividad3 = $("#actividad3").find('option:selected').data('long');
 
-        if(confirmar === true){
-            $("#actividad1").val(0);
-            $("#actividad2").val(0);
-            $("#actividad3").val(0);
-            $("#total_tour").val(0);
-            $("#duracion_tour").val(0);
+            $("#total_tour").val(valor_actividad1 + valor_actividad2 + valor_actividad3);
+            $("#duracion_tour").val(duracion_actividad1 + duracion_actividad2 + duracion_actividad3);
+        });
 
+        $("#modalTurismo").on("change", '.form-control',function (e) {
             let form = $("#form_tour").serializeArray();
             localStorage.setItem("tour", JSON.stringify(form));
-        }else{
-            return false;
-        }
+        });
+
+        $('#btn_Limpiar_Tour').on("click", function (e) { 
+            var confirmar = confirm("¿Desea eliminar las actividades?");
+
+            if(confirmar === true){
+                $("#actividad1").val(0);
+                $("#actividad2").val(0);
+                $("#actividad3").val(0);
+                $("#total_tour").val(0);
+                $("#duracion_tour").val(0);
+
+                let form = $("#form_tour").serializeArray();
+                localStorage.setItem("tour", JSON.stringify(form));
+            }else{
+                return false;
+            }
+        });
     });
 
     //                                                                          PAGO
@@ -625,11 +634,12 @@
         //CONFIRMACION
 
         let reserva = $("#reserva").serializeArray();
-        localStorage.setItem("reserva", JSON.stringify(reserva));
         let reserva_depto = $("#reserva_depto").serializeArray();
+        let reserva_transporte = localStorage.getItem("transporte");
+
+        localStorage.setItem("reserva", JSON.stringify(reserva));
         localStorage.setItem("reserva_depto", JSON.stringify(reserva_depto));
-        console.log(reserva);
-        console.log(reserva_depto);
+        
 
         let confirmar = confirm('¿Estas seguro/a de realizar esta acción?');
             
@@ -640,14 +650,24 @@
                 url: "api/reserva.php?a=6",
                 type: 'POST',
                 success: function (data) {
-                }, complete: function(){
+                }, 
+                complete: function(){
                     $.ajax({
                         data: { data: JSON.stringify(reserva_depto) },
                         url: "api/reserva.php?a=7",
                         type: 'POST',
-                        success: function (data) {
-                            $(window).unbind('beforeunload');
-                            window.location.replace('transferencia.php');
+                        success: function (data) { 
+                        },
+                        complete: function(){ 
+                            $.ajax({
+                                data: { data: reserva_transporte },
+                                url: "api/reserva.php?a=5",
+                                type: 'POST',
+                                success: function (data) {
+                                    $(window).unbind('beforeunload');
+                                    window.location.replace('transferencia.php');
+                                }
+                            });
                         }
                     });
                 }

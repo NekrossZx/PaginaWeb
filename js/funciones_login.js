@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
             Command: toastr["warning"]("Faltan Datos Por Completar", "Atención");
         }
         else {
-            localStorage.setItem("createAcc", JSON.stringify(form));
+            sessionStorage.setItem("createAcc", JSON.stringify(form));
             var confirmar = confirm("¿Desea registrar la información?");
             if(confirmar===true){
                 $.ajax({
@@ -191,7 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
         let form = $("#login").serializeArray();
         console.log(form);
-        localStorage.setItem("user", JSON.stringify(form));
+        sessionStorage.setItem("user", JSON.stringify(form));
         $.ajax({
             data: {data: JSON.stringify(form)} ,
             url: "api/accion_logion.php",

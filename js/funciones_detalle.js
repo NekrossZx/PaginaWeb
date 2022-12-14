@@ -23,7 +23,11 @@ $(document).ready(function () {
       return toastr.options;
     }
 
-    let detalle_imagen = localStorage.getItem('detalle');
+    $(document).ready(function () {
+        
+    });
+
+    let detalle_imagen = sessionStorage.getItem('detalle');
     //COMPLETA DEPARTAMENTOS
     let carrusel = null;
     $.ajax({
@@ -86,6 +90,11 @@ $(document).ready(function () {
     }); 
         
     $(detalles).each(function (i, item) {
+        var date = new Date();
+        var current_date = date.getFullYear()+(date.getMonth()+1)+date.getDate();
+        var current_time = date.getHours()+date.getMinutes()+date.getSeconds();
+        var current_millisecond = date.getMilliseconds();
+        var date_time = current_date.toString() + current_time.toString() + current_millisecond.toString();
         $("#detalles").append(`
         <div class="row text_align_center">
             <h3 class="col-md-4">`+item.NOMBRE_REGION+`</h3> 
@@ -109,7 +118,7 @@ $(document).ready(function () {
         <div id="servicios"></div><br>
         <p>Valor por día</p>
         <h1>$`+item.ARRIENDO_DIARIO+`</h1>
-        <a href="reserva.php?id=`+item.ID_DEPARTAMENTO+`" type="button" id="reservar" class="btn btn-custom-light">RESERVAR</a>`)
+        <a href="reserva.php" type="button" id="reservar" class="btn btn-custom-light">RESERVAR</a>`)
     });
 
     let asociados = null;

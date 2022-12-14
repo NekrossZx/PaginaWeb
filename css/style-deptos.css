@@ -74,7 +74,7 @@
 
   .carrusel{
     width: 95.5%;
-    background-color: #fd990c;
+    background-color: rgba(253, 153, 12,0.8);
     padding: 0em;
     box-sizing: border-box;
     text-align: center;

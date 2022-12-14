@@ -18,6 +18,7 @@
       <link rel="stylesheet" href="css/style.css">
       <link rel="stylesheet" href="css/style-custom.css">
       <link rel="stylesheet" href="css/toastr.css">
+      <link rel="stylesheet" href="css/style-reserva.css">
       <!-- responsive-->
       <link rel="stylesheet" href="css/responsive.css">
       <!-- awesome fontfamily -->
@@ -39,6 +40,19 @@
                         </div>
                         <div class="col-md-3"></div>
                     </div><br>
+                    <details class="detalles" id="datos_transferencia">
+                        <h1 class="text_align_center">DATOS DE TRANSFERENCIA</h1>
+                        <div>
+                            <p><strong>BANCO:</strong> Santander</p>
+                            <p><strong>TIPO DE CUENTA:</strong> Corriente</p>
+                            <p><strong>NÚMERO DE CUENTA:</strong> 12345698</p>
+                            <p><strong>RUT:</strong> 76.657.489-5</p>
+                            <p><strong>NOMBRE:</strong> Turismo Real spa</p>
+                            <p><strong>CORREO ELECTRÓNICO:</strong> reservas@turismoreal.cl</p>
+                            <p><strong>ASUNTO:</strong> Indicar el número de reserva</p><p id="asunto_reserva"></p>
+                            <p><strong>TOTAL RESERVA (40% DEL TOTAL FINAL):</strong><h2 id="ver_total"></h2></p>
+                        </div>
+                    </details>
                     <h2>El archivo del comprobante debe tener como nombre: <em>NOMBRE CLIENTE_RUT CLIENTE_NUMERO RESERVA</em></h2>
                     <div class="row">
                         <input type="file" id="comprobante" class="col-md-12" accept=".pdf,.jpg,.png">

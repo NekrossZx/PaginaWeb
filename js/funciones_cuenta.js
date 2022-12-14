@@ -205,7 +205,7 @@ $(document).ready(function () {
 
     let form = $("#actualizar_perfil").serializeArray();
     console.log(form);
-    localStorage.setItem("update", JSON.stringify(form));
+    sessionStorage.setItem("update", JSON.stringify(form));
 
     var confirmar = confirm("¿Desea actualizar la información?");
     if(confirmar===true){

@@ -285,7 +285,7 @@ if(isset($_SESSION['emailuser'])){
             <div class="row">
                <div class="col-md-6">
                   <div class="titlepage text_align_left">
-                     <h2>Los mejores departamentos de la región, aquí.</h2>
+                     <h2>Los mejores departamentos del país, aquí.</h2>
                      <p>Revisa nuestro cátalogo de departamentos disponibles a lo largo de todo Chile. Encuentra el que buscas al mejor precio y con la mejor calidad de servicios.</p>
                      <a class="read_more" id="deptos" href="departamentos.php">Reservar</a>
                   </div>

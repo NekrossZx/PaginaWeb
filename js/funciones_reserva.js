@@ -43,7 +43,8 @@
 
     $(document).ready(function () {
 
-        let confirmar_depto = localStorage.getItem("detalle") ;
+        let confirmar_depto = sessionStorage.getItem("detalle");
+        let nro_reserva = $("#nro_reserva").val();
 
         if(confirmar_depto == undefined || confirmar_depto == '' || confirmar_depto == null){
             console.log(confirmar_depto);
@@ -64,8 +65,6 @@
         $("#nro_reserva_depto").val(date_time);
         $("#nro_reserva_tour").val(date_time);
         $("#nro_reserva_extras").val(date_time);
-        
-        //console.log(date_time);
     });
 
     $('#rut_cliente').rut({
@@ -92,7 +91,7 @@
     });
 
 
-    let info_dep = localStorage.getItem('detalle');
+    let info_dep = sessionStorage.getItem('detalle');
     //COMPLETA SERVICIO
     let datos_dep = null;
     $.ajax({
@@ -280,9 +279,9 @@
         let departamento = $("#reserva_depto").serializeArray();
         console.log(reserva,transporte, departamento);
 
-        localStorage.setItem("reserva", JSON.stringify(reserva));
-        localStorage.setItem("transporte", JSON.stringify(transporte));
-        localStorage.setItem("departamento", JSON.stringify(departamento));
+        sessionStorage.setItem("reserva", JSON.stringify(reserva));
+        sessionStorage.setItem("transporte", JSON.stringify(transporte));
+        sessionStorage.setItem("departamento", JSON.stringify(departamento));
 
         let total = $("input[name=valor_total]").val();
         let porcentaje = total*0.4;
@@ -444,7 +443,7 @@
         }
         else {
             console.log(form);
-            localStorage.setItem("transporte", JSON.stringify(form));
+            sessionStorage.setItem("transporte", JSON.stringify(form));
 
             toastConfig();
             Command: toastr["success"]("Datos guardados!", "Exito");
@@ -457,7 +456,7 @@
     $(document).ready(function () {
 
         let form_extra = $("#form_extra").serializeArray();
-        localStorage.setItem("servicios", JSON.stringify(form_extra));
+        sessionStorage.setItem("servicios", JSON.stringify(form_extra));
 
         //COMPLETA SERVICIO
         let servicio = null;
@@ -506,7 +505,7 @@
 
         $("#modalExtra").on("change", '.form-control',function (e) {
             let form = $("#form_extra").serializeArray();
-            localStorage.setItem("servicios", JSON.stringify(form));
+            sessionStorage.setItem("servicios", JSON.stringify(form));
         });
 
         $('#btn_Limpiar_Servicio').on("click", function (e) { 
@@ -519,7 +518,7 @@
                 $("#total_extra").val(0);
 
                 let form = $("#form_extra").serializeArray();
-                localStorage.setItem("servicios", JSON.stringify(form));
+                sessionStorage.setItem("servicios", JSON.stringify(form));
             }else{
                 return false;
             }
@@ -532,13 +531,13 @@
         $("#cantidad_ninos").val(0);
         $("#cantidad_adultos").val(0);
         let form = $("#reserva").serializeArray();
-        localStorage.setItem("reserva", JSON.stringify(form));
+        sessionStorage.setItem("reserva", JSON.stringify(form));
 
         $('#md_otros').on("change", ".form-control", function (e) {
             e.preventDefault();
              
             let form = $("#reserva").serializeArray();
-            localStorage.setItem("reserva", JSON.stringify(form));
+            sessionStorage.setItem("reserva", JSON.stringify(form));
             //console.log(form);
     
         });
@@ -559,7 +558,7 @@
                 $("#cantidad_adultos").val(0);
 
                 let form = $("#reserva").serializeArray();
-                localStorage.setItem("reserva", JSON.stringify(form));
+                sessionStorage.setItem("reserva", JSON.stringify(form));
             }else{
                 return false;
             }
@@ -570,7 +569,7 @@
     //                                                           TOUR
     $(document).ready(function () {
         let form_tour = $("#form_tour").serializeArray();
-        localStorage.setItem("tour", JSON.stringify(form_tour));
+        sessionStorage.setItem("tour", JSON.stringify(form_tour));
 
         //COMPLETA ACTIVIDAD TOUR
         let tour = null;
@@ -620,7 +619,7 @@
 
         $("#modalTurismo").on("change", '.form-control',function (e) {
             let form = $("#form_tour").serializeArray();
-            localStorage.setItem("tour", JSON.stringify(form));
+            sessionStorage.setItem("tour", JSON.stringify(form));
         });
 
         $('#btn_Limpiar_Tour').on("click", function (e) { 
@@ -634,7 +633,7 @@
                 $("#duracion_tour").val(0);
 
                 let form = $("#form_tour").serializeArray();
-                localStorage.setItem("tour", JSON.stringify(form));
+                sessionStorage.setItem("tour", JSON.stringify(form));
             }else{
                 return false;
             }
@@ -643,14 +642,20 @@
 
     //                                                                          PAGO
     $("#btn_completar").on("click",function () { 
+
+        //VALIDAR FORMULARIO TRANSPORTE VACIO
+        $("#ida_region_origen").val(1);
+        $("#ida_region_destino").val(1);
         //CONFIRMACION
 
         let reserva = $("#reserva").serializeArray();
         let reserva_depto = $("#reserva_depto").serializeArray();
-        let reserva_transporte = localStorage.getItem("transporte");
+        let reserva_transporte = sessionStorage.getItem("transporte");
 
-        localStorage.setItem("reserva", JSON.stringify(reserva));
-        localStorage.setItem("reserva_depto", JSON.stringify(reserva_depto));
+        console.log(reserva_transporte);
+
+        sessionStorage.setItem("reserva", JSON.stringify(reserva));
+        sessionStorage.setItem("reserva_depto", JSON.stringify(reserva_depto));
         
 
         let confirmar = confirm('¿Estas seguro/a de realizar esta acción?');

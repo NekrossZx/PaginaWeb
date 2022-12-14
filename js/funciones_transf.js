@@ -21,9 +21,15 @@ function toastConfig() {
 }  
 
 $(document).ready(function () {
-  let reserva = localStorage.getItem("reserva");
+  let reserva = sessionStorage.getItem("reserva");
   let obj = JSON.parse(reserva);
-  $("#nro_reserva").val(obj[0].value);
+  if(reserva == null || reserva == 0 || reserva == '' || reserva == undefined){
+    window.location.replace("departamentos.php");
+  }else{
+    $("#nro_reserva").val(obj[0].value);
+    $("#ver_total").text("$"+parseInt(obj[4].value)*0.4);
+  }
+  
 });
 
 $('#subir_comprobante').on("click", async function(){
@@ -36,7 +42,7 @@ $('#subir_comprobante').on("click", async function(){
     toastConfig();
         Command: toastr["success"]('El comprobante se envió con éxito', "ENVIADO!");
         setTimeout(function () { 
-            window.location.replace("cuenta.php");
+          window.location.replace("cuenta.php");
         },2000);
 });
 

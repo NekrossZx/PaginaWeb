@@ -1196,6 +1196,16 @@ ul.re_post li {
  .form_link:hover {
      text-decoration: underline;
  }
+
+ .comprobante #nro_reserva{
+     font-family: 'BebasKai';
+     font-size: 5em;
+     color: white;
+     text-align: center;
+     background-color: #8b1310;
+     height: 1.2em;
+     border-radius: 0;
+ }
  @font-face {
      font-family: 'THEBOLDFONT'; /*a name to be used later*/
      src: url("../fonts/THEBOLDFONT.otf");

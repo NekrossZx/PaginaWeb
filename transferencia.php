@@ -31,6 +31,14 @@
             <div class="container">
                 <div class="comprobante col-md-12">
                     <h1 class="form_title" style="color: white;">Ingresar Comprobante</h1><br>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">
+                            <h1 class="text_align_center">TU NÚMERO DE RESERVA ES:</h1>
+                            <input type="number" id="nro_reserva" name="nro_reserva" class="form-control" readonly>
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div><br>
                     <h2>El archivo del comprobante debe tener como nombre: <em>NOMBRE CLIENTE_RUT CLIENTE_NUMERO RESERVA</em></h2>
                     <div class="row">
                         <input type="file" id="comprobante" class="col-md-12" accept=".pdf,.jpg,.png">

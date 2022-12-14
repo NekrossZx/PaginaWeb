@@ -18,7 +18,13 @@ function toastConfig() {
       preventDuplicates: true,        
       };
       return toastr.options;
-}   
+}  
+
+$(document).ready(function () {
+  let reserva = localStorage.getItem("reserva");
+  let obj = JSON.parse(reserva);
+  $("#nro_reserva").val(obj[0].value);
+});
 
 $('#subir_comprobante').on("click", async function(){
     let formData = new FormData();           

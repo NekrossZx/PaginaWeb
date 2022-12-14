@@ -21,7 +21,8 @@
       preventDuplicates: true,        
       };
       return toastr.options;
-    }    
+    } 
+
     $(window).bind('beforeunload', function(){
         return "¿Estás seguro/a de querer abandonar? Se perderan los datos ingresados";
       });
@@ -39,6 +40,17 @@
             $(this).removeClass('bg-danger'); 
      }
     }); 
+
+    $(document).ready(function () {
+
+        let confirmar_depto = localStorage.getItem("detalle") ;
+
+        if(confirmar_depto == undefined || confirmar_depto == '' || confirmar_depto == null){
+            console.log(confirmar_depto);
+            window.location.replace('departamentos.php');
+        }
+    });
+
 
     //                                                                                 FORMULARIO PRINCIPAL
     $(document).ready(function () {

@@ -210,8 +210,8 @@
         });
 
         $('#daterange').on('apply.daterangepicker', function(ev, picker) {
-            let fecha_inicio = picker.startDate.format('DD/MM/YYYY hh:mm');
-            let fecha_termino = picker.endDate.format('DD/MM/YYYY hh:mm');
+            let fecha_inicio = picker.startDate.format('DD/MM/YYYY HH:mm');
+            let fecha_termino = picker.endDate.format('DD/MM/YYYY HH:mm');
 
             $("#fecha_inicio").val(fecha_inicio);
             $("#fecha_termino").val(fecha_termino);
@@ -287,7 +287,7 @@
             timePicker24Hour:true,
             minDate:moment().startOf('hour').add(24,'hour'),
             locale: {
-            format: 'DD/MM HH:mm '
+            format: 'DD/MM/YYYY HH:mm '
           }
         });
         $('input[name="ida_hora"]').daterangepicker({
@@ -297,7 +297,7 @@
             timePicker24Hour:true,
             minDate:moment().startOf('hour').add(3,'hour'),
             locale: {
-              format: 'DD/MM HH:mm '
+              format: 'DD/MM/YYYY HH:mm '
             }
           });
       });
@@ -329,14 +329,13 @@
         });
       });
 
-      $("#modalTransporte").on("blur",".ida",function(){
+      $("body").on("blur",".ida",function(){
         let ida_origen = document.getElementById("ida_origen").value;
         let ida_destino = document.getElementById("ida_destino").value;
-        let ida_hora = document.getElementById("ida_hora").value;
+        let ida_hora = document.getElementById("fecha_termino").value;
         let ida_valor = document.getElementById("ida_valor").value;
         let ida_region_origen = document.getElementById("ida_region_origen").value;
         let ida_region_destino = document.getElementById("ida_region_destino").value;
-        //console.log(ida_origen, ida_destino, ida_hora);
 
         $("#vuelta_destino").val(ida_origen);
         $("#vuelta_origen").val(ida_destino);
@@ -344,6 +343,56 @@
         $("#vuelta_valor").val(ida_valor);
         $("#vuelta_region_destino").val(ida_region_origen);
         $("#vuelta_region_origen").val(ida_region_destino);
+      });
+
+      $("body").on("blur",".form-control",function(){ 
+
+        if($("#ida_region_destino").val() != 0 && $("#ida_region_origen").val() != 0 && $("#ida_region_destino").val() != 1 && $("#ida_region_origen").val() != 1){
+            $("#ida_valor").val(10000);
+        }else{
+            $("#ida_valor").val(0);
+        }
+
+        if($("#vuelta_region_destino").val() != 0 && $("#vuelta_region_origen").val() != 0 && $("#vuelta_region_destino").val() != 1 && $("#vuelta_region_origen").val() != 1){
+            $("#vuelta_valor").val(10000);
+        }else{
+            $("#vuelta_valor").val(0);
+        }
+
+        //VALORES NULL REGION DESTINO IDA
+        if($("#ida_region_destino").val() == 1){
+            $("#ida_destino").val("NO TRANSPORTE");
+            $("#ida_destino").attr('readonly', true);
+        }else{
+            $("#ida_destino").val(null);
+            $("#ida_destino").attr('readonly', false);
+        }
+        //VALORES NULL REGION ORIGEN IDA
+        if($("#ida_region_origen").val() == 1){
+            $("#ida_origen").val("NO TRANSPORTE");
+            $("#ida_origen").attr('readonly', true);
+        }else{
+            $("#ida_origen").val(null);
+            $("#ida_origen").attr('readonly', false);
+        }
+        //VALORES NULL REGION DESTINO VUELTA
+        if($("#vuelta_region_destino").val() == 1){
+            $("#vuelta_destino").val("NO TRANSPORTE");
+            $("#vuelta_destino").attr('readonly', true);
+        }else{
+            $("#vuelta_destino").val(null);
+            $("#vuelta_destino").attr('readonly', false);
+        }
+        //VALORES NULL REGION ORIGEN VUELTA
+        if($("#vuelta_region_origen").val() == 1){
+            $("#vuelta_origen").val("NO TRANSPORTE");
+            $("#vuelta_origen").attr('readonly', true);
+        }else{
+            $("#vuelta_origen").val(null);
+            $("#vuelta_origen").attr('readonly', false);
+        }
+
+        $("#valor_transporte").val( parseInt($("#ida_valor").val()) + parseInt( $("#vuelta_valor").val() ));
       });
 
         //COMPLETA SERVICIO
@@ -369,15 +418,11 @@
 
       $("#btn_addTransporte").on("click",function(){
         let form = $("#md_transporte").serializeArray();
-  
-        //IMPRIME DEL NAVEGADOR 
-        console.log(form);
-  
         let error = 0;
   
         //VALIDACION
         $(form).each(function (i, item) {
-            if (item.value == '' || item.value == null || item.value == undefined || item.value == 0 )
+            if (item.value == '' || item.value == null || item.value == undefined )
             {
                 error = 1;
                 $("#" + item.name).addClass('bg-danger');
@@ -390,33 +435,11 @@
             Command: toastr["warning"]("Faltan Datos Por Completar", "Atención");
         }
         else {
+            console.log(form);
             localStorage.setItem("transporte", JSON.stringify(form));
-  
-            //CONFIRMACION
-            let confirmar = confirm('¿Estas seguro/a de realizar esta acción?');
-  
-            if (confirmar == true) {
-                //LLAMADA POR AJAX A API
-                $.ajax({
-                    data: { data: JSON.stringify(form) },
-                    url: "api/reserva.php?a=4",
-                    type: 'POST',
-                    success: function (data) {
-                        if (data != null || data != '') {
-                            toastConfig();
-                            Command: toastr["success"]("Se ha guardado la información", "Operación Exitosa");
-                        }
-                        else {
-                            toastConfig();
-                            Command: toastr["danger"]("Error de conexión", "Error");
-                        }
-                    }
-                });
-            
-            }
-            else {
-                return false;
-            }
+
+            toastConfig();
+            Command: toastr["success"]("Datos guardados!", "Exito");
         }
 
       });
@@ -438,13 +461,28 @@
     }); 
 
     $(servicio).each(function (i, item) {
-        $("#servicio_extra").append('<option id="'+item.ID_SERVICIOEXTRA+'" value="'+item.ID_SERVICIOEXTRA+'" data-target="'+item.DESCRIPCION+'" data-value="'+item.VALOR+'">'+item.NOMBRE+'</option>');
-        $("#servicio_extra1").append('<option id="'+item.ID_SERVICIOEXTRA+'" value="'+item.ID_SERVICIOEXTRA+'">'+item.NOMBRE+'</option>')
-        $("#servicio_extra2").append('<option id="'+item.ID_SERVICIOEXTRA+'" value="'+item.ID_SERVICIOEXTRA+'">'+item.NOMBRE+'</option>')
-        $("#servicio_extra3").append('<option id="'+item.ID_SERVICIOEXTRA+'" value="'+item.ID_SERVICIOEXTRA+'">'+item.NOMBRE+'</option>')
+        $("#servicio_extra").append('<option id="'+item.NOMBRE+'" value="'+item.NOMBRE+'" data-target="'+item.DESCRIPCION+'" data-value="'+item.VALOR+'">'+item.NOMBRE+'</option>');
+        $("#servicio_extra1").append('<option id="'+item.NOMBRE+'" value="'+item.NOMBRE+'" data-value="'+item.VALOR+'">'+item.NOMBRE+'</option>')
+        $("#servicio_extra2").append('<option id="'+item.NOMBRE+'" value="'+item.NOMBRE+'" data-value="'+item.VALOR+'">'+item.NOMBRE+'</option>')
+        $("#servicio_extra3").append('<option id="'+item.NOMBRE+'" value="'+item.NOMBRE+'" data-value="'+item.VALOR+'">'+item.NOMBRE+'</option>')
     });
 
     //VALORES SEGUN SERVICIO INGRESADO
+    $("#servicio_extra").on("change", function (e) {	
+        let descripcion = $(this).find('option:selected').data('target');
+        let valor = $(this).find('option:selected').data('value');
+
+        $("#descripcion_extra").val(descripcion);
+        $("#valor_extra").val(valor);
+    });
+
+    $("#modalExtra").on("change", '.required', function (e) {	
+        let servicio1 = $("#servicio_extra1").find('option:selected').data('value');
+        let servicio2 = $("#servicio_extra2").find('option:selected').data('value');
+        let servicio3 = $("#servicio_extra3").find('option:selected').data('value');
+        $("#total_extra").val(servicio1 + servicio2 + servicio3);
+    });
+
     $("#servicio_extra").on("change", function (e) {	
         let descripcion = $(this).find('option:selected').data('target');
         let valor = $(this).find('option:selected').data('value');
@@ -465,6 +503,7 @@
             $("#servicio_extra1").val(0);
             $("#servicio_extra2").val(0);
             $("#servicio_extra3").val(0);
+            $("#total_extra").val(0);
 
             let form = $("#form_extra").serializeArray();
             localStorage.setItem("servicios", JSON.stringify(form));
@@ -531,9 +570,9 @@
 
     $(tour).each(function (i, item) {
         $("#actividad").append('<option value="'+item.NOMBRE+'" data-target="'+item.DESCRIPCION+'" data-value="'+item.VALOR+'" data-long="'+item.DURACION+'">'+item.NOMBRE+'</option>');
-        $("#actividad1").append('<option value="'+item.NOMBRE+'">'+item.NOMBRE+'</option>');
-        $("#actividad2").append('<option value="'+item.NOMBRE+'">'+item.NOMBRE+'</option>');
-        $("#actividad3").append('<option value="'+item.NOMBRE+'">'+item.NOMBRE+'</option>');
+        $("#actividad1").append('<option value="'+item.NOMBRE+'" data-value="'+item.VALOR+'" data-long="'+item.DURACION+'">'+item.NOMBRE+'</option>');
+        $("#actividad2").append('<option value="'+item.NOMBRE+'" data-value="'+item.VALOR+'" data-long="'+item.DURACION+'">'+item.NOMBRE+'</option>');
+        $("#actividad3").append('<option value="'+item.NOMBRE+'" data-value="'+item.VALOR+'" data-long="'+item.DURACION+'">'+item.NOMBRE+'</option>');
     });
 
     //VALORES SEGUN ACTIVIDAD TOUR
@@ -545,6 +584,18 @@
         $("#actividad_descripcion").val(descripcion);
         $("#actividad_duracion").val(duracion);
         $("#actividad_valor").val(valor);
+    });
+
+    $("#modalTurismo").on("change", '.required', function (e) {	
+        let valor_actividad1 = $("#actividad1").find('option:selected').data('value');
+        let valor_actividad2 = $("#actividad2").find('option:selected').data('value');
+        let valor_actividad3 = $("#actividad3").find('option:selected').data('value');
+        let duracion_actividad1 = $("#actividad1").find('option:selected').data('long');
+        let duracion_actividad2 = $("#actividad2").find('option:selected').data('long');
+        let duracion_actividad3 = $("#actividad3").find('option:selected').data('long');
+
+        $("#total_tour").val(valor_actividad1 + valor_actividad2 + valor_actividad3);
+        $("#duracion_tour").val(duracion_actividad1 + duracion_actividad2 + duracion_actividad3);
     });
 
     $("#modalTurismo").on("change", '.form-control',function (e) {
@@ -559,6 +610,8 @@
             $("#actividad1").val(0);
             $("#actividad2").val(0);
             $("#actividad3").val(0);
+            $("#total_tour").val(0);
+            $("#duracion_tour").val(0);
 
             let form = $("#form_tour").serializeArray();
             localStorage.setItem("tour", JSON.stringify(form));
@@ -587,35 +640,18 @@
                 url: "api/reserva.php?a=6",
                 type: 'POST',
                 success: function (data) {
-                    if (data != null || data != '') {
-                        toastConfig();
-                        Command: toastr["success"]("Se ha guardado la información", "Operación Exitosa");
-                        //LIMPIAR FORMULARIO
-                    }
-                    else {
-                        toastConfig();
-                        Command: toastr["danger"]("Error de conexión", "Error");
-                    }
+                }, complete: function(){
+                    $.ajax({
+                        data: { data: JSON.stringify(reserva_depto) },
+                        url: "api/reserva.php?a=7",
+                        type: 'POST',
+                        success: function (data) {
+                            $(window).unbind('beforeunload');
+                            window.location.replace('transferencia.php');
+                        }
+                    });
                 }
             });
-            setTimeout(function () {
-                //LLAMADA POR AJAX A API
-                $.ajax({
-                    data: { data: JSON.stringify(reserva_depto) },
-                    url: "api/reserva.php?a=7",
-                    type: 'POST',
-                    success: function (data) {
-                        if (data != null || data != '') {
-                        }
-                        else {
-                            toastConfig();
-                            Command: toastr["danger"]("Error de conexión", "Error");
-                        }
-                    }
-                });
-                $(window).unbind('beforeunload');
-                window.location.replace('transferencia.php');
-            },2000); 
         }
         else {
             return false;

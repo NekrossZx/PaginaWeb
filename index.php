@@ -1,13 +1,3 @@
-<?php
-session_start();
-if(isset($_SESSION['emailuser'])){
-    $usuario = $_SESSION['emailuser'];
-    echo "<script> alert('SESION INICIADA');</script>";
-}else{
-    echo "<script> alert('SESION NO INICIADA');</script>";
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
    <head>

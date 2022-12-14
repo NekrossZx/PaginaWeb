@@ -32,6 +32,7 @@ if($accion == 4)
 }
 //                                              SUBIR FORMULARIOS
 
+//AÑADIR TRANSPORTE
 if($accion == 5)
 {
     $form = json_decode($_POST['data']);
@@ -68,6 +69,7 @@ if($accion == 5)
   echo $data;
 }
 
+//AÑADIR RESERVA
 if($accion == 6)
 {
     $form = json_decode($_POST['data']);
@@ -92,6 +94,7 @@ if($accion == 6)
   echo $data;
 }
 
+//AÑADIR RESERVA - DEPTO
 if($accion == 7)
 {
     $form = json_decode($_POST['data']);
@@ -108,5 +111,44 @@ if($accion == 7)
   echo $data;
 }
 
+//AÑADIR RESERVA - SERVICIOS
+if($accion == 8)
+{
+    $form = json_decode($_POST['data']);
+    $data = db_addReserva_Extra(
+        //NRO RESERVA
+        $form[0]->value,
+        //SERVICIO 1
+        $form[1]->value,
+        //SERVICIO 2
+        $form[2]->value,
+        //SERVICIO 3
+        $form[3]->value,
+        //TOTAL SERVICIOS
+        $form[4]->value
+  );
+  echo $data;
+}
+
+//AÑADIR RESERVA - TOUR
+if($accion == 8)
+{
+    $form = json_decode($_POST['data']);
+    $data = db_addReserva_Tour(
+        //NRO RESERVA
+        $form[0]->value,
+        //ACTIVIDAD 1
+        $form[1]->value,
+        //ACTIVIDAD 2
+        $form[2]->value,
+        //ACTIVIDAD 3
+        $form[3]->value,
+        //DURIACIÓN TOTAL
+        $form[4]->value,
+        //TOTAL TOUR
+        $form[5]->value
+  );
+  echo $data;
+}
 
 ?>

@@ -170,17 +170,10 @@
         });
     }
 
-    //FECHA VALOR 'TODAY'
+    //FECHA ACTUAL
     $(document).ready( function() {
-        var ahora = new Date(moment());
-        var dia = ahora.getDay();
-        var mes = ahora.getMonth();
-        var año = ahora.getFullYear();
-        var hora = ahora.getHours();
-        var minutos = ahora.getMinutes();
-        var segundos = ahora.getSeconds();
-        var hoy = dia +'/'+ mes +'/'+ año +' '+ hora +':'+ minutos +':'+ segundos;
-        $('#fecha_reserva').val(hoy);
+        var ahora = moment().format('DD/MM/YYYY HH:mm:ss');
+        $('#fecha_reserva').val(ahora);
     });
 
     //CALCULAR DIFERENCIA ENTRE FECHAS
@@ -646,11 +639,13 @@
         //VALIDAR FORMULARIO TRANSPORTE VACIO
         $("#ida_region_origen").val(1);
         $("#ida_region_destino").val(1);
+        
         //CONFIRMACION
-
         let reserva = $("#reserva").serializeArray();
         let reserva_depto = $("#reserva_depto").serializeArray();
         let reserva_transporte = sessionStorage.getItem("transporte");
+        let reserva_servicios = sessionStorage.getItem("servicios");
+        let reserva_tour = sessionStorage.getItem("tour");
 
         console.log(reserva_transporte);
 
@@ -667,26 +662,39 @@
                 url: "api/reserva.php?a=6",
                 type: 'POST',
                 success: function (data) {
-                }, 
-                complete: function(){
+                },
+                complete: function(){ 
                     $.ajax({
                         data: { data: JSON.stringify(reserva_depto) },
                         url: "api/reserva.php?a=7",
                         type: 'POST',
                         success: function (data) { 
                         },
-                        complete: function(){ 
-                            $.ajax({
-                                data: { data: reserva_transporte },
-                                url: "api/reserva.php?a=5",
-                                type: 'POST',
-                                success: function (data) {
-                                    $(window).unbind('beforeunload');
-                                    window.location.replace('transferencia.php');
-                                }
-                            });
+                        
+                    });
+                    $.ajax({
+                        data: { data: reserva_transporte },
+                        url: "api/reserva.php?a=5",
+                        type: 'POST',
+                        success: function (data) {
                         }
                     });
+                    $.ajax({
+                        data: { data: reserva_servicios },
+                        url: "api/reserva.php?a=8",
+                        type: 'POST',
+                        success: function (data) {
+                        }
+                    });
+                    $.ajax({
+                        data: { data: reserva_tour },
+                        url: "api/reserva.php?a=",
+                        type: 'POST',
+                        success: function (data) {
+                        }
+                    });
+                    $(window).unbind('beforeunload');
+                    window.location.replace('transferencia.php');
                 }
             });
         }

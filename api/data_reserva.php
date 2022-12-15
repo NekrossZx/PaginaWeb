@@ -97,7 +97,7 @@ function db_addTransporte($nro_reserva_transporte, $ida_hora, $ida_valor, $ida_r
 
 function db_addReserva_Extra($nro_reserva_extras, $total_extra, $servicio_extra1, $servicio_extra2, $servicio_extra3){
     $connection = oci_connect('TURISMOREAL', '123', 'localhost');
-    $sql = "INSERT INTO reserva_servicio_extra (reserva_nro_reserva, valor_total, nombre_servicio_1,nombre_servicio_2,nombre_servicio_3) 
+    $sql = "INSERT INTO reserva_servicio_extra (reserva_nro_reserva, nombre_servicio_1, nombre_servicio_2, nombre_servicio_3, valor_total) 
     VALUES ('$nro_reserva_extras', '$total_extra', '$servicio_extra1', '$servicio_extra2', '$servicio_extra3')";
 
     $stid = oci_parse($connection,$sql) or die("Query failed: ".oci_error()." Actual db_addReserva_Extra");
@@ -106,8 +106,8 @@ function db_addReserva_Extra($nro_reserva_extras, $total_extra, $servicio_extra1
 
 function db_addReserva_Tour($nro_reserva_tour, $actividad1, $actividad2, $actividad3, $duracion_tour, $total_tour){
     $connection = oci_connect('TURISMOREAL', '123', 'localhost');
-    $sql = "INSERT INTO tour (reserva_nro_reserva, nombre_actividad_1,nombre_actividad_2,nombre_actividad_3, duracion_total, valor_total) 
-    VALUES ('$nro_reserva_tour', '$actividad1', '$actividad2', '$actividad3', '$duracion_tour', '$total_tour')";
+    $sql = "INSERT INTO tour (reserva_nro_reserva, nombre_actividad_1, nombre_actividad_2, nombre_actividad_3, duracion_total, valor_total) 
+    VALUES ('$nro_reserva_tour', '$actividad1', '$actividad2', '$actividad3', '$total_tour', '$duracion_tour')";
 
     $stid = oci_parse($connection,$sql) or die("Query failed: ".oci_error()." Actual db_addReserva_Extra");
     oci_execute($stid);

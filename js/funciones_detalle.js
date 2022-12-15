@@ -24,7 +24,11 @@ $(document).ready(function () {
     }
 
     $(document).ready(function () {
-        
+        let confirmar_depto = sessionStorage.getItem("detalle");
+        if(confirmar_depto == undefined || confirmar_depto == '' || confirmar_depto == null){
+            console.log(confirmar_depto);
+            window.location.replace('departamentos.php');
+        }
     });
 
     let detalle_imagen = sessionStorage.getItem('detalle');

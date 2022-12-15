@@ -326,7 +326,7 @@ $(document).ready(function () {
 
         sessionStorage.setItem("reserva", JSON.stringify(reserva));
         sessionStorage.setItem("transporte", JSON.stringify(transporte));
-        sessionStorage.setItem("departamento", JSON.stringify(departamento));
+        sessionStorage.setItem("reserva_depto", JSON.stringify(departamento));
 
         let total = $("input[name=valor_total]").val();
         let porcentaje = total*0.4;
@@ -691,6 +691,8 @@ $(document).ready(function () {
         let reserva_servicios = sessionStorage.getItem("servicios");
         let reserva_tour = sessionStorage.getItem("tour");
 
+        console.log(reserva_transporte);
+
         sessionStorage.setItem("reserva", JSON.stringify(reserva));
         sessionStorage.setItem("reserva_depto", JSON.stringify(reserva_depto));
         
@@ -700,7 +702,7 @@ $(document).ready(function () {
         if (confirmar == true) {
             //LLAMADA POR AJAX A API
             $.ajax({
-                data: { data: JSON.stringify(reserva) },
+                data: { data: JSON.stringify(reserva)},
                 url: "api/reserva.php?a=6",
                 type: 'POST',
                 success: function (data) {

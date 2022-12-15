@@ -143,7 +143,7 @@ if($accion == 8)
         $form[2]->value,
         //ACTIVIDAD 3
         $form[3]->value,
-        //DURIACIÓN TOTAL
+        //DURACIÓN TOTAL
         $form[4]->value,
         //TOTAL TOUR
         $form[5]->value

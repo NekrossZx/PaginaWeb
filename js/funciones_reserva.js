@@ -1,5 +1,5 @@
- $(document).ready(function () {
-    //                                                                                       GENERAL
+$(document).ready(function () {
+//                                                                                       GENERAL
     //ALERTA TOAST
     function toastConfig() {
     toastr.options = {
@@ -42,16 +42,51 @@
     }); 
 
     $(document).ready(function () {
-
         let confirmar_depto = sessionStorage.getItem("detalle");
-        let nro_reserva = $("#nro_reserva").val();
-
         if(confirmar_depto == undefined || confirmar_depto == '' || confirmar_depto == null){
             console.log(confirmar_depto);
             window.location.replace('departamentos.php');
         }
     });
 
+    function sin_transporte(){
+        let ida =  $("#ida_region_origen").val();
+        let vuelta = $("#vuelta_region_origen").val();
+
+        if(ida == 0){
+            $("#ida_region_origen").val(1);
+            $("#ida_region_destino").val(1);
+            $("#ida_origen").val("NO TRANSPORTE");
+            $("#ida_destino").val("NO TRANSPORTE");
+        }else{
+            return false;
+        }
+
+        if( vuelta == 0){
+            $("#vuelta_region_origen").val(1);
+            $("#vuelta_region_destino").val(1);
+            $("#vuelta_origen").val("NO TRANSPORTE");
+            $("#vuelta_destino").val("NO TRANSPORTE");
+        }else{
+            return false;
+        }
+    };
+
+    function sin_extras(){
+        let servicio1 = $("#servicio_extra1").val();
+        let servicio2 = $("#servicio_extra2").val();
+        let servicio3 = $("#servicio_extra3").val();
+
+        if(servicio1 == 0){
+            $("#servicio_extra1").val(1);
+        }
+        if(servicio2 == 0){
+            $("#servicio_extra2").val(1);
+        }
+        if(servicio3 == 0){
+            $("#servicio_extra2").val(1);
+        }
+    };
 
     //                                                                                 FORMULARIO PRINCIPAL
     $(document).ready(function () {
@@ -89,7 +124,6 @@
                 Command: toastr["warning"]('Email no valido', "Atención");
         }
     });
-
 
     let info_dep = sessionStorage.getItem('detalle');
     //COMPLETA SERVICIO
@@ -171,13 +205,13 @@
     }
 
     //FECHA ACTUAL
-    $(document).ready( function() {
+    $(document).ready(function() {
         var ahora = moment().format('DD/MM/YYYY HH:mm:ss');
         $('#fecha_reserva').val(ahora);
     });
 
     //CALCULAR DIFERENCIA ENTRE FECHAS
-      $(function() {
+    $(function() {
         $('input[name="fecha_inicio"]').daterangepicker({
           opens: 'center',
           singleDatePicker: true,
@@ -195,8 +229,8 @@
             locale: {
               format: 'DD/MM HH:mm'
             }
-          });
-      });
+        });
+    });
 
     $(document).ready(function() {
         $('#daterange').daterangepicker({
@@ -239,10 +273,8 @@
         });
     });
 
-    
-
     //FUNCIONALIDAD ACORDION DETALLES
-    $(document).ready(function () {
+    $(document).ready(function() {
         var acc = document.getElementsByClassName("accordion");
         var i;
 
@@ -266,11 +298,13 @@
     //ENVIAR RESERVA
     $("#pagar").on("click", function (e) {
         e.preventDefault();
+        //PREVENIR MODULOS VACIOS
+        sin_transporte();
+        sin_extras();
 
         let reserva = $("#reserva").serializeArray();
         let transporte = $("#md_transporte").serializeArray();
         let departamento = $("#reserva_depto").serializeArray();
-        console.log(reserva,transporte, departamento);
 
         sessionStorage.setItem("reserva", JSON.stringify(reserva));
         sessionStorage.setItem("transporte", JSON.stringify(transporte));
@@ -279,11 +313,10 @@
         let total = $("input[name=valor_total]").val();
         let porcentaje = total*0.4;
         $("#ver_total").text('$'+porcentaje);
-
     });
+
     //                                                       TRANSPORTE
 
-    $(function() {
         $('input[name="vuelta_hora"]').daterangepicker({
             opens: 'center',
             singleDatePicker: true,
@@ -291,8 +324,8 @@
             timePicker24Hour:true,
             minDate:moment().startOf('hour').add(24,'hour'),
             locale: {
-            format: 'DD/MM/YYYY HH:mm '
-          }
+                format: 'DD/MM/YYYY HH:mm'
+            }
         });
         $('input[name="ida_hora"]').daterangepicker({
             opens: 'center',
@@ -301,12 +334,12 @@
             timePicker24Hour:true,
             minDate:moment().startOf('hour').add(3,'hour'),
             locale: {
-              format: 'DD/MM/YYYY HH:mm '
+                format: 'DD/MM/YYYY HH:mm '
             }
-          });
-      });
+        });
+    });
   
-      $(function(){
+    $(function(){
         var miCheckbox = document.getElementById('same_data');
         var vuelta = document.getElementById('vuelta');
         var ida = document.getElementById('ida');
@@ -395,6 +428,7 @@
         $("#valor_transporte").val( parseInt($("#ida_valor").val()) + parseInt( $("#vuelta_valor").val() ));
       });
 
+
         //COMPLETA SERVICIO
         let region = null;
         $.ajax({
@@ -441,13 +475,11 @@
             toastConfig();
             Command: toastr["success"]("Datos guardados!", "Exito");
         }
-
       });
 
 
     //                                                    SERVICIOS EXTRAS
     $(document).ready(function () {
-
         let form_extra = $("#form_extra").serializeArray();
         sessionStorage.setItem("servicios", JSON.stringify(form_extra));
 
@@ -516,7 +548,6 @@
                 return false;
             }
         });
-    });
 
     //                                                                               ACOMPAÑANTES
     //AGREGAR A LA TABLA ACOMPAÑANTE
@@ -636,10 +667,6 @@
     //                                                                          PAGO
     $("#btn_completar").on("click",function () { 
 
-        //VALIDAR FORMULARIO TRANSPORTE VACIO
-        $("#ida_region_origen").val(1);
-        $("#ida_region_destino").val(1);
-        
         //CONFIRMACION
         let reserva = $("#reserva").serializeArray();
         let reserva_depto = $("#reserva_depto").serializeArray();

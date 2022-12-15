@@ -30,6 +30,13 @@ if($accion == 4)
     $data = db_getAsoc($form[0]->value);
     echo $data;
 }
+
+//AGREGAR NUEVO REGISTRO
+if($accion == 10)
+{
+    $data = db_getPago();
+    echo $data;
+}
 //                                              SUBIR FORMULARIOS
 
 //AÑADIR TRANSPORTE
@@ -107,8 +114,8 @@ if($accion == 7)
         $form[2]->value,
         //FECHA TERMINO
         $form[3]->value
-  );
-  echo $data;
+    );
+    echo $data;
 }
 
 //AÑADIR RESERVA - SERVICIOS
@@ -126,8 +133,8 @@ if($accion == 8)
         $form[3]->value,
         //TOTAL SERVICIOS
         $form[4]->value
-  );
-  echo $data;
+    );
+    echo $data;
 }
 
 //AÑADIR RESERVA - TOUR
@@ -147,8 +154,8 @@ if($accion == 8)
         $form[4]->value,
         //TOTAL TOUR
         $form[5]->value
-  );
-  echo $data;
+    );
+    echo $data;
 }
 
 //AÑADIR PAGO
@@ -162,8 +169,23 @@ if($accion == 9)
         $form[1]->value,
         //MONTO
         $form[2]->value
-  );
-  echo $data;
+    );
+    echo $data;
+}
+
+//AÑADIR RESERVA - PAGO
+if($accion == 11)
+{
+    $form = json_decode($_POST['data']);
+    $data = db_addReserva_Pago(
+        //ID RESERVA
+        $form[0]->value,
+        //ID PAGO
+        $form[1]->value,
+        //COMPROBANTE 64
+        $form[2]->value
+    );
+    echo $data;
 }
 
 ?>

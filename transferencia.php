@@ -61,9 +61,9 @@
                         <embed id="img_comprobante" height="500px">
                         <button type="button" id="subir_comprobante" class="btn btn-custom-light col-md-12" disabled>Subir comprobante</button>                   
                     </div><br>
-                    <input type="text" id="pago" name="pago" class="form-control" form="comprobante_pago">
-                    <input type="text" id="fecha_pago" name="fecha_pago" class="form-control" form="comprobante_pago">
-                    <input type="text" id="monto" name="monto" class="form-control" form="comprobante_pago">
+                    <input type="text" id="pago" name="pago" class="form-control" form="comprobante_pago" hidden>
+                    <input type="text" id="fecha_pago" name="fecha_pago" class="form-control" form="comprobante_pago" hidden>
+                    <input type="text" id="monto" name="monto" class="form-control" form="comprobante_pago" hidden>
                     <textarea type="text" id="comprobante_base64" name="comprobante_base64" class="form-control"></textarea>
                 </div>
             </div>
@@ -79,6 +79,6 @@
       <script src="js/jquery-3.0.0.min.js"></script>
       <script src="js/template.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-      <script src="js/jquery.rut.chileno.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
    </body>
 </html>

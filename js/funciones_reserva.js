@@ -106,11 +106,7 @@ $(document).ready(function () {
 
     //                                                                                 FORMULARIO PRINCIPAL
     $(document).ready(function () {
-        var date = new Date();
-        var current_date = date.getFullYear()+(date.getMonth()+1)+date.getDate();
-        var current_time = date.getHours()+date.getMinutes()+date.getSeconds();
-        var current_millisecond = date.getMilliseconds();
-        var date_time = current_date.toString() + current_time.toString() + current_millisecond.toString();
+        var date_time = moment().format('DDMMYYYYHHmmss');
         $("#nro_reserva").val(date_time);
         $("#nro_reserva_transporte").val(date_time);
         $("#nro_reserva_depto").val(date_time);

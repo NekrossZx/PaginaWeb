@@ -30,6 +30,7 @@
         <!-- six_box-->
         <div class="container-fluid">
             <div class="container">
+                <form id="comprobante_pago"></form>
                 <div class="comprobante col-md-12">
                     <h1 class="form_title" style="color: white;">Ingresar Comprobante</h1><br>
                     <div class="row">
@@ -41,24 +42,29 @@
                         <div class="col-md-3"></div>
                     </div><br>
                     <details class="detalles" id="datos_transferencia">
-                        <h1 class="text_align_center">DATOS DE TRANSFERENCIA</h1>
+                        <summary>DATOS DE TRANSFERENCIA</summary>
                         <div>
                             <p><strong>BANCO:</strong> Santander</p>
                             <p><strong>TIPO DE CUENTA:</strong> Corriente</p>
                             <p><strong>NÚMERO DE CUENTA:</strong> 12345698</p>
-                            <p><strong>RUT:</strong> 76.657.489-5</p>
+                            <p><strong>RUT:</strong> 76. 657. 489-5</p>
                             <p><strong>NOMBRE:</strong> Turismo Real spa</p>
                             <p><strong>CORREO ELECTRÓNICO:</strong> reservas@turismoreal.cl</p>
-                            <p><strong>ASUNTO:</strong> Indicar el número de reserva</p><p id="asunto_reserva"></p>
-                            <p><strong>TOTAL RESERVA (40% DEL TOTAL FINAL):</strong><h2 id="ver_total"></h2></p>
+                            <p><strong>ASUNTO:</strong> Indicar el número de reserva</p></p>
+                            <p><strong>TOTAL RESERVA (40% DEL TOTAL FINAL):</strong></p>
+                            <h2 id="ver_total"></h2>
                         </div>
                     </details>
-                    <h2>El archivo del comprobante debe tener como nombre: <em>NOMBRE CLIENTE_RUT CLIENTE_NUMERO RESERVA</em></h2>
+                    <h2>El archivo del comprobante debe tener como nombre: <em>RUT CLIENTE_NUMERO RESERVA</em></h2>
                     <div class="row">
-                        <input type="file" id="comprobante" class="col-md-12" accept=".pdf,.jpg,.png">
-                        <embed id="img_comprobante">
+                        <input type="file" id="comprobante" class="col-md-12" accept=".pdf, .png, .jpg">
+                        <embed id="img_comprobante" height="500px">
                         <button type="button" id="subir_comprobante" class="btn btn-custom-light col-md-12" disabled>Subir comprobante</button>                   
-                    </div>
+                    </div><br>
+                    <input type="text" id="pago" name="pago" class="form-control" form="comprobante_pago">
+                    <input type="text" id="fecha_pago" name="fecha_pago" class="form-control" form="comprobante_pago">
+                    <input type="text" id="monto" name="monto" class="form-control" form="comprobante_pago">
+                    <textarea type="text" id="comprobante_base64" name="comprobante_base64" class="form-control"></textarea>
                 </div>
             </div>
         </div>

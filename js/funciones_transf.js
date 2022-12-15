@@ -32,27 +32,39 @@ $(document).ready(function () {
   
 });
 
-$('#subir_comprobante').on("click", async function(){
-    let formData = new FormData();           
-    formData.append("file", comprobante.files[0]);
-    await fetch('api/upload.php', {
-      method: "POST", 
-      body: formData
-    });    
-    toastConfig();
-        Command: toastr["success"]('El comprobante se envió con éxito', "ENVIADO!");
-        setTimeout(function () { 
-          window.location.replace("cuenta.php");
-        },2000);
-});
-
-$('#comprobante').on("change", function(){
-  const [file] = comprobante.files
-  if (file) 
-  {
-    src= URL.createObjectURL(event.target.files[0])
-    img_comprobante.src = URL.createObjectURL(file)
+$('#comprobante').on("change", function () {
+  const [file] = comprobante.files;
+  if (file) {
+    img_comprobante.src = URL.createObjectURL(file);
+    $('#img_comprobante').attr("height","600");
     $('#subir_comprobante').prop('disabled', false);
   }
+
+});
+
+$('#subir_comprobante').on("click", async function () {
+  let formData = new FormData();
+  formData.append("file", comprobante.files[0]);
+  await fetch('api/upload.php', {
+    method: "POST",
+    body: formData
+  });
+  /*toastConfig();
+  Command: toastr["success"]('El comprobante se envió con éxito', "ENVIADO!");
+  setTimeout(function () {
+    window.location.replace("cuenta.php");
+  }, 2000);*/
+
+  let pagar = $("#comprobante_pago").serializeArray();
+  sessionStorage.setItem("Pago", JSON.stringify(pagar));
+
+  console.log(sessionStorage.getItem("Pago"));
+  $.ajax({
+    data: { data: JSON.stringify(pagar) },
+    url: "api/reserva.php?a=9",
+    type: 'POST',
+    success: function (data) { 
+    }
+  });
 });
 

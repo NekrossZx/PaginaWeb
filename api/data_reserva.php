@@ -112,4 +112,14 @@ function db_addReserva_Tour($nro_reserva_tour, $actividad1, $actividad2, $activi
     $stid = oci_parse($connection,$sql) or die("Query failed: ".oci_error()." Actual db_addReserva_Extra");
     oci_execute($stid);
 }
+
+function db_addPago($pago, $fecha_pago, $monto){
+    $connection = oci_connect('TURISMOREAL', '123', 'localhost');
+
+    $sql = "INSERT INTO pago (id_pago, fecha_pago, estado, monto) VALUES ('$pago', '$fecha_pago', 'REGISTRADO', '$monto')";
+
+    $stid = oci_parse($connection,$sql) or die("Query failed: ".oci_error()." Actual db_addPago");
+    oci_execute($stid);
+}
+
 ?>

@@ -151,4 +151,19 @@ if($accion == 8)
   echo $data;
 }
 
+//AÑADIR PAGO
+if($accion == 9)
+{
+    $form = json_decode($_POST['data']);
+    $data = db_addPago(
+        //ID PAGO
+        $form[0]->value,
+        //FECHA PAGO
+        $form[1]->value,
+        //MONTO
+        $form[2]->value
+  );
+  echo $data;
+}
+
 ?>

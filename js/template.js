@@ -159,7 +159,7 @@ class headerUser extends HTMLElement {
                  </div>
                  <div class="col-sm-9">
                     <ul class="email text_align_right">
-                       <li class="d_none"><i class="fa fa-phone" aria-hidden="true"></i>+56  2 12345678</a></li>
+                       <li class="d_none"><i class="fa fa-phone" aria-hidden="true"></i>+ 56  2 12345678</a></li>
                        <li class="d_none"> <a href="contacto@turismoreal.cl"><i class="fa fa-envelope" aria-hidden="true"></i>contacto@turismoreal.cl</a></li>
                        <li class="d_none" id="user"> <a href="cuenta.php">Usuario <i class="fa fa-user" aria-hidden="true"></i></a> </li>
                        <li> <button class="openbtn" onclick="openNav()"><img src="images/menu_btn.png"></button></li>

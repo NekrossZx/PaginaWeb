@@ -31,7 +31,7 @@
       <user-header></user-header>
       <!--FILTRO-->
       <div class="container-fluid">
-        <div class="col-md-12">
+        <div class="col-md-12" hidden>
           <form id="filtro">
             <div class="filtro">
               <div class="row">

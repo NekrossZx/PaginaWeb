@@ -4,39 +4,39 @@ $(document).ready(function () {
   //                                                                                 FILTRO
 
     //COMPLETA RANGO
-    let rango = null;
-    $.ajax({
-        'async': false,
-        'type': "GET",
-        'global': false,
-        'dataType': 'html',
-        'url': "api/deptos.php?a=3",
-        'data': { 'request': "", 'target': 'arrange_url', 'method': 'method_target' },
-        'success': function (data) {
-          rango = JSON.parse(data);
-        }
-    }); 
+    // let rango = null;
+    // $.ajax({
+    //     'async': false,
+    //     'type': "GET",
+    //     'global': false,
+    //     'dataType': 'html',
+    //     'url': "api/deptos.php?a=3",
+    //     'data': { 'request': "", 'target': 'arrange_url', 'method': 'method_target' },
+    //     'success': function (data) {
+    //       rango = JSON.parse(data);
+    //     }
+    // }); 
 
-    $(rango).each(function (i, item) {
-      $("#filtro_precio").append('<option value="'+item.ARRIENDO_DIARIO+'">'+item.ARRIENDO_DIARIO+'</option>')
-    });
+    // $(rango).each(function (i, item) {
+    //   $("#filtro_precio").append('<option value="'+item.ARRIENDO_DIARIO+'">'+item.ARRIENDO_DIARIO+'</option>')
+    // });
     //COMPLETA SERVICIO
-    let region = null;
-    $.ajax({
-        'async': false,
-        'type': "GET",
-        'global': false,
-        'dataType': 'html',
-        'url': "api/deptos.php?a=2",
-        'data': { 'request': "", 'target': 'arrange_url', 'method': 'method_target' },
-        'success': function (data) {
-          region = JSON.parse(data);
-        }
-    }); 
+    // let region = null;
+    // $.ajax({
+    //     'async': false,
+    //     'type': "GET",
+    //     'global': false,
+    //     'dataType': 'html',
+    //     'url': "api/deptos.php?a=2",
+    //     'data': { 'request': "", 'target': 'arrange_url', 'method': 'method_target' },
+    //     'success': function (data) {
+    //       region = JSON.parse(data);
+    //     }
+    // }); 
 
-    $(region).each(function (i, item) {
-        $("#filtro_region").append('<option value="'+item.NOMBRE+'">'+item.NOMBRE+'</option>')
-    });
+    // $(region).each(function (i, item) {
+    //     $("#filtro_region").append('<option value="'+item.NOMBRE+'">'+item.NOMBRE+'</option>')
+    // });
 
   //                                                                         DEPARTAMENTOS
   //COMPLETA DEPARTAMENTOS

@@ -61,7 +61,7 @@ if(isset($_POST['btn_login'])){
             <div class="container">
                 <div class="formulario">
                     <!--LOGIN-->
-                    <form class="form" id="login" method="POST">
+                    <form class="form" id="login">
                         <h1 class="form_title">Ingresar</h1><br>
                         <div class="form_input-group">
                             <input type="email" id="email" name="email" class="form-control" placeholder="Email">                    
@@ -69,7 +69,7 @@ if(isset($_POST['btn_login'])){
                         <div class="form_input-group">
                             <input type="password" id="contrasena" name="contrasena" class="form-control" placeholder="Contraseña">                   
                         </div>
-                        <button type="submit" class="form_button" id="btn_login">Ingresar</button>
+                        <button type="button" class="form_button" id="btn_login">Ingresar</button>
                         <p class="form_text">
                             <a href="#" class="form_link" id="lostPass">¿Olvidaste tu contraseña?</a>
                         </p>

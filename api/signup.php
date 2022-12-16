@@ -1,6 +1,5 @@
 <?php
 require ('data_signup.php');
-require ('validar.php');
 $accion = $_GET['a'];
 
 if($accion == 1)
@@ -24,7 +23,7 @@ if($accion == 1)
 if($accion == 2)
 {
   $form = json_decode($_POST['data']);
-  $data = db_login(
+  $data = db_getUser(
     //EMAIL
     $form[0]->value,
     //CONTRASENA

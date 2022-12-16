@@ -16,7 +16,9 @@ function db_getDeptos(){
     {
         $data[] = $row;     
     }
-    echo json_encode($data);
+    $json = json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+
+    echo $json;
 }
 
 function db_getRegion(){
@@ -31,7 +33,7 @@ function db_getRegion(){
     {
         $data[] = $row;     
     }
-    echo json_encode($data);
+    echo json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 }
 
 function db_getRango(){
@@ -46,7 +48,7 @@ function db_getRango(){
     {
         $data[] = $row;     
     }
-    echo json_encode($data);
+    echo json_encode($data,JSON_UNESCAPED_UNICODE);
 }
 
 function db_getCarrusel($detalle_depto){
@@ -65,7 +67,7 @@ function db_getCarrusel($detalle_depto){
     {
         $data[] = $row;     
     }
-    echo json_encode($data);
+    echo json_encode($data,JSON_UNESCAPED_UNICODE);
 }
 
 function db_getDetails($detalle_depto){
@@ -84,7 +86,7 @@ function db_getDetails($detalle_depto){
     {
         $rs[] = $row;     
     }
-    echo json_encode($rs);
+    echo json_encode($rs,JSON_UNESCAPED_UNICODE);
 }
 
 function db_getAsociados($detalle_depto){
@@ -105,6 +107,6 @@ function db_getAsociados($detalle_depto){
     {
         $rs[] = $row;     
     }
-    echo json_encode($rs);
+    echo json_encode($rs,JSON_UNESCAPED_UNICODE);
 }
 ?>

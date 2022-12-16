@@ -4,57 +4,73 @@
     .about_box_img {
         margin-right: -20px;
     }
-    
+
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
     ul.email li {
         padding: 0 9px;
     }
+
     .banner_main .bg_white h1 {
         font-size: 60px;
     }
+
     .carousel-indicators {
         margin-left: 12%;
     }
+
     .about_box_img {
         margin-right: 35px;
     }
+
     .about_box_text p {
         font-size: 17px;
         line-height: 26px;
     }
+
     .margin_left60 {
         margin-left: -80px;
         margin-right: 80px;
     }
+
     .instant .titlepage h2 {
         font-size: 69px;
         line-height: 83px;
     }
+
     .reader h3 {
         font-size: 26px;
     }
-    .services_main{
+
+    .services_main {
         padding-bottom: 190px;
     }
-    .index-footer{
+
+    .index-footer {
         padding-top: 160px;
     }
-    .instant::before{
+
+    .instant::before {
         height: 160px;
         bottom: -159px;
     }
-    .instant::after{
+
+    .instant::after {
         height: 180px;
         top: -179px;
     }
-    .logo-footer{
+
+    .logo-footer {
         margin-left: 0;
         width: 100%;
     }
 
-    .reader p{
+    .sidebar_btn {
+        display: none !important;
+    }
+
+    .reader p {
         text-align: center;
     }
 }
@@ -63,86 +79,111 @@
     .d_none {
         display: none !important;
     }
-    #user{
-        display: block !important; 
+
+    #user {
+        display: block !important;
     }
-    .banner_main{
+
+    .banner_main {
         height: 900px;
     }
-    #logo_banner{
+
+    #logo_banner {
         width: 333px;
         border-radius: 20px;
     }
+
     .banner_main .bg_white h1 {
         font-size: 39px;
         line-height: 40px;
     }
-    .banner_main2{
+
+    .banner_main2 {
         height: 672px;
         margin-bottom: 100px;
     }
+
     .carousel-indicators {
         margin-left: 13%;
     }
+
     .about_box_img {
         margin-right: 35px;
     }
+
     .about_box_text h3 {
         padding-bottom: 2px;
         font-size: 20px;
     }
+
     .about_box_text p {
         font-size: 17px;
         line-height: 26px;
     }
+
     .ho_dist span {
         font-size: 18px;
     }
+
     .margin_left60 {
         margin-left: -32px;
         margin-right: 32px;
     }
+
     .instant .titlepage h2 {
         font-size: 41px;
         line-height: 50px;
     }
+
     .instant::before {
         height: 200px;
         bottom: -200px;
     }
+
     .instant::after {
         height: 200px;
         top: -200px;
     }
-    .instant_img{
+
+    .instant_img {
         margin-top: 75px;
     }
+
     ul.social_icon li {
         padding-right: 117px;
     }
+
     .reader h3 {
         font-size: 20px;
     }
+
     ul.xple_menu li a {
         font-size: 14px;
     }
-    .services_main{
+
+    .services_main {
         padding-bottom: 200px;
         padding-top: 30px;
     }
-    .index-footer{
+
+    .index-footer {
         padding-top: 165px;
     }
 
-    .logo-footer{
+    .sidebar_btn {
+        display: block !important;
+    }
+
+    .logo-footer {
         margin-left: 0;
         width: auto;
     }
-    .reader p{
+
+    .reader p {
         text-align: center;
     }
 
-    ul.re_post img{
+    ul.re_post img {
         width: 100px;
     }
 }
@@ -151,127 +192,163 @@
     .d_none {
         display: none !important;
     }
-    #user{
-        display: block !important; 
+
+    #user {
+        display: block !important;
     }
-    .logo-top{
+
+    .logo-top {
         margin-top: -36px;
         border-radius: 0px 0px 10px 10px;
     }
+
     .logo-footer {
         text-align: center;
         display: block;
         width: auto;
-        margin: -80px 0px -90px 0px ;
+        margin: -80px 0px -90px 0px;
     }
+
     .banner_main {
         padding-top: 120px;
         display: inherit;
         height: 500px;
     }
-    .banner_main2{
+
+    .banner_main2 {
         background-size: 100% 130%;
         height: 500px;
         padding: 0;
         margin-bottom: 65px;
     }
-    .titlepage img{
+
+    .titlepage img {
         padding: 0;
         width: 255px !important;
         margin-top: 6%;
         border-radius: 10px;
     }
-    .about{
+
+    .about {
         height: 200px;
 
     }
-    .services_main{
+
+    .services_main {
         margin-bottom: 200px;
         height: 500px;
         background-image: none;
     }
-    .services_img{
+
+    .services_img {
         width: 50%;
         height: auto;
     }
+
     .banner_main .bg_white h1 {
         font-size: 30px;
         line-height: 40px;
     }
+
     .carousel-indicators {
         margin-left: 44%;
         top: 90%;
     }
+
     .about_box_img {
         padding: 35px;
         margin-right: 0px;
     }
+
     .titlepage h2 {
         font-size: 23px;
         line-height: 29px;
     }
+
     .lisertab .servi_tab {
         padding: 12px 22px;
     }
+
     .ho_dist span {
         font-size: 18px;
     }
+
     .padding_0 {
         padding: 15px
     }
+
     .margin_top70p {
         margin-top: 0px;
     }
+
     .margin_left20 {
         margin-left: 0px;
     }
+
     .margin_right20 {
         margin-right: 0px;
     }
+
     .margin_top170 {
         margin-top: 0px;
     }
+
     .margin_left60 {
         margin-left: 0px;
         margin-right: 0px;
     }
+
     .margin_top40 {
         margin-top: 0px;
     }
+
     .instant .titlepage {
-        width:100% ;
+        width: 100%;
         margin-right: 140px;
     }
+
     .instant .titlepage h2 {
         font-size: 54px;
         line-height: 68px;
     }
+
     .instant_img {
         margin-top: 30px;
     }
+
     .instant::before {
         height: 100px;
         bottom: -100px;
     }
+
     .instant::after {
         height: 100px;
         top: -100px;
     }
+
     ul.social_icon li {
         padding-right: 90px;
     }
-    #dptos{
+
+    #dptos {
         margin-left: 200px;
     }
+
     .reader p {
         padding-bottom: 20px;
         text-align: center;
     }
+
     .main_form {
         padding-bottom: 30px;
     }
+
     .padddd {
         padding-right: 15px;
+    }
+
+    .sidebar_btn {
+        display: block !important;
     }
 
     .index-footer {
@@ -283,159 +360,203 @@
     header {
         padding: 33px 10px;
     }
+
     .d_none {
         display: none !important;
     }
-    #user{
-        display: block !important; 
+
+    #user {
+        display: block !important;
     }
-    ul.email{
+
+    ul.email {
         padding-top: 12px;
     }
+
     .logo {
         display: block;
         width: 120px;
         float: left;
     }
-    .logo-top{
+
+    .logo-top {
         margin-top: -52px;
         border-radius: 0;
     }
-    .logo-footer{
+
+    .logo-footer {
         margin-left: 130px;
         margin-top: -50px;
         display: flex;
         width: 280px;
     }
-    .reader p{
+
+    .reader p {
         text-align: center;
     }
+
     .email {
         margin-top: -82px;
     }
+
     .banner_main {
         padding-top: 120px;
         display: inherit;
         height: 500px;
     }
-    .about{
+
+    .about {
         background-image: none;
     }
-    .services_main{
+
+    .services_main {
         margin-top: 100px;
         margin-bottom: 575px;
         height: 500px;
         background-image: none;
     }
-    .services_img{
+
+    .services_img {
         width: 35%;
         height: auto;
     }
+
     .banner_main2 {
         padding-top: 50px;
         display: inherit;
         height: auto;
         background-image: none;
     }
-    .banner_main2 .titlepage{
+
+    .banner_main2 .titlepage {
         padding: 0;
     }
-    #logo_banner{
+
+    #logo_banner {
         padding: 0;
         width: 25%;
         margin-top: 15%;
         border-radius: 10px;
     }
+
     .login {
         padding-top: 120px;
         display: inherit;
     }
+
     .banner_main .bg_white h1 {
         font-size: 28px;
         line-height: 44px;
         padding-bottom: 20px;
     }
+
     .carousel-indicators {
         margin-top: -75px;
         margin-left: 42%;
     }
+
     .about_box_text h3 {
         font-size: 21px;
         padding-bottom: 11px;
     }
+
     .about_box_img {
         padding: 15px;
         margin-right: 0px;
     }
+
     .about_box_text {
         padding-left: 10px;
     }
+
     .building {
         background: #540705;
         padding-top: 90px;
         padding-bottom: 40px;
     }
+
     .titlepage h2 {
         font-size: 23px;
         line-height: 29px;
     }
+
     .ho_dist span {
         font-size: 18px;
     }
+
     .padding_0 {
         padding: 15px
     }
+
     .margin_top70p {
         margin-top: 0px;
     }
+
     .margin_left20 {
         margin-left: 0px;
     }
+
     .margin_right20 {
         margin-right: 0px;
     }
+
     .margin_top170 {
         margin-top: 0px;
     }
+
     .margin_left60 {
         margin-left: 0px;
         margin-right: 0px;
     }
+
     .margin_top40 {
         margin-top: 0px;
     }
+
     .instant .titlepage h2 {
         font-size: 43px;
         line-height: 53px;
     }
+
     .instant_img {
         display: none;
     }
+
     .instant::before {
         height: 100px;
         bottom: -100px;
     }
+
     .instant::after {
         height: 100px;
         top: -100px;
     }
+
     ul.social_icon li {
         padding-right: 15px;
     }
+
     .reader h3 {
         padding-top: 30px;
     }
+
     .main_form {
         padding-bottom: 30px;
     }
+
     .padddd {
         padding-right: 15px;
     }
+
     .index-footer {
         margin-top: -250px;
     }
 
-    .read_more{
+    .sidebar_btn {
+        display: block !important;
+    }
+
+    .read_more {
         max-width: 100%;
     }
 }

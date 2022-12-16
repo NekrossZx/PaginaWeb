@@ -244,6 +244,17 @@ img {
      border: none !important;
 }
 
+.btn-nav{
+     color: white;
+     background-color: transparent;
+     font-size: 16px;
+     font-weight: 600;
+}
+
+.sidebar_btn{
+     display: none !important;
+}
+
 .badge {
      font-weight: 500;
 }

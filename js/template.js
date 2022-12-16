@@ -144,7 +144,7 @@ class headerUser extends HTMLElement {
         <a href="contact.php">Contacto</a>
         <a href="departamentos.php">Departamentos</a>
         <a href="cuenta.php" id="cuenta_side" hidden>Mi Cuenta</a>
-        <button type="submit" id="logout" hidden>Cerrar Sesión</button>
+        <button type="button" id="logout" hidden>Cerrar Sesión</button>
      </div>
      <!-- header -->
      <header>
@@ -152,19 +152,20 @@ class headerUser extends HTMLElement {
         <div class="head-top">
            <div class="container-fluid">
               <div class="row">
-                 <div class="col-sm-3">
-                    <div class="logo">
-                       <a href="index.php"><img src="images/logo1.png" class="logo-top"/></a>
-                    </div>
-                 </div>
-                 <div class="col-sm-9">
-                    <ul class="email text_align_right">
-                       <li class="d_none"><i class="fa fa-phone" aria-hidden="true"></i>+ 56  2 12345678</a></li>
-                       <li class="d_none"> <a href="contacto@turismoreal.cl"><i class="fa fa-envelope" aria-hidden="true"></i>contacto@turismoreal.cl</a></li>
-                       <li class="d_none"> <a id="user" href="cuenta.php">Usuario <i class="fa fa-user" aria-hidden="true"></i></a> </li>
-                       <li> <button class="openbtn" onclick="openNav()"><img src="images/menu_btn.png"></button></li>
-                    </ul>
-                 </div>
+                  <div class="col-sm-3">
+                     <div class="logo">
+                        <a href="index.php"><img src="images/logo1.png" class="logo-top"/></a>
+                     </div>
+                  </div>
+                  <div class="col-sm-9">
+                     <ul class="email text_align_right">
+                        <li class="d_none"><a href="contact.php">CONTACTO</a></li> 
+                        <li class="d_none"><a href="departamentos.php">DEPARTAMENTOS</a></li>
+                        <li class="d_none"><a id="user" href="cuenta.php"><i class="fa fa-user" aria-hidden="true"></i></a> </li>
+                        <li class="d_none"><button type="button" id="logout_bar" class="btn-nav" hidden>Cerrar Sesión</button></li>
+                        <li class="sidebar_btn"><button class="openbtn" onclick="openNav()"><img src="images/menu_btn.png"></button></li>
+                     </ul>
+                  </div>
               </div>
            </div>
         </div>
@@ -185,11 +186,11 @@ $(document).ready(function () {
    } else {
       let obj = JSON.parse(usuario);
       let email = obj[0].value;
-      $("#user").html(email + ' ' +`<i class="fa fa-user" aria-hidden="true"></i>`);
+      $("#user").html(email + ' ' + `<i class="fa fa-user" aria-hidden="true"></i>`);
       $("#user").attr("href", "cuenta.php");
       $("#cuenta_side").attr("hidden", false);
       $("#logout").attr("hidden", false);
-
+      $("#logout_bar").attr("hidden", false);
       //COMPLETA DEPARTAMENTOS
       $.ajax({
          'async': false,
@@ -197,7 +198,7 @@ $(document).ready(function () {
          'global': false,
          'dataType': 'html',
          'url': "api/cuenta.php?a=5",
-         'data': { data : usuario},
+         'data': { data: usuario },
          'success': function (data) {
             sessionStorage.setItem("login", data);
          }
@@ -205,16 +206,16 @@ $(document).ready(function () {
    }
 });
 
-$("#logout").on( "click", function () { 
+$("#logout").on("click", function () {
 
    let confirmar = confirm("¿Desea Cerrar Sesión?");
 
-   if (confirmar == true){
+   if (confirmar == true) {
       sessionStorage.removeItem("user");
       sessionStorage.removeItem("login");
       sessionStorage.removeItem("update");
       window.location.replace("index.php");
-   }else{
+   } else {
       return false;
    }
 

@@ -55,43 +55,6 @@
                            <div class="col-md-12">
                               <div class="titlepage text_align_center">
                                  <h1 class="form_title">RESERVA</h1>
-                                    <div class="container-fluid">
-                                       <h4 style="color: black;">DATOS CLIENTE</h4><br>
-                                       <details id="datos_cliente">
-                                          <summary>CLIENTE</summary>
-                                              <!--Servicios incluidos-->
-                                              <div class="col-md-12">
-                                                  <div class="row">
-                                                      <!--INFORMACION CLIENTE-->
-                                                         <div class="col-md-2"></div>
-                                                         <!--RUT CLIENTE-->
-                                                         <div class="col-md-2"><label for="">RUT</label>
-                                                            <input type="text" id="rut_cliente" name="rut_cliente" class="form-control" required>
-                                                         </div>
-                                                         <!--NOMBRE CLIENTE-->
-                                                         <div class="col-md-3"><label for="">Nombres</label>
-                                                            <input type="text" id="nombre_cliente" name="nombre_cliente" class="form-control" required>
-                                                         </div>
-                                                         <!--APELLIDO CLIENTE-->
-                                                         <div class="col-md-3"><label for="">Apellidos</label>
-                                                            <input type="text" id="apellido_cliente" name="apellido_cliente" class="form-control" required>
-                                                         </div>
-                                                         <div class="col-md-2"></div>
-                                                      <!--CONTACTO CLIENTE-->
-                                                         <div class="col-md-3"></div>
-                                                         <!--TELEFONO CLIENTE-->
-                                                         <div class="col-md-3"><label for="">Teléfono</label>
-                                                            <input type="tel" id="telefono_cliente" name="telefono_cliente" class="form-control">
-                                                         </div>
-                                                         <!--EMAIL CLIENTE-->
-                                                         <div class="col-md-3"><label for="">Email</label>
-                                                            <input type="text" id="email_cliente" name="email_cliente" class="form-control" required>
-                                                         </div>
-                                                         <div class="col-md-3"></div>
-                                                  </div>
-                                              </div>
-                                      </details><br>
-                                    </div>
                                     <div id="datos_depto"  class="container-fluid">
                                     </div>
                                     <div id="datos_reserva" class="container-fluid">
@@ -142,8 +105,8 @@
                                                    <input type="number" id="valor_total" name="valor_total" class="form-control" readonly><br>
                                                 </div>
                                                 <!--RUT CLIENTE-->
-                                                <div class="col-md-2" hidden><label for="">Valor total reserva</label>
-                                                   <input type="text" id="rut_cliente2" name="rut_cliente2" class="form-control" value="20.293.515-K" readonly><br>
+                                                <div class="col-md-2" hidden>
+                                                   <input type="text" id="rut_cliente" name="rut_cliente" class="form-control" readonly><br>
                                                 </div>
                                              </div>
                                           </form>

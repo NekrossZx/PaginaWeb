@@ -53,6 +53,10 @@ $(document).ready(function () {
             console.log(confirmar_user);
             window.location.replace('login.php');
         }
+
+        let login = sessionStorage.getItem("login");
+        let obj = JSON.parse(login);
+        $("#rut_cliente").val(obj[0].RUT_CLIENTE);
     });
 
     function sin_transporte() {

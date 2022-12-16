@@ -67,10 +67,10 @@ function db_getAsoc($detalle_depto){
     echo json_encode($data);
 }
 
-function db_addReserva($nro_reserva,$total_personas,$fecha_reserva,$valor_dias,$valor_total,$rut_cliente2,$cantidad_ninos,$cantidad_adultos){
+function db_addReserva($nro_reserva,$total_personas,$fecha_reserva,$valor_dias,$valor_total,$rut_cliente,$cantidad_ninos,$cantidad_adultos){
     $connection = oci_connect('TURISMOREAL', '123', 'localhost');
     $sql = "INSERT INTO reserva (nro_reserva, total_personas, fecha_reserva , valor_dias, valor_total, cliente_rut_cliente,cantidad_ninos,cantidad_adultos,estado) 
-    VALUES ('$nro_reserva','$total_personas', '$fecha_reserva', '$valor_dias', '$valor_total','$rut_cliente2','$cantidad_ninos','$cantidad_adultos','REGISTRADA')";
+    VALUES ('$nro_reserva','$total_personas', '$fecha_reserva', '$valor_dias', '$valor_total','$rut_cliente','$cantidad_ninos','$cantidad_adultos','REGISTRADA')";
 
     $stid = oci_parse($connection,$sql) or die("Query failed: ".oci_error()." Actual db_addReserva");
     oci_execute($stid);

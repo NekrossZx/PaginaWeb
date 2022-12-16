@@ -5,14 +5,16 @@ $accion = $_GET['a'];
 
 //AGREGAR NUEVO REGISTRO
 if($accion == 1)
-{
-    $data = db_getReservas();
+{   
+    $form = json_decode($_POST['data']);
+    $data = db_getReservas($form[0]->value);
     echo $data;
 }
 //MOSTRAR CLIENTE
 if($accion == 2)
-{
-    $data = db_getUsuario();
+{   
+    $form = json_decode($_POST['data']);
+    $data = db_getUsuario($form[0]->value);
     echo $data;
 }
 //ACTUALIZAR RESERVA
@@ -21,9 +23,7 @@ if($accion == 3)
     $form = json_decode($_POST['data']);
     $data = db_updateReserva(
         //ID
-        $form[0]->value,
-        //ID
-        $form[1]->value
+        $form[0]->value
     );
     echo $data;
 }
@@ -37,21 +37,19 @@ if($accion == 4)
         $form[1]->value,
         $form[2]->value,
         $form[3]->value,
-        $form[4]->value
+        $form[4]->value,
+        $form[5]->value
     );
     echo $data;
 }
-//ACTUALIZAR CONTRASEÑA
+
+//LOGIN CLIENTE
 if($accion == 5)
-{
+{   
     $form = json_decode($_POST['data']);
-    $data = db_updatePass(
-        $form[0]->value,
-        $form[1]->value,
-        $form[2]->value,
-        $form[3]->value,
-        $form[4]->value,
-        $form[5]->value
+    $data = db_getLogin(
+    $form[0]->value,
+    $form[1]->value
     );
     echo $data;
 }

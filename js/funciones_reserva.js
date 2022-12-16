@@ -47,6 +47,12 @@ $(document).ready(function () {
             console.log(confirmar_depto);
             window.location.replace('departamentos.php');
         }
+
+        let confirmar_user = sessionStorage.getItem("user");
+        if(confirmar_user == undefined || confirmar_user == '' || confirmar_user == null){
+            console.log(confirmar_user);
+            window.location.replace('login.php');
+        }
     });
 
     function sin_transporte() {

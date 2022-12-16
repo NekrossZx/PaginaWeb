@@ -177,8 +177,6 @@ customElements.define('user-header', headerUser);
 
 $(document).ready(function () {
 
-   
-
    let usuario = sessionStorage.getItem("user");
 
    if (usuario == 0 || usuario == null || usuario == '' || usuario == undefined) {
@@ -187,9 +185,37 @@ $(document).ready(function () {
    } else {
       let obj = JSON.parse(usuario);
       let email = obj[0].value;
-      $("#user").html(email + `<i class="fa fa-user" aria-hidden="true"></i>`);
+      $("#user").html(email + ' ' +`<i class="fa fa-user" aria-hidden="true"></i>`);
       $("#user").attr("href", "cuenta.php");
       $("#cuenta_side").attr("hidden", false);
       $("#logout").attr("hidden", false);
+
+      //COMPLETA DEPARTAMENTOS
+      $.ajax({
+         'async': false,
+         'type': "POST",
+         'global': false,
+         'dataType': 'html',
+         'url': "api/cuenta.php?a=5",
+         'data': { data : usuario},
+         'success': function (data) {
+            sessionStorage.setItem("login", data);
+         }
+      });
    }
+});
+
+$("#logout").on( "click", function () { 
+
+   let confirmar = confirm("¿Desea Cerrar Sesión?");
+
+   if (confirmar == true){
+      sessionStorage.removeItem("user");
+      sessionStorage.removeItem("login");
+      sessionStorage.removeItem("update");
+      window.location.replace("index.php");
+   }else{
+      return false;
+   }
+
 });

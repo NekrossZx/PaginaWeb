@@ -135,7 +135,7 @@ body{
     padding-bottom: 15px;
     border-bottom: 1px solid #eaeaf1;
     margin-bottom: 20px;
-    margin-top: 20px;
+    margin-top: 0 !important;
     color: #616670;
     font-size: 16px
     }

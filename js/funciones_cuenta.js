@@ -219,8 +219,7 @@ $(document).ready(function () {
     var data = table.row($(this).parents('tr')).data();
     var obj = data;
     var cancelacion = `[{"name":"nro_reserva","value":"` + obj.NRO_RESERVA + `"}]`;
-    console.log(cancelacion)
-    var confirmar = confirm("¿Desea cancelar la reserva seleccionada?");
+    var confirmar = confirm("¿Desea cancelar la reserva seleccionada? N° Reserva: " + obj.NRO_RESERVA);
 
     if (confirmar === true) {
       $.ajax({
@@ -228,9 +227,9 @@ $(document).ready(function () {
         'url': "api/cuenta.php?a=3",
         'type': 'POST',
         complete: function () {
-          //LIMPIAR FORMULARIO
-          let dt = $('#dt_reserva').DataTable();
-          dt.ajax.reload();
+          setTimeout(function () {
+            table.ajax.reload();
+          }, 2000);
         }
       });
     } else {

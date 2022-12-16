@@ -51,7 +51,7 @@ function db_getReservas($rut_cliente){
 
 function db_updateReserva($nro_reserva){
     $connection = oci_connect('TURISMOREAL', '123', 'localhost');
-    $sql = "UPDATE reserva SET estado = 'CANCELADA' WHERE nro_reserva = '.$nro_reserva.'";
+    $sql = "UPDATE reserva SET estado = 'CANCELADA' WHERE nro_reserva = '".$nro_reserva."' ";
 
     $stid = oci_parse($connection,$sql) or die("Query failed: ".oci_error()." Actual db_updateReserva");
     oci_execute($stid);

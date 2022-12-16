@@ -22,7 +22,7 @@ if($accion == 3)
 {
     $form = json_decode($_POST['data']);
     $data = db_updateReserva(
-        //ID
+        //NRO_RESERVA
         $form[0]->value
     );
     echo $data;

@@ -64,7 +64,7 @@
                     <input type="text" id="pago" name="pago" class="form-control" form="comprobante_pago" hidden>
                     <input type="text" id="fecha_pago" name="fecha_pago" class="form-control" form="comprobante_pago" hidden>
                     <input type="text" id="monto" name="monto" class="form-control" form="comprobante_pago" hidden>
-                    <input type="text" id="comprobante_base64" name="comprobante_base64" class="form-control">
+                    <input type="text" id="comprobante_base64" name="comprobante_base64" class="form-control" hidden>
                 </div>
             </div>
         </div>

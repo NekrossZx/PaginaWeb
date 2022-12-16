@@ -143,7 +143,7 @@ function db_addReserva_Pago($id_reserva, $id_pago, $comprobante_64){
     $sql = "INSERT INTO pago_reserva (reserva_nro_reserva, pago_id_pago, descripcion, medio_pago, comprobante_transferencia) 
     VALUES ('$id_reserva', '$id_pago', 'RESERVA', 'TRANSFERENCIA', '$comprobante_64')";
 
-    $stid = oci_parse($connection,$sql) or die("Query failed: ".oci_error()." Actual db_addPago");
+    $stid = oci_parse($connection,$sql) or die("Query failed: ".oci_error()." Actual db_addReserva_Pago");
     oci_execute($stid);
 }
 ?>

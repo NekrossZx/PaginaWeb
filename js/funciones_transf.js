@@ -48,7 +48,6 @@ $(document).ready(function () {
     }
   });
 
-  console.log(id_pago);
   $(id_pago).each(function (i, item) {
     $("#pago").val(item.PAGO);
   });
@@ -75,10 +74,7 @@ $('#comprobante').on("change", function () {
     // Onload of file read the file content
     fileReader.onload = function (fileLoadedEvent) {
       base64 = fileLoadedEvent.target.result;
-      let string_base64 = fileReader.result.replace("data:","").replace(/^.+,/, "");
-            // Print data in console
-            console.log(string_base64);
-      $("#comprobante_base64").val(string_base64);
+      $("#comprobante_base64").val(base64);
     };
     // Convert data to base64
     fileReader.readAsDataURL(fileToLoad);
@@ -110,7 +106,6 @@ $('#subir_comprobante').on("click", function () {
     data: { data: JSON.stringify(pagar) },
     url: "api/reserva.php?a=9",
     type: 'POST',
-    success: function () { },
     complete: function () {
       $.ajax({
         data: { data: JSON.stringify(pago_reserva) },

@@ -1,6 +1,6 @@
 //FOOTER
-  class MyFooter extends HTMLElement {
-    connectedCallback() {
+class MyFooter extends HTMLElement {
+   connectedCallback() {
       this.innerHTML = `<!-- footer -->
          <footer class="footer">
             <div class="container">
@@ -61,15 +61,15 @@
             </div>
          </footer>
       <!-- end footer -->`;
-    }
-  }
-      
-  customElements.define('my-footer', MyFooter);
+   }
+}
 
-  //FOOTER INDEX
-  class indexFooter extends HTMLElement {
+customElements.define('my-footer', MyFooter);
+
+//FOOTER INDEX
+class indexFooter extends HTMLElement {
    connectedCallback() {
-     this.innerHTML = `<!-- footer -->
+      this.innerHTML = `<!-- footer -->
      <footer class="index-footer">
            <div class="container">
               <div class="row">
@@ -130,21 +130,21 @@
      </footer>
      <!-- end footer -->`;
    }
- }
-     
- customElements.define('index-footer', indexFooter);
+}
 
- //HEADER
+customElements.define('index-footer', indexFooter);
+
+//HEADER
 class headerUser extends HTMLElement {
    connectedCallback() {
-     this.innerHTML = `
+      this.innerHTML = `
      <div id="mySidepanel" class="sidepanel">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
         <a href="index.php">Home</a>
         <a href="contact.php">Contacto</a>
         <a href="departamentos.php">Departamentos</a>
-        <a href="cuenta.php">Mi Cuenta</a>
-        <button type="submit" id="logout">Cerrar Sesión</button>
+        <a href="cuenta.php" id="cuenta_side" hidden>Mi Cuenta</a>
+        <button type="submit" id="logout" hidden>Cerrar Sesión</button>
      </div>
      <!-- header -->
      <header>
@@ -161,7 +161,7 @@ class headerUser extends HTMLElement {
                     <ul class="email text_align_right">
                        <li class="d_none"><i class="fa fa-phone" aria-hidden="true"></i>+ 56  2 12345678</a></li>
                        <li class="d_none"> <a href="contacto@turismoreal.cl"><i class="fa fa-envelope" aria-hidden="true"></i>contacto@turismoreal.cl</a></li>
-                       <li class="d_none" id="user"> <a href="cuenta.php">Usuario <i class="fa fa-user" aria-hidden="true"></i></a> </li>
+                       <li class="d_none"> <a id="user" href="cuenta.php">Usuario <i class="fa fa-user" aria-hidden="true"></i></a> </li>
                        <li> <button class="openbtn" onclick="openNav()"><img src="images/menu_btn.png"></button></li>
                     </ul>
                  </div>
@@ -171,6 +171,25 @@ class headerUser extends HTMLElement {
      </header>
      <!-- end header -->`;
    }
- }
-     
- customElements.define('user-header', headerUser);
+}
+
+customElements.define('user-header', headerUser);
+
+$(document).ready(function () {
+
+   
+
+   let usuario = sessionStorage.getItem("user");
+
+   if (usuario == 0 || usuario == null || usuario == '' || usuario == undefined) {
+      $("#user").html(`Login <i class="fa fa-user" aria-hidden="true"></i>`);
+      $("#user").attr("href", "login.php");
+   } else {
+      let obj = JSON.parse(usuario);
+      let email = obj[0].value;
+      $("#user").html(email + `<i class="fa fa-user" aria-hidden="true"></i>`);
+      $("#user").attr("href", "cuenta.php");
+      $("#cuenta_side").attr("hidden", false);
+      $("#logout").attr("hidden", false);
+   }
+});

@@ -102,7 +102,8 @@ body {
 }
 
 .deps{
-  margin-top: 23em;
+  margin-top: 12em;
+  margin-bottom: 15em;
 }
 
 .price-range-slider {
@@ -234,7 +235,8 @@ option:hover{
   }
 
   .deps{
-    margin-top: 20em;
+    margin-top: 12em;
+    margin-bottom: 15em;
   }
 }
 @media (min-width: 1200px) and (max-width: 1300px) { 
@@ -255,7 +257,8 @@ option:hover{
   }
 
   .deps{
-    margin-top: 20em;
+    margin-top: 12em;
+    margin-bottom: 15em;
   }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -280,7 +283,7 @@ option:hover{
   }
 
   .deps{
-    margin-top: 18em;
+    margin-top: 12em;
   }
 }
 @media (min-width: 768px) and (max-width: 991px) { 
@@ -314,7 +317,7 @@ option:hover{
   }
 
   .deps{
-    margin-top: 20em;
+    margin-top: 12em;
   }
 
 }
@@ -348,7 +351,7 @@ option:hover{
   }
 
   .deps{
-    margin-top: 30em;
+    margin-top: 10em;
   }
 
   .footer{
@@ -382,7 +385,7 @@ option:hover{
   }
 
   .deps{
-    margin-top: 31em;
+    margin-top: 8em;
   }
 
 }

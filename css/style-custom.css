@@ -152,9 +152,9 @@ body {
   margin-bottom: 2em;
 }
 .comprobante{
-  margin-top: 20em;
+  margin-top: 16em;
   padding: 1em;
-  margin-bottom: 10em;
+  margin-bottom: 16em;
   background-color: #fd990c;
   border-radius: 20px;
 }
@@ -166,9 +166,23 @@ body {
 .comprobante>h2{
   background-color: #8b1310;
   color: white;
-  border-radius: 5px;
+  border-radius: 0;
   padding: 5px;
   text-align: center;
+}
+
+.comprobante #datos_transferencia{
+  padding: 5px;
+  background-color: #8b1310;
+  border-radius: 0;
+  color: white;
+  font-size: 1em;
+  width: 100% !important;
+  margin: 0;
+}
+
+#ver_total , .detalles>h1{
+  color: white;
 }
 
 ::-webkit-file-upload-button{

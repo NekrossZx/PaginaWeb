@@ -6,9 +6,25 @@
 @import url('https://fonts.googleapis.com/css?family=Rajdhani:300,400,500,600,700');
 @import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
 @import url('https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+@font-face {
+     font-family: 'THEBOLDFONT'; /*a name to be used later*/
+     src: url("../fonts/THEBOLDFONT.otf");
+ }
+ @font-face {
+     font-family: 'BebasKai'; /*a name to be used later*/
+     src: url("../fonts/BebasKai.otf");
+ }
+ @font-face {
+     font-family: 'Yeseva'; /*a name to be used later*/
+     src: url("../fonts/YesevaOne-Regular.ttf");
+ }
+ @font-face {
+     font-family: 'Timeless'; /*a name to be used later*/
+     src: url("../fonts/Timeless.ttf");
+ }
 /*--------------------------------------------------------------------- import Files ---------------------------------------------------------------------*/
 
-@import url(font-awesome.min.css);
+@import url(/paginaweb/css/font-awesome.min.css);
 
 /*--------------------------------------------------------------------- basic ---------------------------------------------------------------------*/
 
@@ -17,9 +33,8 @@
 body {
      color: #666666;
      font-size: 14px;
-     font-family: 'Raleway', sans-serif;
-     line-height: 1.80857;
-     font-weight: normal;
+     font-family: 'Timeless';
+     font-weight: 600;
 
      --color-secondary: #252c6a;
      --color-error: #cc3333;
@@ -210,7 +225,6 @@ img {
 }
 .btn-custom:hover,.btn-custom-light:hover, .btn-filtro:hover, .btn-custom:focus,.btn-custom-light:focus, .btn-filtro:focus{
      color: white;
-     border: 2px solid #fe9a0c;
 }
 
 .lead {
@@ -1196,14 +1210,17 @@ ul.re_post li {
  .form_link:hover {
      text-decoration: underline;
  }
- @font-face {
-     font-family: 'THEBOLDFONT'; /*a name to be used later*/
-     src: url("../fonts/THEBOLDFONT.otf");
+
+ .comprobante #nro_reserva{
+     font-family: 'BebasKai';
+     font-size: 5em;
+     color: white;
+     text-align: center;
+     background-color: #8b1310;
+     height: 1.2em;
+     border-radius: 0;
  }
- @font-face {
-     font-family: 'BebasKai'; /*a name to be used later*/
-     src: url("../fonts/BebasKai.otf");
- }
+
 
  /*CLASES CUSTOM*/
  

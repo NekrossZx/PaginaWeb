@@ -59,7 +59,7 @@ $(document).ready(function () {
       <h1 style="color:white; id="nombre">`+item.NOMBRE_REGION+`</h1>
       <img class="image i1" src="images/deptos/`+item.IMAGEN+`" alt="img">
       <div class="details">
-        <h1>Codigo:`+item.ID_DEPARTAMENTO+`<em id="codigo"></em></h1>
+        <h1>Código:`+item.ID_DEPARTAMENTO+`<em id="codigo"></em></h1>
         <h2 id="`+item.NOMBRE+`">`+item.NOMBRE+`</h2>
       </div>
       <p>ARRIENDO DIARIO</p>
@@ -73,7 +73,7 @@ $(document).ready(function () {
     let select = $(this).val();
     $("#detalle_depto").val(select);
     let form = $("#detalle_depto").serializeArray();
-    localStorage.setItem("detalle", JSON.stringify(form));
+    sessionStorage.setItem("detalle", JSON.stringify(form));
 
     window.location.replace("dep.php?id="+select);
   });

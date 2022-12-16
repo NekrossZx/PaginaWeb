@@ -57,7 +57,7 @@ $(document).ready(function () {
       $("#vista_depts").append(`
       <div class="wrapper" id="dep`+item.ID_DEPARTAMENTO+`">
       <h1 style="color:white; id="nombre">`+item.NOMBRE_REGION+`</h1>
-      <img class="image i1" src="images/deptos/`+item.IMAGEN+`.jpg" alt="img">
+      <img class="image i1" src="images/deptos/`+item.IMAGEN+`" alt="img">
       <div class="details">
         <h1>Codigo:`+item.ID_DEPARTAMENTO+`<em id="codigo"></em></h1>
         <h2 id="`+item.NOMBRE+`">`+item.NOMBRE+`</h2>

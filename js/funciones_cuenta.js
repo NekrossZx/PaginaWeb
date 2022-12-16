@@ -153,7 +153,7 @@ $(document).ready(function () {
     language: {
       search: '<i class="fa fa-search"></i>',
       searchPlaceholder: "Buscar...",
-      emptyTable: "SIN DATOS INGRESADOS",
+      emptyTable: "SIN HISTORIAL DE RESERVAS",
     },
     columns: [
       {
@@ -224,18 +224,13 @@ $(document).ready(function () {
 
     if (confirmar === true) {
       $.ajax({
-        data: { data: cancelacion },
-        url: "api/cuenta.php?a=3",
-        type: 'POST',
-        success: function (data) {
-          if (data != null || data != '') {
-            //LIMPIAR FORMULARIO
-            let dt = $('#dt_reserva').DataTable();
-            dt.ajax.reload();
-          } else {
-            toastConfig();
-            Command: toastr["danger"]("Error de conexión", "Error");
-          }
+        'data': { data: cancelacion },
+        'url': "api/cuenta.php?a=3",
+        'type': 'POST',
+        complete: function () {
+          //LIMPIAR FORMULARIO
+          let dt = $('#dt_reserva').DataTable();
+          dt.ajax.reload();
         }
       });
     } else {

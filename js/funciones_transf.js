@@ -74,7 +74,7 @@ $('#comprobante').on("change", function () {
     // Onload of file read the file content
     fileReader.onload = function (fileLoadedEvent) {
       base64 = fileLoadedEvent.target.result;
-      $("#comprobante_base64").val(base64);
+      //$("#comprobante_base64").val(base64);
     };
     // Convert data to base64
     fileReader.readAsDataURL(fileToLoad);
@@ -112,11 +112,11 @@ $('#subir_comprobante').on("click", function () {
         url: "api/reserva.php?a=11",
         type: 'POST',
         complete: function () {
-          /*toastConfig();
+          toastConfig();
           Command: toastr["success"]('El comprobante se envió con éxito', "ENVIADO!");
           setTimeout(function () {
             window.location.replace("cuenta.php");
-          }, 2000);*/
+          }, 2000);
         }
       });
     }

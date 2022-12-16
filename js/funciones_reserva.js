@@ -106,12 +106,12 @@ $(document).ready(function () {
 
     //                                                                                 FORMULARIO PRINCIPAL
     $(document).ready(function () {
-        var date_time = moment().format('DDMMYYYYHHmmss');
-        $("#nro_reserva").val(date_time);
-        $("#nro_reserva_transporte").val(date_time);
-        $("#nro_reserva_depto").val(date_time);
-        $("#nro_reserva_tour").val(date_time);
-        $("#nro_reserva_extras").val(date_time);
+        var date_time = moment().format('HHmmss')
+        $("#nro_reserva").val("1"+date_time);
+        $("#nro_reserva_transporte").val("1"+date_time);
+        $("#nro_reserva_depto").val("1"+date_time);
+        $("#nro_reserva_tour").val("1"+date_time);
+        $("#nro_reserva_extras").val("1"+date_time);
     });
 
     $('#rut_cliente').rut({
@@ -219,7 +219,7 @@ $(document).ready(function () {
 
     //FECHA ACTUAL
     $(document).ready(function () {
-        var ahora = moment().format('DD/MM/YYYY HH:mm:ss');
+        var ahora = moment().format('DD/MM/YYYY HH:mm');
         $('#fecha_reserva').val(ahora);
     });
 

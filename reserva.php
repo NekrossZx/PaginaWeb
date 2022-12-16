@@ -143,7 +143,7 @@
                                                 </div>
                                                 <!--RUT CLIENTE-->
                                                 <div class="col-md-2" hidden><label for="">Valor total reserva</label>
-                                                   <input type="text" id="rut_cliente2" name="rut_cliente2" class="form-control" value="20.669.367-3" readonly><br>
+                                                   <input type="text" id="rut_cliente2" name="rut_cliente2" class="form-control" value="20.293.515-K" readonly><br>
                                                 </div>
                                              </div>
                                           </form>
